@@ -1,0 +1,30 @@
+{
+	"$schema": "../../schema/entry.schema.json",
+	"schemaVersion": 1,
+	"title": "Voltage-Controlled ADSR with LM3900",
+	"summary": "A voltage-controlled envelope generator built around an up-down integrator from half an LM3900; logic outputs per envelope phase can drive LEDs or trigger other events.",
+	"circuitTypes": [
+		"envelope"
+	],
+	"subcircuits": [
+		"integrator",
+		"comparator"
+	],
+	"functions": [
+		"envelope_generation"
+	],
+	"ics": [
+		"lm3900"
+	],
+	"difficulty": "advanced",
+	"confidence": "community-verified",
+	"added": "2026-09-26",
+	"sources": [
+		{
+			"type": "schematic",
+			"title": "Voltage controlled envelope generator",
+			"url": "https://www.schmitzbits.de/vcadsr.html",
+			"author": "René Schmitz"
+		}
+	]
+}

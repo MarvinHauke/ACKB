@@ -1,0 +1,23 @@
+{
+	"$schema": "../../schema/entry.schema.json",
+	"schemaVersion": 1,
+	"title": "JFET Microphone Preamp",
+	"summary": "A shunt-regulated push-pull microphone preamp with JFETs: gain of about 100 to 1000, low distortion and noise, high input and low output impedance.",
+	"circuitTypes": [
+		"amplifier"
+	],
+	"subcircuits": [
+		"push_pull"
+	],
+	"difficulty": "intermediate",
+	"confidence": "community-verified",
+	"added": "2026-09-26",
+	"sources": [
+		{
+			"type": "schematic",
+			"title": "Microphone preamp",
+			"url": "https://www.schmitzbits.de/micpre.html",
+			"author": "René Schmitz"
+		}
+	]
+}

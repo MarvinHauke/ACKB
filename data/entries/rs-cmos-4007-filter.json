@@ -1,0 +1,32 @@
+{
+	"$schema": "../../schema/entry.schema.json",
+	"schemaVersion": 1,
+	"title": "CMOS 4007 Filter and VCA",
+	"summary": "A fun filter and VCA that uses the MOSFETs in a 4007 as linearised variable resistors, partly operated \"backwards\", at small signal levels.",
+	"circuitTypes": [
+		"filter",
+		"vca"
+	],
+	"subcircuits": [
+		"cmos_inverter_stage",
+		"rc_lowpass"
+	],
+	"functions": [
+		"lowpass_response",
+		"voltage_controlled_cutoff"
+	],
+	"ics": [
+		"cd4007"
+	],
+	"difficulty": "intermediate",
+	"confidence": "community-verified",
+	"added": "2026-09-26",
+	"sources": [
+		{
+			"type": "schematic",
+			"title": "CMOS 4007 filter and VCA",
+			"url": "https://www.schmitzbits.de/vcf4007.html",
+			"author": "René Schmitz"
+		}
+	]
+}

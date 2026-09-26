@@ -1,0 +1,30 @@
+{
+	"$schema": "../../schema/entry.schema.json",
+	"schemaVersion": 1,
+	"title": "Basic White Noise Source",
+	"summary": "A simple transistor-junction white noise source with op-amp amplification; no special low-noise parts needed, runs on 12 V too.",
+	"circuitTypes": [
+		"noise"
+	],
+	"subcircuits": [
+		"noise_generator",
+		"non_inverting_amp"
+	],
+	"functions": [
+		"noise_generation"
+	],
+	"ics": [
+		"tl072"
+	],
+	"difficulty": "beginner",
+	"confidence": "community-verified",
+	"added": "2026-09-26",
+	"sources": [
+		{
+			"type": "schematic",
+			"title": "White Noise Source",
+			"url": "https://www.schmitzbits.de/noise.html",
+			"author": "René Schmitz"
+		}
+	]
+}

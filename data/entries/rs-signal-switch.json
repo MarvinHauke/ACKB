@@ -1,0 +1,31 @@
+{
+	"$schema": "../../schema/entry.schema.json",
+	"schemaVersion": 1,
+	"title": "Low-Distortion CMOS Signal Switch",
+	"summary": "Switching a pair of audio or CV signals to one output with standard CMOS switches, arranged to remove most of their distortion and handle the full voltage range.",
+	"circuitTypes": [
+		"utility",
+		"mixer"
+	],
+	"subcircuits": [
+		"analog_switch",
+		"inverting_amp"
+	],
+	"functions": [
+		"signal_distribution"
+	],
+	"ics": [
+		"tl072"
+	],
+	"difficulty": "intermediate",
+	"confidence": "community-verified",
+	"added": "2026-09-26",
+	"sources": [
+		{
+			"type": "schematic",
+			"title": "Signal switcher",
+			"url": "https://www.schmitzbits.de/switch.html",
+			"author": "René Schmitz"
+		}
+	]
+}
