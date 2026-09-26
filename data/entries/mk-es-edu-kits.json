@@ -1,0 +1,54 @@
+{
+	"$schema": "../../schema/entry.schema.json",
+	"schemaVersion": 1,
+	"title": "mki x es.EDU DIY Kits (Moritz Klein × Erica Synths)",
+	"summary": "Introduction videos for the educational DIY modules designed by Moritz Klein with Erica Synths: VCO, VCA, envelope generator, sequencer, VCF, S&H/noise and mixer. Each kit comes with a manual that teaches the design on a breadboard.",
+	"circuitTypes": [
+		"oscillator",
+		"vca",
+		"envelope",
+		"filter",
+		"utility"
+	],
+	"difficulty": "beginner",
+	"confidence": "community-verified",
+	"added": "2026-09-26",
+	"sources": [
+		{
+			"type": "video",
+			"title": "Introducing the mki x es.edu DIY VCO kit",
+			"url": "https://www.youtube.com/watch?v=8JuYLLpZzBs",
+			"author": "Moritz Klein"
+		},
+		{
+			"type": "video",
+			"title": "Introducing the mki x es.edu DIY VCA kit",
+			"url": "https://www.youtube.com/watch?v=NuS8slR2Ue0",
+			"author": "Moritz Klein"
+		},
+		{
+			"type": "video",
+			"title": "Introducing the mki x es.edu DIY EG kit",
+			"url": "https://www.youtube.com/watch?v=Oo3Tu0WPqzE",
+			"author": "Moritz Klein"
+		},
+		{
+			"type": "video",
+			"title": "Introducing the mki x es.edu DIY sequencer kit",
+			"url": "https://www.youtube.com/watch?v=QN_JhVcCBvI",
+			"author": "Moritz Klein"
+		},
+		{
+			"type": "video",
+			"title": "Introducing the mki x es.edu DIY VCF kit",
+			"url": "https://www.youtube.com/watch?v=wbG5lvBFCmA",
+			"author": "Moritz Klein"
+		},
+		{
+			"type": "video",
+			"title": "Introducing the mki x es.edu DIY S&H/Noise and Mixer kits",
+			"url": "https://www.youtube.com/watch?v=_vrc4qgBqbA",
+			"author": "Moritz Klein"
+		}
+	]
+}

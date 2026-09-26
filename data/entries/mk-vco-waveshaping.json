@@ -1,0 +1,34 @@
+{
+	"$schema": "../../schema/entry.schema.json",
+	"schemaVersion": 1,
+	"title": "VCO Additions: Voltage-Controlled PWM and Saw-to-Triangle",
+	"summary": "Two short videos extending a DIY VCO: a sawtooth-to-triangle converter and voltage-controlled pulse width modulation.",
+	"circuitTypes": [
+		"oscillator"
+	],
+	"subcircuits": [
+		"waveshaper",
+		"comparator"
+	],
+	"functions": [
+		"pulse_width_modulation",
+		"waveshaping"
+	],
+	"difficulty": "beginner",
+	"confidence": "community-verified",
+	"added": "2026-09-26",
+	"sources": [
+		{
+			"type": "video",
+			"title": "Adding voltage controlled PWM to my VCO",
+			"url": "https://www.youtube.com/watch?v=FUz3gFAh9pY",
+			"author": "Moritz Klein"
+		},
+		{
+			"type": "video",
+			"title": "DIY SYNTH Quick Tip: Sawtooth-to-Triangle Converter",
+			"url": "https://www.youtube.com/watch?v=4r3TTaUKNe0",
+			"author": "Moritz Klein"
+		}
+	]
+}

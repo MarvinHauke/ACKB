@@ -1,0 +1,31 @@
+{
+	"$schema": "../../schema/entry.schema.json",
+	"schemaVersion": 1,
+	"title": "Designing an Analog BBD Delay",
+	"summary": "Video design of an analog delay effect around a bucket-brigade delay chip, from scratch.",
+	"circuitTypes": [
+		"fx"
+	],
+	"subcircuits": [
+		"bbd_delay_line",
+		"clock_generator",
+		"rc_lowpass"
+	],
+	"functions": [
+		"delay_echo"
+	],
+	"ics": [
+		"mn3007"
+	],
+	"difficulty": "intermediate",
+	"confidence": "community-verified",
+	"added": "2026-09-26",
+	"sources": [
+		{
+			"type": "video",
+			"title": "Designing an analog delay effect from scratch (BBD)",
+			"url": "https://www.youtube.com/watch?v=4LjP5Y1yxXs",
+			"author": "Moritz Klein"
+		}
+	]
+}

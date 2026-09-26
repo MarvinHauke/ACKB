@@ -1,0 +1,33 @@
+{
+	"$schema": "../../schema/entry.schema.json",
+	"schemaVersion": 1,
+	"title": "Designing Analog Step Sequencers",
+	"summary": "Video designs of a simple 5-step sequencer from scratch, and a drum sequencer with an unconventional approach.",
+	"circuitTypes": [
+		"utility"
+	],
+	"subcircuits": [
+		"step_sequencer",
+		"clock_generator"
+	],
+	"functions": [
+		"sequencing"
+	],
+	"difficulty": "beginner",
+	"confidence": "community-verified",
+	"added": "2026-09-26",
+	"sources": [
+		{
+			"type": "video",
+			"title": "Designing a simple 5-step sequencer from scratch",
+			"url": "https://www.youtube.com/watch?v=vHNQQ6yUGyo",
+			"author": "Moritz Klein"
+		},
+		{
+			"type": "video",
+			"title": "This drum sequencer breaks all the rules",
+			"url": "https://www.youtube.com/watch?v=s9HKXLPiX0w",
+			"author": "Moritz Klein"
+		}
+	]
+}
