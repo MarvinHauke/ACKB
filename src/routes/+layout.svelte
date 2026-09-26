@@ -39,7 +39,6 @@
 <header>
 	<nav>
 		<a class="brand" href={resolve('/')}>ACKB <span>Analog Circuit Knowledge Base</span></a>
-		<a href={resolve('/browse')}>Browse</a>
 	</nav>
 </header>
 

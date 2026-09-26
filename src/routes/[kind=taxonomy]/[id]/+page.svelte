@@ -14,12 +14,12 @@
 	<title>{term.label} · {data.meta.label} · ACKB</title>
 	<meta
 		name="description"
-		content={term.description ?? `${data.entries.length} curated resources on ${term.label} in analog synthesizer circuits.`}
+		content={term.description ?? `${data.entries.length} curated resources on ${term.label} in synthesizer circuits.`}
 	/>
 </svelte:head>
 
 <p class="badge">
-	<a href={resolve('/browse')}>{data.meta.plural}</a>{#if data.parent}
+	<a href={resolve('/')}>Filters</a> / {data.meta.plural}{#if data.parent}
 		/ <a href={termHref(data.parent.id)}>{data.parent.label}</a>{/if}
 </p>
 <h1>{term.label}</h1>
