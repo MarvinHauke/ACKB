@@ -1,0 +1,40 @@
+{
+	"$schema": "../../schema/entry.schema.json",
+	"schemaVersion": 1,
+	"title": "Analogue Drums: Korg KR-55",
+	"summary": "The 1979 Korg KR-55 preset drum machine: ROM pattern storage without a processor, address generation, driving twelve sounds from eight outputs, and its drum voice circuits including the white noise and ring generators.",
+	"manufacturers": [
+		"korg"
+	],
+	"products": [
+		"kr-55"
+	],
+	"circuitTypes": [
+		"drum"
+	],
+	"subcircuits": [
+		"drum_voice",
+		"noise_generator",
+		"frequency_divider"
+	],
+	"functions": [
+		"drum_synthesis",
+		"noise_generation"
+	],
+	"ics": [
+		"cd4013"
+	],
+	"difficulty": "intermediate",
+	"confidence": "community-verified",
+	"added": "2026-09-26",
+	"sources": [
+		{
+			"type": "website",
+			"title": "Analogue Drums: Korg KR-55",
+			"url": "https://electricdruid.net/analogue-drums-korg-kr-55/",
+			"author": "Tom Wiltshire (Electric Druid)",
+			"year": 2024,
+			"license": "CC BY-NC-SA 4.0"
+		}
+	]
+}

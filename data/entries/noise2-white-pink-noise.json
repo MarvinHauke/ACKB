@@ -1,0 +1,33 @@
+{
+	"$schema": "../../schema/entry.schema.json",
+	"schemaVersion": 1,
+	"title": "NOISE2: White and Pink Noise on One Chip",
+	"summary": "How the NOISE2 chip produces pink noise without external filters: the Voss-McCartney algorithm, how good it is, alternatives, and fitting it into a PIC with LFSR updates.",
+	"circuitTypes": [
+		"noise"
+	],
+	"subcircuits": [
+		"microcontroller",
+		"lfsr",
+		"noise_generator"
+	],
+	"functions": [
+		"noise_generation"
+	],
+	"ics": [
+		"pic"
+	],
+	"difficulty": "intermediate",
+	"confidence": "community",
+	"added": "2026-09-26",
+	"sources": [
+		{
+			"type": "website",
+			"title": "NOISE2, a white and pink noise source in a single chip",
+			"url": "https://electricdruid.net/noise2-white-pink-noise-source/",
+			"author": "Tom Wiltshire (Electric Druid)",
+			"year": 2019,
+			"license": "CC BY-NC-SA 4.0"
+		}
+	]
+}

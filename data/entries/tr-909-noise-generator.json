@@ -1,0 +1,40 @@
+{
+	"$schema": "../../schema/entry.schema.json",
+	"schemaVersion": 1,
+	"title": "TR-909 Noise Generator",
+	"summary": "The TR-909 generates noise with a hardware LFSR: the CD4006 shift register, XOR feedback, the clock circuit and the start-up circuit that keeps it from locking up.",
+	"manufacturers": [
+		"roland"
+	],
+	"products": [
+		"tr-909"
+	],
+	"circuitTypes": [
+		"noise",
+		"drum"
+	],
+	"subcircuits": [
+		"lfsr",
+		"noise_generator",
+		"clock_generator"
+	],
+	"functions": [
+		"noise_generation"
+	],
+	"ics": [
+		"cd4006"
+	],
+	"difficulty": "intermediate",
+	"confidence": "community-verified",
+	"added": "2026-09-26",
+	"sources": [
+		{
+			"type": "website",
+			"title": "A look at the TR-909's noise generator",
+			"url": "https://electricdruid.net/tr-909-noise-generator/",
+			"author": "Tom Wiltshire (Electric Druid)",
+			"year": 2019,
+			"license": "CC BY-NC-SA 4.0"
+		}
+	]
+}
