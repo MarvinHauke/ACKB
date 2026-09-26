@@ -1,0 +1,36 @@
+{
+	"$schema": "../../schema/entry.schema.json",
+	"schemaVersion": 1,
+	"title": "Eurorack TR-808 Kick Build",
+	"summary": "Build guide for a TR-808 style kick drum module with a circuit overview.",
+	"manufacturers": [
+		"roland"
+	],
+	"products": [
+		"tr-808"
+	],
+	"circuitTypes": [
+		"drum"
+	],
+	"subcircuits": [
+		"drum_voice",
+		"bridged_t_resonator"
+	],
+	"functions": [
+		"drum_synthesis"
+	],
+	"ics": [
+		"tl072"
+	],
+	"difficulty": "intermediate",
+	"confidence": "community-verified",
+	"added": "2026-09-26",
+	"sources": [
+		{
+			"type": "website",
+			"title": "Building a DIY Eurorack TR-808 Kick",
+			"url": "https://www.n8synth.co.uk/diy-eurorack/eurorack-808-kick/",
+			"author": "N8 Synthesizers"
+		}
+	]
+}
