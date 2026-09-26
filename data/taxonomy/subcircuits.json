@@ -240,5 +240,156 @@
 			"wave shaper",
 			"waveshaping circuit"
 		]
+	},
+	{
+		"id": "vco_core",
+		"label": "VCO Core",
+		"aliases": [
+			"sawtooth core",
+			"ramp core",
+			"integrator reset"
+		]
+	},
+	{
+		"id": "dco_core",
+		"label": "DCO Core",
+		"aliases": [
+			"digitally controlled oscillator",
+			"counter oscillator"
+		]
+	},
+	{
+		"id": "dds_oscillator",
+		"label": "DDS Oscillator",
+		"aliases": [
+			"NCO",
+			"numerically controlled oscillator",
+			"phase accumulator"
+		]
+	},
+	{
+		"id": "top_octave_generator",
+		"label": "Top Octave Generator",
+		"aliases": [
+			"TOG",
+			"top octave synthesiser"
+		]
+	},
+	{
+		"id": "frequency_to_voltage",
+		"label": "Frequency-to-Voltage Converter",
+		"aliases": [
+			"F/V converter"
+		]
+	},
+	{
+		"id": "bbd_delay_line",
+		"label": "BBD Delay Line",
+		"aliases": [
+			"bucket brigade",
+			"BBD"
+		]
+	},
+	{
+		"id": "digital_delay_line",
+		"label": "Digital Delay Line",
+		"aliases": [
+			"PT2399 delay",
+			"sample memory delay"
+		]
+	},
+	{
+		"id": "clock_generator",
+		"label": "Clock Generator",
+		"aliases": [
+			"BBD clock",
+			"oscillator clock"
+		]
+	},
+	{
+		"id": "compander",
+		"label": "Compander",
+		"aliases": [
+			"compressor/expander"
+		]
+	},
+	{
+		"id": "tone_control",
+		"label": "Tone Control",
+		"aliases": [
+			"EQ",
+			"tone stack"
+		]
+	},
+	{
+		"id": "lfsr",
+		"label": "LFSR Shift Register",
+		"aliases": [
+			"linear feedback shift register"
+		]
+	},
+	{
+		"id": "noise_generator",
+		"label": "Noise Generator",
+		"aliases": [
+			"noise source",
+			"white noise"
+		]
+	},
+	{
+		"id": "drum_voice",
+		"label": "Drum Voice",
+		"aliases": [
+			"bass drum circuit",
+			"snare circuit",
+			"cymbal generator"
+		]
+	},
+	{
+		"id": "sample_playback",
+		"label": "Sample Playback",
+		"aliases": [
+			"ROM sample player"
+		]
+	},
+	{
+		"id": "microcontroller",
+		"label": "Microcontroller",
+		"aliases": [
+			"MCU",
+			"firmware chip"
+		]
+	},
+	{
+		"id": "dac_output",
+		"label": "DAC Output",
+		"aliases": [
+			"DAC",
+			"CV DAC"
+		]
+	},
+	{
+		"id": "vactrol",
+		"label": "Vactrol",
+		"aliases": [
+			"LDR optocoupler",
+			"optical attenuator"
+		]
+	},
+	{
+		"id": "led_driver",
+		"label": "LED Driver",
+		"aliases": [
+			"bargraph",
+			"level meter"
+		]
+	},
+	{
+		"id": "midi_interface",
+		"label": "MIDI Interface",
+		"aliases": [
+			"MIDI input",
+			"opto-isolated MIDI"
+		]
 	}
 ]

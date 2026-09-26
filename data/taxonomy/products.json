@@ -70,5 +70,186 @@
 		"aliases": [
 			"Juno 106"
 		]
+	},
+	{
+		"id": "juno-6",
+		"label": "Juno-6",
+		"manufacturer": "roland",
+		"year": 1982,
+		"aliases": [
+			"Juno 6",
+			"Juno-60",
+			"Juno 60"
+		]
+	},
+	{
+		"id": "jupiter-4",
+		"label": "Jupiter-4",
+		"manufacturer": "roland",
+		"year": 1978,
+		"aliases": [
+			"Jupiter 4"
+		]
+	},
+	{
+		"id": "jupiter-6",
+		"label": "Jupiter-6",
+		"manufacturer": "roland",
+		"year": 1983,
+		"aliases": [
+			"Jupiter 6"
+		]
+	},
+	{
+		"id": "jupiter-8",
+		"label": "Jupiter-8",
+		"manufacturer": "roland",
+		"year": 1981,
+		"aliases": [
+			"Jupiter 8"
+		]
+	},
+	{
+		"id": "mks-80",
+		"label": "MKS-80 Super Jupiter",
+		"manufacturer": "roland",
+		"year": 1984,
+		"aliases": [
+			"MKS80",
+			"Super Jupiter"
+		]
+	},
+	{
+		"id": "jx-8p",
+		"label": "JX-8P",
+		"manufacturer": "roland",
+		"year": 1985,
+		"aliases": [
+			"JX-3P",
+			"JX-10"
+		]
+	},
+	{
+		"id": "tr-909",
+		"label": "TR-909",
+		"manufacturer": "roland",
+		"year": 1983,
+		"aliases": [
+			"TR909",
+			"909"
+		]
+	},
+	{
+		"id": "dr-110",
+		"label": "DR-110 Dr. Rhythm Graphic",
+		"manufacturer": "boss",
+		"year": 1983,
+		"aliases": [
+			"DR110",
+			"Dr Rhythm"
+		]
+	},
+	{
+		"id": "kr-55",
+		"label": "KR-55",
+		"manufacturer": "korg",
+		"year": 1979,
+		"aliases": [
+			"KR55"
+		]
+	},
+	{
+		"id": "memorymoog",
+		"label": "Memorymoog",
+		"manufacturer": "moog",
+		"year": 1982
+	},
+	{
+		"id": "ob-xa",
+		"label": "OB-Xa",
+		"manufacturer": "oberheim",
+		"year": 1981,
+		"aliases": [
+			"OBXa"
+		]
+	},
+	{
+		"id": "xpander",
+		"label": "Xpander / Matrix-12",
+		"manufacturer": "oberheim",
+		"year": 1984,
+		"aliases": [
+			"Matrix-12",
+			"Matrix 12"
+		]
+	},
+	{
+		"id": "ppg-wave",
+		"label": "PPG Wave",
+		"manufacturer": "ppg",
+		"year": 1981,
+		"aliases": [
+			"Wave 2.3"
+		]
+	},
+	{
+		"id": "cz-series",
+		"label": "CZ series",
+		"manufacturer": "casio",
+		"year": 1984,
+		"aliases": [
+			"CZ-101",
+			"CZ-1000"
+		]
+	},
+	{
+		"id": "hammond-b3",
+		"label": "Hammond B3",
+		"manufacturer": "hammond",
+		"year": 1954,
+		"aliases": [
+			"B-3",
+			"tonewheel organ"
+		]
+	},
+	{
+		"id": "mt-2",
+		"label": "MT-2 Metal Zone",
+		"manufacturer": "boss",
+		"year": 1991,
+		"aliases": [
+			"Metal Zone"
+		]
+	},
+	{
+		"id": "pds-1550",
+		"label": "PDS-1550",
+		"manufacturer": "digitech",
+		"year": 1987
+	},
+	{
+		"id": "od-1",
+		"label": "OD-1 Overdrive",
+		"manufacturer": "boss",
+		"year": 1977,
+		"aliases": [
+			"TS-808",
+			"Tube Screamer",
+			"SD-1"
+		]
+	},
+	{
+		"id": "slapback-echo",
+		"label": "Slapback Echo",
+		"manufacturer": "ehx",
+		"year": 1978
+	},
+	{
+		"id": "moog-911",
+		"label": "911 Envelope Generator",
+		"manufacturer": "moog",
+		"aliases": [
+			"Moog 911"
+		]
 	}
 ]
