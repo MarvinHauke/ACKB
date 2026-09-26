@@ -1,0 +1,50 @@
+{
+	"$schema": "../../schema/entry.schema.json",
+	"schemaVersion": 1,
+	"title": "Buchla and Serge Wavefolders",
+	"summary": "West-coast timbre circuits: Buchla's diodeless deadband circuits, the timbre modulation of the Music Easel and 259, and the Serge wave multipliers.",
+	"manufacturers": [
+		"buchla",
+		"serge"
+	],
+	"products": [
+		"music-easel",
+		"buchla-259",
+		"serge-modular"
+	],
+	"circuitTypes": [
+		"oscillator",
+		"fx"
+	],
+	"subcircuits": [
+		"wavefolder",
+		"waveshaper"
+	],
+	"functions": [
+		"wavefolding",
+		"waveshaping"
+	],
+	"difficulty": "advanced",
+	"confidence": "academic",
+	"added": "2026-09-26",
+	"sources": [
+		{
+			"type": "video",
+			"title": "ECE4450 L15: Buchla's Diodeless Deadband Circuits",
+			"url": "https://www.youtube.com/watch?v=Yd3hxfaPqPA",
+			"author": "Aaron Lanterman (Georgia Tech)"
+		},
+		{
+			"type": "video",
+			"title": "ECE4450 L16: Buchla's Timbre Modulation (Easel & 259)",
+			"url": "https://www.youtube.com/watch?v=7X7Dss67WWs",
+			"author": "Aaron Lanterman (Georgia Tech)"
+		},
+		{
+			"type": "video",
+			"title": "ECE4450 L17: The Serge Wave Multipliers",
+			"url": "https://www.youtube.com/watch?v=zL9ao3Uc3Yk",
+			"author": "Aaron Lanterman (Georgia Tech)"
+		}
+	]
+}

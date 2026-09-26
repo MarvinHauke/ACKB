@@ -1,0 +1,48 @@
+{
+	"$schema": "../../schema/entry.schema.json",
+	"schemaVersion": 1,
+	"title": "Triangle-Core VCOs and Waveshaping",
+	"summary": "Triangle-core oscillators with the Buchla 259 as example, and the waveshapers that turn a triangle into a sawtooth or a sine.",
+	"manufacturers": [
+		"buchla"
+	],
+	"products": [
+		"buchla-259"
+	],
+	"circuitTypes": [
+		"oscillator"
+	],
+	"subcircuits": [
+		"vco_core",
+		"integrator",
+		"comparator",
+		"waveshaper",
+		"differential_pair"
+	],
+	"functions": [
+		"waveshaping"
+	],
+	"difficulty": "intermediate",
+	"confidence": "academic",
+	"added": "2026-09-26",
+	"sources": [
+		{
+			"type": "video",
+			"title": "ECE4450 L12: Voltage Controlled Oscillators: Triangle Cores; Buchla 259",
+			"url": "https://www.youtube.com/watch?v=vZriAoE9MA4",
+			"author": "Aaron Lanterman (Georgia Tech)"
+		},
+		{
+			"type": "video",
+			"title": "ECE4450 L13: Triangle-to-Sawtooth Waveshaping",
+			"url": "https://www.youtube.com/watch?v=0vnj_obkdu0",
+			"author": "Aaron Lanterman (Georgia Tech)"
+		},
+		{
+			"type": "video",
+			"title": "ECE4450 L14: Triangle-to-Sine Waveshaping",
+			"url": "https://www.youtube.com/watch?v=V_AzBAopRS8",
+			"author": "Aaron Lanterman (Georgia Tech)"
+		}
+	]
+}
