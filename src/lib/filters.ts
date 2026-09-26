@@ -1,0 +1,77 @@
+// Facet filtering without Fuse: inverted index term → entry ids, intersected per selected term.
+// Filter state lives in the URL (?function=soft_clipping&ic=lm13700) so views are shareable.
+import type { EntrySummary, RegistryKey } from './types';
+import { REGISTRY_KEYS, REGISTRY_META } from './types';
+
+export type FilterKey = RegistryKey | 'difficulty' | 'confidence';
+
+export type Filters = Record<FilterKey, string[]>;
+
+export const FILTER_KEYS: FilterKey[] = [...REGISTRY_KEYS, 'difficulty', 'confidence'];
+
+/** URL query parameter per filter. */
+export const PARAM: Record<FilterKey, string> = {
+	...(Object.fromEntries(REGISTRY_KEYS.map((k) => [k, REGISTRY_META[k].slug])) as Record<RegistryKey, string>),
+	difficulty: 'difficulty',
+	confidence: 'confidence'
+};
+
+export function emptyFilters(): Filters {
+	return Object.fromEntries(FILTER_KEYS.map((k) => [k, []])) as unknown as Filters;
+}
+
+export function filtersFromParams(params: URLSearchParams): Filters {
+	const f = emptyFilters();
+	for (const key of FILTER_KEYS) f[key] = params.getAll(PARAM[key]);
+	return f;
+}
+
+export function filtersToParams(filters: Filters, query: string): URLSearchParams {
+	const p = new URLSearchParams();
+	if (query) p.set('q', query);
+	for (const key of FILTER_KEYS) for (const v of filters[key]) p.append(PARAM[key], v);
+	return p;
+}
+
+export function activeCount(filters: Filters): number {
+	return FILTER_KEYS.reduce((n, k) => n + filters[k].length, 0);
+}
+
+export type FacetIndex = Record<FilterKey, Map<string, Set<string>>>;
+
+export function buildFacetIndex(entries: EntrySummary[]): FacetIndex {
+	const index = Object.fromEntries(FILTER_KEYS.map((k) => [k, new Map()])) as FacetIndex;
+	const add = (key: FilterKey, value: string, id: string) => {
+		let set = index[key].get(value);
+		if (!set) index[key].set(value, (set = new Set()));
+		set.add(id);
+	};
+	for (const e of entries) {
+		for (const k of REGISTRY_KEYS) for (const t of e.terms[k]) add(k, t, e.id);
+		add('difficulty', e.difficulty, e.id);
+		add('confidence', e.confidence, e.id);
+	}
+	return index;
+}
+
+/**
+ * Entry ids matching all filters, or null when no filter is active.
+ * Taxonomy terms combine with AND (an entry must have every selected term);
+ * difficulty and confidence are single-valued per entry, so their values combine with OR.
+ */
+export function matchingIds(index: FacetIndex, filters: Filters): Set<string> | null {
+	let result: Set<string> | null = null;
+	const intersect = (set: Set<string>) => {
+		result = result === null ? new Set(set) : new Set([...result].filter((id) => set.has(id)));
+	};
+	for (const key of REGISTRY_KEYS) {
+		for (const value of filters[key]) intersect(index[key].get(value) ?? new Set());
+	}
+	for (const key of ['difficulty', 'confidence'] as const) {
+		if (!filters[key].length) continue;
+		const union = new Set<string>();
+		for (const value of filters[key]) for (const id of index[key].get(value) ?? []) union.add(id);
+		intersect(union);
+	}
+	return result;
+}

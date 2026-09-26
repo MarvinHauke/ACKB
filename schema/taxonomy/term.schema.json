@@ -1,0 +1,47 @@
+{
+	"$schema": "https://json-schema.org/draft/2020-12/schema",
+	"$id": "https://ackb.local/schema/taxonomy/term.schema.json",
+	"title": "ACKB taxonomy registry",
+	"description": "Registry of taxonomy terms. Entries reference terms by id; labels and aliases are for display and search.",
+	"type": "array",
+	"items": {
+		"$ref": "#/$defs/term",
+		"unevaluatedProperties": false
+	},
+	"$defs": {
+		"id": {
+			"type": "string",
+			"pattern": "^[a-z0-9]+([_-][a-z0-9]+)*$"
+		},
+		"term": {
+			"type": "object",
+			"required": [
+				"id",
+				"label"
+			],
+			"properties": {
+				"id": {
+					"$ref": "#/$defs/id"
+				},
+				"label": {
+					"type": "string",
+					"minLength": 1
+				},
+				"aliases": {
+					"type": "array",
+					"uniqueItems": true,
+					"items": {
+						"type": "string"
+					}
+				},
+				"description": {
+					"type": "string"
+				},
+				"parent": {
+					"$ref": "#/$defs/id",
+					"description": "Id of a broader term in the same registry (max 2 levels)"
+				}
+			}
+		}
+	}
+}

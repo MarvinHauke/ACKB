@@ -1,0 +1,200 @@
+{
+	"generatedAt": "2026-09-26T11:21:46.921Z",
+	"links": [
+		{
+			"url": "https://easyeda.com/modules/MS20-filter-Rene-Schmitz-LMNC_cda7dfed02aa4135a7cf16ab391c4977",
+			"status": "ok",
+			"httpStatus": 200,
+			"redirects": 0,
+			"finalUrl": "https://easyeda.com/modules/MS20-filter-Rene-Schmitz-LMNC_cda7dfed02aa4135a7cf16ab391c4977",
+			"lastChecked": "2026-09-26",
+			"lastOk": "2026-09-26",
+			"archiveUrl": null,
+			"usedBy": [
+				"data/entries/korg-ms20-late-filter-diy-builds.json"
+			]
+		},
+		{
+			"url": "https://electricdruid.net/cem3320-filter-designs/",
+			"status": "ok",
+			"httpStatus": 200,
+			"redirects": 0,
+			"finalUrl": "https://electricdruid.net/cem3320-filter-designs/",
+			"lastChecked": "2026-09-26",
+			"lastOk": "2026-09-26",
+			"archiveUrl": null,
+			"usedBy": [
+				"data/entries/electric-druid-filter-chip-designs.json"
+			]
+		},
+		{
+			"url": "https://electricdruid.net/multimode-filters-part-1-reconfigurable-filters/",
+			"status": "ok",
+			"httpStatus": 200,
+			"redirects": 0,
+			"finalUrl": "https://electricdruid.net/multimode-filters-part-1-reconfigurable-filters/",
+			"lastChecked": "2026-09-26",
+			"lastOk": "2026-09-26",
+			"archiveUrl": null,
+			"usedBy": [
+				"data/entries/electric-druid-multimode-filters.json"
+			]
+		},
+		{
+			"url": "https://electricdruid.net/multimode-filters-part-2-pole-mixing-filters/",
+			"status": "ok",
+			"httpStatus": 200,
+			"redirects": 0,
+			"finalUrl": "https://electricdruid.net/multimode-filters-part-2-pole-mixing-filters/",
+			"lastChecked": "2026-09-26",
+			"lastOk": "2026-09-26",
+			"archiveUrl": null,
+			"usedBy": [
+				"data/entries/electric-druid-multimode-filters.json"
+			]
+		},
+		{
+			"url": "https://electricdruid.net/ssm2044-lp-filter-designs/",
+			"status": "ok",
+			"httpStatus": 200,
+			"redirects": 0,
+			"finalUrl": "https://electricdruid.net/ssm2044-lp-filter-designs/",
+			"lastChecked": "2026-09-26",
+			"lastOk": "2026-09-26",
+			"archiveUrl": null,
+			"usedBy": [
+				"data/entries/electric-druid-filter-chip-designs.json"
+			]
+		},
+		{
+			"url": "https://www.eddybergman.com/2019/12/synthesizer-build-part-12-korg-ms20.html",
+			"status": "ok",
+			"httpStatus": 200,
+			"redirects": 0,
+			"finalUrl": "https://www.eddybergman.com/2019/12/synthesizer-build-part-12-korg-ms20.html",
+			"lastChecked": "2026-09-26",
+			"lastOk": "2026-09-26",
+			"archiveUrl": null,
+			"usedBy": [
+				"data/entries/korg-ms20-late-filter-diy-builds.json"
+			]
+		},
+		{
+			"url": "https://www.eddybergman.com/2020/01/synthesizer-build-part-15-dual-korg-ms.html",
+			"status": "ok",
+			"httpStatus": 200,
+			"redirects": 0,
+			"finalUrl": "https://www.eddybergman.com/2020/01/synthesizer-build-part-15-dual-korg-ms.html",
+			"lastChecked": "2026-09-26",
+			"lastOk": "2026-09-26",
+			"archiveUrl": null,
+			"usedBy": [
+				"data/entries/korg-ms20-late-filter-diy-builds.json"
+			]
+		},
+		{
+			"url": "https://www.kieranreck.co.uk/_posts/2023-10-15-LMNC-Ren%C3%A9-Schmitz-MS-20-Filter/",
+			"status": "ok",
+			"httpStatus": 200,
+			"redirects": 0,
+			"finalUrl": "https://www.kieranreck.co.uk/_posts/2023-10-15-LMNC-Ren%C3%A9-Schmitz-MS-20-Filter/",
+			"lastChecked": "2026-09-26",
+			"lastOk": "2026-09-26",
+			"archiveUrl": null,
+			"usedBy": [
+				"data/entries/korg-ms20-late-filter-diy-builds.json"
+			]
+		},
+		{
+			"url": "https://www.korg.com/us/support/download/manual/0/134/2441/",
+			"status": "ok",
+			"httpStatus": 200,
+			"redirects": 0,
+			"finalUrl": "https://www.korg.com/us/support/download/manual/0/134/2441/",
+			"lastChecked": "2026-09-26",
+			"lastOk": "2026-09-26",
+			"archiveUrl": null,
+			"usedBy": [
+				"data/entries/korg-ms20-owners-manual.json"
+			]
+		},
+		{
+			"url": "https://www.modwiggler.com/forum/viewtopic.php?t=219572",
+			"status": "blocked",
+			"httpStatus": 403,
+			"redirects": 0,
+			"finalUrl": "https://www.modwiggler.com/forum/viewtopic.php?t=219572",
+			"lastChecked": "2026-09-26",
+			"lastOk": null,
+			"archiveUrl": null,
+			"usedBy": [
+				"data/entries/korg-ms20-late-filter-diy-builds.json"
+			]
+		},
+		{
+			"url": "https://www.n8synth.co.uk/diy-eurorack/eurorack-ms-20-lowpass-filter/",
+			"status": "ok",
+			"httpStatus": 200,
+			"redirects": 0,
+			"finalUrl": "https://www.n8synth.co.uk/diy-eurorack/eurorack-ms-20-lowpass-filter/",
+			"lastChecked": "2026-09-26",
+			"lastOk": "2026-09-26",
+			"archiveUrl": null,
+			"usedBy": [
+				"data/entries/korg-ms20-late-filter-diy-builds.json"
+			]
+		},
+		{
+			"url": "https://www.schmitzbits.de/ms20.html",
+			"status": "ok",
+			"httpStatus": 200,
+			"redirects": 0,
+			"finalUrl": "https://www.schmitzbits.de/ms20.html",
+			"lastChecked": "2026-09-26",
+			"lastOk": "2026-09-26",
+			"archiveUrl": null,
+			"usedBy": [
+				"data/entries/korg-ms20-filter-study.json"
+			]
+		},
+		{
+			"url": "https://www.ti.com/lit/ds/symlink/lm13700.pdf",
+			"status": "ok",
+			"httpStatus": 200,
+			"redirects": 0,
+			"finalUrl": "https://www.ti.com/lit/ds/symlink/lm13700.pdf",
+			"lastChecked": "2026-09-26",
+			"lastOk": "2026-09-26",
+			"archiveUrl": null,
+			"usedBy": [
+				"ic:lm13700"
+			]
+		},
+		{
+			"url": "https://www.ti.com/lit/ds/symlink/tl072.pdf",
+			"status": "ok",
+			"httpStatus": 200,
+			"redirects": 0,
+			"finalUrl": "https://www.ti.com/lit/ds/symlink/tl072.pdf",
+			"lastChecked": "2026-09-26",
+			"lastOk": "2026-09-26",
+			"archiveUrl": null,
+			"usedBy": [
+				"ic:tl072"
+			]
+		},
+		{
+			"url": "https://www.timstinchcombe.co.uk/synth/MS20_study.pdf",
+			"status": "ok",
+			"httpStatus": 200,
+			"redirects": 0,
+			"finalUrl": "https://www.timstinchcombe.co.uk/synth/MS20_study.pdf",
+			"lastChecked": "2026-09-26",
+			"lastOk": "2026-09-26",
+			"archiveUrl": null,
+			"usedBy": [
+				"data/entries/korg-ms20-filter-study.json"
+			]
+		}
+	]
+}

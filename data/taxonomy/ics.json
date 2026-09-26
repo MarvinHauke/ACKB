@@ -1,0 +1,12 @@
+[
+	{ "id": "lm13700", "label": "LM13700", "manufacturer": "National / TI", "category": "ota", "status": "active", "datasheetUrl": "https://www.ti.com/lit/ds/symlink/lm13700.pdf", "aliases": ["13700", "NJM13700"], "alternatives": ["lm13600"] },
+	{ "id": "lm13600", "label": "LM13600", "manufacturer": "National", "category": "ota", "status": "obsolete", "aliases": ["13600"], "alternatives": ["lm13700"] },
+	{ "id": "ca3080", "label": "CA3080", "manufacturer": "RCA / Intersil", "category": "ota", "status": "obsolete", "aliases": ["3080"], "alternatives": ["lm13700"] },
+	{ "id": "korg35", "label": "KORG35", "manufacturer": "Korg", "category": "filter", "status": "reissued", "aliases": ["Korg 35", "KA35"], "description": "Korg's custom filter IC used in early MS-20/MS-10 units." },
+	{ "id": "cem3320", "label": "CEM3320", "manufacturer": "Curtis / OnChip", "category": "filter", "status": "reissued", "aliases": ["3320", "AS3320"] },
+	{ "id": "ssm2044", "label": "SSM2044", "manufacturer": "SSM", "category": "filter", "status": "reissued", "aliases": ["2044", "AS2044"] },
+	{ "id": "tl072", "label": "TL072", "manufacturer": "TI", "category": "opamp", "status": "active", "datasheetUrl": "https://www.ti.com/lit/ds/symlink/tl072.pdf", "aliases": ["TL082", "TL07x"] },
+	{ "id": "ne5532", "label": "NE5532", "manufacturer": "TI / Philips", "category": "opamp", "status": "active", "aliases": ["5532"] },
+	{ "id": "lm393", "label": "LM393", "manufacturer": "TI", "category": "comparator", "status": "active", "aliases": ["393"] },
+	{ "id": "ne555", "label": "NE555", "manufacturer": "Signetics / TI", "category": "timer", "status": "active", "aliases": ["555", "LM555"] }
+]

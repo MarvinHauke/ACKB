@@ -1,0 +1,8 @@
+[
+	{ "id": "ms-20", "label": "MS-20", "manufacturer": "korg", "year": 1978, "aliases": ["MS20", "MS-20 mini"] },
+	{ "id": "ms-10", "label": "MS-10", "manufacturer": "korg", "year": 1978, "aliases": ["MS10"] },
+	{ "id": "sh-101", "label": "SH-101", "manufacturer": "roland", "year": 1982, "aliases": ["SH101"] },
+	{ "id": "minimoog", "label": "Minimoog Model D", "manufacturer": "moog", "year": 1970, "aliases": ["Minimoog", "Model D"] },
+	{ "id": "pro-one", "label": "Pro-One", "manufacturer": "sequential", "year": 1981, "aliases": ["Pro One"] },
+	{ "id": "prophet-5", "label": "Prophet-5", "manufacturer": "sequential", "year": 1978, "aliases": ["Prophet 5", "P5"] }
+]

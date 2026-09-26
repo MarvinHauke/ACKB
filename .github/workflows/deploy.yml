@@ -1,0 +1,52 @@
+name: Deploy
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - name: Validate schema and references
+        run: npm run validate -- --verbose
+      - name: Check links of changed entries (warnings only)
+        if: github.event_name == 'pull_request'
+        run: node scripts/check-links.js --changed origin/${{ github.base_ref }}
+        continue-on-error: true
+      - name: Build (search index, related entries, pages)
+        run: npm run build
+        env:
+          BASE_PATH: /${{ github.event.repository.name }}
+          VITE_GOATCOUNTER_URL: ${{ vars.GOATCOUNTER_URL }}
+      - uses: actions/upload-pages-artifact@v3
+        if: github.ref == 'refs/heads/main'
+        with:
+          path: build
+
+  deploy:
+    if: github.ref == 'refs/heads/main'
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

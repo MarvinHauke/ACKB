@@ -1,0 +1,9 @@
+[
+	{ "id": "korg", "label": "Korg" },
+	{ "id": "moog", "label": "Moog", "aliases": ["R.A. Moog", "Moog Music"] },
+	{ "id": "roland", "label": "Roland" },
+	{ "id": "arp", "label": "ARP", "aliases": ["ARP Instruments"] },
+	{ "id": "yamaha", "label": "Yamaha" },
+	{ "id": "sequential", "label": "Sequential", "aliases": ["Sequential Circuits", "SCI"] },
+	{ "id": "oberheim", "label": "Oberheim" }
+]

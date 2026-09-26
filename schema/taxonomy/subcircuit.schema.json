@@ -1,0 +1,13 @@
+{
+	"$schema": "https://json-schema.org/draft/2020-12/schema",
+	"$id": "https://ackb.local/schema/taxonomy/subcircuit.schema.json",
+	"title": "ACKB subcircuit registry",
+	"type": "array",
+	"items": {
+		"allOf": [{ "$ref": "term.schema.json#/$defs/term" }],
+		"unevaluatedProperties": false,
+		"properties": {
+			"pdfOcrKind": { "type": "string", "description": "Matching pattern kind in PDF_OCR (src/pdf_ocr/circuit/patterns.py), if any" }
+		}
+	}
+}

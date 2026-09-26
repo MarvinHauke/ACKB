@@ -1,0 +1,57 @@
+{
+	"$schema": "../../schema/entry.schema.json",
+	"schemaVersion": 1,
+	"title": "MS-20 Late Filter DIY Builds (LM13700)",
+	"summary": "Practical builds of René Schmitz's late MS-20 lowpass/highpass filter using an LM13700 OTA: Eurorack PCB versions, stripboard layouts and build logs covering calibration, the LED limiter in the resonance loop and part substitutions.",
+	"manufacturers": ["korg"],
+	"products": ["ms-20"],
+	"circuitTypes": ["filter"],
+	"subcircuits": ["sallen_key", "ota_stage", "voltage_follower", "feedback_network", "diode_limiter"],
+	"functions": ["nonlinear_feedback", "soft_clipping", "resonance_control", "self_oscillation", "current_controlled_amplification", "lowpass_response", "highpass_response"],
+	"ics": ["lm13700", "tl072"],
+	"difficulty": "intermediate",
+	"confidence": "community-verified",
+	"added": "2026-09-26",
+	"sources": [
+		{
+			"type": "website",
+			"title": "Building a DIY Eurorack MS-20 Lowpass Filter",
+			"url": "https://www.n8synth.co.uk/diy-eurorack/eurorack-ms-20-lowpass-filter/",
+			"author": "N8 Synthesizers"
+		},
+		{
+			"type": "website",
+			"title": "LMNC René Schmitz MS-20 Filter",
+			"url": "https://www.kieranreck.co.uk/_posts/2023-10-15-LMNC-Ren%C3%A9-Schmitz-MS-20-Filter/",
+			"author": "Kieran Reck",
+			"year": 2023,
+			"note": "Condensed version of Look Mum No Computer's stripboard layout."
+		},
+		{
+			"type": "schematic",
+			"title": "MS20 filter - Rene Schmitz - LMNC Resources",
+			"url": "https://easyeda.com/modules/MS20-filter-Rene-Schmitz-LMNC_cda7dfed02aa4135a7cf16ab391c4977",
+			"author": "Look Mum No Computer"
+		},
+		{
+			"type": "website",
+			"title": "Synthesizer Build part-12: The Korg MS20 Filter",
+			"url": "https://www.eddybergman.com/2019/12/synthesizer-build-part-12-korg-ms20.html",
+			"author": "Eddy Bergman",
+			"year": 2019
+		},
+		{
+			"type": "website",
+			"title": "Synthesizer Build part-15: Dual Korg MS-20 HP/LP Filter",
+			"url": "https://www.eddybergman.com/2020/01/synthesizer-build-part-15-dual-korg-ms.html",
+			"author": "Eddy Bergman",
+			"year": 2020
+		},
+		{
+			"type": "forum",
+			"title": "Issues with the DIY MS-20 type filter by René Schmitz and LMNC",
+			"url": "https://www.modwiggler.com/forum/viewtopic.php?t=219572",
+			"note": "Troubleshooting thread: common build mistakes."
+		}
+	]
+}

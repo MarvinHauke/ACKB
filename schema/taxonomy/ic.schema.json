@@ -1,0 +1,18 @@
+{
+	"$schema": "https://json-schema.org/draft/2020-12/schema",
+	"$id": "https://ackb.local/schema/taxonomy/ic.schema.json",
+	"title": "ACKB IC registry",
+	"type": "array",
+	"items": {
+		"allOf": [{ "$ref": "term.schema.json#/$defs/term" }],
+		"required": ["category"],
+		"unevaluatedProperties": false,
+		"properties": {
+			"manufacturer": { "type": "string", "description": "Original manufacturer (free text; ICs are not tied to the synth manufacturer registry)" },
+			"category": { "enum": ["ota", "opamp", "comparator", "vca", "filter", "oscillator", "transistor_array", "timer", "regulator", "other"] },
+			"datasheetUrl": { "type": "string", "format": "uri" },
+			"status": { "enum": ["active", "obsolete", "reissued"] },
+			"alternatives": { "type": "array", "items": { "$ref": "term.schema.json#/$defs/id" } }
+		}
+	}
+}

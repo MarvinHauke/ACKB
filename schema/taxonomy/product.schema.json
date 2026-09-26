@@ -1,0 +1,15 @@
+{
+	"$schema": "https://json-schema.org/draft/2020-12/schema",
+	"$id": "https://ackb.local/schema/taxonomy/product.schema.json",
+	"title": "ACKB product registry",
+	"type": "array",
+	"items": {
+		"allOf": [{ "$ref": "term.schema.json#/$defs/term" }],
+		"required": ["manufacturer"],
+		"unevaluatedProperties": false,
+		"properties": {
+			"manufacturer": { "$ref": "term.schema.json#/$defs/id" },
+			"year": { "type": "integer", "minimum": 1900, "maximum": 2100 }
+		}
+	}
+}

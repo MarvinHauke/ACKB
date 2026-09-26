@@ -1,0 +1,31 @@
+{
+	"$schema": "../../schema/entry.schema.json",
+	"schemaVersion": 1,
+	"title": "Korg MS-10 / MS-20 Filter Analysis",
+	"summary": "In-depth analysis of the early (KORG35) and late (LM13600 OTA) MS-20 filters: the Sallen-Key topology, transistors in reverse saturation used as current-controlled resistors, the exponential cutoff control and the diode-limited resonance loop that gives the filter its aggressive character.",
+	"manufacturers": ["korg"],
+	"products": ["ms-20", "ms-10"],
+	"circuitTypes": ["filter"],
+	"subcircuits": ["sallen_key", "ota_stage", "integrator", "feedback_network", "diode_limiter", "exponential_converter"],
+	"functions": ["nonlinear_feedback", "soft_clipping", "resonance_control", "self_oscillation", "voltage_controlled_cutoff", "exponential_response", "lowpass_response", "highpass_response"],
+	"ics": ["korg35", "lm13600"],
+	"difficulty": "advanced",
+	"confidence": "academic",
+	"added": "2026-09-26",
+	"sources": [
+		{
+			"type": "paper",
+			"title": "A Study of the Korg MS10 & MS20 Filters",
+			"url": "https://www.timstinchcombe.co.uk/synth/MS20_study.pdf",
+			"author": "Timothy E. Stinchcombe",
+			"note": "Mathematical analysis of both filter generations, including the KORG35 chip internals."
+		},
+		{
+			"type": "schematic",
+			"title": "Synth schematics: MS 20 Filter",
+			"url": "https://www.schmitzbits.de/ms20.html",
+			"author": "René Schmitz",
+			"note": "Reference DIY schematic of the late MS-20 filter with op-amp buffers and a CA3080/LM13700."
+		}
+	]
+}

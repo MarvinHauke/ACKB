@@ -1,0 +1,48 @@
+{
+	"$schema": "https://json-schema.org/draft/2020-12/schema",
+	"$id": "https://ackb.local/schema/entry.schema.json",
+	"title": "ACKB entry",
+	"description": "One knowledge entry: a circuit topic with its external sources. The file name is the entry id.",
+	"type": "object",
+	"additionalProperties": false,
+	"required": ["schemaVersion", "title", "summary", "circuitTypes", "difficulty", "confidence", "added", "sources"],
+	"properties": {
+		"$schema": { "type": "string" },
+		"schemaVersion": { "const": 1 },
+		"title": { "type": "string", "minLength": 3, "maxLength": 120 },
+		"summary": { "type": "string", "minLength": 20, "maxLength": 600 },
+		"manufacturers": { "$ref": "#/$defs/idList", "description": "Ids from data/taxonomy/manufacturers.json" },
+		"products": { "$ref": "#/$defs/idList", "description": "Ids from data/taxonomy/products.json" },
+		"circuitTypes": { "$ref": "#/$defs/idList", "minItems": 1, "description": "Ids from data/taxonomy/circuit-types.json" },
+		"subcircuits": { "$ref": "#/$defs/idList", "description": "Ids from data/taxonomy/subcircuits.json" },
+		"functions": { "$ref": "#/$defs/idList", "description": "Ids from data/taxonomy/functions.json" },
+		"ics": { "$ref": "#/$defs/idList", "description": "Ids from data/taxonomy/ics.json" },
+		"difficulty": { "enum": ["beginner", "intermediate", "advanced"] },
+		"confidence": {
+			"enum": ["official", "academic", "community-verified", "community", "experimental"],
+			"description": "How trustworthy the collected sources are, highest first."
+		},
+		"added": { "type": "string", "format": "date" },
+		"reviewed": { "type": "string", "format": "date" },
+		"sources": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/source" } }
+	},
+	"$defs": {
+		"id": { "type": "string", "pattern": "^[a-z0-9]+([_-][a-z0-9]+)*$" },
+		"idList": { "type": "array", "uniqueItems": true, "items": { "$ref": "#/$defs/id" } },
+		"source": {
+			"type": "object",
+			"additionalProperties": false,
+			"required": ["type", "title", "url"],
+			"properties": {
+				"type": { "enum": ["website", "paper", "datasheet", "patent", "github", "video", "forum", "manual", "schematic"] },
+				"title": { "type": "string", "minLength": 3 },
+				"url": { "type": "string", "format": "uri", "pattern": "^https?://" },
+				"author": { "type": "string" },
+				"year": { "type": "integer", "minimum": 1900, "maximum": 2100 },
+				"lang": { "type": "string", "pattern": "^[a-z]{2}$", "description": "ISO 639-1, default en" },
+				"license": { "type": "string" },
+				"note": { "type": "string", "maxLength": 300 }
+			}
+		}
+	}
+}
