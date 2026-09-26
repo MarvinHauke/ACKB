@@ -1,0 +1,35 @@
+{
+	"$schema": "../../schema/entry.schema.json",
+	"schemaVersion": 1,
+	"title": "RC Filtering for SSM2164 CVs from DACs",
+	"summary": "Designing the RC filter between an MCP4822 DAC and the control input of an SSM2164/V2164 VCA: scaling the 0–4.1 V DAC range to what the 2164 needs and smoothing DAC steps without making the response sluggish.",
+	"circuitTypes": [
+		"vca",
+		"utility"
+	],
+	"subcircuits": [
+		"rc_lowpass",
+		"dac_output",
+		"voltage_divider"
+	],
+	"functions": [
+		"cv_smoothing"
+	],
+	"ics": [
+		"ssm2164",
+		"mcp4822"
+	],
+	"difficulty": "intermediate",
+	"confidence": "community-verified",
+	"added": "2026-09-26",
+	"sources": [
+		{
+			"type": "website",
+			"title": "RC Filtering for SSM2164 CVs fed from DACs",
+			"url": "https://electricdruid.net/rc-filtering-for-ssm2164-cvs-fed-from-dacs/",
+			"author": "Tom Wiltshire (Electric Druid)",
+			"year": 2015,
+			"license": "CC BY-NC-SA 4.0"
+		}
+	]
+}

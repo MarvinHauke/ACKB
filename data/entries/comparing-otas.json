@@ -1,0 +1,36 @@
+{
+	"$schema": "../../schema/entry.schema.json",
+	"schemaVersion": 1,
+	"title": "Comparing the CA3080, AS3080, LM13600 and LM13700 OTAs",
+	"summary": "Why the LM13700 is not quite \"two CA3080s in one package\": a look at the current mirrors inside each OTA (Widlar, Wilson, PNP versions) and the differences between the LM13600 and LM13700 that matter in synth circuits.",
+	"circuitTypes": [
+		"vca",
+		"theory"
+	],
+	"subcircuits": [
+		"ota_stage",
+		"current_mirror",
+		"differential_pair"
+	],
+	"functions": [
+		"current_controlled_amplification"
+	],
+	"ics": [
+		"ca3080",
+		"lm13600",
+		"lm13700"
+	],
+	"difficulty": "advanced",
+	"confidence": "community-verified",
+	"added": "2026-09-26",
+	"sources": [
+		{
+			"type": "website",
+			"title": "Comparing the CA3080, AS3080E, LM13600 and LM13700 OTAs",
+			"url": "https://electricdruid.net/comparing-otas/",
+			"author": "Tom Wiltshire (Electric Druid)",
+			"year": 2025,
+			"license": "CC BY-NC-SA 4.0"
+		}
+	]
+}
