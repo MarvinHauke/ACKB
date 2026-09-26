@@ -1,0 +1,33 @@
+{
+	"$schema": "../../schema/entry.schema.json",
+	"schemaVersion": 1,
+	"title": "Voltage-Controlled Looping Envelope Generator",
+	"summary": "Development of the VC ADSR chip where the trigger input becomes a mode CV: normal ADSR, gated looping, or free-running LFO-style looping. Superseded by the EnvGen8.",
+	"circuitTypes": [
+		"envelope",
+		"lfo"
+	],
+	"subcircuits": [
+		"microcontroller"
+	],
+	"functions": [
+		"envelope_generation",
+		"periodic_modulation"
+	],
+	"ics": [
+		"pic"
+	],
+	"difficulty": "intermediate",
+	"confidence": "community",
+	"added": "2026-09-26",
+	"sources": [
+		{
+			"type": "website",
+			"title": "Voltage Controlled Looping Envelope Generator (LOOPENV 1B)",
+			"url": "https://electricdruid.net/voltage-controlled-looping-envelope-generator-loopenv-1b/",
+			"author": "Tom Wiltshire (Electric Druid)",
+			"year": 2013,
+			"license": "CC BY-NC-SA 4.0"
+		}
+	]
+}
