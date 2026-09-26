@@ -2,7 +2,6 @@
 	import '../app.css';
 	import { onMount } from 'svelte';
 	import { asset, resolve } from '$app/paths';
-	import favicon from '$lib/assets/favicon.svg';
 
 	let { children } = $props();
 
@@ -33,7 +32,8 @@
 </script>
 
 <svelte:head>
-	<link rel="icon" href={favicon} />
+	<link rel="icon" type="image/png" href={asset('/favicon.png')} />
+	<link rel="apple-touch-icon" href={asset('/apple-touch-icon.png')} />
 </svelte:head>
 
 <header>
