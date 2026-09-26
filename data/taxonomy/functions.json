@@ -1,17 +1,119 @@
 [
-	{ "id": "nonlinear_feedback", "label": "Nonlinear Feedback" },
-	{ "id": "soft_clipping", "label": "Soft Clipping", "aliases": ["saturation", "overdrive"] },
-	{ "id": "hard_clipping", "label": "Hard Clipping", "aliases": ["distortion"] },
-	{ "id": "resonance_control", "label": "Resonance Control", "aliases": ["Q", "emphasis", "peak"] },
-	{ "id": "self_oscillation", "label": "Self Oscillation" },
-	{ "id": "signal_inversion", "label": "Signal Inversion" },
-	{ "id": "current_controlled_amplification", "label": "Current Controlled Amplification", "aliases": ["transconductance", "Iabc control"] },
-	{ "id": "voltage_controlled_cutoff", "label": "Voltage Controlled Cutoff", "aliases": ["cutoff CV", "frequency modulation of filter"] },
-	{ "id": "exponential_response", "label": "Exponential Response", "aliases": ["1V/oct", "volt per octave"] },
-	{ "id": "temperature_compensation", "label": "Temperature Compensation", "aliases": ["tempco", "thermal drift"] },
-	{ "id": "hysteresis", "label": "Hysteresis" },
-	{ "id": "multimode_output", "label": "Multimode Output", "aliases": ["LP/BP/HP", "pole mixing"] },
-	{ "id": "lowpass_response", "label": "Lowpass Response", "aliases": ["LPF"] },
-	{ "id": "highpass_response", "label": "Highpass Response", "aliases": ["HPF"] },
-	{ "id": "bandpass_response", "label": "Bandpass Response", "aliases": ["BPF"] }
+	{
+		"id": "nonlinear_feedback",
+		"label": "Nonlinear Feedback"
+	},
+	{
+		"id": "soft_clipping",
+		"label": "Soft Clipping",
+		"aliases": [
+			"saturation",
+			"overdrive"
+		]
+	},
+	{
+		"id": "hard_clipping",
+		"label": "Hard Clipping",
+		"aliases": [
+			"distortion"
+		]
+	},
+	{
+		"id": "resonance_control",
+		"label": "Resonance Control",
+		"aliases": [
+			"Q",
+			"emphasis",
+			"peak"
+		]
+	},
+	{
+		"id": "self_oscillation",
+		"label": "Self Oscillation"
+	},
+	{
+		"id": "signal_inversion",
+		"label": "Signal Inversion"
+	},
+	{
+		"id": "current_controlled_amplification",
+		"label": "Current Controlled Amplification",
+		"aliases": [
+			"transconductance",
+			"Iabc control"
+		]
+	},
+	{
+		"id": "voltage_controlled_cutoff",
+		"label": "Voltage Controlled Cutoff",
+		"aliases": [
+			"cutoff CV",
+			"frequency modulation of filter"
+		]
+	},
+	{
+		"id": "exponential_response",
+		"label": "Exponential Response",
+		"aliases": [
+			"1V/oct",
+			"volt per octave"
+		]
+	},
+	{
+		"id": "temperature_compensation",
+		"label": "Temperature Compensation",
+		"aliases": [
+			"tempco",
+			"thermal drift"
+		]
+	},
+	{
+		"id": "hysteresis",
+		"label": "Hysteresis"
+	},
+	{
+		"id": "multimode_output",
+		"label": "Multimode Output",
+		"aliases": [
+			"LP/BP/HP",
+			"pole mixing"
+		]
+	},
+	{
+		"id": "lowpass_response",
+		"label": "Lowpass Response",
+		"aliases": [
+			"LPF"
+		]
+	},
+	{
+		"id": "highpass_response",
+		"label": "Highpass Response",
+		"aliases": [
+			"HPF"
+		]
+	},
+	{
+		"id": "bandpass_response",
+		"label": "Bandpass Response",
+		"aliases": [
+			"BPF"
+		]
+	},
+	{
+		"id": "frequency_division",
+		"label": "Frequency Division",
+		"aliases": [
+			"sub-oscillator",
+			"sub oscillator",
+			"octave down"
+		]
+	},
+	{
+		"id": "waveshaping",
+		"label": "Waveshaping",
+		"aliases": [
+			"wave shaping"
+		]
+	}
 ]
