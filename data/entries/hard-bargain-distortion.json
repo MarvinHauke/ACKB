@@ -1,0 +1,36 @@
+{
+	"$schema": "../../schema/entry.schema.json",
+	"schemaVersion": 1,
+	"title": "Designing the Hard Bargain Distortion Pedal",
+	"summary": "The full design process of a distortion pedal from idea to PCB: active versus passive controls, choosing the distortion stage, input buffer with gain, and designing the tone controls.",
+	"circuitTypes": [
+		"fx"
+	],
+	"subcircuits": [
+		"voltage_follower",
+		"non_inverting_amp",
+		"diode_limiter",
+		"tone_control"
+	],
+	"functions": [
+		"hard_clipping",
+		"soft_clipping",
+		"tone_shaping"
+	],
+	"ics": [
+		"tl072"
+	],
+	"difficulty": "intermediate",
+	"confidence": "community-verified",
+	"added": "2026-09-26",
+	"sources": [
+		{
+			"type": "website",
+			"title": "Designing the Hard Bargain distortion pedal",
+			"url": "https://electricdruid.net/designing-the-hard-bargain-distortion-pedal/",
+			"author": "Tom Wiltshire (Electric Druid)",
+			"year": 2019,
+			"license": "CC BY-NC-SA 4.0"
+		}
+	]
+}

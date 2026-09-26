@@ -1,0 +1,38 @@
+{
+	"$schema": "../../schema/entry.schema.json",
+	"schemaVersion": 1,
+	"title": "Designing a Classic OD-1 / TS-808 / SD-1 Overdrive",
+	"summary": "History of the Boss OD-1 and its descendants, then designing the characteristic drive stage with diodes in the op-amp feedback loop and the tone control that follows it.",
+	"manufacturers": [
+		"boss"
+	],
+	"products": [
+		"od-1"
+	],
+	"circuitTypes": [
+		"fx"
+	],
+	"subcircuits": [
+		"non_inverting_amp",
+		"diode_limiter",
+		"tone_control",
+		"rc_lowpass"
+	],
+	"functions": [
+		"soft_clipping",
+		"tone_shaping"
+	],
+	"difficulty": "beginner",
+	"confidence": "community-verified",
+	"added": "2026-09-26",
+	"sources": [
+		{
+			"type": "website",
+			"title": "Designing a classic OD-1/TS-808/SD-1 Overdrive",
+			"url": "https://electricdruid.net/designing-a-classic-overdrive/",
+			"author": "Tom Wiltshire (Electric Druid)",
+			"year": 2023,
+			"license": "CC BY-NC-SA 4.0"
+		}
+	]
+}
