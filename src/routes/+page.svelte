@@ -50,6 +50,10 @@
 	let openGroups: Partial<Record<FilterKey, boolean>> = $state({});
 	// Small screens: the filter column is hidden behind a button.
 	let showFilters = $state(false);
+	// Recently used filters, newest first; kept only in this browser.
+	const RECENT_KEY = 'ackb:recent-filters';
+	const RECENT_MAX = 6;
+	let recent: { key: FilterKey; id: string }[] = $state([]);
 
 	onMount(() => {
 		const params = new URLSearchParams(location.search);
@@ -57,6 +61,12 @@
 		filters = filtersFromParams(params);
 		for (const key of FILTER_KEYS) if (filters[key].length) openGroups[key] = true;
 		if (query) warmSearch();
+		try {
+			const saved = JSON.parse(localStorage.getItem(RECENT_KEY) ?? '[]');
+			if (Array.isArray(saved)) recent = saved.filter((r) => FILTER_KEYS.includes(r?.key) && typeof r?.id === 'string');
+		} catch {
+			// No storage (private mode, blocked): the row just stays empty.
+		}
 	});
 
 	function syncUrl() {
@@ -73,8 +83,19 @@
 
 	function toggle(key: FilterKey, id: string) {
 		const list = filters[key];
-		filters[key] = list.includes(id) ? list.filter((v) => v !== id) : [...list, id];
+		const adding = !list.includes(id);
+		filters[key] = adding ? [...list, id] : list.filter((v) => v !== id);
+		if (adding) remember(key, id);
 		syncUrl();
+	}
+
+	function remember(key: FilterKey, id: string) {
+		recent = [{ key, id }, ...recent.filter((r) => r.key !== key || r.id !== id)].slice(0, RECENT_MAX);
+		try {
+			localStorage.setItem(RECENT_KEY, JSON.stringify(recent));
+		} catch {
+			// Not persisted; still works for this visit.
+		}
 	}
 
 	function clearAll() {
@@ -88,15 +109,9 @@
 		syncUrl();
 	}
 
-	// One removable chip per active filter, e.g. "IC: LM13700".
+	// One removable chip per active filter, e.g. "LM13700".
 	const activeChips = $derived(
-		FILTER_KEYS.flatMap((key) =>
-			filters[key].map((id) => ({
-				key,
-				id,
-				label: `${key === 'difficulty' || key === 'confidence' ? FACET_LABEL[key] : REGISTRY_META[key as keyof typeof REGISTRY_META].label}: ${labels.get(id) ?? id}`
-			}))
-		)
+		FILTER_KEYS.flatMap((key) => filters[key].map((id) => ({ key, id, label: labels.get(id) ?? id })))
 	);
 
 	const facetMatch = $derived(matchingIds(facetIndex, filters));
@@ -160,19 +175,20 @@
 	{#if searchFailed}<span class="muted">Search index unavailable, using simple matching.</span>{/if}
 </search>
 
-<nav class="quick" aria-label="Circuit types">
-	<ul class="chips">
-		{#each data.terms.circuitTypes as t (t.id)}
-			<li>
-				<button
-					class="chip"
-					aria-pressed={filters.circuitTypes.includes(t.id)}
-					onclick={() => toggle('circuitTypes', t.id)}>{t.label} <span class="muted">{t.count}</span></button
-				>
-			</li>
-		{/each}
-	</ul>
-</nav>
+{#if recent.length}
+	<nav class="quick" aria-label="Recently used filters">
+		<span class="status">Recent</span>
+		<ul class="chips">
+			{#each recent as r (r.key + r.id)}
+				<li>
+					<button class="chip" aria-pressed={filters[r.key].includes(r.id)} onclick={() => toggle(r.key, r.id)}
+						>{labels.get(r.id) ?? r.id}</button
+					>
+				</li>
+			{/each}
+		</ul>
+	</nav>
+{/if}
 
 {#if isFiltering}
 	<div class="active" aria-label="Active filters">
@@ -201,7 +217,7 @@
 
 <div class="layout">
 	<aside aria-label="Filters" class:open={showFilters}>
-		{#each FILTER_KEYS.filter((k) => k !== 'circuitTypes') as key (key)}
+		{#each ['circuitTypes' as FilterKey, ...FILTER_KEYS.filter((k) => k !== 'circuitTypes')] as key (key)}
 			{@const visible = options[key].filter(
 				(o) => (facetCounts[key].get(o.id) ?? 0) > 0 || filters[key].includes(o.id)
 			)}
@@ -278,6 +294,9 @@
 	}
 
 	.quick {
+		display: flex;
+		align-items: center;
+		gap: var(--space-2);
 		margin-bottom: var(--space-3);
 	}
 
@@ -291,10 +310,6 @@
 		background: var(--accent);
 		border-color: var(--accent);
 		color: var(--bg);
-	}
-
-	button.chip[aria-pressed='true'] .muted {
-		color: inherit;
 	}
 
 	/* Active filters: own block between search and results */
