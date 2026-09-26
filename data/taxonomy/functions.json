@@ -300,5 +300,68 @@
 			"string synth",
 			"organ tones"
 		]
+	},
+	{
+		"id": "wavefolding",
+		"label": "Wavefolding",
+		"aliases": [
+			"folding",
+			"timbre modulation"
+		]
+	},
+	{
+		"id": "through_zero_fm",
+		"label": "Through-Zero FM",
+		"aliases": [
+			"TZFM",
+			"thru zero"
+		]
+	},
+	{
+		"id": "dynamics_compression",
+		"label": "Dynamics Compression",
+		"aliases": [
+			"compressor",
+			"limiter"
+		]
+	},
+	{
+		"id": "attenuation",
+		"label": "Attenuation / Inversion",
+		"aliases": [
+			"attenuverter",
+			"CV scaling"
+		]
+	},
+	{
+		"id": "sequencing",
+		"label": "Sequencing",
+		"aliases": [
+			"step sequence"
+		]
+	},
+	{
+		"id": "envelope_following",
+		"label": "Envelope Following",
+		"aliases": [
+			"amplitude tracking"
+		]
+	},
+	{
+		"id": "signal_distribution",
+		"label": "Signal Distribution",
+		"aliases": [
+			"multiple",
+			"buffered mult",
+			"signal routing"
+		]
+	},
+	{
+		"id": "power_regulation",
+		"label": "Power Regulation",
+		"aliases": [
+			"power supply",
+			"bipolar supply"
+		]
 	}
 ]

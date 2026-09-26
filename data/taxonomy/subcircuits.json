@@ -391,5 +391,80 @@
 			"MIDI input",
 			"opto-isolated MIDI"
 		]
+	},
+	{
+		"id": "sample_and_hold",
+		"label": "Sample & Hold",
+		"aliases": [
+			"S&H",
+			"track and hold"
+		]
+	},
+	{
+		"id": "lowpass_gate",
+		"label": "Lowpass Gate",
+		"aliases": [
+			"LPG",
+			"vactrol gate"
+		]
+	},
+	{
+		"id": "wavefolder",
+		"label": "Wavefolder",
+		"aliases": [
+			"wave folder",
+			"wave multiplier",
+			"timbre circuit"
+		]
+	},
+	{
+		"id": "envelope_follower",
+		"label": "Envelope Follower",
+		"aliases": [
+			"peak detector",
+			"envelope detector"
+		]
+	},
+	{
+		"id": "cmos_inverter_stage",
+		"label": "CMOS Inverter Stage",
+		"aliases": [
+			"4069 as amplifier",
+			"unbuffered inverter amp"
+		]
+	},
+	{
+		"id": "vacuum_tube_stage",
+		"label": "Vacuum Tube Stage",
+		"aliases": [
+			"valve",
+			"tube",
+			"thyratron"
+		]
+	},
+	{
+		"id": "bridged_t_resonator",
+		"label": "Bridged-T Resonator",
+		"aliases": [
+			"bridged T",
+			"resonant drum filter"
+		]
+	},
+	{
+		"id": "step_sequencer",
+		"label": "Step Sequencer",
+		"aliases": [
+			"4017 sequencer",
+			"sequencer"
+		]
+	},
+	{
+		"id": "analog_switch",
+		"label": "Analog Switch",
+		"aliases": [
+			"CMOS switch",
+			"4066",
+			"4053"
+		]
 	}
 ]

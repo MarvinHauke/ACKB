@@ -251,5 +251,93 @@
 		"aliases": [
 			"Moog 911"
 		]
+	},
+	{
+		"id": "tr-808",
+		"label": "TR-808",
+		"manufacturer": "roland",
+		"year": 1980,
+		"aliases": [
+			"TR808",
+			"808"
+		]
+	},
+	{
+		"id": "tr-606",
+		"label": "TR-606",
+		"manufacturer": "roland",
+		"year": 1981,
+		"aliases": [
+			"TR606",
+			"606"
+		]
+	},
+	{
+		"id": "system-100m",
+		"label": "System-100M",
+		"manufacturer": "roland",
+		"year": 1979,
+		"aliases": [
+			"100M",
+			"Roland 130"
+		]
+	},
+	{
+		"id": "buchla-259",
+		"label": "259 Complex Waveform Generator",
+		"manufacturer": "buchla",
+		"aliases": [
+			"Buchla 259"
+		]
+	},
+	{
+		"id": "music-easel",
+		"label": "Music Easel",
+		"manufacturer": "buchla",
+		"year": 1973,
+		"aliases": [
+			"Buchla Easel"
+		]
+	},
+	{
+		"id": "buchla-292",
+		"label": "292 Lopass Gate",
+		"manufacturer": "buchla",
+		"aliases": [
+			"Buchla 292",
+			"lopass gate"
+		]
+	},
+	{
+		"id": "serge-modular",
+		"label": "Serge Modular",
+		"manufacturer": "serge",
+		"aliases": [
+			"Serge Wave Multiplier"
+		]
+	},
+	{
+		"id": "sem",
+		"label": "SEM",
+		"manufacturer": "oberheim",
+		"year": 1974,
+		"aliases": [
+			"Synthesizer Expander Module"
+		]
+	},
+	{
+		"id": "wasp",
+		"label": "Wasp",
+		"manufacturer": "edp",
+		"year": 1978
+	},
+	{
+		"id": "vcs3",
+		"label": "VCS3",
+		"manufacturer": "ems",
+		"year": 1969,
+		"aliases": [
+			"Putney"
+		]
 	}
 ]

@@ -67,5 +67,24 @@
 	{
 		"id": "ppg",
 		"label": "PPG"
+	},
+	{
+		"id": "buchla",
+		"label": "Buchla"
+	},
+	{
+		"id": "serge",
+		"label": "Serge"
+	},
+	{
+		"id": "edp",
+		"label": "EDP",
+		"aliases": [
+			"Electronic Dream Plant"
+		]
+	},
+	{
+		"id": "ems",
+		"label": "EMS"
 	}
 ]
