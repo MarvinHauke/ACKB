@@ -1,0 +1,35 @@
+{
+	"$schema": "../../schema/entry.schema.json",
+	"schemaVersion": 1,
+	"title": "Buchla Lowpass Gates",
+	"summary": "How the Buchla lowpass gate combines a VCA and a lowpass filter, usually with vactrols, to give the natural decay of plucked and struck sounds.",
+	"manufacturers": [
+		"buchla"
+	],
+	"products": [
+		"buchla-292"
+	],
+	"circuitTypes": [
+		"vca",
+		"filter"
+	],
+	"subcircuits": [
+		"lowpass_gate",
+		"vactrol"
+	],
+	"functions": [
+		"lowpass_response",
+		"current_controlled_amplification"
+	],
+	"difficulty": "intermediate",
+	"confidence": "academic",
+	"added": "2026-09-26",
+	"sources": [
+		{
+			"type": "video",
+			"title": "ECE4450 L27: Buchla Lowpass Gates",
+			"url": "https://www.youtube.com/watch?v=NGz3dDnoVVk",
+			"author": "Aaron Lanterman (Georgia Tech)"
+		}
+	]
+}

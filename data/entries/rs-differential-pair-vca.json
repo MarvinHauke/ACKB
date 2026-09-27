@@ -1,0 +1,28 @@
+{
+	"$schema": "../../schema/entry.schema.json",
+	"schemaVersion": 1,
+	"title": "Differential-Pair VCAs",
+	"summary": "Two VCAs built around discrete differential transistor pairs, dimensioned for 5 Vpp signals.",
+	"circuitTypes": [
+		"vca"
+	],
+	"subcircuits": [
+		"differential_pair",
+		"current_mirror",
+		"opamp_stage"
+	],
+	"functions": [
+		"current_controlled_amplification"
+	],
+	"difficulty": "intermediate",
+	"confidence": "community-verified",
+	"added": "2026-09-26",
+	"sources": [
+		{
+			"type": "schematic",
+			"title": "VCA-1 and VCA-2",
+			"url": "https://www.schmitzbits.de/vca.html",
+			"author": "René Schmitz"
+		}
+	]
+}

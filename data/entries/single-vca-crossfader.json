@@ -1,0 +1,34 @@
+{
+	"$schema": "../../schema/entry.schema.json",
+	"schemaVersion": 1,
+	"title": "Single-VCA Crossfader",
+	"summary": "A way to crossfade between two signals, such as wet/dry or a waveform morph, with one control and only one VCA, using a CA3080 OTA.",
+	"circuitTypes": [
+		"vca",
+		"mixer"
+	],
+	"subcircuits": [
+		"ota_stage",
+		"inverting_amp"
+	],
+	"functions": [
+		"crossfading",
+		"current_controlled_amplification"
+	],
+	"ics": [
+		"ca3080"
+	],
+	"difficulty": "intermediate",
+	"confidence": "community-verified",
+	"added": "2026-09-26",
+	"sources": [
+		{
+			"type": "website",
+			"title": "Single VCA crossfader",
+			"url": "https://electricdruid.net/single-vca-crossfader/",
+			"author": "Tom Wiltshire (Electric Druid)",
+			"year": 2015,
+			"license": "CC BY-NC-SA 4.0"
+		}
+	]
+}

@@ -1,0 +1,31 @@
+{
+	"$schema": "../../schema/entry.schema.json",
+	"schemaVersion": 1,
+	"title": "Design Equations for the PT2399",
+	"summary": "Derives the missing equations linking the pin 6 resistor, clock frequency and delay time of the PT2399 echo chip from its datasheet data, plus the VCO sink current.",
+	"circuitTypes": [
+		"fx"
+	],
+	"subcircuits": [
+		"digital_delay_line"
+	],
+	"functions": [
+		"delay_echo"
+	],
+	"ics": [
+		"pt2399"
+	],
+	"difficulty": "intermediate",
+	"confidence": "community-verified",
+	"added": "2026-09-26",
+	"sources": [
+		{
+			"type": "website",
+			"title": "Useful design equations for the PT2399",
+			"url": "https://electricdruid.net/useful-design-equations-for-the-pt2399/",
+			"author": "Tom Wiltshire (Electric Druid)",
+			"year": 2015,
+			"license": "CC BY-NC-SA 4.0"
+		}
+	]
+}

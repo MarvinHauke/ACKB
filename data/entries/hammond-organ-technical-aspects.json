@@ -1,0 +1,33 @@
+{
+	"$schema": "../../schema/entry.schema.json",
+	"schemaVersion": 1,
+	"title": "Technical Aspects of the Hammond Organ",
+	"summary": "What makes the \"Hammond sound\", from the angle of copying it with other technology: drawbars, foldback, key click, harmonic leakage, the chorus/vibrato scanner, and the problem of generating 91 separate sine tones.",
+	"manufacturers": [
+		"hammond"
+	],
+	"products": [
+		"hammond-b3"
+	],
+	"circuitTypes": [
+		"oscillator",
+		"theory"
+	],
+	"functions": [
+		"polyphonic_tone_generation",
+		"chorus_flanging"
+	],
+	"difficulty": "beginner",
+	"confidence": "community-verified",
+	"added": "2026-09-26",
+	"sources": [
+		{
+			"type": "website",
+			"title": "Technical aspects of the Hammond Organ",
+			"url": "https://electricdruid.net/technical-aspects-of-the-hammond-organ/",
+			"author": "Tom Wiltshire (Electric Druid)",
+			"year": 2008,
+			"license": "CC BY-NC-SA 4.0"
+		}
+	]
+}

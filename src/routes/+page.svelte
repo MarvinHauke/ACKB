@@ -46,12 +46,27 @@
 	let filters: Filters = $state(emptyFilters());
 	let searcher: Searcher | null = $state(null);
 	let searchFailed = $state(false);
+	// Filter groups start collapsed; groups with an active filter start open.
+	let openGroups: Partial<Record<FilterKey, boolean>> = $state({});
+	// Small screens: the filter column is hidden behind a button.
+	let showFilters = $state(false);
+	// Recently used filters, newest first; kept only in this browser.
+	const RECENT_KEY = 'ackb:recent-filters';
+	const RECENT_MAX = 6;
+	let recent: { key: FilterKey; id: string }[] = $state([]);
 
 	onMount(() => {
 		const params = new URLSearchParams(location.search);
 		query = params.get('q') ?? '';
 		filters = filtersFromParams(params);
+		for (const key of FILTER_KEYS) if (filters[key].length) openGroups[key] = true;
 		if (query) warmSearch();
+		try {
+			const saved = JSON.parse(localStorage.getItem(RECENT_KEY) ?? '[]');
+			if (Array.isArray(saved)) recent = saved.filter((r) => FILTER_KEYS.includes(r?.key) && typeof r?.id === 'string');
+		} catch {
+			// No storage (private mode, blocked): the row just stays empty.
+		}
 	});
 
 	function syncUrl() {
@@ -68,8 +83,19 @@
 
 	function toggle(key: FilterKey, id: string) {
 		const list = filters[key];
-		filters[key] = list.includes(id) ? list.filter((v) => v !== id) : [...list, id];
+		const adding = !list.includes(id);
+		filters[key] = adding ? [...list, id] : list.filter((v) => v !== id);
+		if (adding) remember(key, id);
 		syncUrl();
+	}
+
+	function remember(key: FilterKey, id: string) {
+		recent = [{ key, id }, ...recent.filter((r) => r.key !== key || r.id !== id)].slice(0, RECENT_MAX);
+		try {
+			localStorage.setItem(RECENT_KEY, JSON.stringify(recent));
+		} catch {
+			// Not persisted; still works for this visit.
+		}
 	}
 
 	function clearAll() {
@@ -77,6 +103,16 @@
 		query = '';
 		syncUrl();
 	}
+
+	function clearQuery() {
+		query = '';
+		syncUrl();
+	}
+
+	// One removable chip per active filter, e.g. "LM13700".
+	const activeChips = $derived(
+		FILTER_KEYS.flatMap((key) => filters[key].map((id) => ({ key, id, label: labels.get(id) ?? id })))
+	);
 
 	const facetMatch = $derived(matchingIds(facetIndex, filters));
 	const q = $derived(query.trim());
@@ -139,28 +175,57 @@
 	{#if searchFailed}<span class="muted">Search index unavailable, using simple matching.</span>{/if}
 </search>
 
-<nav class="quick" aria-label="Circuit types">
-	<ul class="chips">
-		{#each data.terms.circuitTypes as t (t.id)}
-			<li>
-				<button
-					class="chip"
-					aria-pressed={filters.circuitTypes.includes(t.id)}
-					onclick={() => toggle('circuitTypes', t.id)}>{t.label} <span class="muted">{t.count}</span></button
-				>
-			</li>
-		{/each}
-	</ul>
-</nav>
+{#if recent.length}
+	<nav class="quick" aria-label="Recently used filters">
+		<span class="status">Recent</span>
+		<ul class="chips">
+			{#each recent as r (r.key + r.id)}
+				<li>
+					<button class="chip" aria-pressed={filters[r.key].includes(r.id)} onclick={() => toggle(r.key, r.id)}
+						>{labels.get(r.id) ?? r.id}</button
+					>
+				</li>
+			{/each}
+		</ul>
+	</nav>
+{/if}
+
+{#if isFiltering}
+	<div class="active" aria-label="Active filters">
+		<span class="status">{results.length} {results.length === 1 ? 'entry' : 'entries'}</span>
+		<ul class="chips">
+			{#if q}
+				<li>
+					<button class="chip remove" onclick={clearQuery} aria-label="Remove search “{q}”">“{q}” <span aria-hidden="true">×</span></button>
+				</li>
+			{/if}
+			{#each activeChips as c (c.key + c.id)}
+				<li>
+					<button class="chip remove" onclick={() => toggle(c.key, c.id)} aria-label="Remove filter {c.label}"
+						>{c.label} <span aria-hidden="true">×</span></button
+					>
+				</li>
+			{/each}
+		</ul>
+		<button class="link" onclick={clearAll}>Clear all</button>
+	</div>
+{/if}
+
+<button class="filters-toggle" aria-expanded={showFilters} onclick={() => (showFilters = !showFilters)}>
+	Filters{activeCount(filters) ? ` (${activeCount(filters)})` : ''}
+</button>
 
 <div class="layout">
-	<aside aria-label="Filters">
-		{#each FILTER_KEYS.filter((k) => k !== 'circuitTypes') as key (key)}
+	<aside aria-label="Filters" class:open={showFilters}>
+		{#each ['circuitTypes' as FilterKey, ...FILTER_KEYS.filter((k) => k !== 'circuitTypes')] as key (key)}
 			{@const visible = options[key].filter(
 				(o) => (facetCounts[key].get(o.id) ?? 0) > 0 || filters[key].includes(o.id)
 			)}
 			{#if visible.length}
-				<details open={filters[key].length > 0 || key === 'functions' || key === 'subcircuits'}>
+				<details
+					open={openGroups[key] ?? false}
+					ontoggle={(e) => (openGroups[key] = (e.currentTarget as HTMLDetailsElement).open)}
+				>
 					<summary>{FACET_LABEL[key]}{filters[key].length ? ` (${filters[key].length})` : ''}</summary>
 					<ul>
 						{#each visible as o (o.id)}
@@ -183,11 +248,6 @@
 
 	<section>
 		{#if isFiltering}
-			<p class="status">
-				{results.length}
-				{results.length === 1 ? 'entry' : 'entries'}
-				<button class="link" onclick={clearAll}>Clear all</button>
-			</p>
 			{#if results.length}
 				<EntryList entries={results} {labels} />
 			{:else}
@@ -214,7 +274,7 @@
 <style>
 	.searchbar {
 		display: block;
-		margin: 1rem 0 0.75rem;
+		margin: var(--space-3) 0 var(--space-2);
 	}
 
 	input[type='search'] {
@@ -234,7 +294,10 @@
 	}
 
 	.quick {
-		margin-bottom: 1.25rem;
+		display: flex;
+		align-items: center;
+		gap: var(--space-2);
+		margin-bottom: var(--space-3);
 	}
 
 	button.chip {
@@ -249,14 +312,43 @@
 		color: var(--bg);
 	}
 
-	button.chip[aria-pressed='true'] .muted {
-		color: inherit;
+	/* Active filters: own block between search and results */
+	.active {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		gap: var(--space-1) var(--space-2);
+		padding: var(--space-2) var(--space-3);
+		margin-bottom: var(--space-4);
+		background: var(--panel);
+		border: 1px solid var(--line);
+		border-radius: 4px;
+	}
+
+	.chip.remove {
+		border-color: var(--accent);
+	}
+
+	.chip.remove span {
+		margin-left: 0.2rem;
+		color: var(--muted);
+	}
+
+	.chip.remove:hover span {
+		color: var(--bad);
+	}
+
+	.status {
+		color: var(--muted);
+		font-size: 0.9rem;
 	}
 
 	.layout {
 		display: grid;
 		grid-template-columns: 14rem 1fr;
-		gap: 2rem;
+		gap: var(--space-5);
+		border-top: 1px solid var(--line);
+		padding-top: var(--space-3);
 	}
 
 	aside {
@@ -265,7 +357,11 @@
 
 	details {
 		border-bottom: 1px solid var(--line);
-		padding: 0.4rem 0;
+		padding: var(--space-2) 0;
+	}
+
+	details:first-child {
+		padding-top: 0;
 	}
 
 	summary {
@@ -276,7 +372,7 @@
 	aside ul {
 		list-style: none;
 		padding: 0;
-		margin: 0.3rem 0 0;
+		margin: var(--space-2) 0 0;
 		max-height: 16rem;
 		overflow-y: auto;
 	}
@@ -286,17 +382,13 @@
 		gap: 0.4rem;
 		align-items: baseline;
 		cursor: pointer;
+		padding: 0.1rem 0;
 	}
 
 	aside label .muted {
 		margin-left: auto;
 		font-family: var(--mono);
 		font-size: 0.8rem;
-	}
-
-	.status {
-		margin: 0 0 0.5rem;
-		color: var(--muted);
 	}
 
 	section > h2:first-child {
@@ -307,21 +399,44 @@
 		background: none;
 		border: 0;
 		padding: 0;
-		margin-left: 0.75rem;
+		margin-left: auto;
 		color: var(--accent);
 		font: inherit;
+		font-size: 0.9rem;
 		text-decoration: underline;
 		cursor: pointer;
+	}
+
+	.filters-toggle {
+		display: none;
 	}
 
 	@media (max-width: 45rem) {
 		.layout {
 			grid-template-columns: 1fr;
-			gap: 1rem;
+			gap: var(--space-3);
+		}
+
+		.filters-toggle {
+			display: block;
+			width: 100%;
+			margin-bottom: var(--space-3);
+			padding: var(--space-2);
+			font: inherit;
+			font-weight: 600;
+			background: var(--panel);
+			color: var(--fg);
+			border: 1px solid var(--line);
+			border-radius: 4px;
+			cursor: pointer;
 		}
 
 		aside {
-			order: 2;
+			display: none;
+		}
+
+		aside.open {
+			display: block;
 		}
 	}
 </style>

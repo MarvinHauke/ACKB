@@ -1,0 +1,26 @@
+{
+	"$schema": "../../schema/entry.schema.json",
+	"schemaVersion": 1,
+	"title": "Breadboarding and Prototyping Synth Circuits",
+	"summary": "Beginner's guide to using a breadboard for synth circuits, and a DIY prototyping station for developing synth modules.",
+	"circuitTypes": [
+		"utility"
+	],
+	"difficulty": "beginner",
+	"confidence": "community-verified",
+	"added": "2026-09-26",
+	"sources": [
+		{
+			"type": "video",
+			"title": "Complete beginner's guide to using a breadboard",
+			"url": "https://www.youtube.com/watch?v=XpMZoR3fgd0",
+			"author": "Moritz Klein"
+		},
+		{
+			"type": "video",
+			"title": "I created a DIY synth prototyping station",
+			"url": "https://www.youtube.com/watch?v=QyapQpQOwUM",
+			"author": "Moritz Klein"
+		}
+	]
+}

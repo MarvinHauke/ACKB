@@ -1,0 +1,38 @@
+{
+	"$schema": "../../schema/entry.schema.json",
+	"schemaVersion": 1,
+	"title": "Eurorack TR-808 Snare Build",
+	"summary": "Build guide for a TR-808 style snare module with a circuit overview.",
+	"manufacturers": [
+		"roland"
+	],
+	"products": [
+		"tr-808"
+	],
+	"circuitTypes": [
+		"drum"
+	],
+	"subcircuits": [
+		"drum_voice",
+		"bridged_t_resonator",
+		"noise_generator"
+	],
+	"functions": [
+		"drum_synthesis",
+		"noise_generation"
+	],
+	"ics": [
+		"tl072"
+	],
+	"difficulty": "intermediate",
+	"confidence": "community-verified",
+	"added": "2026-09-26",
+	"sources": [
+		{
+			"type": "website",
+			"title": "Building a DIY Eurorack TR-808 Snare",
+			"url": "https://www.n8synth.co.uk/diy-eurorack/eurorack-808-snare/",
+			"author": "N8 Synthesizers"
+		}
+	]
+}

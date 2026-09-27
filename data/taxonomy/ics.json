@@ -128,5 +128,227 @@
 			"HEF4013"
 		],
 		"description": "Dual D-type flip-flop, the usual divider for square-wave sub-oscillators."
+	},
+	{
+		"id": "cem3340",
+		"label": "CEM3340",
+		"manufacturer": "Curtis / OnChip",
+		"category": "oscillator",
+		"status": "reissued",
+		"aliases": [
+			"3340",
+			"AS3340",
+			"V3340"
+		]
+	},
+	{
+		"id": "ir3109",
+		"label": "IR3109",
+		"manufacturer": "Roland",
+		"category": "filter",
+		"status": "reissued",
+		"aliases": [
+			"AS3109",
+			"80017A"
+		]
+	},
+	{
+		"id": "ba662",
+		"label": "BA662",
+		"manufacturer": "Rohm",
+		"category": "vca",
+		"status": "obsolete"
+	},
+	{
+		"id": "ssm2164",
+		"label": "SSM2164",
+		"manufacturer": "SSM / CoolAudio",
+		"category": "vca",
+		"status": "reissued",
+		"aliases": [
+			"V2164",
+			"2164"
+		]
+	},
+	{
+		"id": "pt2399",
+		"label": "PT2399",
+		"manufacturer": "Princeton",
+		"category": "delay",
+		"status": "active"
+	},
+	{
+		"id": "mn3007",
+		"label": "MN3007",
+		"manufacturer": "Panasonic / CoolAudio",
+		"category": "delay",
+		"status": "reissued",
+		"aliases": [
+			"V3207",
+			"MN3207",
+			"MN3005"
+		]
+	},
+	{
+		"id": "sa571",
+		"label": "SA571",
+		"manufacturer": "Signetics / ON",
+		"category": "other",
+		"status": "active",
+		"aliases": [
+			"NE571",
+			"NE570"
+		],
+		"description": "Compander (compressor/expander) IC."
+	},
+	{
+		"id": "mm5837",
+		"label": "MM5837",
+		"manufacturer": "National",
+		"category": "noise",
+		"status": "obsolete",
+		"aliases": [
+			"MM5437"
+		]
+	},
+	{
+		"id": "cd4006",
+		"label": "CD4006",
+		"manufacturer": "RCA / TI",
+		"category": "logic",
+		"status": "active",
+		"aliases": [
+			"4006"
+		],
+		"description": "18-stage shift register."
+	},
+	{
+		"id": "cd4046",
+		"label": "CD4046",
+		"manufacturer": "RCA / TI",
+		"category": "logic",
+		"status": "active",
+		"aliases": [
+			"4046",
+			"74HC4046"
+		],
+		"description": "PLL with VCO."
+	},
+	{
+		"id": "mcp4822",
+		"label": "MCP4822",
+		"manufacturer": "Microchip",
+		"category": "dac",
+		"status": "active",
+		"aliases": [
+			"MCP4821"
+		]
+	},
+	{
+		"id": "pic",
+		"label": "PIC microcontroller",
+		"manufacturer": "Microchip",
+		"category": "mcu",
+		"status": "active",
+		"aliases": [
+			"PIC16F684",
+			"PIC12F675",
+			"dsPIC"
+		]
+	},
+	{
+		"id": "ssm2040",
+		"label": "SSM2040",
+		"manufacturer": "SSM",
+		"category": "filter",
+		"status": "obsolete",
+		"aliases": [
+			"2040"
+		]
+	},
+	{
+		"id": "lm3900",
+		"label": "LM3900",
+		"manufacturer": "National / TI",
+		"category": "opamp",
+		"status": "active",
+		"aliases": [
+			"Norton amplifier"
+		]
+	},
+	{
+		"id": "lm394",
+		"label": "LM394",
+		"manufacturer": "National",
+		"category": "transistor_array",
+		"status": "obsolete",
+		"aliases": [
+			"SuperMatch pair"
+		]
+	},
+	{
+		"id": "ne566",
+		"label": "NE566",
+		"manufacturer": "Signetics",
+		"category": "oscillator",
+		"status": "obsolete",
+		"aliases": [
+			"LM566"
+		]
+	},
+	{
+		"id": "cd4069",
+		"label": "CD4069",
+		"manufacturer": "RCA / TI",
+		"category": "logic",
+		"status": "active",
+		"aliases": [
+			"4069",
+			"CD4069UB"
+		],
+		"description": "Hex inverter, often run in its linear region as an amplifier."
+	},
+	{
+		"id": "cd4007",
+		"label": "CD4007",
+		"manufacturer": "RCA / TI",
+		"category": "logic",
+		"status": "active",
+		"aliases": [
+			"4007"
+		],
+		"description": "Dual complementary MOSFET pair plus inverter."
+	},
+	{
+		"id": "cd40106",
+		"label": "CD40106",
+		"manufacturer": "RCA / TI",
+		"category": "logic",
+		"status": "active",
+		"aliases": [
+			"40106",
+			"74HC14"
+		],
+		"description": "Hex Schmitt-trigger inverter, a classic for simple oscillators."
+	},
+	{
+		"id": "lf398",
+		"label": "LF398",
+		"manufacturer": "National / TI",
+		"category": "other",
+		"status": "active",
+		"aliases": [
+			"LF398 sample and hold"
+		]
+	},
+	{
+		"id": "lm317",
+		"label": "LM317",
+		"manufacturer": "National / TI",
+		"category": "regulator",
+		"status": "active",
+		"aliases": [
+			"LM337"
+		]
 	}
 ]

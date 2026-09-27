@@ -1,0 +1,35 @@
+{
+	"$schema": "../../schema/entry.schema.json",
+	"schemaVersion": 1,
+	"title": "Eurorack \"Vintage VCA\" with the LM13700",
+	"summary": "Step-by-step design of a Eurorack VCA around the LM13700: working out the OTA output level, converting its output current back to a voltage, and turning a 0–5 V CV into a safe Iabc control current.",
+	"circuitTypes": [
+		"vca"
+	],
+	"subcircuits": [
+		"ota_stage",
+		"voltage_follower",
+		"current_mirror",
+		"voltage_divider"
+	],
+	"functions": [
+		"current_controlled_amplification"
+	],
+	"ics": [
+		"lm13700",
+		"ca3080"
+	],
+	"difficulty": "beginner",
+	"confidence": "community-verified",
+	"added": "2026-09-26",
+	"sources": [
+		{
+			"type": "website",
+			"title": "Design a Eurorack \"Vintage VCA\" with the LM13700",
+			"url": "https://electricdruid.net/design-a-eurorack-vintage-vca-with-the-lm13700/",
+			"author": "Tom Wiltshire (Electric Druid)",
+			"year": 2020,
+			"license": "CC BY-NC-SA 4.0"
+		}
+	]
+}

@@ -1,0 +1,46 @@
+{
+	"$schema": "../../schema/entry.schema.json",
+	"schemaVersion": 1,
+	"title": "OTA-C Filters: One-Pole to Four-Pole with Feedback",
+	"summary": "Lectures on filters built from OTAs and capacitors: single-pole OTA-C stages, the theory of four-pole filters with resonance feedback, and worked OTA-C examples.",
+	"circuitTypes": [
+		"filter"
+	],
+	"subcircuits": [
+		"ota_stage",
+		"integrator",
+		"feedback_network"
+	],
+	"functions": [
+		"lowpass_response",
+		"resonance_control",
+		"voltage_controlled_cutoff"
+	],
+	"ics": [
+		"lm13700",
+		"ca3080"
+	],
+	"difficulty": "intermediate",
+	"confidence": "academic",
+	"added": "2026-09-26",
+	"sources": [
+		{
+			"type": "video",
+			"title": "ECE4450 L19: Single-Pole OTA-C Filters",
+			"url": "https://www.youtube.com/watch?v=pTHHzFsa4Ss",
+			"author": "Aaron Lanterman (Georgia Tech)"
+		},
+		{
+			"type": "video",
+			"title": "ECE4450 L20: Four-Pole Filters with Feedback: Theory",
+			"url": "https://www.youtube.com/watch?v=rnP_vo1ij50",
+			"author": "Aaron Lanterman (Georgia Tech)"
+		},
+		{
+			"type": "video",
+			"title": "ECE4450 L21: Four-Pole Filters with Feedback: OTA-C Examples",
+			"url": "https://www.youtube.com/watch?v=DRWZ39ae2_k",
+			"author": "Aaron Lanterman (Georgia Tech)"
+		}
+	]
+}

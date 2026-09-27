@@ -1,0 +1,27 @@
+{
+	"$schema": "../../schema/entry.schema.json",
+	"schemaVersion": 1,
+	"title": "Designing a Classic Transistor VCA",
+	"summary": "Video design of a VCA built from discrete transistors (differential pair), explained step by step on the breadboard.",
+	"circuitTypes": [
+		"vca"
+	],
+	"subcircuits": [
+		"differential_pair",
+		"current_mirror"
+	],
+	"functions": [
+		"current_controlled_amplification"
+	],
+	"difficulty": "beginner",
+	"confidence": "community-verified",
+	"added": "2026-09-26",
+	"sources": [
+		{
+			"type": "video",
+			"title": "Designing a classic transistor-VCA from scratch",
+			"url": "https://www.youtube.com/watch?v=yMrCCx6uqcE",
+			"author": "Moritz Klein"
+		}
+	]
+}

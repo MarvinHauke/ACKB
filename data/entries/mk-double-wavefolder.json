@@ -1,0 +1,29 @@
+{
+	"$schema": "../../schema/entry.schema.json",
+	"schemaVersion": 1,
+	"title": "Designing a Double Wavefolder",
+	"summary": "Video design of a wavefolder with two folding stages, built up from scratch on the breadboard.",
+	"circuitTypes": [
+		"fx",
+		"oscillator"
+	],
+	"subcircuits": [
+		"wavefolder",
+		"opamp_stage"
+	],
+	"functions": [
+		"wavefolding",
+		"waveshaping"
+	],
+	"difficulty": "intermediate",
+	"confidence": "community-verified",
+	"added": "2026-09-26",
+	"sources": [
+		{
+			"type": "video",
+			"title": "Designing a double wavefolder from scratch",
+			"url": "https://www.youtube.com/watch?v=jbStEUfBWXY",
+			"author": "Moritz Klein"
+		}
+	]
+}

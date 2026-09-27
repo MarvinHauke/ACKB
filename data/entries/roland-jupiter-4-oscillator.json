@@ -1,0 +1,40 @@
+{
+	"$schema": "../../schema/entry.schema.json",
+	"schemaVersion": 1,
+	"title": "Roland Jupiter-4 Oscillator",
+	"summary": "Circuit walk-through of Roland's first polysynth oscillator (1979): CV mixer, exponential converter, oscillator core, pulse shaper, a frequency-to-voltage converter, the divider for octave selection and the ramp integrator with its reset.",
+	"manufacturers": [
+		"roland"
+	],
+	"products": [
+		"jupiter-4"
+	],
+	"circuitTypes": [
+		"oscillator"
+	],
+	"subcircuits": [
+		"vco_core",
+		"exponential_converter",
+		"integrator",
+		"frequency_to_voltage",
+		"frequency_divider",
+		"comparator"
+	],
+	"functions": [
+		"exponential_response",
+		"frequency_division"
+	],
+	"difficulty": "advanced",
+	"confidence": "community-verified",
+	"added": "2026-09-26",
+	"sources": [
+		{
+			"type": "website",
+			"title": "Roland Jupiter 4 Oscillator",
+			"url": "https://electricdruid.net/jupiter4osc/",
+			"author": "Tom Wiltshire (Electric Druid)",
+			"year": 2025,
+			"license": "CC BY-NC-SA 4.0"
+		}
+	]
+}

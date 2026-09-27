@@ -1,0 +1,28 @@
+{
+	"$schema": "../../schema/entry.schema.json",
+	"schemaVersion": 1,
+	"title": "CMOS VCO with the 4069",
+	"summary": "A simple VCO that uses the gates of a 4069 CMOS inverter instead of op-amps; suited as a modular addition or bench test oscillator.",
+	"circuitTypes": [
+		"oscillator"
+	],
+	"subcircuits": [
+		"vco_core",
+		"cmos_inverter_stage",
+		"exponential_converter"
+	],
+	"ics": [
+		"cd4069"
+	],
+	"difficulty": "beginner",
+	"confidence": "community-verified",
+	"added": "2026-09-26",
+	"sources": [
+		{
+			"type": "schematic",
+			"title": "VCO 4069: CMOS VCO",
+			"url": "https://www.schmitzbits.de/vco4069.html",
+			"author": "René Schmitz"
+		}
+	]
+}

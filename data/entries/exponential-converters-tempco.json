@@ -1,0 +1,45 @@
+{
+	"$schema": "../../schema/entry.schema.json",
+	"schemaVersion": 1,
+	"title": "Exponential Converters and Temperature Compensation",
+	"summary": "How a transistor pair turns a linear control voltage into an exponential current for 1V/oct tracking, and how to keep it stable over temperature with tempco resistors. René Schmitz's tutorial explains the transistor physics step by step, with measured bulk resistances of common transistor pairs; Lanterman's lecture covers the same from the university side.",
+	"circuitTypes": [
+		"oscillator",
+		"theory"
+	],
+	"subcircuits": [
+		"exponential_converter",
+		"differential_pair",
+		"current_mirror"
+	],
+	"functions": [
+		"exponential_response",
+		"temperature_compensation"
+	],
+	"ics": [
+		"lm394"
+	],
+	"difficulty": "advanced",
+	"confidence": "academic",
+	"added": "2026-09-26",
+	"sources": [
+		{
+			"type": "website",
+			"title": "Exponential Convertors: a tutorial on expo and tempco",
+			"url": "https://www.schmitzbits.de/expo_tutorial/index.html",
+			"author": "René Schmitz"
+		},
+		{
+			"type": "website",
+			"title": "Rbe (bulk resistance) comparison of transistor pairs",
+			"url": "https://www.schmitzbits.de/rbe.html",
+			"author": "René Schmitz"
+		},
+		{
+			"type": "video",
+			"title": "ECE4450 L18: Exponential Voltage-to-Current Conversion & Tempco Resistors",
+			"url": "https://www.youtube.com/watch?v=ZWJhApUmfEU",
+			"author": "Aaron Lanterman (Georgia Tech)"
+		}
+	]
+}

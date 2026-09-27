@@ -1,0 +1,29 @@
+{
+	"$schema": "../../schema/entry.schema.json",
+	"schemaVersion": 1,
+	"title": "Three-Phase LFO",
+	"summary": "An LFO with three outputs 120 degrees apart, with a slightly squashed sine shape, for complex patches that need several related modulation signals.",
+	"circuitTypes": [
+		"lfo"
+	],
+	"subcircuits": [
+		"cmos_inverter_stage"
+	],
+	"functions": [
+		"periodic_modulation"
+	],
+	"ics": [
+		"cd4069"
+	],
+	"difficulty": "intermediate",
+	"confidence": "community-verified",
+	"added": "2026-09-26",
+	"sources": [
+		{
+			"type": "schematic",
+			"title": "Three phase LFO",
+			"url": "https://www.schmitzbits.de/triphase.html",
+			"author": "René Schmitz"
+		}
+	]
+}

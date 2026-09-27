@@ -1,0 +1,40 @@
+{
+	"$schema": "../../schema/entry.schema.json",
+	"schemaVersion": 1,
+	"title": "Tap Tempo LFO (TAPLFO)",
+	"summary": "The TAPLFO chip: an LFO whose rate can be set by tapping, with block and pinout diagrams and typical uses in effects pedals. The second article explains a tap-tempo bug in TAPLFO 3 and how it was fixed.",
+	"circuitTypes": [
+		"lfo"
+	],
+	"subcircuits": [
+		"microcontroller"
+	],
+	"functions": [
+		"periodic_modulation",
+		"tap_tempo"
+	],
+	"ics": [
+		"pic"
+	],
+	"difficulty": "intermediate",
+	"confidence": "community",
+	"added": "2026-09-26",
+	"sources": [
+		{
+			"type": "website",
+			"title": "Tap Tempo LFO (TAPLFO V2D)",
+			"url": "https://electricdruid.net/tap-tempo-lfo-taplfo-v2d/",
+			"author": "Tom Wiltshire (Electric Druid)",
+			"year": 2012,
+			"license": "CC BY-NC-SA 4.0"
+		},
+		{
+			"type": "website",
+			"title": "TAPLFO 3C – Squashing the bug",
+			"url": "https://electricdruid.net/taplfo-3c-squashing-the-bug/",
+			"author": "Tom Wiltshire (Electric Druid)",
+			"year": 2018,
+			"license": "CC BY-NC-SA 4.0"
+		}
+	]
+}

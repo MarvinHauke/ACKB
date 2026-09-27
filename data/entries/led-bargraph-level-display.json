@@ -1,0 +1,32 @@
+{
+	"$schema": "../../schema/entry.schema.json",
+	"schemaVersion": 1,
+	"title": "LED Bargraph Audio Level Display",
+	"summary": "Replacing the LM3914/15/16 bargraph drivers with a PIC: how the original chips work, the hardware and firmware of the replacement, and how to adapt it.",
+	"circuitTypes": [
+		"utility"
+	],
+	"subcircuits": [
+		"led_driver",
+		"microcontroller"
+	],
+	"functions": [
+		"level_metering"
+	],
+	"ics": [
+		"pic"
+	],
+	"difficulty": "intermediate",
+	"confidence": "community",
+	"added": "2026-09-26",
+	"sources": [
+		{
+			"type": "website",
+			"title": "An LED bargraph audio level display",
+			"url": "https://electricdruid.net/led-bargraph-audio-level-display/",
+			"author": "Tom Wiltshire (Electric Druid)",
+			"year": 2019,
+			"license": "CC BY-NC-SA 4.0"
+		}
+	]
+}

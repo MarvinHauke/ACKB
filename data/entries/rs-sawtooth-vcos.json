@@ -1,0 +1,35 @@
+{
+	"$schema": "../../schema/entry.schema.json",
+	"schemaVersion": 1,
+	"title": "René Schmitz Sawtooth VCOs (VCO 1, 2 and 4)",
+	"summary": "René Schmitz's first VCO designs: sawtooth cores with a discharge switch, and VCO 4, an improved VCO 2 that uses two diodes instead of a MOSFET for the reset, giving cleaner waveforms.",
+	"circuitTypes": [
+		"oscillator"
+	],
+	"subcircuits": [
+		"vco_core",
+		"integrator",
+		"exponential_converter",
+		"comparator"
+	],
+	"functions": [
+		"exponential_response"
+	],
+	"difficulty": "intermediate",
+	"confidence": "community-verified",
+	"added": "2026-09-26",
+	"sources": [
+		{
+			"type": "schematic",
+			"title": "VCO 1 and 2",
+			"url": "https://www.schmitzbits.de/vco2.html",
+			"author": "René Schmitz"
+		},
+		{
+			"type": "schematic",
+			"title": "VCO 4",
+			"url": "https://www.schmitzbits.de/vco4.html",
+			"author": "René Schmitz"
+		}
+	]
+}

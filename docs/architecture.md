@@ -20,7 +20,7 @@ data/entries + data/taxonomy
 
 ## Pages
 
-`/`, `/entry/<id>`, `/browse`, and one page per used tag: `/manufacturer/…`, `/product/…`,
+`/`, `/entry/<id>`, and one page per used tag: `/manufacturer/…`, `/product/…`,
 `/type/…`, `/subcircuit/…`, `/function/…`, `/ic/…`.
 
 ## Search and filters

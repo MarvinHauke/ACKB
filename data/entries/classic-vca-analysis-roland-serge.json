@@ -1,0 +1,41 @@
+{
+	"$schema": "../../schema/entry.schema.json",
+	"schemaVersion": 1,
+	"title": "Classic VCAs Analyzed: Roland 130 and Serge",
+	"summary": "Circuit analyses of two classic discrete VCAs: the Roland System-100M 130 module and the Serge VCA.",
+	"manufacturers": [
+		"roland",
+		"serge"
+	],
+	"products": [
+		"system-100m",
+		"serge-modular"
+	],
+	"circuitTypes": [
+		"vca"
+	],
+	"subcircuits": [
+		"differential_pair",
+		"current_mirror"
+	],
+	"functions": [
+		"current_controlled_amplification"
+	],
+	"difficulty": "advanced",
+	"confidence": "academic",
+	"added": "2026-09-26",
+	"sources": [
+		{
+			"type": "video",
+			"title": "ECE4450 L6: Roland 130 VCA Analysis",
+			"url": "https://www.youtube.com/watch?v=_rDZ9R-HHEo",
+			"author": "Aaron Lanterman (Georgia Tech)"
+		},
+		{
+			"type": "video",
+			"title": "ECE4450 L7: Serge VCA Analysis",
+			"url": "https://www.youtube.com/watch?v=PlFpEW_GfKk",
+			"author": "Aaron Lanterman (Georgia Tech)"
+		}
+	]
+}

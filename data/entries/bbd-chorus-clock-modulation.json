@@ -1,0 +1,56 @@
+{
+	"$schema": "../../schema/entry.schema.json",
+	"schemaVersion": 1,
+	"title": "What a BBD Chorus Really Does",
+	"summary": "Simulation-based look at BBD chorus: why modulating the BBD clock gives distorted pitch modulation, linear versus exponential clock modulation, and the effect of different LFO waveforms. The 2026 article replaces the 2015 one; an interactive simulation shows delay and pitch over time.",
+	"manufacturers": [
+		"boss"
+	],
+	"circuitTypes": [
+		"fx",
+		"theory"
+	],
+	"subcircuits": [
+		"bbd_delay_line",
+		"clock_generator"
+	],
+	"functions": [
+		"chorus_flanging",
+		"pitch_modulation",
+		"periodic_modulation"
+	],
+	"ics": [
+		"mn3007"
+	],
+	"difficulty": "advanced",
+	"confidence": "community-verified",
+	"added": "2026-09-26",
+	"sources": [
+		{
+			"type": "website",
+			"title": "Weird wiggles, or \"Further investigations into what a BBD Chorus unit really does\"",
+			"url": "https://electricdruid.net/weird-wiggles-bbd-clock-modulation/",
+			"author": "Tom Wiltshire (Electric Druid)",
+			"year": 2026,
+			"license": "CC BY-NC-SA 4.0"
+		},
+		{
+			"type": "website",
+			"title": "Investigations into what a BBD Chorus unit *really* does",
+			"url": "https://electricdruid.net/investigations-into-what-a-bbd-chorus-unit-really-does/",
+			"author": "Tom Wiltshire (Electric Druid)",
+			"year": 2015,
+			"license": "CC BY-NC-SA 4.0",
+			"note": "Superseded by the 2026 article."
+		},
+		{
+			"type": "website",
+			"title": "Modulated BBD Delay Simulation",
+			"url": "https://electricdruid.net/modulated-bbd-delay-simulation/",
+			"author": "Tom Wiltshire (Electric Druid)",
+			"year": 2015,
+			"license": "CC BY-NC-SA 4.0",
+			"note": "Interactive simulation."
+		}
+	]
+}

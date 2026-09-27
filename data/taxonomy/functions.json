@@ -115,5 +115,253 @@
 		"aliases": [
 			"wave shaping"
 		]
+	},
+	{
+		"id": "wavetable_synthesis",
+		"label": "Wavetable Synthesis",
+		"aliases": [
+			"wavetable"
+		]
+	},
+	{
+		"id": "phase_distortion",
+		"label": "Phase Distortion",
+		"aliases": [
+			"PD synthesis"
+		]
+	},
+	{
+		"id": "oscillator_sync",
+		"label": "Oscillator Sync",
+		"aliases": [
+			"hard sync",
+			"metal sync"
+		]
+	},
+	{
+		"id": "cross_modulation",
+		"label": "Cross Modulation",
+		"aliases": [
+			"cross mod",
+			"audio-rate FM"
+		]
+	},
+	{
+		"id": "pulse_width_modulation",
+		"label": "Pulse Width Modulation",
+		"aliases": [
+			"PWM"
+		]
+	},
+	{
+		"id": "envelope_generation",
+		"label": "Envelope Generation",
+		"aliases": [
+			"ADSR",
+			"envelope"
+		]
+	},
+	{
+		"id": "periodic_modulation",
+		"label": "Periodic Modulation",
+		"aliases": [
+			"LFO modulation",
+			"modulation source"
+		]
+	},
+	{
+		"id": "tap_tempo",
+		"label": "Tap Tempo"
+	},
+	{
+		"id": "delay_echo",
+		"label": "Delay / Echo",
+		"aliases": [
+			"echo",
+			"delay"
+		]
+	},
+	{
+		"id": "chorus_flanging",
+		"label": "Chorus / Flanging",
+		"aliases": [
+			"chorus",
+			"flanger",
+			"flanging"
+		]
+	},
+	{
+		"id": "pitch_modulation",
+		"label": "Pitch Modulation",
+		"aliases": [
+			"vibrato",
+			"pitch shift"
+		]
+	},
+	{
+		"id": "tremolo",
+		"label": "Tremolo",
+		"aliases": [
+			"amplitude modulation"
+		]
+	},
+	{
+		"id": "tone_shaping",
+		"label": "Tone Shaping",
+		"aliases": [
+			"EQ",
+			"mid control"
+		]
+	},
+	{
+		"id": "noise_generation",
+		"label": "Noise Generation",
+		"aliases": [
+			"white noise",
+			"pink noise"
+		]
+	},
+	{
+		"id": "random_modulation",
+		"label": "Random Modulation",
+		"aliases": [
+			"random voltages",
+			"sample and hold"
+		]
+	},
+	{
+		"id": "noise_reduction",
+		"label": "Noise Reduction",
+		"aliases": [
+			"companding"
+		]
+	},
+	{
+		"id": "crossfading",
+		"label": "Crossfading",
+		"aliases": [
+			"wet/dry mix",
+			"blend"
+		]
+	},
+	{
+		"id": "clock_conversion",
+		"label": "Clock Conversion",
+		"aliases": [
+			"MIDI clock",
+			"clock sync",
+			"gate pulses"
+		]
+	},
+	{
+		"id": "level_metering",
+		"label": "Level Metering",
+		"aliases": [
+			"VU",
+			"LED meter"
+		]
+	},
+	{
+		"id": "harmonic_analysis",
+		"label": "Harmonic Analysis",
+		"aliases": [
+			"Fourier",
+			"spectrum"
+		]
+	},
+	{
+		"id": "drum_synthesis",
+		"label": "Drum Synthesis",
+		"aliases": [
+			"analogue drums"
+		]
+	},
+	{
+		"id": "cv_smoothing",
+		"label": "CV Smoothing",
+		"aliases": [
+			"CV filtering",
+			"DAC filtering"
+		]
+	},
+	{
+		"id": "digital_waveform_generation",
+		"label": "Digital Waveform Generation",
+		"aliases": [
+			"DDS",
+			"digital oscillator"
+		]
+	},
+	{
+		"id": "polyphonic_tone_generation",
+		"label": "Polyphonic Tone Generation",
+		"aliases": [
+			"divide-down",
+			"string synth",
+			"organ tones"
+		]
+	},
+	{
+		"id": "wavefolding",
+		"label": "Wavefolding",
+		"aliases": [
+			"folding",
+			"timbre modulation"
+		]
+	},
+	{
+		"id": "through_zero_fm",
+		"label": "Through-Zero FM",
+		"aliases": [
+			"TZFM",
+			"thru zero"
+		]
+	},
+	{
+		"id": "dynamics_compression",
+		"label": "Dynamics Compression",
+		"aliases": [
+			"compressor",
+			"limiter"
+		]
+	},
+	{
+		"id": "attenuation",
+		"label": "Attenuation / Inversion",
+		"aliases": [
+			"attenuverter",
+			"CV scaling"
+		]
+	},
+	{
+		"id": "sequencing",
+		"label": "Sequencing",
+		"aliases": [
+			"step sequence"
+		]
+	},
+	{
+		"id": "envelope_following",
+		"label": "Envelope Following",
+		"aliases": [
+			"amplitude tracking"
+		]
+	},
+	{
+		"id": "signal_distribution",
+		"label": "Signal Distribution",
+		"aliases": [
+			"multiple",
+			"buffered mult",
+			"signal routing"
+		]
+	},
+	{
+		"id": "power_regulation",
+		"label": "Power Regulation",
+		"aliases": [
+			"power supply",
+			"bipolar supply"
+		]
 	}
 ]

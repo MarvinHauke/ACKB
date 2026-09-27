@@ -1,0 +1,32 @@
+{
+	"$schema": "../../schema/entry.schema.json",
+	"schemaVersion": 1,
+	"title": "Eurorack 3340 VCO Build",
+	"summary": "Build guide for a Eurorack VCO around the 3340 chip (AS3340/V3340), with background on the CEM3340 in classic synths, a schematic and breadboard layout.",
+	"circuitTypes": [
+		"oscillator"
+	],
+	"subcircuits": [
+		"vco_core",
+		"exponential_converter"
+	],
+	"functions": [
+		"exponential_response",
+		"pulse_width_modulation"
+	],
+	"ics": [
+		"cem3340",
+		"tl072"
+	],
+	"difficulty": "intermediate",
+	"confidence": "community-verified",
+	"added": "2026-09-26",
+	"sources": [
+		{
+			"type": "website",
+			"title": "Eurorack DIY 3340 VCO",
+			"url": "https://www.n8synth.co.uk/diy-eurorack/eurorack-3340-vco-part-1/",
+			"author": "N8 Synthesizers"
+		}
+	]
+}

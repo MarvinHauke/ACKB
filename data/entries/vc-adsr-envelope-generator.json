@@ -1,0 +1,41 @@
+{
+	"$schema": "../../schema/entry.schema.json",
+	"schemaVersion": 1,
+	"title": "VC ADSR Envelope Generator (PIC)",
+	"summary": "A cheap PIC-based clone of the CEM3312/SSM2056 voltage-controlled ADSR, plus notes on its firmware: A/D polling of the CVs, a DDS-style phase accumulator for the envelope stages, and lookup tables for the control response. Superseded by the EnvGen8 chip.",
+	"circuitTypes": [
+		"envelope"
+	],
+	"subcircuits": [
+		"microcontroller",
+		"dds_oscillator",
+		"dac_output"
+	],
+	"functions": [
+		"envelope_generation"
+	],
+	"ics": [
+		"pic"
+	],
+	"difficulty": "intermediate",
+	"confidence": "community",
+	"added": "2026-09-26",
+	"sources": [
+		{
+			"type": "website",
+			"title": "Voltage Controlled ADSR Envelope Generator (VC ADSR 7B)",
+			"url": "https://electricdruid.net/voltage-controlled-adsr-envelope-generator-vc-adsr-7b/",
+			"author": "Tom Wiltshire (Electric Druid)",
+			"year": 2008,
+			"license": "CC BY-NC-SA 4.0"
+		},
+		{
+			"type": "website",
+			"title": "Envelope Generator – Some notes on the code",
+			"url": "https://electricdruid.net/env-gen-some-notes/",
+			"author": "Tom Wiltshire (Electric Druid)",
+			"year": 2008,
+			"license": "CC BY-NC-SA 4.0"
+		}
+	]
+}
