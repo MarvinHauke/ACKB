@@ -121,7 +121,7 @@
 	<title>Analog Circuit Knowledge Base</title>
 	<meta
 		name="description"
-		content="Curated index of papers, datasheets and build logs on analog synthesizer circuits, searchable by subcircuit, function and IC."
+		content="Curated index of papers, datasheets and build logs on synthesizer circuits (analog, digital, mixed), searchable by subcircuit, function and IC."
 	/>
 </svelte:head>
 

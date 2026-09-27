@@ -1,6 +1,6 @@
 # ACKB: Analog Circuit Knowledge Base
 
-A searchable index of good resources on analog synthesizer circuits: papers, schematics, service
+A searchable index of good resources on synthesizer circuits (analog, digital or mixed): papers, schematics, service
 manuals, datasheets and build logs. It is not a wiki and doesn't copy anything. Resources stay on
 their original sites; ACKB stores the links, a short summary and tags.
 

@@ -1,29 +1,244 @@
 [
-	{ "id": "opamp_stage", "label": "Op-Amp Stage", "pdfOcrKind": "opamp_stage", "description": "Generic op-amp gain or buffer stage." },
-	{ "id": "inverting_amp", "label": "Inverting Amplifier", "parent": "opamp_stage", "pdfOcrKind": "inverting_amp", "aliases": ["inverter", "summing amplifier"] },
-	{ "id": "non_inverting_amp", "label": "Non-Inverting Amplifier", "parent": "opamp_stage", "pdfOcrKind": "non_inverting_amp" },
-	{ "id": "voltage_follower", "label": "Voltage Follower", "parent": "opamp_stage", "pdfOcrKind": "voltage_follower", "aliases": ["buffer", "unity-gain buffer", "op-amp buffer"] },
-	{ "id": "integrator", "label": "Integrator", "parent": "opamp_stage", "pdfOcrKind": "integrator", "aliases": ["filter pole", "OTA integrator"] },
-	{ "id": "comparator", "label": "Comparator Stage", "pdfOcrKind": "comparator", "aliases": ["schmitt trigger"] },
-	{ "id": "ota_stage", "label": "OTA Stage", "aliases": ["operational transconductance amplifier", "OTA"], "description": "Current-controlled transconductance stage (LM13700, CA3080, ...)." },
-	{ "id": "differential_pair", "label": "Differential Pair", "pdfOcrKind": "differential_pair", "aliases": ["long-tailed pair", "LTP"] },
-	{ "id": "current_mirror", "label": "Current Mirror", "pdfOcrKind": "current_mirror" },
-	{ "id": "emitter_follower", "label": "Emitter Follower", "pdfOcrKind": "emitter_follower", "aliases": ["common collector", "darlington buffer"] },
-	{ "id": "push_pull", "label": "Push-Pull Output", "pdfOcrKind": "push_pull", "aliases": ["class AB output"] },
-	{ "id": "exponential_converter", "label": "Exponential Converter", "aliases": ["expo converter", "exponentiator", "V/oct converter"] },
-	{ "id": "sallen_key", "label": "Sallen-Key Filter", "aliases": ["Sallen & Key", "KRC filter"], "description": "Two-pole filter with positive feedback around a gain element." },
-	{ "id": "state_variable", "label": "State-Variable Filter", "aliases": ["SVF", "multimode filter"] },
-	{ "id": "ladder_filter", "label": "Ladder Filter", "aliases": ["transistor ladder", "Moog ladder", "diode ladder"] },
-	{ "id": "feedback_network", "label": "Feedback Network", "aliases": ["resonance loop", "resonance path"] },
-	{ "id": "diode_limiter", "label": "Diode Limiter", "aliases": ["diode clipper", "LED limiter", "anti-parallel diodes"] },
-	{ "id": "bias_network", "label": "Bias Network", "aliases": ["bias resistor"] },
-	{ "id": "voltage_divider", "label": "Voltage Divider", "pdfOcrKind": "voltage_divider", "aliases": ["attenuator", "input attenuator"] },
-	{ "id": "rc_lowpass", "label": "RC Lowpass", "pdfOcrKind": "rc_lowpass", "aliases": ["RC filter", "passive lowpass"] },
-	{ "id": "rc_highpass", "label": "RC Highpass", "pdfOcrKind": "rc_highpass", "aliases": ["AC coupling", "DC blocker", "passive highpass"] },
-	{ "id": "linear_regulator", "label": "Linear Regulator", "pdfOcrKind": "linear_regulator", "aliases": ["7815", "LM317"] },
-	{ "id": "rectifier_bridge", "label": "Rectifier Bridge", "pdfOcrKind": "rectifier_bridge", "aliases": ["bridge rectifier"] },
-	{ "id": "decoupling_network", "label": "Decoupling Network", "pdfOcrKind": "decoupling_network" },
-	{ "id": "decoupling_cap", "label": "Decoupling Capacitor", "parent": "decoupling_network", "pdfOcrKind": "decoupling_cap", "aliases": ["bypass capacitor"] },
-	{ "id": "timer_555_astable", "label": "555 Astable", "pdfOcrKind": "timer_555_astable", "aliases": ["555 oscillator"] },
-	{ "id": "timer_555_monostable", "label": "555 Monostable", "pdfOcrKind": "timer_555_monostable", "aliases": ["555 one-shot"] }
+	{
+		"id": "opamp_stage",
+		"label": "Op-Amp Stage",
+		"pdfOcrKind": "opamp_stage",
+		"description": "Generic op-amp gain or buffer stage."
+	},
+	{
+		"id": "inverting_amp",
+		"label": "Inverting Amplifier",
+		"parent": "opamp_stage",
+		"pdfOcrKind": "inverting_amp",
+		"aliases": [
+			"inverter",
+			"summing amplifier"
+		]
+	},
+	{
+		"id": "non_inverting_amp",
+		"label": "Non-Inverting Amplifier",
+		"parent": "opamp_stage",
+		"pdfOcrKind": "non_inverting_amp"
+	},
+	{
+		"id": "voltage_follower",
+		"label": "Voltage Follower",
+		"parent": "opamp_stage",
+		"pdfOcrKind": "voltage_follower",
+		"aliases": [
+			"buffer",
+			"unity-gain buffer",
+			"op-amp buffer"
+		]
+	},
+	{
+		"id": "integrator",
+		"label": "Integrator",
+		"parent": "opamp_stage",
+		"pdfOcrKind": "integrator",
+		"aliases": [
+			"filter pole",
+			"OTA integrator"
+		]
+	},
+	{
+		"id": "comparator",
+		"label": "Comparator Stage",
+		"pdfOcrKind": "comparator",
+		"aliases": [
+			"schmitt trigger"
+		]
+	},
+	{
+		"id": "ota_stage",
+		"label": "OTA Stage",
+		"aliases": [
+			"operational transconductance amplifier",
+			"OTA"
+		],
+		"description": "Current-controlled transconductance stage (LM13700, CA3080, ...)."
+	},
+	{
+		"id": "differential_pair",
+		"label": "Differential Pair",
+		"pdfOcrKind": "differential_pair",
+		"aliases": [
+			"long-tailed pair",
+			"LTP"
+		]
+	},
+	{
+		"id": "current_mirror",
+		"label": "Current Mirror",
+		"pdfOcrKind": "current_mirror"
+	},
+	{
+		"id": "emitter_follower",
+		"label": "Emitter Follower",
+		"pdfOcrKind": "emitter_follower",
+		"aliases": [
+			"common collector",
+			"darlington buffer"
+		]
+	},
+	{
+		"id": "push_pull",
+		"label": "Push-Pull Output",
+		"pdfOcrKind": "push_pull",
+		"aliases": [
+			"class AB output"
+		]
+	},
+	{
+		"id": "exponential_converter",
+		"label": "Exponential Converter",
+		"aliases": [
+			"expo converter",
+			"exponentiator",
+			"V/oct converter"
+		]
+	},
+	{
+		"id": "sallen_key",
+		"label": "Sallen-Key Filter",
+		"aliases": [
+			"Sallen & Key",
+			"KRC filter"
+		],
+		"description": "Two-pole filter with positive feedback around a gain element."
+	},
+	{
+		"id": "state_variable",
+		"label": "State-Variable Filter",
+		"aliases": [
+			"SVF",
+			"multimode filter"
+		]
+	},
+	{
+		"id": "ladder_filter",
+		"label": "Ladder Filter",
+		"aliases": [
+			"transistor ladder",
+			"Moog ladder",
+			"diode ladder"
+		]
+	},
+	{
+		"id": "feedback_network",
+		"label": "Feedback Network",
+		"aliases": [
+			"resonance loop",
+			"resonance path"
+		]
+	},
+	{
+		"id": "diode_limiter",
+		"label": "Diode Limiter",
+		"aliases": [
+			"diode clipper",
+			"LED limiter",
+			"anti-parallel diodes"
+		]
+	},
+	{
+		"id": "bias_network",
+		"label": "Bias Network",
+		"aliases": [
+			"bias resistor"
+		]
+	},
+	{
+		"id": "voltage_divider",
+		"label": "Voltage Divider",
+		"pdfOcrKind": "voltage_divider",
+		"aliases": [
+			"attenuator",
+			"input attenuator"
+		]
+	},
+	{
+		"id": "rc_lowpass",
+		"label": "RC Lowpass",
+		"pdfOcrKind": "rc_lowpass",
+		"aliases": [
+			"RC filter",
+			"passive lowpass"
+		]
+	},
+	{
+		"id": "rc_highpass",
+		"label": "RC Highpass",
+		"pdfOcrKind": "rc_highpass",
+		"aliases": [
+			"AC coupling",
+			"DC blocker",
+			"passive highpass"
+		]
+	},
+	{
+		"id": "linear_regulator",
+		"label": "Linear Regulator",
+		"pdfOcrKind": "linear_regulator",
+		"aliases": [
+			"7815",
+			"LM317"
+		]
+	},
+	{
+		"id": "rectifier_bridge",
+		"label": "Rectifier Bridge",
+		"pdfOcrKind": "rectifier_bridge",
+		"aliases": [
+			"bridge rectifier"
+		]
+	},
+	{
+		"id": "decoupling_network",
+		"label": "Decoupling Network",
+		"pdfOcrKind": "decoupling_network"
+	},
+	{
+		"id": "decoupling_cap",
+		"label": "Decoupling Capacitor",
+		"parent": "decoupling_network",
+		"pdfOcrKind": "decoupling_cap",
+		"aliases": [
+			"bypass capacitor"
+		]
+	},
+	{
+		"id": "timer_555_astable",
+		"label": "555 Astable",
+		"pdfOcrKind": "timer_555_astable",
+		"aliases": [
+			"555 oscillator"
+		]
+	},
+	{
+		"id": "timer_555_monostable",
+		"label": "555 Monostable",
+		"pdfOcrKind": "timer_555_monostable",
+		"aliases": [
+			"555 one-shot"
+		]
+	},
+	{
+		"id": "frequency_divider",
+		"label": "Frequency Divider",
+		"aliases": [
+			"flip-flop divider",
+			"octave divider",
+			"bistable divider"
+		]
+	},
+	{
+		"id": "waveshaper",
+		"label": "Waveshaper",
+		"aliases": [
+			"wave shaper",
+			"waveshaping circuit"
+		]
+	}
 ]
