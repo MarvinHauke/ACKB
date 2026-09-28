@@ -37,8 +37,8 @@ circuits, modeled as a small knowledge graph in JSON). You never edit files. You
   explains an existing ACKB tag; never mirror an external site's structure. General sites belong
   on the planned Reference Shelf, not in the graph.
 - One article per link; the summary describes that article in own words (not a group, not copied).
-- Tags are specific and honest: only what the resource actually covers; `kinds` match what it is
-  (`reference` = consulted rather than studied: datasheets, app notes, calculators, textbooks).
+- Tags are specific and honest: only what the resource actually covers; `kinds` match the table
+  in `docs/taxonomy.md` ("Content kinds"; `reference` = consulted rather than studied).
 - Author credited (or `origin: manufacturer`), license notes where the site states them.
 
 **Architecture (docs/architecture.md)**

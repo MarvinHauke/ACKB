@@ -16,8 +16,8 @@ No server or REST API: the static lookup files cover that.
 3. **Data debt**: rewrite the inherited group summaries (`summaryFromGroup`, listed by
    `npm run validate -- --verbose`); review content kinds (Moritz Klein videos and Electric Druid
    projects are `explanation` only; add `build-guide` where you can build along).
-4. **`reference` kind defined**: datasheets, application notes, calculators, textbooks, tool
-   documentation.
+4. **`reference` kind defined**: datasheets, application notes, service manuals, calculators,
+   textbooks, tool documentation. Done 2026-09-29: "Content kinds" in `docs/taxonomy.md`.
 
 ## 2. Go live
 

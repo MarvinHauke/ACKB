@@ -55,9 +55,7 @@ The full checklist, including what CI checks on every pull request, is in
 | `kinds`        | one or more of `build-guide`, `explanation`, `analysis`, `schematic`, `reference`           |
 | `origin`       | optional: `manufacturer`, `academic`                                                         |
 
-`kinds` says what the resource is: `build-guide` (step by step, parts list, layout),
-`explanation` (how and why it works), `analysis` (maths, measurements, simulation),
-`schematic` (circuit diagrams without much text), `reference` (manuals, datasheets, calculators).
+`kinds` says what the resource is useful for; see "Content kinds" in `docs/taxonomy.md`.
 
 Confidence isn't set by hand; the build derives it: `official` for a `datasheet` or `manual` or
 `"origin": "manufacturer"`, `academic` for a `paper` or `patent` or `"origin": "academic"` (e.g. a
