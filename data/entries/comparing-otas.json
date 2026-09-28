@@ -4,8 +4,7 @@
 	"title": "Comparing the CA3080, AS3080, LM13600 and LM13700 OTAs",
 	"summary": "Why the LM13700 is not quite \"two CA3080s in one package\": a look at the current mirrors inside each OTA (Widlar, Wilson, PNP versions) and the differences between the LM13600 and LM13700 that matter in synth circuits.",
 	"circuitTypes": [
-		"vca",
-		"theory"
+		"vca"
 	],
 	"subcircuits": [
 		"ota_stage",

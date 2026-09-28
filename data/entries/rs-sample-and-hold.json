@@ -4,7 +4,7 @@
 	"title": "Sample and Hold with LF398",
 	"summary": "A ±10 V sample and hold around the LF398, for random voltages or sampling LFOs into stepped patterns.",
 	"circuitTypes": [
-		"utility"
+		"sequencer_clock"
 	],
 	"subcircuits": [
 		"sample_and_hold"

@@ -253,7 +253,8 @@
 		"aliases": [
 			"PIC16F684",
 			"PIC12F675",
-			"dsPIC"
+			"dsPIC",
+			"PIC16F690"
 		]
 	},
 	{
@@ -349,6 +350,41 @@
 		"status": "active",
 		"aliases": [
 			"LM337"
+		]
+	},
+	{
+		"id": "ltc2622",
+		"label": "LTC2622",
+		"manufacturer": "Analog Devices (Linear)",
+		"category": "dac",
+		"status": "active",
+		"aliases": [
+			"LTC2602",
+			"LTC2612"
+		]
+	},
+	{
+		"id": "lm3915",
+		"label": "LM3915",
+		"manufacturer": "TI (National)",
+		"category": "other",
+		"status": "obsolete",
+		"description": "Logarithmic (3 dB/step) LED bar/dot display driver.",
+		"aliases": [
+			"LM3914",
+			"LM3916"
+		]
+	},
+	{
+		"id": "fv1",
+		"label": "Spin FV-1",
+		"manufacturer": "Spin Semiconductor",
+		"category": "delay",
+		"status": "active",
+		"description": "Programmable DSP for reverb, delay and modulation effects.",
+		"aliases": [
+			"FV-1",
+			"Spin Semi FV-1"
 		]
 	}
 ]

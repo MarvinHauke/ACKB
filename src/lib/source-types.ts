@@ -2,7 +2,7 @@
 // it applies on every page, including prerendered entry pages, so it lives in localStorage.
 
 /** Same order as the enum in schema/entry.schema.json. */
-export const SOURCE_TYPES = ['website', 'paper', 'datasheet', 'patent', 'github', 'video', 'forum', 'manual', 'schematic'];
+export const SOURCE_TYPES = ['website', 'paper', 'datasheet', 'patent', 'repo', 'video', 'forum', 'manual', 'schematic'];
 
 const KEY = 'ackb:hidden-source-types';
 
@@ -22,4 +22,29 @@ export function saveHiddenTypes(types: string[]) {
 	} catch {
 		// Not persisted; still applies for this visit.
 	}
+}
+
+const HTTP_KEY = 'ackb:hide-http';
+
+/** Whether the reader chose to hide http:// links (off by default: many good old sites are http only). */
+export function loadHideHttp(): boolean {
+	try {
+		return localStorage.getItem(HTTP_KEY) === '1';
+	} catch {
+		return false;
+	}
+}
+
+export function saveHideHttp(hide: boolean) {
+	try {
+		if (hide) localStorage.setItem(HTTP_KEY, '1');
+		else localStorage.removeItem(HTTP_KEY);
+	} catch {
+		// Not persisted; still applies for this visit.
+	}
+}
+
+/** A source is visible unless its type is hidden, or it's http:// while http links are hidden. */
+export function sourceVisible(source: { type: string; secure: boolean }, hiddenTypes: string[], hideHttp: boolean) {
+	return !hiddenTypes.includes(source.type) && !(hideHttp && !source.secure);
 }

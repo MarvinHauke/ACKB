@@ -7,8 +7,7 @@
 		"boss"
 	],
 	"circuitTypes": [
-		"fx",
-		"theory"
+		"fx"
 	],
 	"subcircuits": [
 		"bbd_delay_line",

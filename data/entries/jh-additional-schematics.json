@@ -1,0 +1,33 @@
+{
+	"$schema": "../../schema/entry.schema.json",
+	"schemaVersion": 1,
+	"title": "Haible Schematic Collection: Ring Mod, Shift Register, Quadrature VCO",
+	"summary": "Smaller circuits from the JH-1 and JH-3: a one-OTA ring modulator, an analog shift register and a Schmitt-trigger/integrator quadrature VCO.",
+	"circuitTypes": [
+		"oscillator",
+		"fx"
+	],
+	"subcircuits": [
+		"ring_modulator",
+		"ota_stage",
+		"quadrature_oscillator",
+		"integrator"
+	],
+	"functions": [
+		"ring_modulation"
+	],
+	"ics": [
+		"ca3080"
+	],
+	"kinds": ["schematic"],
+	"added": "2026-09-28",
+	"sources": [
+		{
+			"type": "website",
+			"title": "Jürgen Haible: Schematics",
+			"url": "http://jhaible.com/legacy/additional_schemos.html",
+			"author": "Jürgen Haible",
+			"license": "non-commercial, educational use (Random*Source)"
+		}
+	]
+}

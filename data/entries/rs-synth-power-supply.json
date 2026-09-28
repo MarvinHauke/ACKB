@@ -4,16 +4,14 @@
 	"title": "Synth Power Supply Designs",
 	"summary": "Bipolar power supply schematics for synths: an LM317-based design and one using the LM325 dual tracking regulator with pass transistors for more current.",
 	"circuitTypes": [
-		"utility"
+		"power_supply"
 	],
 	"subcircuits": [
 		"linear_regulator",
 		"rectifier_bridge",
 		"decoupling_network"
 	],
-	"functions": [
-		"power_regulation"
-	],
+	"functions": [],
 	"ics": [
 		"lm317"
 	],

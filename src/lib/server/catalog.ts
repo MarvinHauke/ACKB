@@ -18,16 +18,20 @@ export function summarize(entry: Catalog['entries'][number]): EntrySummary {
 			RegistryKey,
 			string[]
 		>,
-		sourceTypes: [...new Set(entry.sources.map((s) => s.type))]
+		sources: entry.sources.map((s) => ({ type: s.type, secure: s.url.startsWith('https://') }))
 	};
 }
 
-/** Only the terms at least one entry uses, without descriptions: enough for filters. */
-export function usedTerms(): Record<RegistryKey, Pick<Term, 'id' | 'label' | 'count'>[]> {
+export type FilterTerm = Pick<Term, 'id' | 'label' | 'count' | 'group' | 'manufacturer' | 'category'>;
+
+/** Only the terms at least one entry uses, without descriptions: enough for the grouped filters. */
+export function usedTerms(): Record<RegistryKey, FilterTerm[]> {
 	return Object.fromEntries(
 		REGISTRY_KEYS.map((k) => [
 			k,
-			catalog.taxonomy[k].filter((t) => t.count > 0).map(({ id, label, count }) => ({ id, label, count }))
+			catalog.taxonomy[k]
+				.filter((t) => t.count > 0)
+				.map(({ id, label, count, group, manufacturer, category }) => ({ id, label, count, group, manufacturer, category }))
 		])
-	) as Record<RegistryKey, Pick<Term, 'id' | 'label' | 'count'>[]>;
+	) as Record<RegistryKey, FilterTerm[]>;
 }

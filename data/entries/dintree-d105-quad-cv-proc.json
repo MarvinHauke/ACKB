@@ -1,0 +1,28 @@
+{
+	"$schema": "../../schema/entry.schema.json",
+	"schemaVersion": 1,
+	"title": "Dintree D105 Quad CV Processor",
+	"summary": "Four channels that sum two inputs, scale them 0–2× and output both an inverted and a non-inverted copy; works for CV and audio.",
+	"circuitTypes": [
+		"utility"
+	],
+	"subcircuits": [
+		"inverting_amp",
+		"voltage_follower"
+	],
+	"functions": [
+		"attenuation",
+		"signal_inversion"
+	],
+	"kinds": ["schematic", "explanation"],
+	"added": "2026-09-28",
+	"sources": [
+		{
+			"type": "repo",
+			"title": "Dintree D105 Quad CV Proc: schematic, parts list and design notes",
+			"url": "https://github.com/hires/Dintree/tree/master/D105-Quad_CV_Proc",
+			"author": "Andrew Kilpatrick (Dintree)",
+			"license": "non-commercial, educational use"
+		}
+	]
+}

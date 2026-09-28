@@ -1,0 +1,34 @@
+{
+	"$schema": "../../schema/entry.schema.json",
+	"schemaVersion": 1,
+	"title": "Haible PolyKorg Clone (Korg PS-3200)",
+	"summary": "Updated rebuild of the fully polyphonic Korg PS-3200 semi-modular, with divide-down tone generation and one filter per key.",
+	"manufacturers": [
+		"korg"
+	],
+	"products": [
+		"ps-3200"
+	],
+	"circuitTypes": [
+		"oscillator",
+		"filter"
+	],
+	"subcircuits": [
+		"top_octave_generator",
+		"frequency_divider"
+	],
+	"functions": [
+		"polyphonic_tone_generation"
+	],
+	"kinds": ["explanation"],
+	"added": "2026-09-28",
+	"sources": [
+		{
+			"type": "website",
+			"title": "JH. PolyKorg Clone",
+			"url": "http://jhaible.com/legacy/polykorg/jh_polykorg_clone.html",
+			"author": "Jürgen Haible",
+			"license": "non-commercial, educational use (Random*Source)"
+		}
+	]
+}

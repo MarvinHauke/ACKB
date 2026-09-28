@@ -1,0 +1,33 @@
+{
+	"$schema": "../../schema/entry.schema.json",
+	"schemaVersion": 1,
+	"title": "Dintree D102 Output Mixer with LED Meters",
+	"summary": "Four-channel stereo output mixer with level and pan per channel, an NE5532 summing stage and LM3915 LED level meters driven by active rectifiers.",
+	"circuitTypes": [
+		"mixer"
+	],
+	"subcircuits": [
+		"inverting_amp",
+		"led_driver"
+	],
+	"functions": [
+		"level_metering",
+		"attenuation"
+	],
+	"ics": [
+		"ne5532",
+		"tl072",
+		"lm3915"
+	],
+	"kinds": ["schematic", "explanation"],
+	"added": "2026-09-28",
+	"sources": [
+		{
+			"type": "repo",
+			"title": "Dintree D102 Output Mixer: schematic, parts list and design notes",
+			"url": "https://github.com/hires/Dintree/tree/master/D102-Output_Mixer",
+			"author": "Andrew Kilpatrick (Dintree)",
+			"license": "non-commercial, educational use"
+		}
+	]
+}

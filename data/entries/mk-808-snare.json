@@ -13,7 +13,6 @@
 		"drum"
 	],
 	"subcircuits": [
-		"drum_voice",
 		"bridged_t_resonator",
 		"noise_generator"
 	],

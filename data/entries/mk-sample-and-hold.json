@@ -4,7 +4,7 @@
 	"title": "Designing a Sample & Hold Circuit",
 	"summary": "Video design of a sample and hold circuit from scratch: sampling a voltage on a trigger and holding it on a capacitor.",
 	"circuitTypes": [
-		"utility"
+		"sequencer_clock"
 	],
 	"subcircuits": [
 		"sample_and_hold",

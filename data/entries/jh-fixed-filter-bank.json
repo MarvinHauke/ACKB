@@ -1,0 +1,30 @@
+{
+	"$schema": "../../schema/entry.schema.json",
+	"schemaVersion": 1,
+	"title": "Haible Fixed Filter Bank (Moog 914 Style)",
+	"summary": "PCB project inspired by the Moog modular's fixed filter banks: parallel band-pass filters whose deep notches between bands give the characteristic sound.",
+	"manufacturers": [
+		"moog"
+	],
+	"products": [
+		"moog-modular"
+	],
+	"circuitTypes": [
+		"filter"
+	],
+	"functions": [
+		"bandpass_response",
+		"formant_filtering"
+	],
+	"kinds": ["explanation", "schematic"],
+	"added": "2026-09-28",
+	"sources": [
+		{
+			"type": "website",
+			"title": "JH. Fixed Filter Bank",
+			"url": "http://jhaible.com/legacy/ffb/fixed_filter_bank.html",
+			"author": "Jürgen Haible",
+			"license": "non-commercial, educational use (Random*Source)"
+		}
+	]
+}

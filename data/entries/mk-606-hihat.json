@@ -12,9 +12,7 @@
 	"circuitTypes": [
 		"drum"
 	],
-	"subcircuits": [
-		"drum_voice"
-	],
+	"subcircuits": [],
 	"functions": [
 		"drum_synthesis"
 	],

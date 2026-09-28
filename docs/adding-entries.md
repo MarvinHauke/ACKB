@@ -45,8 +45,9 @@ npm run validate
 
 | Field        | Values                                                                                       |
 | ------------ | -------------------------------------------------------------------------------------------- |
+| `circuitTypes` | module ids; may be empty for general topics (history, theory)                              |
 | `kinds`      | one or more of `build-guide`, `explanation`, `analysis`, `schematic`, `reference`             |
-| source type  | `website`, `paper`, `datasheet`, `patent`, `github`, `video`, `forum`, `manual`, `schematic` |
+| source type  | `website`, `paper`, `datasheet`, `patent`, `repo`, `video`, `forum`, `manual`, `schematic` |
 | source `origin` (optional) | `manufacturer`, `academic`                                                     |
 
 `kinds` says what the resources are: `build-guide` (step by step, parts list, layout),

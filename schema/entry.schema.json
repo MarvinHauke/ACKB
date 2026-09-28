@@ -5,7 +5,7 @@
 	"description": "One knowledge entry: a circuit topic with its external sources. The file name is the entry id.",
 	"type": "object",
 	"additionalProperties": false,
-	"required": ["schemaVersion", "title", "summary", "circuitTypes", "kinds", "added", "sources"],
+	"required": ["schemaVersion", "title", "summary", "kinds", "added", "sources"],
 	"properties": {
 		"$schema": { "type": "string" },
 		"schemaVersion": { "const": 1 },
@@ -13,7 +13,7 @@
 		"summary": { "type": "string", "minLength": 20, "maxLength": 600 },
 		"manufacturers": { "$ref": "#/$defs/idList", "description": "Ids from data/taxonomy/manufacturers.json" },
 		"products": { "$ref": "#/$defs/idList", "description": "Ids from data/taxonomy/products.json" },
-		"circuitTypes": { "$ref": "#/$defs/idList", "minItems": 1, "description": "Ids from data/taxonomy/circuit-types.json" },
+		"circuitTypes": { "$ref": "#/$defs/idList", "description": "Module ids from data/taxonomy/circuit-types.json; empty for general topics (history, theory)" },
 		"subcircuits": { "$ref": "#/$defs/idList", "description": "Ids from data/taxonomy/subcircuits.json" },
 		"functions": { "$ref": "#/$defs/idList", "description": "Ids from data/taxonomy/functions.json" },
 		"ics": { "$ref": "#/$defs/idList", "description": "Ids from data/taxonomy/ics.json" },
@@ -36,7 +36,7 @@
 			"additionalProperties": false,
 			"required": ["type", "title", "url"],
 			"properties": {
-				"type": { "enum": ["website", "paper", "datasheet", "patent", "github", "video", "forum", "manual", "schematic"] },
+				"type": { "enum": ["website", "paper", "datasheet", "patent", "repo", "video", "forum", "manual", "schematic"] },
 				"title": { "type": "string", "minLength": 3 },
 				"url": { "type": "string", "format": "uri", "pattern": "^https?://" },
 				"author": { "type": "string" },

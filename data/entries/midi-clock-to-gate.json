@@ -4,7 +4,7 @@
 	"title": "MIDI Clock to Analog Gate Pulses",
 	"summary": "A small chip that converts MIDI clock messages into analog clock and gate pulses to sync a modular synth or vintage gear to MIDI equipment.",
 	"circuitTypes": [
-		"utility"
+		"sequencer_clock"
 	],
 	"subcircuits": [
 		"midi_interface",

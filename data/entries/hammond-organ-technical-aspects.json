@@ -10,8 +10,7 @@
 		"hammond-b3"
 	],
 	"circuitTypes": [
-		"oscillator",
-		"theory"
+		"oscillator"
 	],
 	"functions": [
 		"polyphonic_tone_generation",

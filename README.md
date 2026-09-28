@@ -9,14 +9,14 @@ Live site: https://marvinhauke.github.io/ACKB/
 ## What an entry is
 
 One entry is one topic, for example "Korg MS-20 filter analysis". It collects several sources on
-that topic and tags them by manufacturer, instrument, circuit type, subcircuit (OTA stage, voltage
+that topic and tags them by manufacturer, instrument, module (VCO, filter, …), subcircuit (OTA stage, voltage
 follower, …), function (soft clipping, resonance, …) and IC (LM13700, TL072, …).
 
 ## Finding things
 
-Type in the search box (MS-20, LM13700, "buffer", …) or combine filters on the left, including
-the content kind (build guide, explanation, analysis, schematic, reference). Untick a source type
-(e.g. forum) to hide those links everywhere; your browser remembers it. Every tag has its own page,
+Type in the search box (MS-20, LM13700, "buffer", …) or combine filters on the left: instrument
+(maker with its products), module, the electronics in groups, and the kind of resource. Untick a
+source type (e.g. forum) or hide http:// links; your browser remembers it. Every tag has its own page,
 and each entry lists related entries and why they are related.
 
 ## How trustworthy is it

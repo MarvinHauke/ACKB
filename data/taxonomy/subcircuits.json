@@ -3,7 +3,8 @@
 		"id": "opamp_stage",
 		"label": "Op-Amp Stage",
 		"pdfOcrKind": "opamp_stage",
-		"description": "Generic op-amp gain or buffer stage."
+		"description": "Generic op-amp gain or buffer stage.",
+		"group": "opamp_stages"
 	},
 	{
 		"id": "inverting_amp",
@@ -13,13 +14,15 @@
 		"aliases": [
 			"inverter",
 			"summing amplifier"
-		]
+		],
+		"group": "opamp_stages"
 	},
 	{
 		"id": "non_inverting_amp",
 		"label": "Non-Inverting Amplifier",
 		"parent": "opamp_stage",
-		"pdfOcrKind": "non_inverting_amp"
+		"pdfOcrKind": "non_inverting_amp",
+		"group": "opamp_stages"
 	},
 	{
 		"id": "voltage_follower",
@@ -30,7 +33,8 @@
 			"buffer",
 			"unity-gain buffer",
 			"op-amp buffer"
-		]
+		],
+		"group": "opamp_stages"
 	},
 	{
 		"id": "integrator",
@@ -40,7 +44,8 @@
 		"aliases": [
 			"filter pole",
 			"OTA integrator"
-		]
+		],
+		"group": "opamp_stages"
 	},
 	{
 		"id": "comparator",
@@ -48,7 +53,8 @@
 		"pdfOcrKind": "comparator",
 		"aliases": [
 			"schmitt trigger"
-		]
+		],
+		"group": "opamp_stages"
 	},
 	{
 		"id": "ota_stage",
@@ -57,7 +63,8 @@
 			"operational transconductance amplifier",
 			"OTA"
 		],
-		"description": "Current-controlled transconductance stage (LM13700, CA3080, ...)."
+		"description": "Current-controlled transconductance stage (LM13700, CA3080, ...).",
+		"group": "transistor_stages"
 	},
 	{
 		"id": "differential_pair",
@@ -66,12 +73,14 @@
 		"aliases": [
 			"long-tailed pair",
 			"LTP"
-		]
+		],
+		"group": "transistor_stages"
 	},
 	{
 		"id": "current_mirror",
 		"label": "Current Mirror",
-		"pdfOcrKind": "current_mirror"
+		"pdfOcrKind": "current_mirror",
+		"group": "transistor_stages"
 	},
 	{
 		"id": "emitter_follower",
@@ -80,7 +89,8 @@
 		"aliases": [
 			"common collector",
 			"darlington buffer"
-		]
+		],
+		"group": "transistor_stages"
 	},
 	{
 		"id": "push_pull",
@@ -88,7 +98,8 @@
 		"pdfOcrKind": "push_pull",
 		"aliases": [
 			"class AB output"
-		]
+		],
+		"group": "transistor_stages"
 	},
 	{
 		"id": "exponential_converter",
@@ -97,7 +108,8 @@
 			"expo converter",
 			"exponentiator",
 			"V/oct converter"
-		]
+		],
+		"group": "transistor_stages"
 	},
 	{
 		"id": "sallen_key",
@@ -106,7 +118,8 @@
 			"Sallen & Key",
 			"KRC filter"
 		],
-		"description": "Two-pole filter with positive feedback around a gain element."
+		"description": "Two-pole filter with positive feedback around a gain element.",
+		"group": "filter_topologies"
 	},
 	{
 		"id": "state_variable",
@@ -114,7 +127,8 @@
 		"aliases": [
 			"SVF",
 			"multimode filter"
-		]
+		],
+		"group": "filter_topologies"
 	},
 	{
 		"id": "ladder_filter",
@@ -123,7 +137,8 @@
 			"transistor ladder",
 			"Moog ladder",
 			"diode ladder"
-		]
+		],
+		"group": "filter_topologies"
 	},
 	{
 		"id": "feedback_network",
@@ -131,7 +146,8 @@
 		"aliases": [
 			"resonance loop",
 			"resonance path"
-		]
+		],
+		"group": "passive_networks"
 	},
 	{
 		"id": "diode_limiter",
@@ -140,14 +156,16 @@
 			"diode clipper",
 			"LED limiter",
 			"anti-parallel diodes"
-		]
+		],
+		"group": "shaping_dynamics"
 	},
 	{
 		"id": "bias_network",
 		"label": "Bias Network",
 		"aliases": [
 			"bias resistor"
-		]
+		],
+		"group": "passive_networks"
 	},
 	{
 		"id": "voltage_divider",
@@ -156,7 +174,8 @@
 		"aliases": [
 			"attenuator",
 			"input attenuator"
-		]
+		],
+		"group": "passive_networks"
 	},
 	{
 		"id": "rc_lowpass",
@@ -165,7 +184,8 @@
 		"aliases": [
 			"RC filter",
 			"passive lowpass"
-		]
+		],
+		"group": "passive_networks"
 	},
 	{
 		"id": "rc_highpass",
@@ -175,7 +195,8 @@
 			"AC coupling",
 			"DC blocker",
 			"passive highpass"
-		]
+		],
+		"group": "passive_networks"
 	},
 	{
 		"id": "linear_regulator",
@@ -183,8 +204,10 @@
 		"pdfOcrKind": "linear_regulator",
 		"aliases": [
 			"7815",
-			"LM317"
-		]
+			"LM317",
+			"power regulation"
+		],
+		"group": "power"
 	},
 	{
 		"id": "rectifier_bridge",
@@ -192,12 +215,14 @@
 		"pdfOcrKind": "rectifier_bridge",
 		"aliases": [
 			"bridge rectifier"
-		]
+		],
+		"group": "power"
 	},
 	{
 		"id": "decoupling_network",
 		"label": "Decoupling Network",
-		"pdfOcrKind": "decoupling_network"
+		"pdfOcrKind": "decoupling_network",
+		"group": "power"
 	},
 	{
 		"id": "decoupling_cap",
@@ -206,7 +231,8 @@
 		"pdfOcrKind": "decoupling_cap",
 		"aliases": [
 			"bypass capacitor"
-		]
+		],
+		"group": "power"
 	},
 	{
 		"id": "timer_555_astable",
@@ -214,7 +240,8 @@
 		"pdfOcrKind": "timer_555_astable",
 		"aliases": [
 			"555 oscillator"
-		]
+		],
+		"group": "sources"
 	},
 	{
 		"id": "timer_555_monostable",
@@ -222,7 +249,8 @@
 		"pdfOcrKind": "timer_555_monostable",
 		"aliases": [
 			"555 one-shot"
-		]
+		],
+		"group": "time_switching"
 	},
 	{
 		"id": "frequency_divider",
@@ -231,7 +259,8 @@
 			"flip-flop divider",
 			"octave divider",
 			"bistable divider"
-		]
+		],
+		"group": "time_switching"
 	},
 	{
 		"id": "waveshaper",
@@ -239,7 +268,8 @@
 		"aliases": [
 			"wave shaper",
 			"waveshaping circuit"
-		]
+		],
+		"group": "shaping_dynamics"
 	},
 	{
 		"id": "vco_core",
@@ -248,7 +278,8 @@
 			"sawtooth core",
 			"ramp core",
 			"integrator reset"
-		]
+		],
+		"group": "sources"
 	},
 	{
 		"id": "dco_core",
@@ -256,7 +287,8 @@
 		"aliases": [
 			"digitally controlled oscillator",
 			"counter oscillator"
-		]
+		],
+		"group": "sources"
 	},
 	{
 		"id": "dds_oscillator",
@@ -265,7 +297,8 @@
 			"NCO",
 			"numerically controlled oscillator",
 			"phase accumulator"
-		]
+		],
+		"group": "sources"
 	},
 	{
 		"id": "top_octave_generator",
@@ -273,14 +306,16 @@
 		"aliases": [
 			"TOG",
 			"top octave synthesiser"
-		]
+		],
+		"group": "sources"
 	},
 	{
 		"id": "frequency_to_voltage",
 		"label": "Frequency-to-Voltage Converter",
 		"aliases": [
 			"F/V converter"
-		]
+		],
+		"group": "time_switching"
 	},
 	{
 		"id": "bbd_delay_line",
@@ -288,7 +323,8 @@
 		"aliases": [
 			"bucket brigade",
 			"BBD"
-		]
+		],
+		"group": "time_switching"
 	},
 	{
 		"id": "digital_delay_line",
@@ -296,7 +332,8 @@
 		"aliases": [
 			"PT2399 delay",
 			"sample memory delay"
-		]
+		],
+		"group": "time_switching"
 	},
 	{
 		"id": "clock_generator",
@@ -304,14 +341,16 @@
 		"aliases": [
 			"BBD clock",
 			"oscillator clock"
-		]
+		],
+		"group": "sources"
 	},
 	{
 		"id": "compander",
 		"label": "Compander",
 		"aliases": [
 			"compressor/expander"
-		]
+		],
+		"group": "shaping_dynamics"
 	},
 	{
 		"id": "tone_control",
@@ -319,14 +358,16 @@
 		"aliases": [
 			"EQ",
 			"tone stack"
-		]
+		],
+		"group": "filter_topologies"
 	},
 	{
 		"id": "lfsr",
 		"label": "LFSR Shift Register",
 		"aliases": [
 			"linear feedback shift register"
-		]
+		],
+		"group": "sources"
 	},
 	{
 		"id": "noise_generator",
@@ -334,23 +375,8 @@
 		"aliases": [
 			"noise source",
 			"white noise"
-		]
-	},
-	{
-		"id": "drum_voice",
-		"label": "Drum Voice",
-		"aliases": [
-			"bass drum circuit",
-			"snare circuit",
-			"cymbal generator"
-		]
-	},
-	{
-		"id": "sample_playback",
-		"label": "Sample Playback",
-		"aliases": [
-			"ROM sample player"
-		]
+		],
+		"group": "sources"
 	},
 	{
 		"id": "microcontroller",
@@ -358,7 +384,8 @@
 		"aliases": [
 			"MCU",
 			"firmware chip"
-		]
+		],
+		"group": "digital_interface"
 	},
 	{
 		"id": "dac_output",
@@ -366,7 +393,8 @@
 		"aliases": [
 			"DAC",
 			"CV DAC"
-		]
+		],
+		"group": "digital_interface"
 	},
 	{
 		"id": "vactrol",
@@ -374,7 +402,8 @@
 		"aliases": [
 			"LDR optocoupler",
 			"optical attenuator"
-		]
+		],
+		"group": "shaping_dynamics"
 	},
 	{
 		"id": "led_driver",
@@ -382,7 +411,8 @@
 		"aliases": [
 			"bargraph",
 			"level meter"
-		]
+		],
+		"group": "digital_interface"
 	},
 	{
 		"id": "midi_interface",
@@ -390,7 +420,8 @@
 		"aliases": [
 			"MIDI input",
 			"opto-isolated MIDI"
-		]
+		],
+		"group": "digital_interface"
 	},
 	{
 		"id": "sample_and_hold",
@@ -398,7 +429,8 @@
 		"aliases": [
 			"S&H",
 			"track and hold"
-		]
+		],
+		"group": "time_switching"
 	},
 	{
 		"id": "lowpass_gate",
@@ -406,7 +438,8 @@
 		"aliases": [
 			"LPG",
 			"vactrol gate"
-		]
+		],
+		"group": "filter_topologies"
 	},
 	{
 		"id": "wavefolder",
@@ -415,7 +448,8 @@
 			"wave folder",
 			"wave multiplier",
 			"timbre circuit"
-		]
+		],
+		"group": "shaping_dynamics"
 	},
 	{
 		"id": "envelope_follower",
@@ -423,7 +457,8 @@
 		"aliases": [
 			"peak detector",
 			"envelope detector"
-		]
+		],
+		"group": "shaping_dynamics"
 	},
 	{
 		"id": "cmos_inverter_stage",
@@ -431,7 +466,8 @@
 		"aliases": [
 			"4069 as amplifier",
 			"unbuffered inverter amp"
-		]
+		],
+		"group": "transistor_stages"
 	},
 	{
 		"id": "vacuum_tube_stage",
@@ -440,7 +476,8 @@
 			"valve",
 			"tube",
 			"thyratron"
-		]
+		],
+		"group": "transistor_stages"
 	},
 	{
 		"id": "bridged_t_resonator",
@@ -448,15 +485,8 @@
 		"aliases": [
 			"bridged T",
 			"resonant drum filter"
-		]
-	},
-	{
-		"id": "step_sequencer",
-		"label": "Step Sequencer",
-		"aliases": [
-			"4017 sequencer",
-			"sequencer"
-		]
+		],
+		"group": "filter_topologies"
 	},
 	{
 		"id": "analog_switch",
@@ -465,6 +495,49 @@
 			"CMOS switch",
 			"4066",
 			"4053"
+		],
+		"group": "time_switching"
+	},
+	{
+		"id": "allpass_stage",
+		"label": "All-Pass Stage",
+		"group": "filter_topologies",
+		"description": "First-order all-pass filter (op-amp, OTA or transistor), the building block of phasers.",
+		"aliases": [
+			"all-pass filter",
+			"phase shift stage",
+			"APF"
+		]
+	},
+	{
+		"id": "phase_shift_network",
+		"label": "Phase-Shift Network",
+		"group": "filter_topologies",
+		"description": "Wideband 90° network (dome filter / Hilbert approximation) used in frequency shifters and SSB modulators.",
+		"aliases": [
+			"dome filter",
+			"Hilbert transformer",
+			"90 degree network"
+		]
+	},
+	{
+		"id": "quadrature_oscillator",
+		"label": "Quadrature Oscillator",
+		"group": "sources",
+		"description": "Oscillator with sine/cosine (90° apart) outputs.",
+		"aliases": [
+			"quadrature VCO",
+			"sine-cosine oscillator"
+		]
+	},
+	{
+		"id": "ring_modulator",
+		"label": "Ring Modulator",
+		"group": "shaping_dynamics",
+		"description": "Four-quadrant multiplier: diode ring, transistor (MC1496) or OTA based.",
+		"aliases": [
+			"balanced modulator",
+			"four-quadrant multiplier"
 		]
 	}
 ]

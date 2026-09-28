@@ -4,10 +4,9 @@
 	"title": "Designing Analog Step Sequencers",
 	"summary": "Video designs of a simple 5-step sequencer from scratch, and a drum sequencer with an unconventional approach.",
 	"circuitTypes": [
-		"utility"
+		"sequencer_clock"
 	],
 	"subcircuits": [
-		"step_sequencer",
 		"clock_generator"
 	],
 	"functions": [

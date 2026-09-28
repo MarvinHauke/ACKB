@@ -14,7 +14,6 @@
 		"drum"
 	],
 	"subcircuits": [
-		"drum_voice",
 		"noise_generator",
 		"lfsr",
 		"microcontroller"

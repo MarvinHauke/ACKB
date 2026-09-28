@@ -4,7 +4,6 @@
 	"title": "Timbral Evolution: Harmonic Analysis of Classic Synth Sounds",
 	"summary": "How classic techniques make timbre change over time, analysed harmonically: pulse width modulation, sums and differences of phase-shifted waveforms, oscillator sync and phase distortion.",
 	"circuitTypes": [
-		"theory",
 		"oscillator"
 	],
 	"functions": [

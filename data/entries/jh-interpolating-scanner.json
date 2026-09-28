@@ -1,0 +1,35 @@
+{
+	"$schema": "../../schema/entry.schema.json",
+	"schemaVersion": 1,
+	"title": "Interpolating Scanner and Scanner Chorus / Vibrato",
+	"summary": "CV-controlled linear crossfade over several VCAs (the centre module of the JH-3), and its use as a Hammond-style scanner chorus/vibrato.",
+	"manufacturers": [
+		"hammond"
+	],
+	"products": [
+		"hammond-b3"
+	],
+	"circuitTypes": [
+		"vca",
+		"fx"
+	],
+	"subcircuits": [
+		"ota_stage"
+	],
+	"functions": [
+		"crossfading",
+		"chorus_flanging",
+		"periodic_modulation"
+	],
+	"kinds": ["explanation", "schematic"],
+	"added": "2026-09-28",
+	"sources": [
+		{
+			"type": "website",
+			"title": "JH. Interpolating Scanner and Scanner Chorus / Vibrato",
+			"url": "http://jhaible.com/legacy/interpolating_scanner_and_scanv/jh_interpolating_scanner_and_scanvib.html",
+			"author": "Jürgen Haible",
+			"license": "non-commercial, educational use (Random*Source)"
+		}
+	]
+}

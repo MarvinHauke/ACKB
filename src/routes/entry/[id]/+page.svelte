@@ -1,21 +1,36 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
 	import { resolve } from '$app/paths';
-	import { loadHiddenTypes, saveHiddenTypes } from '$lib/source-types';
+	import { loadHiddenTypes, loadHideHttp, saveHiddenTypes, saveHideHttp, sourceVisible } from '$lib/source-types';
 	import { KIND_LABEL, REGISTRY_KEYS, REGISTRY_META } from '$lib/types';
 
 	let { data } = $props();
 	const entry = $derived(data.entry);
 
-	// Source types unticked in the home page filters; read after hydration, so the prerendered page lists all.
+	// Source types / http links hidden in the home page filters; read after hydration, so the prerendered page lists all.
 	let hiddenTypes: string[] = $state([]);
-	onMount(() => (hiddenTypes = loadHiddenTypes()));
-	const visibleSources = $derived(entry.sources.filter((s) => !hiddenTypes.includes(s.type)));
-	const hiddenHere = $derived([...new Set(entry.sources.filter((s) => hiddenTypes.includes(s.type)).map((s) => s.type))]);
+	let hideHttp = $state(false);
+	onMount(() => {
+		hiddenTypes = loadHiddenTypes();
+		hideHttp = loadHideHttp();
+	});
+	const secure = (url: string) => url.startsWith('https://');
+	const visibleSources = $derived(
+		entry.sources.filter((s) => sourceVisible({ type: s.type, secure: secure(s.url) }, hiddenTypes, hideHttp))
+	);
+	const hiddenSources = $derived(entry.sources.filter((s) => !visibleSources.includes(s)));
+	// What the note names: the hidden types, plus "http" when links are hidden only for that reason.
+	const hiddenReasons = $derived([
+		...new Set(hiddenSources.map((s) => (hiddenTypes.includes(s.type) ? s.type : 'http')))
+	]);
 
 	function showHidden() {
-		hiddenTypes = hiddenTypes.filter((t) => !hiddenHere.includes(t));
+		hiddenTypes = hiddenTypes.filter((t) => !hiddenReasons.includes(t));
 		saveHiddenTypes(hiddenTypes);
+		if (hiddenReasons.includes('http')) {
+			hideHttp = false;
+			saveHideHttp(false);
+		}
 	}
 
 	const STATUS_TEXT: Record<string, string> = {
@@ -60,6 +75,11 @@
 				<div>
 					<a href={s.url} data-out={s.type} rel="noopener external">{s.title}</a>
 					<span class="host mono">{new URL(s.url).hostname.replace(/^www\./, '')}</span>
+					{#if !secure(s.url)}
+						<span class="insecure" title="Unencrypted http:// site. Fine for reading; never enter a password or personal data there."
+							>http</span
+						>
+					{/if}
 					{#if STATUS_TEXT[s.status]}
 						<span class="status status-{s.status}">{STATUS_TEXT[s.status]}</span>
 					{/if}
@@ -74,10 +94,10 @@
 			</li>
 		{/each}
 	</ul>
-	{#if hiddenHere.length}
-		{@const n = entry.sources.length - visibleSources.length}
+	{#if hiddenSources.length}
+		{@const n = hiddenSources.length}
 		<p class="hidden-note muted">
-			{n} {hiddenHere.join('/')} {n === 1 ? 'source' : 'sources'} hidden by your filters.
+			{n} {hiddenReasons.join('/')} {n === 1 ? 'source' : 'sources'} hidden by your filters.
 			<button class="link" onclick={showHidden}>Show</button>
 		</p>
 	{/if}
@@ -186,6 +206,15 @@
 	.archive {
 		font-size: 0.85rem;
 		margin-left: 0.4rem;
+	}
+
+	.insecure {
+		margin-left: 0.4rem;
+		padding: 0 0.3rem;
+		font-size: 0.75rem;
+		border: 1px solid var(--warn);
+		border-radius: 3px;
+		color: var(--warn);
 	}
 
 	.hidden-note {

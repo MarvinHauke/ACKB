@@ -4,8 +4,7 @@
 	"title": "OTA Tutorial: A Short Discussion of the LM13600/LM13700",
 	"summary": "Gene Zumchak's classic tutorial on operational transconductance amplifiers, hosted on René Schmitz's site: how the OTA works as a controllable amplifier and how the LM13600/LM13700 extend the CA3080.",
 	"circuitTypes": [
-		"vca",
-		"theory"
+		"vca"
 	],
 	"subcircuits": [
 		"ota_stage",

@@ -1,0 +1,33 @@
+{
+	"$schema": "../../schema/entry.schema.json",
+	"schemaVersion": 1,
+	"title": "Haible Subtle Chorus",
+	"summary": "Modular chorus project of three PCBs: a true-stereo dual-BBD chorus with voltage-controlled rate and depth like in Roland's analogue polysynths, expandable further.",
+	"manufacturers": [
+		"roland"
+	],
+	"products": [
+		"juno-6"
+	],
+	"circuitTypes": [
+		"fx"
+	],
+	"subcircuits": [
+		"bbd_delay_line",
+		"clock_generator"
+	],
+	"functions": [
+		"chorus_flanging"
+	],
+	"kinds": ["explanation", "schematic"],
+	"added": "2026-09-28",
+	"sources": [
+		{
+			"type": "website",
+			"title": "JH. Subtle Chorus",
+			"url": "http://jhaible.com/legacy/subtle_chorus/jh_subtle_chorus.html",
+			"author": "Jürgen Haible",
+			"license": "non-commercial, educational use (Random*Source)"
+		}
+	]
+}

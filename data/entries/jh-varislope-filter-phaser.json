@@ -1,0 +1,31 @@
+{
+	"$schema": "../../schema/entry.schema.json",
+	"schemaVersion": 1,
+	"title": "Haible Variable Slope Filter / Phaser",
+	"summary": "6-pole (36 dB/oct) low-pass with voltage-controlled slope and resonance that morphs into a phaser, with an on-board LFO and random sample & hold modulation.",
+	"circuitTypes": [
+		"filter",
+		"fx"
+	],
+	"subcircuits": [
+		"allpass_stage",
+		"sample_and_hold"
+	],
+	"functions": [
+		"lowpass_response",
+		"phasing",
+		"resonance_control",
+		"random_modulation"
+	],
+	"kinds": ["explanation"],
+	"added": "2026-09-28",
+	"sources": [
+		{
+			"type": "website",
+			"title": "Variable Slope Filter / Phaser",
+			"url": "http://jhaible.com/legacy/varislope_filter_phaser/varislope_filter_phaser.html",
+			"author": "Jürgen Haible",
+			"license": "non-commercial, educational use (Random*Source)"
+		}
+	]
+}

@@ -4,7 +4,7 @@
 	"title": "JFET Microphone Preamp",
 	"summary": "A shunt-regulated push-pull microphone preamp with JFETs: gain of about 100 to 1000, low distortion and noise, high input and low output impedance.",
 	"circuitTypes": [
-		"amplifier"
+		"utility"
 	],
 	"subcircuits": [
 		"push_pull"

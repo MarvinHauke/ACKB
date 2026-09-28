@@ -1,0 +1,33 @@
+{
+	"$schema": "../../schema/entry.schema.json",
+	"schemaVersion": 1,
+	"title": "Haible JH-720 Performance Synthesizer",
+	"summary": "A playable solo synth combining ideas from the Korg 700 and MS-20 with own circuits, e.g. an MS-20-inspired HADSR envelope; notes on ergonomic synth interfaces.",
+	"manufacturers": [
+		"korg"
+	],
+	"products": [
+		"korg-700",
+		"ms-20"
+	],
+	"circuitTypes": [
+		"oscillator",
+		"filter",
+		"envelope",
+		"vca"
+	],
+	"functions": [
+		"envelope_generation"
+	],
+	"kinds": ["explanation"],
+	"added": "2026-09-28",
+	"sources": [
+		{
+			"type": "website",
+			"title": "JH-720 Solo Synthesizer",
+			"url": "http://jhaible.com/legacy/jh_720.html",
+			"author": "Jürgen Haible",
+			"license": "non-commercial, educational use (Random*Source)"
+		}
+	]
+}

@@ -77,6 +77,12 @@ export function validate() {
 			if (!parent) errors.push(`data/taxonomy/${file}: "${term.id}" has unknown parent "${term.parent}"`);
 			else if (parent.parent) errors.push(`data/taxonomy/${file}: "${term.id}" is nested more than 2 levels`);
 		}
+		// Subcircuits and functions are shown in sidebar groups; a term without one would be hidden.
+		if (key === 'subcircuits' || key === 'functions') {
+			for (const term of terms) {
+				if (!term.group) warnings.push(`data/taxonomy/${file}: "${term.id}" has no group`);
+			}
+		}
 	}
 
 	const index = indexTaxonomy(taxonomy);

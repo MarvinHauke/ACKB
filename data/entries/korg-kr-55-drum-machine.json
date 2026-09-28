@@ -13,7 +13,6 @@
 		"drum"
 	],
 	"subcircuits": [
-		"drum_voice",
 		"noise_generator",
 		"frequency_divider"
 	],

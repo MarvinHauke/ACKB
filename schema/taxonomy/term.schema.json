@@ -37,6 +37,10 @@
 				"description": {
 					"type": "string"
 				},
+				"group": {
+					"$ref": "#/$defs/id",
+					"description": "Sidebar group (subcircuits and functions), e.g. opamp_stages; labels live in src/lib/types.ts"
+				},
 				"parent": {
 					"$ref": "#/$defs/id",
 					"description": "Id of a broader term in the same registry (max 2 levels)"

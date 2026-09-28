@@ -15,14 +15,6 @@
 		]
 	},
 	{
-		"id": "amplifier",
-		"label": "Amplifier",
-		"aliases": [
-			"preamp",
-			"output stage"
-		]
-	},
-	{
 		"id": "vca",
 		"label": "VCA",
 		"aliases": [
@@ -64,9 +56,10 @@
 		"id": "utility",
 		"label": "Utility",
 		"aliases": [
-			"power supply",
 			"CV processing",
-			"attenuator"
+			"attenuator",
+			"preamp",
+			"output stage"
 		]
 	},
 	{
@@ -87,12 +80,24 @@
 		]
 	},
 	{
-		"id": "theory",
-		"label": "Theory",
+		"id": "sequencer_clock",
+		"label": "Sequencer & Clock",
 		"aliases": [
-			"background",
-			"analysis",
-			"fundamentals"
+			"sequencer",
+			"step sequencer",
+			"clock",
+			"MIDI to CV",
+			"sample and hold"
+		]
+	},
+	{
+		"id": "power_supply",
+		"label": "Power Supply",
+		"aliases": [
+			"PSU",
+			"bus board",
+			"power regulation",
+			"power distribution"
 		]
 	}
 ]

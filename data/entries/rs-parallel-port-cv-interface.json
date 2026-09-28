@@ -4,7 +4,7 @@
 	"title": "PC Parallel-Port CV Interface",
 	"summary": "A CV interface driven from a PC parallel port as an alternative to MIDI-to-CV converters. The PC software is obsolete (Windows 98/ME), but the hardware idea is still documented.",
 	"circuitTypes": [
-		"utility"
+		"sequencer_clock"
 	],
 	"subcircuits": [
 		"dac_output"

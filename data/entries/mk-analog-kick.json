@@ -7,7 +7,6 @@
 		"drum"
 	],
 	"subcircuits": [
-		"drum_voice",
 		"bridged_t_resonator"
 	],
 	"functions": [

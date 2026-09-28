@@ -10,8 +10,7 @@
 		"cz-series"
 	],
 	"circuitTypes": [
-		"oscillator",
-		"theory"
+		"oscillator"
 	],
 	"subcircuits": [
 		"dds_oscillator"

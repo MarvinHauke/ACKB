@@ -1,0 +1,23 @@
+{
+	"$schema": "../../schema/entry.schema.json",
+	"schemaVersion": 1,
+	"title": "Dintree DSupply Minimal Power Supply",
+	"summary": "Minimal ±12 V Eurorack supply from a +15 V input using hand-solderable DC-DC converters, for one or two rows of modules.",
+	"circuitTypes": [
+		"power_supply"
+	],
+	"subcircuits": [
+		"decoupling_network"
+	],
+	"kinds": ["schematic", "explanation"],
+	"added": "2026-09-28",
+	"sources": [
+		{
+			"type": "repo",
+			"title": "Dintree DSupply Power Supply: schematic, parts list and design notes",
+			"url": "https://github.com/hires/Dintree/tree/master/DSupply-Power_Supply",
+			"author": "Andrew Kilpatrick (Dintree)",
+			"license": "non-commercial, educational use"
+		}
+	]
+}

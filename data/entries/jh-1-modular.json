@@ -1,0 +1,36 @@
+{
+	"$schema": "../../schema/entry.schema.json",
+	"schemaVersion": 1,
+	"title": "Haible JH-1 Processor Synthesizer",
+	"summary": "Early \"processor synth\" without VCOs, built from FX boxes for a Crumar Performer: one-3080 ring modulator, state-variable VCF, VCA, ADSR/AR, LFO, S&H.",
+	"circuitTypes": [
+		"filter",
+		"vca",
+		"envelope",
+		"lfo",
+		"fx"
+	],
+	"subcircuits": [
+		"ring_modulator",
+		"ota_stage",
+		"state_variable"
+	],
+	"functions": [
+		"ring_modulation",
+		"multimode_output"
+	],
+	"ics": [
+		"ca3080"
+	],
+	"kinds": ["explanation"],
+	"added": "2026-09-28",
+	"sources": [
+		{
+			"type": "website",
+			"title": "Modular Synthesizers: JH-1",
+			"url": "http://jhaible.com/legacy/tonline_stuff/hj_modul.html",
+			"author": "Jürgen Haible",
+			"license": "non-commercial, educational use (Random*Source)"
+		}
+	]
+}

@@ -10,13 +10,13 @@
 		"drum"
 	],
 	"subcircuits": [
-		"sample_playback",
 		"microcontroller",
 		"dac_output"
 	],
 	"functions": [
 		"drum_synthesis",
-		"pitch_modulation"
+		"pitch_modulation",
+		"sample_playback"
 	],
 	"ics": [
 		"pic"

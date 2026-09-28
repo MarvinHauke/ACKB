@@ -1,0 +1,38 @@
+{
+	"$schema": "../../schema/entry.schema.json",
+	"schemaVersion": 1,
+	"title": "Haible Living VCOs",
+	"summary": "A set of VCOs with the untamed bass of early EMS and Moog oscillators but good keyboard tracking over several octaves; compares CEM3340, Yamaha CS and MOTM VCOs.",
+	"manufacturers": [
+		"ems",
+		"moog"
+	],
+	"products": [
+		"vcs3"
+	],
+	"circuitTypes": [
+		"oscillator"
+	],
+	"subcircuits": [
+		"vco_core",
+		"exponential_converter"
+	],
+	"functions": [
+		"exponential_response",
+		"temperature_compensation"
+	],
+	"ics": [
+		"cem3340"
+	],
+	"kinds": ["explanation", "schematic"],
+	"added": "2026-09-28",
+	"sources": [
+		{
+			"type": "website",
+			"title": "JH. Living VCOs",
+			"url": "http://jhaible.com/legacy/living_vcos/jh_living_vcos.html",
+			"author": "Jürgen Haible",
+			"license": "non-commercial, educational use (Random*Source)"
+		}
+	]
+}
