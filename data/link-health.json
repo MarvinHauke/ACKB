@@ -1,5 +1,5 @@
 {
-	"generatedAt": "2026-09-28T15:32:37.665Z",
+	"generatedAt": "2026-09-28T16:46:39.195Z",
 	"links": [
 		{
 			"url": "http://jhaible.com/legacy/additional_schemos.html",
@@ -893,7 +893,7 @@
 			"finalUrl": "https://electricdruid.net/roland-filter-designs-with-the-ir3109-or-as3109/",
 			"lastChecked": "2026-09-28",
 			"lastOk": "2026-09-28",
-			"archiveUrl": null,
+			"archiveUrl": "https://web.archive.org/web/20260417000059/https://electricdruid.net/roland-filter-designs-with-the-ir3109-or-as3109/",
 			"usedBy": [
 				"data/articles/roland-ir3109-filter-designs.json"
 			]
@@ -2310,7 +2310,7 @@
 			"finalUrl": "https://www.youtube.com/watch?v=GZz8PJCfK1c",
 			"lastChecked": "2026-09-28",
 			"lastOk": "2026-09-28",
-			"archiveUrl": null,
+			"archiveUrl": "https://web.archive.org/web/20230322223120/https://www.youtube.com/watch?v=GZz8PJCfK1c",
 			"usedBy": [
 				"data/articles/ece4450-l2-4-the-synthularity-is-near.json"
 			]
