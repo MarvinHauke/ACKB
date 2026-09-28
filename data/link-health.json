@@ -1,5 +1,5 @@
 {
-	"generatedAt": "2026-09-26T15:04:17.927Z",
+	"generatedAt": "2026-09-28T10:59:11.886Z",
 	"links": [
 		{
 			"url": "https://easyeda.com/modules/MS20-filter-Rene-Schmitz-LMNC_cda7dfed02aa4135a7cf16ab391c4977",
@@ -7,11 +7,102 @@
 			"httpStatus": 200,
 			"redirects": 0,
 			"finalUrl": "https://easyeda.com/modules/MS20-filter-Rene-Schmitz-LMNC_cda7dfed02aa4135a7cf16ab391c4977",
-			"lastChecked": "2026-09-26",
-			"lastOk": "2026-09-26",
+			"lastChecked": "2026-09-28",
+			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
 				"data/entries/korg-ms20-late-filter-diy-builds.json"
+			]
+		},
+		{
+			"url": "https://electricdruid.net/a-graphic-wave-lfo/",
+			"status": "ok",
+			"httpStatus": 200,
+			"redirects": 0,
+			"finalUrl": "https://electricdruid.net/a-graphic-wave-lfo/",
+			"lastChecked": "2026-09-28",
+			"lastOk": "2026-09-28",
+			"archiveUrl": null,
+			"usedBy": [
+				"data/entries/graphic-wave-lfo.json"
+			]
+		},
+		{
+			"url": "https://electricdruid.net/a-study-of-sub-oscillators/",
+			"status": "ok",
+			"httpStatus": 200,
+			"redirects": 0,
+			"finalUrl": "https://electricdruid.net/a-study-of-sub-oscillators/",
+			"lastChecked": "2026-09-28",
+			"lastOk": "2026-09-28",
+			"archiveUrl": null,
+			"usedBy": [
+				"data/entries/electric-druid-sub-oscillators.json"
+			]
+		},
+		{
+			"url": "https://electricdruid.net/adding-vintage-hiss-crackle-and-pop/",
+			"status": "ok",
+			"httpStatus": 200,
+			"redirects": 0,
+			"finalUrl": "https://electricdruid.net/adding-vintage-hiss-crackle-and-pop/",
+			"lastChecked": "2026-09-28",
+			"lastOk": "2026-09-28",
+			"archiveUrl": null,
+			"usedBy": [
+				"data/entries/vintage-hiss-crackle-pop.json"
+			]
+		},
+		{
+			"url": "https://electricdruid.net/adventures-in-top-octave-generation/",
+			"status": "ok",
+			"httpStatus": 200,
+			"redirects": 0,
+			"finalUrl": "https://electricdruid.net/adventures-in-top-octave-generation/",
+			"lastChecked": "2026-09-28",
+			"lastOk": "2026-09-28",
+			"archiveUrl": null,
+			"usedBy": [
+				"data/entries/top-octave-generation.json"
+			]
+		},
+		{
+			"url": "https://electricdruid.net/analogue-drums-boss-dr-110-drum-machine/",
+			"status": "ok",
+			"httpStatus": 200,
+			"redirects": 0,
+			"finalUrl": "https://electricdruid.net/analogue-drums-boss-dr-110-drum-machine/",
+			"lastChecked": "2026-09-28",
+			"lastOk": "2026-09-28",
+			"archiveUrl": null,
+			"usedBy": [
+				"data/entries/boss-dr-110-drum-machine.json"
+			]
+		},
+		{
+			"url": "https://electricdruid.net/analogue-drums-korg-kr-55/",
+			"status": "ok",
+			"httpStatus": 200,
+			"redirects": 0,
+			"finalUrl": "https://electricdruid.net/analogue-drums-korg-kr-55/",
+			"lastChecked": "2026-09-28",
+			"lastOk": "2026-09-28",
+			"archiveUrl": null,
+			"usedBy": [
+				"data/entries/korg-kr-55-drum-machine.json"
+			]
+		},
+		{
+			"url": "https://electricdruid.net/boss-mt-2-metal-zone-pedal-analysis/",
+			"status": "ok",
+			"httpStatus": 200,
+			"redirects": 0,
+			"finalUrl": "https://electricdruid.net/boss-mt-2-metal-zone-pedal-analysis/",
+			"lastChecked": "2026-09-28",
+			"lastOk": "2026-09-28",
+			"archiveUrl": null,
+			"usedBy": [
+				"data/entries/boss-mt2-metal-zone-analysis.json"
 			]
 		},
 		{
@@ -20,11 +111,24 @@
 			"httpStatus": 200,
 			"redirects": 0,
 			"finalUrl": "https://electricdruid.net/cem3320-filter-designs/",
-			"lastChecked": "2026-09-26",
-			"lastOk": "2026-09-26",
+			"lastChecked": "2026-09-28",
+			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
 				"data/entries/electric-druid-filter-chip-designs.json"
+			]
+		},
+		{
+			"url": "https://electricdruid.net/cem3340-vco-voltage-controlled-oscillator-designs/",
+			"status": "ok",
+			"httpStatus": 200,
+			"redirects": 0,
+			"finalUrl": "https://electricdruid.net/cem3340-vco-voltage-controlled-oscillator-designs/",
+			"lastChecked": "2026-09-28",
+			"lastOk": "2026-09-28",
+			"archiveUrl": null,
+			"usedBy": [
+				"data/entries/cem3340-vco-designs.json"
 			]
 		},
 		{
@@ -33,11 +137,245 @@
 			"httpStatus": 200,
 			"redirects": 0,
 			"finalUrl": "https://electricdruid.net/comparing-otas/",
-			"lastChecked": "2026-09-26",
-			"lastOk": "2026-09-26",
+			"lastChecked": "2026-09-28",
+			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
 				"data/entries/comparing-otas.json"
+			]
+		},
+		{
+			"url": "https://electricdruid.net/design-a-eurorack-vintage-vca-with-the-lm13700/",
+			"status": "ok",
+			"httpStatus": 200,
+			"redirects": 0,
+			"finalUrl": "https://electricdruid.net/design-a-eurorack-vintage-vca-with-the-lm13700/",
+			"lastChecked": "2026-09-28",
+			"lastOk": "2026-09-28",
+			"archiveUrl": null,
+			"usedBy": [
+				"data/entries/lm13700-eurorack-vca.json"
+			]
+		},
+		{
+			"url": "https://electricdruid.net/designing-a-classic-overdrive/",
+			"status": "ok",
+			"httpStatus": 200,
+			"redirects": 0,
+			"finalUrl": "https://electricdruid.net/designing-a-classic-overdrive/",
+			"lastChecked": "2026-09-28",
+			"lastOk": "2026-09-28",
+			"archiveUrl": null,
+			"usedBy": [
+				"data/entries/classic-overdrive-design.json"
+			]
+		},
+		{
+			"url": "https://electricdruid.net/designing-the-hard-bargain-distortion-pedal/",
+			"status": "ok",
+			"httpStatus": 200,
+			"redirects": 0,
+			"finalUrl": "https://electricdruid.net/designing-the-hard-bargain-distortion-pedal/",
+			"lastChecked": "2026-09-28",
+			"lastOk": "2026-09-28",
+			"archiveUrl": null,
+			"usedBy": [
+				"data/entries/hard-bargain-distortion.json"
+			]
+		},
+		{
+			"url": "https://electricdruid.net/digitech-pds-1550-distortion-pedal-analysis/",
+			"status": "ok",
+			"httpStatus": 200,
+			"redirects": 0,
+			"finalUrl": "https://electricdruid.net/digitech-pds-1550-distortion-pedal-analysis/",
+			"lastChecked": "2026-09-28",
+			"lastOk": "2026-09-28",
+			"archiveUrl": null,
+			"usedBy": [
+				"data/entries/digitech-pds-1550-analysis.json"
+			]
+		},
+		{
+			"url": "https://electricdruid.net/direct-digital-synthesis/",
+			"status": "ok",
+			"httpStatus": 200,
+			"redirects": 0,
+			"finalUrl": "https://electricdruid.net/direct-digital-synthesis/",
+			"lastChecked": "2026-09-28",
+			"lastOk": "2026-09-28",
+			"archiveUrl": null,
+			"usedBy": [
+				"data/entries/direct-digital-synthesis.json"
+			]
+		},
+		{
+			"url": "https://electricdruid.net/diy-digital-delay/",
+			"status": "ok",
+			"httpStatus": 200,
+			"redirects": 0,
+			"finalUrl": "https://electricdruid.net/diy-digital-delay/",
+			"lastChecked": "2026-09-28",
+			"lastOk": "2026-09-28",
+			"archiveUrl": null,
+			"usedBy": [
+				"data/entries/diy-digital-delay.json"
+			]
+		},
+		{
+			"url": "https://electricdruid.net/env-gen-some-notes/",
+			"status": "ok",
+			"httpStatus": 200,
+			"redirects": 0,
+			"finalUrl": "https://electricdruid.net/env-gen-some-notes/",
+			"lastChecked": "2026-09-28",
+			"lastOk": "2026-09-28",
+			"archiveUrl": null,
+			"usedBy": [
+				"data/entries/vc-adsr-envelope-generator.json"
+			]
+		},
+		{
+			"url": "https://electricdruid.net/experiments-with-variable-rate-drum-sample-playback/",
+			"status": "ok",
+			"httpStatus": 200,
+			"redirects": 0,
+			"finalUrl": "https://electricdruid.net/experiments-with-variable-rate-drum-sample-playback/",
+			"lastChecked": "2026-09-28",
+			"lastOk": "2026-09-28",
+			"archiveUrl": null,
+			"usedBy": [
+				"data/entries/variable-rate-drum-samples.json"
+			]
+		},
+		{
+			"url": "https://electricdruid.net/filterfx-lp-bp-hp-lfo-filter/",
+			"status": "ok",
+			"httpStatus": 200,
+			"redirects": 0,
+			"finalUrl": "https://electricdruid.net/filterfx-lp-bp-hp-lfo-filter/",
+			"lastChecked": "2026-09-28",
+			"lastOk": "2026-09-28",
+			"archiveUrl": null,
+			"usedBy": [
+				"data/entries/filterfx-lfo-filter-pedal.json"
+			]
+		},
+		{
+			"url": "https://electricdruid.net/flangelicious-a-super-dooper-flanger/",
+			"status": "ok",
+			"httpStatus": 200,
+			"redirects": 0,
+			"finalUrl": "https://electricdruid.net/flangelicious-a-super-dooper-flanger/",
+			"lastChecked": "2026-09-28",
+			"lastOk": "2026-09-28",
+			"archiveUrl": null,
+			"usedBy": [
+				"data/entries/flangelicious-flanger.json"
+			]
+		},
+		{
+			"url": "https://electricdruid.net/fourier-analysis-for-non-mathematicians/",
+			"status": "ok",
+			"httpStatus": 200,
+			"redirects": 0,
+			"finalUrl": "https://electricdruid.net/fourier-analysis-for-non-mathematicians/",
+			"lastChecked": "2026-09-28",
+			"lastOk": "2026-09-28",
+			"archiveUrl": null,
+			"usedBy": [
+				"data/entries/fourier-analysis-non-mathematicians.json"
+			]
+		},
+		{
+			"url": "https://electricdruid.net/highpass-filters-in-synths/",
+			"status": "ok",
+			"httpStatus": 200,
+			"redirects": 0,
+			"finalUrl": "https://electricdruid.net/highpass-filters-in-synths/",
+			"lastChecked": "2026-09-28",
+			"lastOk": "2026-09-28",
+			"archiveUrl": null,
+			"usedBy": [
+				"data/entries/highpass-filters-in-synths.json"
+			]
+		},
+		{
+			"url": "https://electricdruid.net/investigations-into-what-a-bbd-chorus-unit-really-does/",
+			"status": "ok",
+			"httpStatus": 200,
+			"redirects": 0,
+			"finalUrl": "https://electricdruid.net/investigations-into-what-a-bbd-chorus-unit-really-does/",
+			"lastChecked": "2026-09-28",
+			"lastOk": "2026-09-28",
+			"archiveUrl": null,
+			"usedBy": [
+				"data/entries/bbd-chorus-clock-modulation.json"
+			]
+		},
+		{
+			"url": "https://electricdruid.net/jupiter4osc/",
+			"status": "ok",
+			"httpStatus": 200,
+			"redirects": 0,
+			"finalUrl": "https://electricdruid.net/jupiter4osc/",
+			"lastChecked": "2026-09-28",
+			"lastOk": "2026-09-28",
+			"archiveUrl": null,
+			"usedBy": [
+				"data/entries/roland-jupiter-4-oscillator.json"
+			]
+		},
+		{
+			"url": "https://electricdruid.net/led-bargraph-audio-level-display/",
+			"status": "ok",
+			"httpStatus": 200,
+			"redirects": 0,
+			"finalUrl": "https://electricdruid.net/led-bargraph-audio-level-display/",
+			"lastChecked": "2026-09-28",
+			"lastOk": "2026-09-28",
+			"archiveUrl": null,
+			"usedBy": [
+				"data/entries/led-bargraph-level-display.json"
+			]
+		},
+		{
+			"url": "https://electricdruid.net/midi-clock-to-analog-gate-pulses/",
+			"status": "ok",
+			"httpStatus": 200,
+			"redirects": 0,
+			"finalUrl": "https://electricdruid.net/midi-clock-to-analog-gate-pulses/",
+			"lastChecked": "2026-09-28",
+			"lastOk": "2026-09-28",
+			"archiveUrl": null,
+			"usedBy": [
+				"data/entries/midi-clock-to-gate.json"
+			]
+		},
+		{
+			"url": "https://electricdruid.net/modulated-bbd-delay-simulation/",
+			"status": "ok",
+			"httpStatus": 200,
+			"redirects": 0,
+			"finalUrl": "https://electricdruid.net/modulated-bbd-delay-simulation/",
+			"lastChecked": "2026-09-28",
+			"lastOk": "2026-09-28",
+			"archiveUrl": null,
+			"usedBy": [
+				"data/entries/bbd-chorus-clock-modulation.json"
+			]
+		},
+		{
+			"url": "https://electricdruid.net/moog-911-adsr-envelope-generator-clone/",
+			"status": "ok",
+			"httpStatus": 200,
+			"redirects": 0,
+			"finalUrl": "https://electricdruid.net/moog-911-adsr-envelope-generator-clone/",
+			"lastChecked": "2026-09-28",
+			"lastOk": "2026-09-28",
+			"archiveUrl": null,
+			"usedBy": [
+				"data/entries/moog-911-adsr-clone.json"
 			]
 		},
 		{
@@ -46,8 +384,8 @@
 			"httpStatus": 200,
 			"redirects": 0,
 			"finalUrl": "https://electricdruid.net/multimode-filters-part-1-reconfigurable-filters/",
-			"lastChecked": "2026-09-26",
-			"lastOk": "2026-09-26",
+			"lastChecked": "2026-09-28",
+			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
 				"data/entries/electric-druid-multimode-filters.json"
@@ -59,11 +397,180 @@
 			"httpStatus": 200,
 			"redirects": 0,
 			"finalUrl": "https://electricdruid.net/multimode-filters-part-2-pole-mixing-filters/",
-			"lastChecked": "2026-09-26",
-			"lastOk": "2026-09-26",
+			"lastChecked": "2026-09-28",
+			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
 				"data/entries/electric-druid-multimode-filters.json"
+			]
+		},
+		{
+			"url": "https://electricdruid.net/noise-reduction-with-companders/",
+			"status": "ok",
+			"httpStatus": 200,
+			"redirects": 0,
+			"finalUrl": "https://electricdruid.net/noise-reduction-with-companders/",
+			"lastChecked": "2026-09-28",
+			"lastOk": "2026-09-28",
+			"archiveUrl": null,
+			"usedBy": [
+				"data/entries/noise-reduction-companders.json"
+			]
+		},
+		{
+			"url": "https://electricdruid.net/noise2-white-pink-noise-source/",
+			"status": "ok",
+			"httpStatus": 200,
+			"redirects": 0,
+			"finalUrl": "https://electricdruid.net/noise2-white-pink-noise-source/",
+			"lastChecked": "2026-09-28",
+			"lastOk": "2026-09-28",
+			"archiveUrl": null,
+			"usedBy": [
+				"data/entries/noise2-white-pink-noise.json"
+			]
+		},
+		{
+			"url": "https://electricdruid.net/one-shot-event-generator/",
+			"status": "ok",
+			"httpStatus": 200,
+			"redirects": 0,
+			"finalUrl": "https://electricdruid.net/one-shot-event-generator/",
+			"lastChecked": "2026-09-28",
+			"lastOk": "2026-09-28",
+			"archiveUrl": null,
+			"usedBy": [
+				"data/entries/one-shot-event-generator.json"
+			]
+		},
+		{
+			"url": "https://electricdruid.net/phase-distortion-synthesis/",
+			"status": "ok",
+			"httpStatus": 200,
+			"redirects": 0,
+			"finalUrl": "https://electricdruid.net/phase-distortion-synthesis/",
+			"lastChecked": "2026-09-28",
+			"lastOk": "2026-09-28",
+			"archiveUrl": null,
+			"usedBy": [
+				"data/entries/phase-distortion-synthesis.json"
+			]
+		},
+		{
+			"url": "https://electricdruid.net/practical-lfsr-random-number-generators/",
+			"status": "ok",
+			"httpStatus": 200,
+			"redirects": 0,
+			"finalUrl": "https://electricdruid.net/practical-lfsr-random-number-generators/",
+			"lastChecked": "2026-09-28",
+			"lastOk": "2026-09-28",
+			"archiveUrl": null,
+			"usedBy": [
+				"data/entries/lfsr-random-number-generators.json"
+			]
+		},
+		{
+			"url": "https://electricdruid.net/rc-filter-calc/",
+			"status": "ok",
+			"httpStatus": 200,
+			"redirects": 0,
+			"finalUrl": "https://electricdruid.net/rc-filter-calc/",
+			"lastChecked": "2026-09-28",
+			"lastOk": "2026-09-28",
+			"archiveUrl": null,
+			"usedBy": [
+				"data/entries/rc-filter-calculator.json"
+			]
+		},
+		{
+			"url": "https://electricdruid.net/rc-filtering-for-ssm2164-cvs-fed-from-dacs/",
+			"status": "ok",
+			"httpStatus": 200,
+			"redirects": 0,
+			"finalUrl": "https://electricdruid.net/rc-filtering-for-ssm2164-cvs-fed-from-dacs/",
+			"lastChecked": "2026-09-28",
+			"lastOk": "2026-09-28",
+			"archiveUrl": null,
+			"usedBy": [
+				"data/entries/ssm2164-dac-cv-filtering.json"
+			]
+		},
+		{
+			"url": "https://electricdruid.net/roland-cross-mod-metal-sync/",
+			"status": "ok",
+			"httpStatus": 200,
+			"redirects": 0,
+			"finalUrl": "https://electricdruid.net/roland-cross-mod-metal-sync/",
+			"lastChecked": "2026-09-28",
+			"lastOk": "2026-09-28",
+			"archiveUrl": null,
+			"usedBy": [
+				"data/entries/roland-cross-mod-metal-sync.json"
+			]
+		},
+		{
+			"url": "https://electricdruid.net/roland-filter-designs-with-the-ir3109-or-as3109/",
+			"status": "ok",
+			"httpStatus": 200,
+			"redirects": 0,
+			"finalUrl": "https://electricdruid.net/roland-filter-designs-with-the-ir3109-or-as3109/",
+			"lastChecked": "2026-09-28",
+			"lastOk": "2026-09-28",
+			"archiveUrl": null,
+			"usedBy": [
+				"data/entries/roland-ir3109-filter-designs.json"
+			]
+		},
+		{
+			"url": "https://electricdruid.net/roland-juno-dcos/",
+			"status": "ok",
+			"httpStatus": 200,
+			"redirects": 0,
+			"finalUrl": "https://electricdruid.net/roland-juno-dcos/",
+			"lastChecked": "2026-09-28",
+			"lastOk": "2026-09-28",
+			"archiveUrl": null,
+			"usedBy": [
+				"data/entries/roland-juno-dco.json"
+			]
+		},
+		{
+			"url": "https://electricdruid.net/sh101-replacement-processor-a-feasibility-study/",
+			"status": "ok",
+			"httpStatus": 200,
+			"redirects": 0,
+			"finalUrl": "https://electricdruid.net/sh101-replacement-processor-a-feasibility-study/",
+			"lastChecked": "2026-09-28",
+			"lastOk": "2026-09-28",
+			"archiveUrl": null,
+			"usedBy": [
+				"data/entries/sh-101-replacement-processor.json"
+			]
+		},
+		{
+			"url": "https://electricdruid.net/single-vca-crossfader/",
+			"status": "ok",
+			"httpStatus": 200,
+			"redirects": 0,
+			"finalUrl": "https://electricdruid.net/single-vca-crossfader/",
+			"lastChecked": "2026-09-28",
+			"lastOk": "2026-09-28",
+			"archiveUrl": null,
+			"usedBy": [
+				"data/entries/single-vca-crossfader.json"
+			]
+		},
+		{
+			"url": "https://electricdruid.net/slapback-echo/",
+			"status": "ok",
+			"httpStatus": 200,
+			"redirects": 0,
+			"finalUrl": "https://electricdruid.net/slapback-echo/",
+			"lastChecked": "2026-09-28",
+			"lastOk": "2026-09-28",
+			"archiveUrl": null,
+			"usedBy": [
+				"data/entries/slapback-echo-pedal.json"
 			]
 		},
 		{
@@ -72,11 +579,219 @@
 			"httpStatus": 200,
 			"redirects": 0,
 			"finalUrl": "https://electricdruid.net/ssm2044-lp-filter-designs/",
-			"lastChecked": "2026-09-26",
-			"lastOk": "2026-09-26",
+			"lastChecked": "2026-09-28",
+			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
 				"data/entries/electric-druid-filter-chip-designs.json"
+			]
+		},
+		{
+			"url": "https://electricdruid.net/tap-tempo-lfo-taplfo-v2d/",
+			"status": "ok",
+			"httpStatus": 200,
+			"redirects": 0,
+			"finalUrl": "https://electricdruid.net/tap-tempo-lfo-taplfo-v2d/",
+			"lastChecked": "2026-09-28",
+			"lastOk": "2026-09-28",
+			"archiveUrl": null,
+			"usedBy": [
+				"data/entries/tap-tempo-lfo.json"
+			]
+		},
+		{
+			"url": "https://electricdruid.net/taplfo-3c-squashing-the-bug/",
+			"status": "ok",
+			"httpStatus": 200,
+			"redirects": 0,
+			"finalUrl": "https://electricdruid.net/taplfo-3c-squashing-the-bug/",
+			"lastChecked": "2026-09-28",
+			"lastOk": "2026-09-28",
+			"archiveUrl": null,
+			"usedBy": [
+				"data/entries/tap-tempo-lfo.json"
+			]
+		},
+		{
+			"url": "https://electricdruid.net/technical-aspects-of-the-hammond-organ/",
+			"status": "ok",
+			"httpStatus": 200,
+			"redirects": 0,
+			"finalUrl": "https://electricdruid.net/technical-aspects-of-the-hammond-organ/",
+			"lastChecked": "2026-09-28",
+			"lastOk": "2026-09-28",
+			"archiveUrl": null,
+			"usedBy": [
+				"data/entries/hammond-organ-technical-aspects.json"
+			]
+		},
+		{
+			"url": "https://electricdruid.net/timbral-evolution-harmonic-analysis-of-classic-synth-sounds/",
+			"status": "ok",
+			"httpStatus": 200,
+			"redirects": 0,
+			"finalUrl": "https://electricdruid.net/timbral-evolution-harmonic-analysis-of-classic-synth-sounds/",
+			"lastChecked": "2026-09-28",
+			"lastOk": "2026-09-28",
+			"archiveUrl": null,
+			"usedBy": [
+				"data/entries/timbral-evolution-harmonic-analysis.json"
+			]
+		},
+		{
+			"url": "https://electricdruid.net/tr-909-noise-generator/",
+			"status": "ok",
+			"httpStatus": 200,
+			"redirects": 0,
+			"finalUrl": "https://electricdruid.net/tr-909-noise-generator/",
+			"lastChecked": "2026-09-28",
+			"lastOk": "2026-09-28",
+			"archiveUrl": null,
+			"usedBy": [
+				"data/entries/tr-909-noise-generator.json"
+			]
+		},
+		{
+			"url": "https://electricdruid.net/two-stomplfo-projects-mini-tremolo/",
+			"status": "ok",
+			"httpStatus": 200,
+			"redirects": 0,
+			"finalUrl": "https://electricdruid.net/two-stomplfo-projects-mini-tremolo/",
+			"lastChecked": "2026-09-28",
+			"lastOk": "2026-09-28",
+			"archiveUrl": null,
+			"usedBy": [
+				"data/entries/stomplfo-projects.json"
+			]
+		},
+		{
+			"url": "https://electricdruid.net/two-stomplfo-projects-ptwobble/",
+			"status": "ok",
+			"httpStatus": 200,
+			"redirects": 0,
+			"finalUrl": "https://electricdruid.net/two-stomplfo-projects-ptwobble/",
+			"lastChecked": "2026-09-28",
+			"lastOk": "2026-09-28",
+			"archiveUrl": null,
+			"usedBy": [
+				"data/entries/stomplfo-projects.json"
+			]
+		},
+		{
+			"url": "https://electricdruid.net/useful-design-equations-for-the-pt2399/",
+			"status": "ok",
+			"httpStatus": 200,
+			"redirects": 0,
+			"finalUrl": "https://electricdruid.net/useful-design-equations-for-the-pt2399/",
+			"lastChecked": "2026-09-28",
+			"lastOk": "2026-09-28",
+			"archiveUrl": null,
+			"usedBy": [
+				"data/entries/pt2399-design-equations.json"
+			]
+		},
+		{
+			"url": "https://electricdruid.net/voltage-controlled-adsr-envelope-generator-vc-adsr-7b/",
+			"status": "ok",
+			"httpStatus": 200,
+			"redirects": 0,
+			"finalUrl": "https://electricdruid.net/voltage-controlled-adsr-envelope-generator-vc-adsr-7b/",
+			"lastChecked": "2026-09-28",
+			"lastOk": "2026-09-28",
+			"archiveUrl": null,
+			"usedBy": [
+				"data/entries/vc-adsr-envelope-generator.json"
+			]
+		},
+		{
+			"url": "https://electricdruid.net/voltage-controlled-digital-oscillator-vcdo1/",
+			"status": "ok",
+			"httpStatus": 200,
+			"redirects": 0,
+			"finalUrl": "https://electricdruid.net/voltage-controlled-digital-oscillator-vcdo1/",
+			"lastChecked": "2026-09-28",
+			"lastOk": "2026-09-28",
+			"archiveUrl": null,
+			"usedBy": [
+				"data/entries/vcdo-digital-oscillator.json"
+			]
+		},
+		{
+			"url": "https://electricdruid.net/voltage-controlled-lfo-vclfo-9d/",
+			"status": "ok",
+			"httpStatus": 200,
+			"redirects": 0,
+			"finalUrl": "https://electricdruid.net/voltage-controlled-lfo-vclfo-9d/",
+			"lastChecked": "2026-09-28",
+			"lastOk": "2026-09-28",
+			"archiveUrl": null,
+			"usedBy": [
+				"data/entries/vclfo-voltage-controlled-lfo.json"
+			]
+		},
+		{
+			"url": "https://electricdruid.net/voltage-controlled-looping-envelope-generator-loopenv-1b/",
+			"status": "ok",
+			"httpStatus": 200,
+			"redirects": 0,
+			"finalUrl": "https://electricdruid.net/voltage-controlled-looping-envelope-generator-loopenv-1b/",
+			"lastChecked": "2026-09-28",
+			"lastOk": "2026-09-28",
+			"archiveUrl": null,
+			"usedBy": [
+				"data/entries/looping-envelope-generator.json"
+			]
+		},
+		{
+			"url": "https://electricdruid.net/wavetable-oscillators/",
+			"status": "ok",
+			"httpStatus": 200,
+			"redirects": 0,
+			"finalUrl": "https://electricdruid.net/wavetable-oscillators/",
+			"lastChecked": "2026-09-28",
+			"lastOk": "2026-09-28",
+			"archiveUrl": null,
+			"usedBy": [
+				"data/entries/wavetable-oscillators.json"
+			]
+		},
+		{
+			"url": "https://electricdruid.net/weird-wiggles-bbd-clock-modulation/",
+			"status": "ok",
+			"httpStatus": 200,
+			"redirects": 0,
+			"finalUrl": "https://electricdruid.net/weird-wiggles-bbd-clock-modulation/",
+			"lastChecked": "2026-09-28",
+			"lastOk": "2026-09-28",
+			"archiveUrl": null,
+			"usedBy": [
+				"data/entries/bbd-chorus-clock-modulation.json"
+			]
+		},
+		{
+			"url": "https://electricdruid.net/which-noise-chip-do-i-need/",
+			"status": "ok",
+			"httpStatus": 200,
+			"redirects": 0,
+			"finalUrl": "https://electricdruid.net/which-noise-chip-do-i-need/",
+			"lastChecked": "2026-09-28",
+			"lastOk": "2026-09-28",
+			"archiveUrl": null,
+			"usedBy": [
+				"data/entries/which-noise-chip.json"
+			]
+		},
+		{
+			"url": "https://electricdruid.net/white-noise-source-mm5837-mm5437-replacement/",
+			"status": "ok",
+			"httpStatus": 200,
+			"redirects": 0,
+			"finalUrl": "https://electricdruid.net/white-noise-source-mm5837-mm5437-replacement/",
+			"lastChecked": "2026-09-28",
+			"lastOk": "2026-09-28",
+			"archiveUrl": null,
+			"usedBy": [
+				"data/entries/mm5837-noise-replacement.json"
 			]
 		},
 		{
@@ -85,8 +800,8 @@
 			"httpStatus": 200,
 			"redirects": 0,
 			"finalUrl": "https://www.eddybergman.com/2019/12/synthesizer-build-part-12-korg-ms20.html",
-			"lastChecked": "2026-09-26",
-			"lastOk": "2026-09-26",
+			"lastChecked": "2026-09-28",
+			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
 				"data/entries/korg-ms20-late-filter-diy-builds.json"
@@ -98,8 +813,8 @@
 			"httpStatus": 200,
 			"redirects": 0,
 			"finalUrl": "https://www.eddybergman.com/2020/01/synthesizer-build-part-15-dual-korg-ms.html",
-			"lastChecked": "2026-09-26",
-			"lastOk": "2026-09-26",
+			"lastChecked": "2026-09-28",
+			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
 				"data/entries/korg-ms20-late-filter-diy-builds.json"
@@ -111,8 +826,8 @@
 			"httpStatus": 200,
 			"redirects": 0,
 			"finalUrl": "https://www.kieranreck.co.uk/_posts/2023-10-15-LMNC-Ren%C3%A9-Schmitz-MS-20-Filter/",
-			"lastChecked": "2026-09-26",
-			"lastOk": "2026-09-26",
+			"lastChecked": "2026-09-28",
+			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
 				"data/entries/korg-ms20-late-filter-diy-builds.json"
@@ -124,8 +839,8 @@
 			"httpStatus": 200,
 			"redirects": 0,
 			"finalUrl": "https://www.korg.com/us/support/download/manual/0/134/2441/",
-			"lastChecked": "2026-09-26",
-			"lastOk": "2026-09-26",
+			"lastChecked": "2026-09-28",
+			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
 				"data/entries/korg-ms20-owners-manual.json"
@@ -137,9 +852,9 @@
 			"httpStatus": 403,
 			"redirects": 0,
 			"finalUrl": "https://www.modwiggler.com/forum/viewtopic.php?t=219572",
-			"lastChecked": "2026-09-26",
+			"lastChecked": "2026-09-28",
 			"lastOk": null,
-			"archiveUrl": null,
+			"archiveUrl": "https://web.archive.org/web/20240620222245/https://www.modwiggler.com/forum/viewtopic.php?t=219572",
 			"usedBy": [
 				"data/entries/korg-ms20-late-filter-diy-builds.json"
 			]
@@ -150,8 +865,8 @@
 			"httpStatus": 200,
 			"redirects": 0,
 			"finalUrl": "https://www.n8synth.co.uk/diy-eurorack/4hp-eurorack-attenuverter/",
-			"lastChecked": "2026-09-26",
-			"lastOk": "2026-09-26",
+			"lastChecked": "2026-09-28",
+			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
 				"data/entries/n8-attenuverter.json"
@@ -163,8 +878,8 @@
 			"httpStatus": 200,
 			"redirects": 0,
 			"finalUrl": "https://www.n8synth.co.uk/diy-eurorack/diy-buffered-multiple/",
-			"lastChecked": "2026-09-26",
-			"lastOk": "2026-09-26",
+			"lastChecked": "2026-09-28",
+			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
 				"data/entries/n8-buffered-mult.json"
@@ -176,8 +891,8 @@
 			"httpStatus": 200,
 			"redirects": 0,
 			"finalUrl": "https://www.n8synth.co.uk/diy-eurorack/diy-synthesizer-vca-lm13700/",
-			"lastChecked": "2026-09-26",
-			"lastOk": "2026-09-26",
+			"lastChecked": "2026-09-28",
+			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
 				"data/entries/n8-lm13700-vca.json"
@@ -189,8 +904,8 @@
 			"httpStatus": 200,
 			"redirects": 0,
 			"finalUrl": "https://www.n8synth.co.uk/diy-eurorack/envelope-generator/",
-			"lastChecked": "2026-09-26",
-			"lastOk": "2026-09-26",
+			"lastChecked": "2026-09-28",
+			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
 				"data/entries/n8-adsr-envelope.json"
@@ -202,8 +917,8 @@
 			"httpStatus": 200,
 			"redirects": 0,
 			"finalUrl": "https://www.n8synth.co.uk/diy-eurorack/eurorack-3340-vco-part-1/",
-			"lastChecked": "2026-09-26",
-			"lastOk": "2026-09-26",
+			"lastChecked": "2026-09-28",
+			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
 				"data/entries/n8-3340-vco.json"
@@ -215,8 +930,8 @@
 			"httpStatus": 200,
 			"redirects": 0,
 			"finalUrl": "https://www.n8synth.co.uk/diy-eurorack/eurorack-808-kick/",
-			"lastChecked": "2026-09-26",
-			"lastOk": "2026-09-26",
+			"lastChecked": "2026-09-28",
+			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
 				"data/entries/n8-808-kick.json"
@@ -228,8 +943,8 @@
 			"httpStatus": 200,
 			"redirects": 0,
 			"finalUrl": "https://www.n8synth.co.uk/diy-eurorack/eurorack-808-snare/",
-			"lastChecked": "2026-09-26",
-			"lastOk": "2026-09-26",
+			"lastChecked": "2026-09-28",
+			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
 				"data/entries/n8-808-snare.json"
@@ -241,8 +956,8 @@
 			"httpStatus": 200,
 			"redirects": 0,
 			"finalUrl": "https://www.n8synth.co.uk/diy-eurorack/eurorack-lfo/",
-			"lastChecked": "2026-09-26",
-			"lastOk": "2026-09-26",
+			"lastChecked": "2026-09-28",
+			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
 				"data/entries/n8-eurorack-lfo.json"
@@ -254,8 +969,8 @@
 			"httpStatus": 200,
 			"redirects": 0,
 			"finalUrl": "https://www.n8synth.co.uk/diy-eurorack/eurorack-mixer/",
-			"lastChecked": "2026-09-26",
-			"lastOk": "2026-09-26",
+			"lastChecked": "2026-09-28",
+			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
 				"data/entries/n8-eurorack-mixer.json"
@@ -267,8 +982,8 @@
 			"httpStatus": 200,
 			"redirects": 0,
 			"finalUrl": "https://www.n8synth.co.uk/diy-eurorack/eurorack-ms-20-lowpass-filter/",
-			"lastChecked": "2026-09-26",
-			"lastOk": "2026-09-26",
+			"lastChecked": "2026-09-28",
+			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
 				"data/entries/korg-ms20-late-filter-diy-builds.json"
@@ -280,8 +995,8 @@
 			"httpStatus": 200,
 			"redirects": 0,
 			"finalUrl": "https://www.n8synth.co.uk/diy-eurorack/eurorack-pedal-io/",
-			"lastChecked": "2026-09-26",
-			"lastOk": "2026-09-26",
+			"lastChecked": "2026-09-28",
+			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
 				"data/entries/n8-pedal-io.json"
@@ -293,8 +1008,8 @@
 			"httpStatus": 200,
 			"redirects": 0,
 			"finalUrl": "https://www.n8synth.co.uk/diy-eurorack/lm13700-state-variable-filter-page2/",
-			"lastChecked": "2026-09-26",
-			"lastOk": "2026-09-26",
+			"lastChecked": "2026-09-28",
+			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
 				"data/entries/n8-lm13700-svf.json"
@@ -306,8 +1021,8 @@
 			"httpStatus": 200,
 			"redirects": 0,
 			"finalUrl": "https://www.n8synth.co.uk/diy-eurorack/lm13700-state-variable-filter/",
-			"lastChecked": "2026-09-26",
-			"lastOk": "2026-09-26",
+			"lastChecked": "2026-09-28",
+			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
 				"data/entries/n8-lm13700-svf.json"
@@ -319,8 +1034,8 @@
 			"httpStatus": 200,
 			"redirects": 0,
 			"finalUrl": "https://www.schmitzbits.de/adsr.html",
-			"lastChecked": "2026-09-26",
-			"lastOk": "2026-09-26",
+			"lastChecked": "2026-09-28",
+			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
 				"data/entries/rs-discrete-adsr.json"
@@ -332,8 +1047,8 @@
 			"httpStatus": 200,
 			"redirects": 0,
 			"finalUrl": "https://www.schmitzbits.de/cvmidi.html",
-			"lastChecked": "2026-09-26",
-			"lastOk": "2026-09-26",
+			"lastChecked": "2026-09-28",
+			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
 				"data/entries/rs-parallel-port-cv-interface.json"
@@ -345,8 +1060,8 @@
 			"httpStatus": 200,
 			"redirects": 0,
 			"finalUrl": "https://www.schmitzbits.de/ddl.html",
-			"lastChecked": "2026-09-26",
-			"lastOk": "2026-09-26",
+			"lastChecked": "2026-09-28",
+			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
 				"data/entries/rs-delta-modulation-delay.json"
@@ -358,8 +1073,8 @@
 			"httpStatus": 200,
 			"redirects": 0,
 			"finalUrl": "https://www.schmitzbits.de/dronebox.html",
-			"lastChecked": "2026-09-26",
-			"lastOk": "2026-09-26",
+			"lastChecked": "2026-09-28",
+			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
 				"data/entries/rs-dronebox.json"
@@ -371,8 +1086,8 @@
 			"httpStatus": 200,
 			"redirects": 0,
 			"finalUrl": "https://www.schmitzbits.de/envf.html",
-			"lastChecked": "2026-09-26",
-			"lastOk": "2026-09-26",
+			"lastChecked": "2026-09-28",
+			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
 				"data/entries/rs-envelope-follower.json"
@@ -384,8 +1099,8 @@
 			"httpStatus": 200,
 			"redirects": 0,
 			"finalUrl": "https://www.schmitzbits.de/expo_tutorial/index.html",
-			"lastChecked": "2026-09-26",
-			"lastOk": "2026-09-26",
+			"lastChecked": "2026-09-28",
+			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
 				"data/entries/exponential-converters-tempco.json"
@@ -397,8 +1112,8 @@
 			"httpStatus": 200,
 			"redirects": 0,
 			"finalUrl": "https://www.schmitzbits.de/filter.html",
-			"lastChecked": "2026-09-26",
-			"lastOk": "2026-09-26",
+			"lastChecked": "2026-09-28",
+			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
 				"data/entries/moog-ladder-filter.json"
@@ -410,8 +1125,8 @@
 			"httpStatus": 200,
 			"redirects": 0,
 			"finalUrl": "https://www.schmitzbits.de/micpre.html",
-			"lastChecked": "2026-09-26",
-			"lastOk": "2026-09-26",
+			"lastChecked": "2026-09-28",
+			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
 				"data/entries/rs-jfet-mic-preamp.json"
@@ -423,8 +1138,8 @@
 			"httpStatus": 200,
 			"redirects": 0,
 			"finalUrl": "https://www.schmitzbits.de/ms20.html",
-			"lastChecked": "2026-09-26",
-			"lastOk": "2026-09-26",
+			"lastChecked": "2026-09-28",
+			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
 				"data/entries/korg-ms20-filter-study.json"
@@ -436,8 +1151,8 @@
 			"httpStatus": 200,
 			"redirects": 0,
 			"finalUrl": "https://www.schmitzbits.de/noise.html",
-			"lastChecked": "2026-09-26",
-			"lastOk": "2026-09-26",
+			"lastChecked": "2026-09-28",
+			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
 				"data/entries/rs-white-noise-source.json"
@@ -449,8 +1164,8 @@
 			"httpStatus": 200,
 			"redirects": 0,
 			"finalUrl": "https://www.schmitzbits.de/ota3080.html",
-			"lastChecked": "2026-09-26",
-			"lastOk": "2026-09-26",
+			"lastChecked": "2026-09-28",
+			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
 				"data/entries/ota-tutorial-zumchak.json"
@@ -462,8 +1177,8 @@
 			"httpStatus": 200,
 			"redirects": 0,
 			"finalUrl": "https://www.schmitzbits.de/powersup.html",
-			"lastChecked": "2026-09-26",
-			"lastOk": "2026-09-26",
+			"lastChecked": "2026-09-28",
+			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
 				"data/entries/rs-synth-power-supply.json"
@@ -475,8 +1190,8 @@
 			"httpStatus": 200,
 			"redirects": 0,
 			"finalUrl": "https://www.schmitzbits.de/pt2399.html",
-			"lastChecked": "2026-09-26",
-			"lastOk": "2026-09-26",
+			"lastChecked": "2026-09-28",
+			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
 				"data/entries/rs-pt2399-delay.json"
@@ -488,8 +1203,8 @@
 			"httpStatus": 200,
 			"redirects": 0,
 			"finalUrl": "https://www.schmitzbits.de/rbe.html",
-			"lastChecked": "2026-09-26",
-			"lastOk": "2026-09-26",
+			"lastChecked": "2026-09-28",
+			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
 				"data/entries/exponential-converters-tempco.json"
@@ -501,8 +1216,8 @@
 			"httpStatus": 200,
 			"redirects": 0,
 			"finalUrl": "https://www.schmitzbits.de/rs2040.html",
-			"lastChecked": "2026-09-26",
-			"lastOk": "2026-09-26",
+			"lastChecked": "2026-09-28",
+			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
 				"data/entries/rs-ssm2040-discrete.json"
@@ -514,8 +1229,8 @@
 			"httpStatus": 200,
 			"redirects": 0,
 			"finalUrl": "https://www.schmitzbits.de/sah.html",
-			"lastChecked": "2026-09-26",
-			"lastOk": "2026-09-26",
+			"lastChecked": "2026-09-28",
+			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
 				"data/entries/rs-sample-and-hold.json"
@@ -527,8 +1242,8 @@
 			"httpStatus": 200,
 			"redirects": 0,
 			"finalUrl": "https://www.schmitzbits.de/switch.html",
-			"lastChecked": "2026-09-26",
-			"lastOk": "2026-09-26",
+			"lastChecked": "2026-09-28",
+			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
 				"data/entries/rs-signal-switch.json"
@@ -540,8 +1255,8 @@
 			"httpStatus": 200,
 			"redirects": 0,
 			"finalUrl": "https://www.schmitzbits.de/triphase.html",
-			"lastChecked": "2026-09-26",
-			"lastOk": "2026-09-26",
+			"lastChecked": "2026-09-28",
+			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
 				"data/entries/rs-three-phase-lfo.json"
@@ -553,8 +1268,8 @@
 			"httpStatus": 200,
 			"redirects": 0,
 			"finalUrl": "https://www.schmitzbits.de/vca.html",
-			"lastChecked": "2026-09-26",
-			"lastOk": "2026-09-26",
+			"lastChecked": "2026-09-28",
+			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
 				"data/entries/rs-differential-pair-vca.json"
@@ -566,8 +1281,8 @@
 			"httpStatus": 200,
 			"redirects": 0,
 			"finalUrl": "https://www.schmitzbits.de/vcadsr.html",
-			"lastChecked": "2026-09-26",
-			"lastOk": "2026-09-26",
+			"lastChecked": "2026-09-28",
+			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
 				"data/entries/rs-voltage-controlled-adsr.json"
@@ -579,8 +1294,8 @@
 			"httpStatus": 200,
 			"redirects": 0,
 			"finalUrl": "https://www.schmitzbits.de/vcf4007.html",
-			"lastChecked": "2026-09-26",
-			"lastOk": "2026-09-26",
+			"lastChecked": "2026-09-28",
+			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
 				"data/entries/rs-cmos-4007-filter.json"
@@ -592,8 +1307,8 @@
 			"httpStatus": 200,
 			"redirects": 0,
 			"finalUrl": "https://www.schmitzbits.de/vco2.html",
-			"lastChecked": "2026-09-26",
-			"lastOk": "2026-09-26",
+			"lastChecked": "2026-09-28",
+			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
 				"data/entries/rs-sawtooth-vcos.json"
@@ -605,8 +1320,8 @@
 			"httpStatus": 200,
 			"redirects": 0,
 			"finalUrl": "https://www.schmitzbits.de/vco3.html",
-			"lastChecked": "2026-09-26",
-			"lastOk": "2026-09-26",
+			"lastChecked": "2026-09-28",
+			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
 				"data/entries/rs-vco3-integrator.json"
@@ -618,8 +1333,8 @@
 			"httpStatus": 200,
 			"redirects": 0,
 			"finalUrl": "https://www.schmitzbits.de/vco4.html",
-			"lastChecked": "2026-09-26",
-			"lastOk": "2026-09-26",
+			"lastChecked": "2026-09-28",
+			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
 				"data/entries/rs-sawtooth-vcos.json"
@@ -631,8 +1346,8 @@
 			"httpStatus": 200,
 			"redirects": 0,
 			"finalUrl": "https://www.schmitzbits.de/vco4069.html",
-			"lastChecked": "2026-09-26",
-			"lastOk": "2026-09-26",
+			"lastChecked": "2026-09-28",
+			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
 				"data/entries/rs-cmos-4069-vco.json"
@@ -644,8 +1359,8 @@
 			"httpStatus": 200,
 			"redirects": 0,
 			"finalUrl": "https://www.schmitzbits.de/vco566.html",
-			"lastChecked": "2026-09-26",
-			"lastOk": "2026-09-26",
+			"lastChecked": "2026-09-28",
+			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
 				"data/entries/rs-ne566-vco.json"
@@ -657,8 +1372,8 @@
 			"httpStatus": 200,
 			"redirects": 0,
 			"finalUrl": "https://www.schmitzbits.de/vco6.html",
-			"lastChecked": "2026-09-26",
-			"lastOk": "2026-09-26",
+			"lastChecked": "2026-09-28",
+			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
 				"data/entries/rs-through-zero-vco.json"
@@ -670,8 +1385,8 @@
 			"httpStatus": 200,
 			"redirects": 0,
 			"finalUrl": "https://www.schmitzbits.de/vtexpo.html",
-			"lastChecked": "2026-09-26",
-			"lastOk": "2026-09-26",
+			"lastChecked": "2026-09-28",
+			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
 				"data/entries/rs-vacuum-tube-synth.json"
@@ -683,8 +1398,8 @@
 			"httpStatus": 200,
 			"redirects": 0,
 			"finalUrl": "https://www.schmitzbits.de/vtvca.html",
-			"lastChecked": "2026-09-26",
-			"lastOk": "2026-09-26",
+			"lastChecked": "2026-09-28",
+			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
 				"data/entries/rs-vacuum-tube-synth.json"
@@ -696,8 +1411,8 @@
 			"httpStatus": 200,
 			"redirects": 0,
 			"finalUrl": "https://www.schmitzbits.de/vtvcf.html",
-			"lastChecked": "2026-09-26",
-			"lastOk": "2026-09-26",
+			"lastChecked": "2026-09-28",
+			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
 				"data/entries/rs-vacuum-tube-synth.json"
@@ -709,8 +1424,8 @@
 			"httpStatus": 200,
 			"redirects": 0,
 			"finalUrl": "https://www.schmitzbits.de/vtvco.html",
-			"lastChecked": "2026-09-26",
-			"lastOk": "2026-09-26",
+			"lastChecked": "2026-09-28",
+			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
 				"data/entries/rs-vacuum-tube-synth.json"
@@ -722,8 +1437,8 @@
 			"httpStatus": 200,
 			"redirects": 0,
 			"finalUrl": "https://www.schmitzbits.de/vtvco2.html",
-			"lastChecked": "2026-09-26",
-			"lastOk": "2026-09-26",
+			"lastChecked": "2026-09-28",
+			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
 				"data/entries/rs-vacuum-tube-synth.json"
@@ -735,8 +1450,8 @@
 			"httpStatus": 200,
 			"redirects": 0,
 			"finalUrl": "https://www.schmitzbits.de/wasp.html",
-			"lastChecked": "2026-09-26",
-			"lastOk": "2026-09-26",
+			"lastChecked": "2026-09-28",
+			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
 				"data/entries/rs-wasp-filter-clone.json"
@@ -748,8 +1463,8 @@
 			"httpStatus": 200,
 			"redirects": 0,
 			"finalUrl": "https://www.ti.com/lit/ds/symlink/lm13700.pdf",
-			"lastChecked": "2026-09-26",
-			"lastOk": "2026-09-26",
+			"lastChecked": "2026-09-28",
+			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
 				"ic:lm13700"
@@ -761,8 +1476,8 @@
 			"httpStatus": 200,
 			"redirects": 0,
 			"finalUrl": "https://www.ti.com/lit/ds/symlink/tl072.pdf",
-			"lastChecked": "2026-09-26",
-			"lastOk": "2026-09-26",
+			"lastChecked": "2026-09-28",
+			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
 				"ic:tl072"
@@ -774,8 +1489,8 @@
 			"httpStatus": 200,
 			"redirects": 0,
 			"finalUrl": "https://www.timstinchcombe.co.uk/synth/Moog_ladder_tf.pdf",
-			"lastChecked": "2026-09-26",
-			"lastOk": "2026-09-26",
+			"lastChecked": "2026-09-28",
+			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
 				"data/entries/moog-ladder-filter.json"
@@ -787,8 +1502,8 @@
 			"httpStatus": 200,
 			"redirects": 0,
 			"finalUrl": "https://www.timstinchcombe.co.uk/synth/MS20_study.pdf",
-			"lastChecked": "2026-09-26",
-			"lastOk": "2026-09-26",
+			"lastChecked": "2026-09-28",
+			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
 				"data/entries/korg-ms20-filter-study.json"
@@ -796,12 +1511,12 @@
 		},
 		{
 			"url": "https://www.youtube.com/playlist?list=PLOunECWxELQS5bMdWo9VhmZtsCjhjYNcV",
-			"status": "redirect",
+			"status": "ok",
 			"httpStatus": 200,
-			"redirects": 2,
-			"finalUrl": "https://www.youtube.com/playlist?list=PLOunECWxELQS5bMdWo9VhmZtsCjhjYNcV&cbrd=1&ucbcb=1",
-			"lastChecked": "2026-09-26",
-			"lastOk": "2026-09-26",
+			"redirects": 0,
+			"finalUrl": "https://www.youtube.com/playlist?list=PLOunECWxELQS5bMdWo9VhmZtsCjhjYNcV",
+			"lastChecked": "2026-09-28",
+			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
 				"data/entries/history-of-music-synthesis.json"
@@ -813,8 +1528,8 @@
 			"httpStatus": 200,
 			"redirects": 0,
 			"finalUrl": "https://www.youtube.com/watch?v=_rDZ9R-HHEo",
-			"lastChecked": "2026-09-26",
-			"lastOk": "2026-09-26",
+			"lastChecked": "2026-09-28",
+			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
 				"data/entries/classic-vca-analysis-roland-serge.json"
@@ -826,8 +1541,8 @@
 			"httpStatus": 200,
 			"redirects": 0,
 			"finalUrl": "https://www.youtube.com/watch?v=_vrc4qgBqbA",
-			"lastChecked": "2026-09-26",
-			"lastOk": "2026-09-26",
+			"lastChecked": "2026-09-28",
+			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
 				"data/entries/mk-es-edu-kits.json"
@@ -839,8 +1554,8 @@
 			"httpStatus": 200,
 			"redirects": 0,
 			"finalUrl": "https://www.youtube.com/watch?v=0tk5zl6xTsI",
-			"lastChecked": "2026-09-26",
-			"lastOk": "2026-09-26",
+			"lastChecked": "2026-09-28",
+			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
 				"data/entries/comparing-otas.json",
@@ -853,8 +1568,8 @@
 			"httpStatus": 200,
 			"redirects": 0,
 			"finalUrl": "https://www.youtube.com/watch?v=0vnj_obkdu0",
-			"lastChecked": "2026-09-26",
-			"lastOk": "2026-09-26",
+			"lastChecked": "2026-09-28",
+			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
 				"data/entries/triangle-core-vcos.json"
@@ -866,8 +1581,8 @@
 			"httpStatus": 200,
 			"redirects": 0,
 			"finalUrl": "https://www.youtube.com/watch?v=0yB_h_wFkh4",
-			"lastChecked": "2026-09-26",
-			"lastOk": "2026-09-26",
+			"lastChecked": "2026-09-28",
+			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
 				"data/entries/mk-noise-generator.json"
@@ -879,8 +1594,8 @@
 			"httpStatus": 200,
 			"redirects": 0,
 			"finalUrl": "https://www.youtube.com/watch?v=4LjP5Y1yxXs",
-			"lastChecked": "2026-09-26",
-			"lastOk": "2026-09-26",
+			"lastChecked": "2026-09-28",
+			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
 				"data/entries/mk-bbd-delay.json"
@@ -892,8 +1607,8 @@
 			"httpStatus": 200,
 			"redirects": 0,
 			"finalUrl": "https://www.youtube.com/watch?v=4r3TTaUKNe0",
-			"lastChecked": "2026-09-26",
-			"lastOk": "2026-09-26",
+			"lastChecked": "2026-09-28",
+			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
 				"data/entries/mk-vco-waveshaping.json"
@@ -905,8 +1620,8 @@
 			"httpStatus": 200,
 			"redirects": 0,
 			"finalUrl": "https://www.youtube.com/watch?v=7X7Dss67WWs",
-			"lastChecked": "2026-09-26",
-			"lastOk": "2026-09-26",
+			"lastChecked": "2026-09-28",
+			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
 				"data/entries/buchla-serge-wavefolders.json"
@@ -918,8 +1633,8 @@
 			"httpStatus": 200,
 			"redirects": 0,
 			"finalUrl": "https://www.youtube.com/watch?v=8JuYLLpZzBs",
-			"lastChecked": "2026-09-26",
-			"lastOk": "2026-09-26",
+			"lastChecked": "2026-09-28",
+			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
 				"data/entries/mk-es-edu-kits.json"
@@ -931,8 +1646,8 @@
 			"httpStatus": 200,
 			"redirects": 0,
 			"finalUrl": "https://www.youtube.com/watch?v=96j2tNKFCPI",
-			"lastChecked": "2026-09-26",
-			"lastOk": "2026-09-26",
+			"lastChecked": "2026-09-28",
+			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
 				"data/entries/ota-vcas-lectures.json"
@@ -944,8 +1659,8 @@
 			"httpStatus": 200,
 			"redirects": 0,
 			"finalUrl": "https://www.youtube.com/watch?v=9BjhGQDk9pA",
-			"lastChecked": "2026-09-26",
-			"lastOk": "2026-09-26",
+			"lastChecked": "2026-09-28",
+			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
 				"data/entries/ota-vcas-lectures.json"
@@ -957,8 +1672,8 @@
 			"httpStatus": 200,
 			"redirects": 0,
 			"finalUrl": "https://www.youtube.com/watch?v=acPlGgY-EHg",
-			"lastChecked": "2026-09-26",
-			"lastOk": "2026-09-26",
+			"lastChecked": "2026-09-28",
+			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
 				"data/entries/sawtooth-core-vcos.json"
@@ -970,8 +1685,8 @@
 			"httpStatus": 200,
 			"redirects": 0,
 			"finalUrl": "https://www.youtube.com/watch?v=aGFb7JbTdNU",
-			"lastChecked": "2026-09-26",
-			"lastOk": "2026-09-26",
+			"lastChecked": "2026-09-28",
+			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
 				"data/entries/mk-adsr-envelope.json"
@@ -983,8 +1698,8 @@
 			"httpStatus": 200,
 			"redirects": 0,
 			"finalUrl": "https://www.youtube.com/watch?v=beQLUA0BQP4",
-			"lastChecked": "2026-09-26",
-			"lastOk": "2026-09-26",
+			"lastChecked": "2026-09-28",
+			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
 				"data/entries/korg-ms20-filter-study.json"
@@ -996,8 +1711,8 @@
 			"httpStatus": 200,
 			"redirects": 0,
 			"finalUrl": "https://www.youtube.com/watch?v=c5KYIfC4KS8",
-			"lastChecked": "2026-09-26",
-			"lastOk": "2026-09-26",
+			"lastChecked": "2026-09-28",
+			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
 				"data/entries/history-of-music-synthesis.json"
@@ -1009,8 +1724,8 @@
 			"httpStatus": 200,
 			"redirects": 0,
 			"finalUrl": "https://www.youtube.com/watch?v=DRWZ39ae2_k",
-			"lastChecked": "2026-09-26",
-			"lastOk": "2026-09-26",
+			"lastChecked": "2026-09-28",
+			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
 				"data/entries/ota-c-filters.json"
@@ -1022,8 +1737,8 @@
 			"httpStatus": 200,
 			"redirects": 0,
 			"finalUrl": "https://www.youtube.com/watch?v=EYBLVqiS_C8",
-			"lastChecked": "2026-09-26",
-			"lastOk": "2026-09-26",
+			"lastChecked": "2026-09-28",
+			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
 				"data/entries/sawtooth-core-vcos.json"
@@ -1035,8 +1750,8 @@
 			"httpStatus": 200,
 			"redirects": 0,
 			"finalUrl": "https://www.youtube.com/watch?v=f8ITRgPgzmY",
-			"lastChecked": "2026-09-26",
-			"lastOk": "2026-09-26",
+			"lastChecked": "2026-09-28",
+			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
 				"data/entries/state-variable-filters-sem.json"
@@ -1048,8 +1763,8 @@
 			"httpStatus": 200,
 			"redirects": 0,
 			"finalUrl": "https://www.youtube.com/watch?v=FUz3gFAh9pY",
-			"lastChecked": "2026-09-26",
-			"lastOk": "2026-09-26",
+			"lastChecked": "2026-09-28",
+			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
 				"data/entries/mk-vco-waveshaping.json"
@@ -1061,8 +1776,8 @@
 			"httpStatus": 200,
 			"redirects": 0,
 			"finalUrl": "https://www.youtube.com/watch?v=GLHF7hSSp_M",
-			"lastChecked": "2026-09-26",
-			"lastOk": "2026-09-26",
+			"lastChecked": "2026-09-28",
+			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
 				"data/entries/history-of-music-synthesis.json"
@@ -1074,8 +1789,8 @@
 			"httpStatus": 200,
 			"redirects": 0,
 			"finalUrl": "https://www.youtube.com/watch?v=GZz8PJCfK1c",
-			"lastChecked": "2026-09-26",
-			"lastOk": "2026-09-26",
+			"lastChecked": "2026-09-28",
+			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
 				"data/entries/history-of-music-synthesis.json"
@@ -1087,8 +1802,8 @@
 			"httpStatus": 200,
 			"redirects": 0,
 			"finalUrl": "https://www.youtube.com/watch?v=HrC68gUmJVo",
-			"lastChecked": "2026-09-26",
-			"lastOk": "2026-09-26",
+			"lastChecked": "2026-09-28",
+			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
 				"data/entries/history-of-music-synthesis.json"
@@ -1100,8 +1815,8 @@
 			"httpStatus": 200,
 			"redirects": 0,
 			"finalUrl": "https://www.youtube.com/watch?v=hULEn2_4Unw",
-			"lastChecked": "2026-09-26",
-			"lastOk": "2026-09-26",
+			"lastChecked": "2026-09-28",
+			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
 				"data/entries/mk-808-snare.json"
@@ -1113,8 +1828,8 @@
 			"httpStatus": 200,
 			"redirects": 0,
 			"finalUrl": "https://www.youtube.com/watch?v=IRxeIEeAAnU",
-			"lastChecked": "2026-09-26",
-			"lastOk": "2026-09-26",
+			"lastChecked": "2026-09-28",
+			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
 				"data/entries/moog-ladder-filter.json"
@@ -1126,8 +1841,8 @@
 			"httpStatus": 200,
 			"redirects": 0,
 			"finalUrl": "https://www.youtube.com/watch?v=ITJX9jP-zm4",
-			"lastChecked": "2026-09-26",
-			"lastOk": "2026-09-26",
+			"lastChecked": "2026-09-28",
+			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
 				"data/entries/mk-resonant-highpass-vactrol.json"
@@ -1139,8 +1854,8 @@
 			"httpStatus": 200,
 			"redirects": 0,
 			"finalUrl": "https://www.youtube.com/watch?v=jAokGV71MEw",
-			"lastChecked": "2026-09-26",
-			"lastOk": "2026-09-26",
+			"lastChecked": "2026-09-28",
+			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
 				"data/entries/state-variable-filters-sem.json"
@@ -1152,8 +1867,8 @@
 			"httpStatus": 200,
 			"redirects": 0,
 			"finalUrl": "https://www.youtube.com/watch?v=jbStEUfBWXY",
-			"lastChecked": "2026-09-26",
-			"lastOk": "2026-09-26",
+			"lastChecked": "2026-09-28",
+			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
 				"data/entries/mk-double-wavefolder.json"
@@ -1165,8 +1880,8 @@
 			"httpStatus": 200,
 			"redirects": 0,
 			"finalUrl": "https://www.youtube.com/watch?v=jvNNgUl3al0",
-			"lastChecked": "2026-09-26",
-			"lastOk": "2026-09-26",
+			"lastChecked": "2026-09-28",
+			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
 				"data/entries/mk-diode-ladder-filter.json"
@@ -1178,8 +1893,8 @@
 			"httpStatus": 200,
 			"redirects": 0,
 			"finalUrl": "https://www.youtube.com/watch?v=kIJqzkRe4do",
-			"lastChecked": "2026-09-26",
-			"lastOk": "2026-09-26",
+			"lastChecked": "2026-09-28",
+			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
 				"data/entries/mk-sample-and-hold.json"
@@ -1191,8 +1906,8 @@
 			"httpStatus": 200,
 			"redirects": 0,
 			"finalUrl": "https://www.youtube.com/watch?v=l-DEMEkdyNY",
-			"lastChecked": "2026-09-26",
-			"lastOk": "2026-09-26",
+			"lastChecked": "2026-09-28",
+			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
 				"data/entries/history-of-music-synthesis.json"
@@ -1204,8 +1919,8 @@
 			"httpStatus": 200,
 			"redirects": 0,
 			"finalUrl": "https://www.youtube.com/watch?v=L9vTz0vm6pc",
-			"lastChecked": "2026-09-26",
-			"lastOk": "2026-09-26",
+			"lastChecked": "2026-09-28",
+			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
 				"data/entries/mk-adsr-envelope.json"
@@ -1217,8 +1932,8 @@
 			"httpStatus": 200,
 			"redirects": 0,
 			"finalUrl": "https://www.youtube.com/watch?v=mYk8r3QlNi8",
-			"lastChecked": "2026-09-26",
-			"lastOk": "2026-09-26",
+			"lastChecked": "2026-09-28",
+			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
 				"data/entries/history-of-music-synthesis.json"
@@ -1230,8 +1945,8 @@
 			"httpStatus": 200,
 			"redirects": 0,
 			"finalUrl": "https://www.youtube.com/watch?v=NGz3dDnoVVk",
-			"lastChecked": "2026-09-26",
-			"lastOk": "2026-09-26",
+			"lastChecked": "2026-09-28",
+			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
 				"data/entries/buchla-lowpass-gates.json"
@@ -1243,8 +1958,8 @@
 			"httpStatus": 200,
 			"redirects": 0,
 			"finalUrl": "https://www.youtube.com/watch?v=NuS8slR2Ue0",
-			"lastChecked": "2026-09-26",
-			"lastOk": "2026-09-26",
+			"lastChecked": "2026-09-28",
+			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
 				"data/entries/mk-es-edu-kits.json"
@@ -1256,8 +1971,8 @@
 			"httpStatus": 200,
 			"redirects": 0,
 			"finalUrl": "https://www.youtube.com/watch?v=oi0d2YqrOfQ",
-			"lastChecked": "2026-09-26",
-			"lastOk": "2026-09-26",
+			"lastChecked": "2026-09-28",
+			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
 				"data/entries/history-of-music-synthesis.json"
@@ -1269,8 +1984,8 @@
 			"httpStatus": 200,
 			"redirects": 0,
 			"finalUrl": "https://www.youtube.com/watch?v=OMeKERW1E60",
-			"lastChecked": "2026-09-26",
-			"lastOk": "2026-09-26",
+			"lastChecked": "2026-09-28",
+			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
 				"data/entries/mk-audio-compressor.json"
@@ -1282,8 +1997,8 @@
 			"httpStatus": 200,
 			"redirects": 0,
 			"finalUrl": "https://www.youtube.com/watch?v=Oo3Tu0WPqzE",
-			"lastChecked": "2026-09-26",
-			"lastOk": "2026-09-26",
+			"lastChecked": "2026-09-28",
+			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
 				"data/entries/mk-es-edu-kits.json"
@@ -1295,8 +2010,8 @@
 			"httpStatus": 200,
 			"redirects": 0,
 			"finalUrl": "https://www.youtube.com/watch?v=PlFpEW_GfKk",
-			"lastChecked": "2026-09-26",
-			"lastOk": "2026-09-26",
+			"lastChecked": "2026-09-28",
+			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
 				"data/entries/classic-vca-analysis-roland-serge.json"
@@ -1308,8 +2023,8 @@
 			"httpStatus": 200,
 			"redirects": 0,
 			"finalUrl": "https://www.youtube.com/watch?v=pTHHzFsa4Ss",
-			"lastChecked": "2026-09-26",
-			"lastOk": "2026-09-26",
+			"lastChecked": "2026-09-28",
+			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
 				"data/entries/ota-c-filters.json"
@@ -1321,8 +2036,8 @@
 			"httpStatus": 200,
 			"redirects": 0,
 			"finalUrl": "https://www.youtube.com/watch?v=Pwe3DwoBP8g",
-			"lastChecked": "2026-09-26",
-			"lastOk": "2026-09-26",
+			"lastChecked": "2026-09-28",
+			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
 				"data/entries/state-variable-filters-sem.json"
@@ -1334,8 +2049,8 @@
 			"httpStatus": 200,
 			"redirects": 0,
 			"finalUrl": "https://www.youtube.com/watch?v=q8tmUgaXrEQ",
-			"lastChecked": "2026-09-26",
-			"lastOk": "2026-09-26",
+			"lastChecked": "2026-09-28",
+			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
 				"data/entries/mk-mixer-diode-distortion.json"
@@ -1347,8 +2062,8 @@
 			"httpStatus": 200,
 			"redirects": 0,
 			"finalUrl": "https://www.youtube.com/watch?v=qF4G4QfC9dM",
-			"lastChecked": "2026-09-26",
-			"lastOk": "2026-09-26",
+			"lastChecked": "2026-09-28",
+			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
 				"data/entries/sawtooth-core-vcos.json"
@@ -1360,8 +2075,8 @@
 			"httpStatus": 200,
 			"redirects": 0,
 			"finalUrl": "https://www.youtube.com/watch?v=QN_JhVcCBvI",
-			"lastChecked": "2026-09-26",
-			"lastOk": "2026-09-26",
+			"lastChecked": "2026-09-28",
+			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
 				"data/entries/mk-es-edu-kits.json"
@@ -1373,8 +2088,8 @@
 			"httpStatus": 200,
 			"redirects": 0,
 			"finalUrl": "https://www.youtube.com/watch?v=qsaLmGgiVcU",
-			"lastChecked": "2026-09-26",
-			"lastOk": "2026-09-26",
+			"lastChecked": "2026-09-28",
+			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
 				"data/entries/sawtooth-core-vcos.json"
@@ -1386,8 +2101,8 @@
 			"httpStatus": 200,
 			"redirects": 0,
 			"finalUrl": "https://www.youtube.com/watch?v=QyapQpQOwUM",
-			"lastChecked": "2026-09-26",
-			"lastOk": "2026-09-26",
+			"lastChecked": "2026-09-28",
+			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
 				"data/entries/mk-breadboard-prototyping.json"
@@ -1399,8 +2114,8 @@
 			"httpStatus": 200,
 			"redirects": 0,
 			"finalUrl": "https://www.youtube.com/watch?v=rnP_vo1ij50",
-			"lastChecked": "2026-09-26",
-			"lastOk": "2026-09-26",
+			"lastChecked": "2026-09-28",
+			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
 				"data/entries/ota-c-filters.json"
@@ -1412,8 +2127,8 @@
 			"httpStatus": 200,
 			"redirects": 0,
 			"finalUrl": "https://www.youtube.com/watch?v=s9HKXLPiX0w",
-			"lastChecked": "2026-09-26",
-			"lastOk": "2026-09-26",
+			"lastChecked": "2026-09-28",
+			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
 				"data/entries/mk-step-sequencers.json"
@@ -1425,8 +2140,8 @@
 			"httpStatus": 200,
 			"redirects": 0,
 			"finalUrl": "https://www.youtube.com/watch?v=tWKLFcc_BJM",
-			"lastChecked": "2026-09-26",
-			"lastOk": "2026-09-26",
+			"lastChecked": "2026-09-28",
+			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
 				"data/entries/mk-diode-ladder-filter.json"
@@ -1438,8 +2153,8 @@
 			"httpStatus": 200,
 			"redirects": 0,
 			"finalUrl": "https://www.youtube.com/watch?v=V_AzBAopRS8",
-			"lastChecked": "2026-09-26",
-			"lastOk": "2026-09-26",
+			"lastChecked": "2026-09-28",
+			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
 				"data/entries/triangle-core-vcos.json"
@@ -1451,8 +2166,8 @@
 			"httpStatus": 200,
 			"redirects": 0,
 			"finalUrl": "https://www.youtube.com/watch?v=vHNQQ6yUGyo",
-			"lastChecked": "2026-09-26",
-			"lastOk": "2026-09-26",
+			"lastChecked": "2026-09-28",
+			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
 				"data/entries/mk-step-sequencers.json"
@@ -1464,8 +2179,8 @@
 			"httpStatus": 200,
 			"redirects": 0,
 			"finalUrl": "https://www.youtube.com/watch?v=vZriAoE9MA4",
-			"lastChecked": "2026-09-26",
-			"lastOk": "2026-09-26",
+			"lastChecked": "2026-09-28",
+			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
 				"data/entries/triangle-core-vcos.json"
@@ -1477,8 +2192,8 @@
 			"httpStatus": 200,
 			"redirects": 0,
 			"finalUrl": "https://www.youtube.com/watch?v=Wag-yTyAxPA",
-			"lastChecked": "2026-09-26",
-			"lastOk": "2026-09-26",
+			"lastChecked": "2026-09-28",
+			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
 				"data/entries/mk-audio-compressor.json"
@@ -1490,8 +2205,8 @@
 			"httpStatus": 200,
 			"redirects": 0,
 			"finalUrl": "https://www.youtube.com/watch?v=wbG5lvBFCmA",
-			"lastChecked": "2026-09-26",
-			"lastOk": "2026-09-26",
+			"lastChecked": "2026-09-28",
+			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
 				"data/entries/mk-es-edu-kits.json"
@@ -1503,8 +2218,8 @@
 			"httpStatus": 200,
 			"redirects": 0,
 			"finalUrl": "https://www.youtube.com/watch?v=Xbl1xwFR3eg",
-			"lastChecked": "2026-09-26",
-			"lastOk": "2026-09-26",
+			"lastChecked": "2026-09-28",
+			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
 				"data/entries/mk-universal-drum-voice.json"
@@ -1516,8 +2231,8 @@
 			"httpStatus": 200,
 			"redirects": 0,
 			"finalUrl": "https://www.youtube.com/watch?v=XpMZoR3fgd0",
-			"lastChecked": "2026-09-26",
-			"lastOk": "2026-09-26",
+			"lastChecked": "2026-09-28",
+			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
 				"data/entries/mk-breadboard-prototyping.json"
@@ -1529,8 +2244,8 @@
 			"httpStatus": 200,
 			"redirects": 0,
 			"finalUrl": "https://www.youtube.com/watch?v=Yd3hxfaPqPA",
-			"lastChecked": "2026-09-26",
-			"lastOk": "2026-09-26",
+			"lastChecked": "2026-09-28",
+			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
 				"data/entries/buchla-serge-wavefolders.json"
@@ -1542,8 +2257,8 @@
 			"httpStatus": 200,
 			"redirects": 0,
 			"finalUrl": "https://www.youtube.com/watch?v=yMrCCx6uqcE",
-			"lastChecked": "2026-09-26",
-			"lastOk": "2026-09-26",
+			"lastChecked": "2026-09-28",
+			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
 				"data/entries/mk-transistor-vca.json"
@@ -1555,8 +2270,8 @@
 			"httpStatus": 200,
 			"redirects": 0,
 			"finalUrl": "https://www.youtube.com/watch?v=yz37Yz315eU",
-			"lastChecked": "2026-09-26",
-			"lastOk": "2026-09-26",
+			"lastChecked": "2026-09-28",
+			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
 				"data/entries/mk-analog-kick.json"
@@ -1568,8 +2283,8 @@
 			"httpStatus": 200,
 			"redirects": 0,
 			"finalUrl": "https://www.youtube.com/watch?v=zbBY7JL9nnQ",
-			"lastChecked": "2026-09-26",
-			"lastOk": "2026-09-26",
+			"lastChecked": "2026-09-28",
+			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
 				"data/entries/mk-606-hihat.json"
@@ -1581,8 +2296,8 @@
 			"httpStatus": 200,
 			"redirects": 0,
 			"finalUrl": "https://www.youtube.com/watch?v=zL9ao3Uc3Yk",
-			"lastChecked": "2026-09-26",
-			"lastOk": "2026-09-26",
+			"lastChecked": "2026-09-28",
+			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
 				"data/entries/buchla-serge-wavefolders.json"
@@ -1594,8 +2309,8 @@
 			"httpStatus": 200,
 			"redirects": 0,
 			"finalUrl": "https://www.youtube.com/watch?v=ZWJhApUmfEU",
-			"lastChecked": "2026-09-26",
-			"lastOk": "2026-09-26",
+			"lastChecked": "2026-09-28",
+			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
 				"data/entries/exponential-converters-tempco.json"
