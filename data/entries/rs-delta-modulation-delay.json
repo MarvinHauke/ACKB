@@ -16,8 +16,7 @@
 	"ics": [
 		"pic"
 	],
-	"difficulty": "advanced",
-	"confidence": "experimental",
+	"kinds": ["schematic"],
 	"added": "2026-09-26",
 	"sources": [
 		{

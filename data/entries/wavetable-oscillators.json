@@ -21,8 +21,7 @@
 		"wavetable_synthesis",
 		"digital_waveform_generation"
 	],
-	"difficulty": "intermediate",
-	"confidence": "community-verified",
+	"kinds": ["explanation"],
 	"added": "2026-09-26",
 	"sources": [
 		{

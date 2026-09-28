@@ -16,32 +16,35 @@
 		"waveshaping",
 		"pulse_width_modulation"
 	],
-	"difficulty": "intermediate",
-	"confidence": "academic",
+	"kinds": ["analysis"],
 	"added": "2026-09-26",
 	"sources": [
 		{
 			"type": "video",
 			"title": "ECE4450 L8: Voltage Controlled Oscillators: Sawtooth Cores",
 			"url": "https://www.youtube.com/watch?v=qF4G4QfC9dM",
+			"origin": "academic",
 			"author": "Aaron Lanterman (Georgia Tech)"
 		},
 		{
 			"type": "video",
 			"title": "ECE4450 L9: Scaling and Shifting Waveforms",
 			"url": "https://www.youtube.com/watch?v=acPlGgY-EHg",
+			"origin": "academic",
 			"author": "Aaron Lanterman (Georgia Tech)"
 		},
 		{
 			"type": "video",
 			"title": "ECE4450 L10: Sawtooth-to-Triangle Waveshaping",
 			"url": "https://www.youtube.com/watch?v=EYBLVqiS_C8",
+			"origin": "academic",
 			"author": "Aaron Lanterman (Georgia Tech)"
 		},
 		{
 			"type": "video",
 			"title": "ECE4450 L11: Sawtooth-to-Pulse Waveshaping",
 			"url": "https://www.youtube.com/watch?v=qsaLmGgiVcU",
+			"origin": "academic",
 			"author": "Aaron Lanterman (Georgia Tech)"
 		}
 	]

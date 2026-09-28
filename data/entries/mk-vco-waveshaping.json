@@ -14,8 +14,7 @@
 		"pulse_width_modulation",
 		"waveshaping"
 	],
-	"difficulty": "beginner",
-	"confidence": "community-verified",
+	"kinds": ["explanation"],
 	"added": "2026-09-26",
 	"sources": [
 		{

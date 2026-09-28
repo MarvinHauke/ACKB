@@ -9,8 +9,7 @@
 	"subcircuits": ["ota_stage", "feedback_network", "exponential_converter", "inverting_amp"],
 	"functions": ["resonance_control", "voltage_controlled_cutoff", "exponential_response", "temperature_compensation", "lowpass_response"],
 	"ics": ["cem3320", "ssm2044"],
-	"difficulty": "intermediate",
-	"confidence": "community-verified",
+	"kinds": ["explanation"],
 	"added": "2026-09-26",
 	"sources": [
 		{

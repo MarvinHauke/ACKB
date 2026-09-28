@@ -15,8 +15,7 @@
 		"lowpass_response",
 		"highpass_response"
 	],
-	"difficulty": "beginner",
-	"confidence": "community",
+	"kinds": ["reference"],
 	"added": "2026-09-26",
 	"sources": [
 		{

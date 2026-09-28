@@ -22,26 +22,28 @@
 	"functions": [
 		"waveshaping"
 	],
-	"difficulty": "intermediate",
-	"confidence": "academic",
+	"kinds": ["analysis"],
 	"added": "2026-09-26",
 	"sources": [
 		{
 			"type": "video",
 			"title": "ECE4450 L12: Voltage Controlled Oscillators: Triangle Cores; Buchla 259",
 			"url": "https://www.youtube.com/watch?v=vZriAoE9MA4",
+			"origin": "academic",
 			"author": "Aaron Lanterman (Georgia Tech)"
 		},
 		{
 			"type": "video",
 			"title": "ECE4450 L13: Triangle-to-Sawtooth Waveshaping",
 			"url": "https://www.youtube.com/watch?v=0vnj_obkdu0",
+			"origin": "academic",
 			"author": "Aaron Lanterman (Georgia Tech)"
 		},
 		{
 			"type": "video",
 			"title": "ECE4450 L14: Triangle-to-Sine Waveshaping",
 			"url": "https://www.youtube.com/watch?v=V_AzBAopRS8",
+			"origin": "academic",
 			"author": "Aaron Lanterman (Georgia Tech)"
 		}
 	]

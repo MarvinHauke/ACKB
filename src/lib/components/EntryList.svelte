@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { resolve } from '$app/paths';
-	import type { EntrySummary } from '$lib/types';
+	import { KIND_LABEL, type EntrySummary } from '$lib/types';
 
 	let { entries, labels }: { entries: EntrySummary[]; labels: Map<string, string> } = $props();
 </script>
@@ -9,7 +9,7 @@
 	{#each entries as entry (entry.id)}
 		<li>
 			<a class="title" href={resolve('/entry/[id]', { id: entry.id })}>{entry.title}</a>
-			<span class="badge">{entry.confidence} · {entry.difficulty}</span>
+			<span class="badge">{entry.kinds.map((k) => KIND_LABEL[k]).join(' · ')} · {entry.confidence}</span>
 			<p>{entry.summary}</p>
 			<ul class="chips">
 				{#each [...entry.terms.products, ...entry.terms.ics, ...entry.terms.subcircuits.slice(0, 3)] as id (id)}

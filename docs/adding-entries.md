@@ -22,8 +22,7 @@ npm run validate
 	"subcircuits": ["sallen_key", "ota_stage", "diode_limiter"],
 	"functions": ["nonlinear_feedback", "soft_clipping"],
 	"ics": ["lm13700"],
-	"difficulty": "intermediate",
-	"confidence": "community-verified",
+	"kinds": ["build-guide", "schematic"],
 	"added": "2026-09-26",
 	"sources": [
 		{
@@ -46,6 +45,15 @@ npm run validate
 
 | Field        | Values                                                                                       |
 | ------------ | -------------------------------------------------------------------------------------------- |
-| `difficulty` | `beginner`, `intermediate`, `advanced`                                                       |
-| `confidence` | `official`, `academic`, `community-verified`, `community`, `experimental`                    |
+| `kinds`      | one or more of `build-guide`, `explanation`, `analysis`, `schematic`, `reference`             |
 | source type  | `website`, `paper`, `datasheet`, `patent`, `github`, `video`, `forum`, `manual`, `schematic` |
+| source `origin` (optional) | `manufacturer`, `academic`                                                     |
+
+`kinds` says what the resources are: `build-guide` (step by step, parts list, layout),
+`explanation` (how and why it works), `analysis` (maths, measurements, simulation),
+`schematic` (circuit diagrams without much text), `reference` (manuals, datasheets, calculators).
+
+Confidence isn't set by hand; the build derives it from the sources, highest wins:
+`official` if a source is a `datasheet` or `manual` or has `"origin": "manufacturer"`,
+`academic` if one is a `paper` or `patent` or has `"origin": "academic"` (e.g. a university
+lecture video), otherwise `community`.

@@ -11,13 +11,14 @@ export function summarize(entry: Catalog['entries'][number]): EntrySummary {
 		id: entry.id,
 		title: entry.title,
 		summary: entry.summary,
-		difficulty: entry.difficulty,
+		kinds: entry.kinds,
 		confidence: entry.confidence,
 		added: entry.added,
 		terms: Object.fromEntries(REGISTRY_KEYS.map((k) => [k, entry.terms[k].map((t) => t.id)])) as Record<
 			RegistryKey,
 			string[]
-		>
+		>,
+		sourceTypes: [...new Set(entry.sources.map((s) => s.type))]
 	};
 }
 

@@ -19,8 +19,7 @@
 		"lm13700",
 		"ca3080"
 	],
-	"difficulty": "beginner",
-	"confidence": "community-verified",
+	"kinds": ["explanation"],
 	"added": "2026-09-26",
 	"sources": [
 		{

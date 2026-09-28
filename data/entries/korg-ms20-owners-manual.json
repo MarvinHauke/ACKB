@@ -7,8 +7,7 @@
 	"products": ["ms-20"],
 	"circuitTypes": ["filter", "oscillator", "envelope", "vca"],
 	"functions": ["resonance_control", "self_oscillation", "voltage_controlled_cutoff", "lowpass_response", "highpass_response"],
-	"difficulty": "beginner",
-	"confidence": "official",
+	"kinds": ["reference"],
 	"added": "2026-09-26",
 	"sources": [
 		{

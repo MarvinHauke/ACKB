@@ -18,8 +18,7 @@
 	"ics": [
 		"cd4007"
 	],
-	"difficulty": "intermediate",
-	"confidence": "community-verified",
+	"kinds": ["schematic"],
 	"added": "2026-09-26",
 	"sources": [
 		{

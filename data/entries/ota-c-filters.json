@@ -20,26 +20,28 @@
 		"lm13700",
 		"ca3080"
 	],
-	"difficulty": "intermediate",
-	"confidence": "academic",
+	"kinds": ["analysis"],
 	"added": "2026-09-26",
 	"sources": [
 		{
 			"type": "video",
 			"title": "ECE4450 L19: Single-Pole OTA-C Filters",
 			"url": "https://www.youtube.com/watch?v=pTHHzFsa4Ss",
+			"origin": "academic",
 			"author": "Aaron Lanterman (Georgia Tech)"
 		},
 		{
 			"type": "video",
 			"title": "ECE4450 L20: Four-Pole Filters with Feedback: Theory",
 			"url": "https://www.youtube.com/watch?v=rnP_vo1ij50",
+			"origin": "academic",
 			"author": "Aaron Lanterman (Georgia Tech)"
 		},
 		{
 			"type": "video",
 			"title": "ECE4450 L21: Four-Pole Filters with Feedback: OTA-C Examples",
 			"url": "https://www.youtube.com/watch?v=DRWZ39ae2_k",
+			"origin": "academic",
 			"author": "Aaron Lanterman (Georgia Tech)"
 		}
 	]

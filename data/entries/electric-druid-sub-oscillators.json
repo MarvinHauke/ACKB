@@ -9,8 +9,7 @@
 	"subcircuits": ["frequency_divider", "waveshaper", "differential_pair", "ota_stage", "inverting_amp"],
 	"functions": ["frequency_division", "waveshaping", "soft_clipping"],
 	"ics": ["cd4013"],
-	"difficulty": "intermediate",
-	"confidence": "community-verified",
+	"kinds": ["explanation"],
 	"added": "2026-09-26",
 	"sources": [
 		{

@@ -20,8 +20,7 @@
 		"lm13600",
 		"lm13700"
 	],
-	"difficulty": "advanced",
-	"confidence": "community-verified",
+	"kinds": ["analysis"],
 	"added": "2026-09-26",
 	"sources": [
 		{
@@ -36,6 +35,7 @@
 			"type": "video",
 			"title": "ECE4450 L4.2: 3080 vs 13700",
 			"url": "https://www.youtube.com/watch?v=0tk5zl6xTsI",
+			"origin": "academic",
 			"author": "Aaron Lanterman (Georgia Tech)"
 		}
 	]

@@ -13,8 +13,7 @@
 	"functions": [
 		"sequencing"
 	],
-	"difficulty": "beginner",
-	"confidence": "community-verified",
+	"kinds": ["explanation"],
 	"added": "2026-09-26",
 	"sources": [
 		{

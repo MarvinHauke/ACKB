@@ -18,26 +18,28 @@
 		"ca3080",
 		"lm13700"
 	],
-	"difficulty": "intermediate",
-	"confidence": "academic",
+	"kinds": ["analysis"],
 	"added": "2026-09-26",
 	"sources": [
 		{
 			"type": "video",
 			"title": "ECE4450 L4.1: Voltage Controlled Amplifiers: Operational Transconductance Amps",
 			"url": "https://www.youtube.com/watch?v=96j2tNKFCPI",
+			"origin": "academic",
 			"author": "Aaron Lanterman (Georgia Tech)"
 		},
 		{
 			"type": "video",
 			"title": "ECE4450 L4.2: 3080 vs 13700",
 			"url": "https://www.youtube.com/watch?v=0tk5zl6xTsI",
+			"origin": "academic",
 			"author": "Aaron Lanterman (Georgia Tech)"
 		},
 		{
 			"type": "video",
 			"title": "ECE4450 L5: Alternatives to Operational Transconductance Amplifiers",
 			"url": "https://www.youtube.com/watch?v=9BjhGQDk9pA",
+			"origin": "academic",
 			"author": "Aaron Lanterman (Georgia Tech)"
 		}
 	]

@@ -24,8 +24,7 @@
 		"pt2399",
 		"pic"
 	],
-	"difficulty": "intermediate",
-	"confidence": "community",
+	"kinds": ["explanation"],
 	"added": "2026-09-26",
 	"sources": [
 		{

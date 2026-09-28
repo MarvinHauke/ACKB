@@ -14,27 +14,33 @@
 		type Filters
 	} from '$lib/filters';
 	import { loadSearch, type Searcher } from '$lib/search';
-	import { REGISTRY_KEYS, REGISTRY_META } from '$lib/types';
+	import { SOURCE_TYPES, loadHiddenTypes, saveHiddenTypes } from '$lib/source-types';
+	import { KIND_LABEL, REGISTRY_KEYS, REGISTRY_META } from '$lib/types';
 
 	let { data } = $props();
 
 	const facetIndex = $derived(buildFacetIndex(data.entries));
 	const byId = $derived(new Map(data.entries.map((e) => [e.id, e])));
-	const labels = $derived(new Map(REGISTRY_KEYS.flatMap((k) => data.terms[k].map((t) => [t.id, t.label]))));
+	const labels = $derived(
+		new Map([
+			...REGISTRY_KEYS.flatMap((k) => data.terms[k].map((t) => [t.id, t.label] as [string, string])),
+			...Object.entries(KIND_LABEL)
+		])
+	);
 
 	const FACET_LABEL: Record<FilterKey, string> = {
 		...(Object.fromEntries(REGISTRY_KEYS.map((k) => [k, REGISTRY_META[k].plural])) as Record<string, string>),
-		difficulty: 'Difficulty',
+		kind: 'Content kind',
 		confidence: 'Confidence'
 	} as Record<FilterKey, string>;
 
-	// Facet options: taxonomy terms with labels, difficulty/confidence as plain values.
+	// Facet options: taxonomy terms with labels, content kinds with display names, confidence as plain values.
 	const options = $derived(
 		Object.fromEntries(
 			FILTER_KEYS.map((k) => [
 				k,
-				k === 'difficulty'
-					? data.difficulties.map((v) => ({ id: v, label: v }))
+				k === 'kind'
+					? data.kinds.map((v) => ({ id: v, label: KIND_LABEL[v] }))
 					: k === 'confidence'
 						? data.confidences.map((v) => ({ id: v, label: v }))
 						: data.terms[k]
@@ -54,6 +60,16 @@
 	const RECENT_KEY = 'ackb:recent-filters';
 	const RECENT_MAX = 6;
 	let recent: { key: FilterKey; id: string }[] = $state([]);
+	// Source types the reader unticked; entries whose sources are all hidden drop out of every list.
+	let hiddenTypes: string[] = $state([]);
+	let sourceTypesOpen = $state(false);
+	const sourceTypeOptions = $derived(SOURCE_TYPES.filter((t) => data.entries.some((e) => e.sourceTypes.includes(t))));
+	const shown = (e: { sourceTypes: string[] }) => e.sourceTypes.some((t) => !hiddenTypes.includes(t));
+
+	function toggleSourceType(type: string) {
+		hiddenTypes = hiddenTypes.includes(type) ? hiddenTypes.filter((t) => t !== type) : [...hiddenTypes, type];
+		saveHiddenTypes(hiddenTypes);
+	}
 
 	onMount(() => {
 		const params = new URLSearchParams(location.search);
@@ -61,6 +77,8 @@
 		filters = filtersFromParams(params);
 		for (const key of FILTER_KEYS) if (filters[key].length) openGroups[key] = true;
 		if (query) warmSearch();
+		hiddenTypes = loadHiddenTypes();
+		if (hiddenTypes.length) sourceTypesOpen = true;
 		try {
 			const saved = JSON.parse(localStorage.getItem(RECENT_KEY) ?? '[]');
 			if (Array.isArray(saved)) recent = saved.filter((r) => FILTER_KEYS.includes(r?.key) && typeof r?.id === 'string');
@@ -118,13 +136,12 @@
 	const q = $derived(query.trim());
 
 	const results = $derived.by(() => {
-		const allowed = (id: string) => facetMatch === null || facetMatch.has(id);
+		const allowed = (id: string) => (facetMatch === null || facetMatch.has(id)) && shown(byId.get(id)!);
 		if (!q) return data.entries.filter((e) => allowed(e.id));
 		if (searcher) {
 			return searcher(q)
-				.filter((r) => allowed(r.id))
-				.map((r) => byId.get(r.id)!)
-				.filter(Boolean);
+				.filter((r) => byId.has(r.id) && allowed(r.id))
+				.map((r) => byId.get(r.id)!);
 		}
 		// Until Fuse is loaded: plain substring match, so typing never shows an empty page.
 		const needle = q.toLowerCase();
@@ -244,6 +261,24 @@
 				</details>
 			{/if}
 		{/each}
+		{#if sourceTypeOptions.length > 1}
+			<details
+				open={sourceTypesOpen}
+				ontoggle={(e) => (sourceTypesOpen = (e.currentTarget as HTMLDetailsElement).open)}
+			>
+				<summary>Source types{hiddenTypes.length ? ` (${hiddenTypes.length} hidden)` : ''}</summary>
+				<ul>
+					{#each sourceTypeOptions as t (t)}
+						<li>
+							<label>
+								<input type="checkbox" checked={!hiddenTypes.includes(t)} onchange={() => toggleSourceType(t)} />
+								{t} <span class="muted">{results.filter((e) => e.sourceTypes.includes(t)).length}</span>
+							</label>
+						</li>
+					{/each}
+				</ul>
+			</details>
+		{/if}
 	</aside>
 
 	<section>
@@ -255,7 +290,7 @@
 			{/if}
 		{:else}
 			<h2>Recent entries</h2>
-			<EntryList entries={data.entries.slice(0, 10)} {labels} />
+			<EntryList entries={data.entries.filter(shown).slice(0, 10)} {labels} />
 
 			<h2>Popular functions</h2>
 			<ul class="chips">

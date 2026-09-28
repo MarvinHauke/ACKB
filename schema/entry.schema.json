@@ -5,7 +5,7 @@
 	"description": "One knowledge entry: a circuit topic with its external sources. The file name is the entry id.",
 	"type": "object",
 	"additionalProperties": false,
-	"required": ["schemaVersion", "title", "summary", "circuitTypes", "difficulty", "confidence", "added", "sources"],
+	"required": ["schemaVersion", "title", "summary", "circuitTypes", "kinds", "added", "sources"],
 	"properties": {
 		"$schema": { "type": "string" },
 		"schemaVersion": { "const": 1 },
@@ -17,10 +17,12 @@
 		"subcircuits": { "$ref": "#/$defs/idList", "description": "Ids from data/taxonomy/subcircuits.json" },
 		"functions": { "$ref": "#/$defs/idList", "description": "Ids from data/taxonomy/functions.json" },
 		"ics": { "$ref": "#/$defs/idList", "description": "Ids from data/taxonomy/ics.json" },
-		"difficulty": { "enum": ["beginner", "intermediate", "advanced"] },
-		"confidence": {
-			"enum": ["official", "academic", "community-verified", "community", "experimental"],
-			"description": "How trustworthy the collected sources are, highest first."
+		"kinds": {
+			"type": "array",
+			"minItems": 1,
+			"uniqueItems": true,
+			"items": { "enum": ["build-guide", "explanation", "analysis", "schematic", "reference"] },
+			"description": "What the resources are: step-by-step build, how it works, maths/measurements, bare schematics, or reference material (manuals, datasheets, calculators)."
 		},
 		"added": { "type": "string", "format": "date" },
 		"reviewed": { "type": "string", "format": "date" },
@@ -38,6 +40,10 @@
 				"title": { "type": "string", "minLength": 3 },
 				"url": { "type": "string", "format": "uri", "pattern": "^https?://" },
 				"author": { "type": "string" },
+				"origin": {
+					"enum": ["manufacturer", "academic"],
+					"description": "Who published it, when the type doesn't say (e.g. a university lecture video). Sets the entry's confidence."
+				},
 				"year": { "type": "integer", "minimum": 1900, "maximum": 2100 },
 				"lang": { "type": "string", "pattern": "^[a-z]{2}$", "description": "ISO 639-1, default en" },
 				"license": { "type": "string" },

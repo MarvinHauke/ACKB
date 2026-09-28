@@ -20,8 +20,7 @@
 		"ca3080",
 		"lm13600"
 	],
-	"difficulty": "advanced",
-	"confidence": "community-verified",
+	"kinds": ["schematic"],
 	"added": "2026-09-26",
 	"sources": [
 		{

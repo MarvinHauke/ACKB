@@ -2,8 +2,8 @@
 
 export type RegistryKey = 'manufacturers' | 'products' | 'circuitTypes' | 'subcircuits' | 'functions' | 'ics';
 
-export type Difficulty = 'beginner' | 'intermediate' | 'advanced';
-export type Confidence = 'official' | 'academic' | 'community-verified' | 'community' | 'experimental';
+export type ContentKind = 'build-guide' | 'explanation' | 'analysis' | 'schematic' | 'reference';
+export type Confidence = 'official' | 'academic' | 'community';
 export type LinkStatus = 'ok' | 'redirect' | 'broken' | 'timeout' | 'blocked' | 'unchecked';
 
 export interface Term {
@@ -52,7 +52,7 @@ export interface Entry {
 	id: string;
 	title: string;
 	summary: string;
-	difficulty: Difficulty;
+	kinds: ContentKind[];
 	confidence: Confidence;
 	added: string;
 	reviewed: string | null;
@@ -75,10 +75,12 @@ export interface EntrySummary {
 	id: string;
 	title: string;
 	summary: string;
-	difficulty: Difficulty;
+	kinds: ContentKind[];
 	confidence: Confidence;
 	added: string;
 	terms: Record<RegistryKey, string[]>;
+	/** Distinct source types, for hiding entries whose sources are all of hidden types. */
+	sourceTypes: string[];
 }
 
 export const REGISTRY_KEYS: RegistryKey[] = ['manufacturers', 'products', 'circuitTypes', 'subcircuits', 'functions', 'ics'];
@@ -97,5 +99,13 @@ export const SLUG_TO_KEY = Object.fromEntries(
 	Object.entries(REGISTRY_META).map(([key, meta]) => [meta.slug, key])
 ) as Record<string, RegistryKey>;
 
-export const DIFFICULTIES: Difficulty[] = ['beginner', 'intermediate', 'advanced'];
-export const CONFIDENCES: Confidence[] = ['official', 'academic', 'community-verified', 'community', 'experimental'];
+export const CONTENT_KINDS: ContentKind[] = ['build-guide', 'explanation', 'analysis', 'schematic', 'reference'];
+
+export const KIND_LABEL: Record<ContentKind, string> = {
+	'build-guide': 'Build guide',
+	explanation: 'Explanation',
+	analysis: 'Analysis',
+	schematic: 'Schematic',
+	reference: 'Reference'
+};
+export const CONFIDENCES: Confidence[] = ['official', 'academic', 'community'];

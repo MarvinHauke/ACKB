@@ -6,8 +6,7 @@
 	"circuitTypes": [
 		"utility"
 	],
-	"difficulty": "beginner",
-	"confidence": "community-verified",
+	"kinds": ["build-guide"],
 	"added": "2026-09-26",
 	"sources": [
 		{

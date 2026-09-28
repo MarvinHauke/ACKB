@@ -19,8 +19,7 @@
 	"ics": [
 		"pic"
 	],
-	"difficulty": "advanced",
-	"confidence": "community-verified",
+	"kinds": ["analysis"],
 	"added": "2026-09-26",
 	"sources": [
 		{

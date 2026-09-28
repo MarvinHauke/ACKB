@@ -16,8 +16,7 @@
 	"ics": [
 		"tl072"
 	],
-	"difficulty": "beginner",
-	"confidence": "community-verified",
+	"kinds": ["build-guide"],
 	"added": "2026-09-26",
 	"sources": [
 		{

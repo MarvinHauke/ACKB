@@ -7,8 +7,7 @@
 	"subcircuits": ["state_variable", "integrator", "ota_stage", "inverting_amp"],
 	"functions": ["multimode_output", "lowpass_response", "highpass_response", "bandpass_response", "resonance_control"],
 	"ics": ["cem3320", "lm13700"],
-	"difficulty": "intermediate",
-	"confidence": "community-verified",
+	"kinds": ["explanation"],
 	"added": "2026-09-26",
 	"sources": [
 		{

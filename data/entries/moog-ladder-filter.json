@@ -24,14 +24,14 @@
 		"self_oscillation",
 		"voltage_controlled_cutoff"
 	],
-	"difficulty": "advanced",
-	"confidence": "academic",
+	"kinds": ["analysis", "schematic"],
 	"added": "2026-09-26",
 	"sources": [
 		{
 			"type": "video",
 			"title": "ECE4450 L22: Moog Ladder Filters Analyzed",
 			"url": "https://www.youtube.com/watch?v=IRxeIEeAAnU",
+			"origin": "academic",
 			"author": "Aaron Lanterman (Georgia Tech)"
 		},
 		{
