@@ -51,9 +51,22 @@
 	<a href={asset('/data/kb.jsonl')}>kb.jsonl</a> · <a href={asset('/data/graph.json')}>graph.json</a> ·
 	<a href={asset('/data/taxonomy.json')}>taxonomy.json</a> ·
 	<a href={asset('/llms.txt')}>llms.txt</a>
+	<p class="optout">
+		Your page is listed here and you'd rather it wasn't, or a link is wrong?
+		<a href="mailto:info@irregular-instruments.com?subject=ACKB%20listing">Write to us</a> and we'll change or
+		remove it.
+	</p>
+	<p class="legal">
+		<a href="https://irregular-instruments.com/impressum">Impressum</a> ·
+		<a href="https://irregular-instruments.com/datenschutz">Datenschutz</a>
+	</p>
 </footer>
 
 <style>
+	footer p {
+		margin: 0.5rem 0 0;
+	}
+
 	header {
 		border-bottom: 1px solid var(--line);
 		background: var(--panel);
