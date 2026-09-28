@@ -1,0 +1,157 @@
+[
+	{
+		"id": "oscillator",
+		"label": "Oscillator",
+		"aliases": [
+			"VCO",
+			"DCO"
+		]
+	},
+	{
+		"id": "filter",
+		"label": "Filter",
+		"aliases": [
+			"VCF"
+		]
+	},
+	{
+		"id": "vca",
+		"label": "VCA",
+		"aliases": [
+			"voltage controlled amplifier"
+		]
+	},
+	{
+		"id": "envelope",
+		"label": "Envelope",
+		"aliases": [
+			"EG",
+			"ADSR",
+			"envelope generator"
+		]
+	},
+	{
+		"id": "lfo",
+		"label": "LFO",
+		"aliases": [
+			"low frequency oscillator",
+			"modulation oscillator"
+		]
+	},
+	{
+		"id": "mixer",
+		"label": "Mixer"
+	},
+	{
+		"id": "fx",
+		"label": "FX",
+		"aliases": [
+			"effects",
+			"effect pedal",
+			"stompbox"
+		]
+	},
+	{
+		"id": "modulation",
+		"label": "Chorus, Flanger & Phaser",
+		"parent": "fx",
+		"aliases": [
+			"chorus",
+			"flanger",
+			"phaser",
+			"tremolo",
+			"vibrato",
+			"modulation effects"
+		]
+	},
+	{
+		"id": "delay",
+		"label": "Delay & Reverb",
+		"parent": "fx",
+		"aliases": [
+			"delay",
+			"echo",
+			"reverb"
+		]
+	},
+	{
+		"id": "distortion",
+		"label": "Distortion & Waveshaping",
+		"parent": "fx",
+		"aliases": [
+			"distortion",
+			"overdrive",
+			"fuzz",
+			"wavefolder module"
+		]
+	},
+	{
+		"id": "dynamics",
+		"label": "Dynamics",
+		"parent": "fx",
+		"aliases": [
+			"compressor",
+			"noise gate",
+			"transient shaper",
+			"compander"
+		]
+	},
+	{
+		"id": "spectral",
+		"label": "Ring Mod, Shifter & Vocoder",
+		"parent": "fx",
+		"aliases": [
+			"ring modulator",
+			"frequency shifter",
+			"vocoder module"
+		]
+	},
+	{
+		"id": "utility",
+		"label": "Utility",
+		"aliases": [
+			"CV processing",
+			"attenuator",
+			"preamp",
+			"output stage"
+		]
+	},
+	{
+		"id": "noise",
+		"label": "Noise",
+		"aliases": [
+			"noise generator",
+			"noise source"
+		]
+	},
+	{
+		"id": "drum",
+		"label": "Drum",
+		"aliases": [
+			"drum machine",
+			"drum voice",
+			"percussion"
+		]
+	},
+	{
+		"id": "sequencer-clock",
+		"label": "Sequencer & Clock",
+		"aliases": [
+			"sequencer",
+			"step sequencer",
+			"clock",
+			"MIDI to CV",
+			"sample and hold"
+		]
+	},
+	{
+		"id": "power-supply",
+		"label": "Power Supply",
+		"aliases": [
+			"PSU",
+			"bus board",
+			"power regulation",
+			"power distribution"
+		]
+	}
+]

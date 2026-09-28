@@ -1,0 +1,29 @@
+{
+	"$schema": "../../schema/article.schema.json",
+	"schemaVersion": 3,
+	"title": "VCO 3",
+	"url": "https://www.schmitzbits.de/vco3.html",
+	"type": "schematic",
+	"authors": [
+		"rene-schmitz"
+	],
+	"summary": "An integrator-based VCO from 1998 with triangle and sine outputs, inspired by designs discussed on the Synth-DIY mailing list; uses an LM394 matched pair.",
+	"modules": [
+		"oscillator"
+	],
+	"subcircuits": [
+		"vco-core",
+		"integrator",
+		"exponential-converter",
+		"waveshaper"
+	],
+	"functions": [
+		"exponential-response",
+		"waveshaping"
+	],
+	"ics": [
+		"lm394"
+	],
+	"kinds": ["schematic"],
+	"added": "2026-09-26"
+}

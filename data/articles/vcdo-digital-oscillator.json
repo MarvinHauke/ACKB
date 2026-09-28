@@ -1,0 +1,32 @@
+{
+	"$schema": "../../schema/article.schema.json",
+	"schemaVersion": 3,
+	"title": "Voltage-controlled digital oscillator VCDO1",
+	"url": "https://electricdruid.net/voltage-controlled-digital-oscillator-vcdo1/",
+	"type": "website",
+	"authors": [
+		"tom-wiltshire"
+	],
+	"year": 2013,
+	"license": "CC BY-NC-SA 4.0",
+	"summary": "Single-chip 1V/oct digital oscillator on a PIC: exponential response without an analog expo converter, a ten-octave range, a scannable 16-waveform wavetable, a sub-oscillator with eight waveforms at four octaves, bitcrushing and glide.",
+	"modules": [
+		"oscillator"
+	],
+	"subcircuits": [
+		"microcontroller",
+		"dds-oscillator",
+		"frequency-divider"
+	],
+	"functions": [
+		"wavetable-synthesis",
+		"exponential-response",
+		"frequency-division",
+		"digital-waveform-generation"
+	],
+	"ics": [
+		"pic"
+	],
+	"kinds": ["explanation"],
+	"added": "2026-09-26"
+}

@@ -1,0 +1,25 @@
+{
+	"$schema": "../../schema/article.schema.json",
+	"schemaVersion": 3,
+	"title": "JH. \"Son of Storm Tide\" Flanger",
+	"url": "http://jhaible.com/legacy/sonofstormtide/sonofstormtide.html",
+	"type": "website",
+	"authors": [
+		"juergen-haible"
+	],
+	"license": "non-commercial, educational use (Random*Source)",
+	"summary": "PCB flanger project developed from the Storm Tide: different BBD chips, less close to the vintage circuit, with Haible's own features.",
+	"modules": [
+		"fx",
+		"modulation"
+	],
+	"subcircuits": [
+		"bbd-delay-line",
+		"clock-generator"
+	],
+	"functions": [
+		"chorus-flanging"
+	],
+	"kinds": ["explanation", "schematic"],
+	"added": "2026-09-28"
+}

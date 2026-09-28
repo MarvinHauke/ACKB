@@ -1,0 +1,25 @@
+{
+	"$schema": "../../schema/article.schema.json",
+	"schemaVersion": 3,
+	"title": "Sample and Hold",
+	"url": "https://www.schmitzbits.de/sah.html",
+	"type": "schematic",
+	"authors": [
+		"rene-schmitz"
+	],
+	"summary": "A ±10 V sample and hold around the LF398, for random voltages or sampling LFOs into stepped patterns.",
+	"modules": [
+		"sequencer-clock"
+	],
+	"subcircuits": [
+		"sample-and-hold"
+	],
+	"functions": [
+		"random-modulation"
+	],
+	"ics": [
+		"lf398"
+	],
+	"kinds": ["schematic"],
+	"added": "2026-09-26"
+}

@@ -1,0 +1,35 @@
+{
+	"$schema": "../../schema/article.schema.json",
+	"schemaVersion": 3,
+	"title": "Boss MT-2 Metal Zone pedal analysis",
+	"url": "https://electricdruid.net/boss-mt-2-metal-zone-pedal-analysis/",
+	"type": "website",
+	"authors": [
+		"tom-wiltshire"
+	],
+	"year": 2016,
+	"license": "CC BY-NC-SA 4.0",
+	"summary": "Stage-by-stage analysis of the MT-2: input buffer, pre-distortion tone shaping, gain stages with clipping diodes, post-distortion shaping, and its unusual active EQ with a sweepable mid control.",
+	"manufacturers": [
+		"boss"
+	],
+	"products": [
+		"mt-2"
+	],
+	"modules": [
+		"fx",
+		"distortion"
+	],
+	"subcircuits": [
+		"voltage-follower",
+		"diode-limiter",
+		"tone-control",
+		"non-inverting-amp"
+	],
+	"functions": [
+		"hard-clipping",
+		"tone-shaping"
+	],
+	"kinds": ["analysis"],
+	"added": "2026-09-26"
+}

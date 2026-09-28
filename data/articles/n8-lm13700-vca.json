@@ -1,0 +1,27 @@
+{
+	"$schema": "../../schema/article.schema.json",
+	"schemaVersion": 3,
+	"title": "DIY Eurorack VCA Module Build",
+	"url": "https://www.n8synth.co.uk/diy-eurorack/diy-synthesizer-vca-lm13700/",
+	"type": "website",
+	"authors": [
+		"n8-synthesizers"
+	],
+	"summary": "Build guide for a dual VCA on 6HP using the LM13700: schematic, bill of materials, construction, testing and trimming.",
+	"modules": [
+		"vca"
+	],
+	"subcircuits": [
+		"ota-stage",
+		"voltage-follower"
+	],
+	"functions": [
+		"current-controlled-amplification"
+	],
+	"ics": [
+		"lm13700",
+		"tl072"
+	],
+	"kinds": ["build-guide"],
+	"added": "2026-09-26"
+}

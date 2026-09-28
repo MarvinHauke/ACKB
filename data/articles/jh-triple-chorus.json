@@ -1,0 +1,32 @@
+{
+	"$schema": "../../schema/article.schema.json",
+	"schemaVersion": 3,
+	"title": "JH. String Ensemble / Triple Chorus",
+	"url": "http://jhaible.com/legacy/triple_chorus/triple_chorus.html",
+	"type": "website",
+	"authors": [
+		"juergen-haible"
+	],
+	"license": "non-commercial, educational use (Random*Source)",
+	"summary": "Emulation of the Solina / ARP String Ensemble triple chorus with BBDs and multiphase modulation.",
+	"manufacturers": [
+		"arp"
+	],
+	"products": [
+		"string-ensemble"
+	],
+	"modules": [
+		"fx",
+		"modulation"
+	],
+	"subcircuits": [
+		"bbd-delay-line",
+		"clock-generator"
+	],
+	"functions": [
+		"chorus-flanging",
+		"periodic-modulation"
+	],
+	"kinds": ["explanation", "schematic"],
+	"added": "2026-09-28"
+}

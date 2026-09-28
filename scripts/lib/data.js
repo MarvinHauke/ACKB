@@ -1,28 +1,30 @@
-// Loads the raw JSON data (taxonomy registries + entries) from data/.
-// Shared by validate.js, build-data.js, check-links.js and new-entry.js.
+// Loads the raw JSON data (taxonomy registries + articles) from data/.
+// Shared by validate.js, build-data.js, check-links.js and new-article.js.
 import { readdirSync, readFileSync } from 'node:fs';
 import { basename, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 export const ROOT = fileURLToPath(new URL('../..', import.meta.url));
 export const DATA_DIR = join(ROOT, 'data');
-export const ENTRIES_DIR = join(DATA_DIR, 'entries');
+// One file per article (link).
+export const ARTICLES_DIR = join(DATA_DIR, 'articles');
 export const TAXONOMY_DIR = join(DATA_DIR, 'taxonomy');
 
 /**
- * Taxonomy registries: registry key → file name, schema, and the entry field that references it.
- * `field` is null for registries that entries don't reference directly.
+ * Taxonomy registries: registry key → file name, schema, and the article field that references it.
+ * `field` is null for registries that articles don't reference directly.
  */
 export const REGISTRIES = {
 	manufacturers: { file: 'manufacturers.json', schema: 'term', field: 'manufacturers' },
 	products: { file: 'products.json', schema: 'product', field: 'products' },
-	circuitTypes: { file: 'circuit-types.json', schema: 'term', field: 'circuitTypes' },
+	modules: { file: 'modules.json', schema: 'term', field: 'modules' },
 	subcircuits: { file: 'subcircuits.json', schema: 'subcircuit', field: 'subcircuits' },
 	functions: { file: 'functions.json', schema: 'term', field: 'functions' },
-	ics: { file: 'ics.json', schema: 'ic', field: 'ics' }
+	ics: { file: 'ics.json', schema: 'ic', field: 'ics' },
+	authors: { file: 'authors.json', schema: 'author', field: 'authors' }
 };
 
-export const ENTRY_ID = /^[a-z0-9]+(-[a-z0-9]+)*$/;
+export const ARTICLE_ID = /^[a-z0-9]+(-[a-z0-9]+)*$/;
 
 /** Parse a JSON file; returns { value } or { error } so callers can collect all errors. */
 export function readJson(path) {
@@ -45,21 +47,21 @@ export function loadTaxonomy() {
 	return { taxonomy, errors };
 }
 
-export function loadEntries() {
-	const entries = [];
+export function loadArticles() {
+	const articles = [];
 	const errors = [];
-	const files = readdirSync(ENTRIES_DIR)
+	const files = readdirSync(ARTICLES_DIR)
 		.filter((f) => f.endsWith('.json'))
 		.sort();
 	for (const file of files) {
-		const { value, error } = readJson(join(ENTRIES_DIR, file));
+		const { value, error } = readJson(join(ARTICLES_DIR, file));
 		if (error) {
-			errors.push(`data/entries/${file}: malformed JSON: ${error}`);
+			errors.push(`data/articles/${file}: malformed JSON: ${error}`);
 			continue;
 		}
-		entries.push({ id: basename(file, '.json'), file: `data/entries/${file}`, data: value });
+		articles.push({ id: basename(file, '.json'), file: `data/articles/${file}`, data: value });
 	}
-	return { entries, errors };
+	return { articles, errors };
 }
 
 /** Map registry key → Map(id → term) for fast lookups. */

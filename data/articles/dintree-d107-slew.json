@@ -1,0 +1,25 @@
+{
+	"$schema": "../../schema/article.schema.json",
+	"schemaVersion": 3,
+	"title": "Dintree D107 Slew: schematic, parts list and design notes",
+	"url": "https://github.com/hires/Dintree/tree/master/D107-Slew",
+	"type": "repo",
+	"authors": [
+		"andrew-kilpatrick"
+	],
+	"license": "non-commercial, educational use",
+	"summary": "Two slew limiters (0–10 s) for portamento and CV smoothing: a pot charges a capacitor, JFET-input op-amps buffer input and output.",
+	"modules": [
+		"utility"
+	],
+	"subcircuits": [
+		"rc-lowpass",
+		"voltage-follower"
+	],
+	"functions": [
+		"cv-smoothing",
+		"pitch-modulation"
+	],
+	"kinds": ["schematic", "explanation"],
+	"added": "2026-09-28"
+}

@@ -1,0 +1,28 @@
+{
+	"$schema": "../../schema/article.schema.json",
+	"schemaVersion": 3,
+	"title": "A \"Graphic-wave\" LFO",
+	"url": "https://electricdruid.net/a-graphic-wave-lfo/",
+	"type": "website",
+	"authors": [
+		"tom-wiltshire"
+	],
+	"year": 2023,
+	"license": "CC BY-NC-SA 4.0",
+	"summary": "Designing an LFO whose waveform is drawn with a row of sliders, like a graphic EQ: choosing the chip, an 8-point first version, then more points and interpolation, and why the result is close to a sequencer.",
+	"modules": [
+		"lfo"
+	],
+	"subcircuits": [
+		"microcontroller"
+	],
+	"functions": [
+		"periodic-modulation",
+		"tap-tempo"
+	],
+	"ics": [
+		"pic"
+	],
+	"kinds": ["explanation"],
+	"added": "2026-09-26"
+}

@@ -7,7 +7,8 @@ const KEYS = [
 	{ name: 'title', weight: 3 },
 	{ name: 'labels', weight: 2 },
 	{ name: 'aliases', weight: 1 },
-	{ name: 'summary', weight: 1 }
+	{ name: 'summary', weight: 1 },
+	{ name: 'authors', weight: 1 }
 ];
 
 interface SearchDoc {
@@ -16,6 +17,7 @@ interface SearchDoc {
 	summary: string;
 	labels: string[];
 	aliases: string[];
+	authors: string[];
 }
 
 export type Searcher = (query: string) => { id: string; score: number }[];

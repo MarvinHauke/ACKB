@@ -1,0 +1,35 @@
+{
+	"$schema": "../../schema/article.schema.json",
+	"schemaVersion": 3,
+	"title": "WASP Filter",
+	"url": "https://www.schmitzbits.de/wasp.html",
+	"type": "schematic",
+	"authors": [
+		"rene-schmitz"
+	],
+	"summary": "Jürgen Haible's clone of the EDP Wasp VCF: a state-variable filter built from one CD4069UB inverter used as op-amps, running on a single 5 V supply, with an interesting distortion.",
+	"manufacturers": [
+		"edp"
+	],
+	"products": [
+		"wasp"
+	],
+	"modules": [
+		"filter"
+	],
+	"subcircuits": [
+		"state-variable",
+		"cmos-inverter-stage"
+	],
+	"functions": [
+		"multimode-output",
+		"lowpass-response",
+		"bandpass-response",
+		"soft-clipping"
+	],
+	"ics": [
+		"cd4069"
+	],
+	"kinds": ["schematic"],
+	"added": "2026-09-26"
+}

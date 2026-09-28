@@ -1,0 +1,28 @@
+{
+	"$schema": "../../schema/article.schema.json",
+	"schemaVersion": 3,
+	"title": "Which noise chip do I need?",
+	"url": "https://electricdruid.net/which-noise-chip-do-i-need/",
+	"type": "website",
+	"authors": [
+		"tom-wiltshire"
+	],
+	"year": 2019,
+	"license": "CC BY-NC-SA 4.0",
+	"summary": "Comparison table of Electric Druid's four noise generator chips and which one fits which application.",
+	"modules": [
+		"noise"
+	],
+	"subcircuits": [
+		"noise-generator"
+	],
+	"functions": [
+		"noise-generation"
+	],
+	"ics": [
+		"mm5837",
+		"pic"
+	],
+	"kinds": ["explanation"],
+	"added": "2026-09-26"
+}

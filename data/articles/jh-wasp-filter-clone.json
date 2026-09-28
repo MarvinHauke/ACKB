@@ -1,0 +1,34 @@
+{
+	"$schema": "../../schema/article.schema.json",
+	"schemaVersion": 3,
+	"title": "JH Wasp Filter Clone",
+	"url": "http://jhaible.com/legacy/tonline_stuff/hj_wasp.html",
+	"type": "website",
+	"authors": [
+		"juergen-haible"
+	],
+	"license": "non-commercial, educational use (Random*Source)",
+	"summary": "EDP Wasp filter clone with CMOS-inverter state-variable filter; compares it with the SEM filter: lower maximum Q and extra distortion from the inverters.",
+	"manufacturers": [
+		"edp"
+	],
+	"products": [
+		"wasp"
+	],
+	"modules": [
+		"filter"
+	],
+	"subcircuits": [
+		"state-variable",
+		"cmos-inverter-stage"
+	],
+	"functions": [
+		"lowpass-response",
+		"soft-clipping"
+	],
+	"ics": [
+		"cd4069"
+	],
+	"kinds": ["explanation"],
+	"added": "2026-09-28"
+}

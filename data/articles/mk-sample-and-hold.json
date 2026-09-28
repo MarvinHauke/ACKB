@@ -1,0 +1,23 @@
+{
+	"$schema": "../../schema/article.schema.json",
+	"schemaVersion": 3,
+	"title": "Designing a sample & hold-circuit from scratch",
+	"url": "https://www.youtube.com/watch?v=kIJqzkRe4do",
+	"type": "video",
+	"authors": [
+		"moritz-klein"
+	],
+	"summary": "Video design of a sample and hold circuit from scratch: sampling a voltage on a trigger and holding it on a capacitor.",
+	"modules": [
+		"sequencer-clock"
+	],
+	"subcircuits": [
+		"sample-and-hold",
+		"voltage-follower"
+	],
+	"functions": [
+		"random-modulation"
+	],
+	"kinds": ["explanation"],
+	"added": "2026-09-26"
+}

@@ -1,0 +1,28 @@
+{
+	"$schema": "../../schema/article.schema.json",
+	"schemaVersion": 3,
+	"title": "ECE4450 L11: Sawtooth-to-Pulse Waveshaping",
+	"url": "https://www.youtube.com/watch?v=qsaLmGgiVcU",
+	"type": "video",
+	"authors": [
+		"aaron-lanterman"
+	],
+	"origin": "academic",
+	"summary": "Lectures on sawtooth-core oscillators (integrator with reset) and deriving other waveforms from them: scaling and shifting waveforms, sawtooth-to-triangle and sawtooth-to-pulse waveshapers.",
+	"summaryFromGroup": true,
+	"modules": [
+		"oscillator"
+	],
+	"subcircuits": [
+		"vco-core",
+		"integrator",
+		"comparator",
+		"waveshaper"
+	],
+	"functions": [
+		"waveshaping",
+		"pulse-width-modulation"
+	],
+	"kinds": ["analysis"],
+	"added": "2026-09-26"
+}

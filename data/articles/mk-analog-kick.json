@@ -1,0 +1,22 @@
+{
+	"$schema": "../../schema/article.schema.json",
+	"schemaVersion": 3,
+	"title": "Designing a simple analog kick drum from scratch",
+	"url": "https://www.youtube.com/watch?v=yz37Yz315eU",
+	"type": "video",
+	"authors": [
+		"moritz-klein"
+	],
+	"summary": "Video design of an analog kick drum voice from scratch.",
+	"modules": [
+		"drum"
+	],
+	"subcircuits": [
+		"bridged-t-resonator"
+	],
+	"functions": [
+		"drum-synthesis"
+	],
+	"kinds": ["explanation"],
+	"added": "2026-09-26"
+}

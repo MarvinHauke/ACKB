@@ -3,35 +3,47 @@
 Static SvelteKit site, no backend. JSON in `data/` is the only source of truth.
 
 ```
-data/entries + data/taxonomy
+data/articles + data/taxonomy          (the knowledge graph: articles, tag nodes, id references as edges)
   → scripts/validate.js     (schema, ids, duplicates)
-  → scripts/build-data.js   (catalog, related entries, search index, exports)
+  → scripts/build-data.js   (catalog, related articles and tags, search index, exports)
   → vite build              (every page prerendered to build/)
 ```
 
 ## Generated files (not committed)
 
-| File                                     | Used for                                 |
-| ---------------------------------------- | ---------------------------------------- |
-| `src/lib/server/generated/catalog.json`  | input for the prerendered pages          |
-| `static/data/search-index.json`          | search, loaded on first focus            |
-| `static/data/kb.jsonl`, `taxonomy.json`  | exports for AI tools / PDF_OCR           |
-| `static/llms.txt`                        | site map for LLMs                        |
-| `static/data/<type>/<id>.json`, `index.json` | entries per tag, for the PDF_OCR CLI |
+| File                                          | Used for                                              |
+| --------------------------------------------- | ----------------------------------------------------- |
+| `src/lib/server/generated/catalog.json`       | input for the prerendered pages                       |
+| `static/data/search-index.json`               | search, loaded on first focus                         |
+| `static/data/kb.jsonl`, `taxonomy.json`       | one article per line, and the vocabulary              |
+| `static/data/graph.json`                      | the whole graph: nodes (articles, tags) and edges     |
+| `static/data/<type>/<path>.json`, `index.json` | per tag: facts, related tags, articles (PDF_OCR CLI)  |
+| `static/llms.txt`                             | site map for LLMs                                     |
+
+## Knowledge graph
+
+- **Nodes**: articles (`data/articles/*.json`) and tags (`data/taxonomy/*.json`: manufacturers,
+  products, modules, subcircuits, functions, ICs, authors).
+- **Edges**: an article's tags; product → manufacturer; `parent` (subtypes); IC `alternatives`.
+- The build adds per tag: its articles, **same kind** (IC alternatives and same category,
+  subtypes/siblings, a maker's products) and **often used together** (tags that share articles).
+- No graph database needed at this size; `graph.json` can be imported into one later.
 
 ## Lookup files (static API)
 
-No server: the build writes one JSON file per used tag, e.g.
-`https://marvinhauke.github.io/ACKB/data/subcircuit/ota_stage.json`. Types are `manufacturer`,
-`product`, `type`, `subcircuit`, `function`, `ic`; `data/index.json` lists every available id and maps PDF_OCR kinds to subcircuit ids
-(`pdfOcrKinds`).
-Each file has the term (subcircuits include `pdfOcrKind`) and its entries with sources, so the
-PDF_OCR CLI can fetch exactly one file per detection.
+No server: one JSON file per used tag, e.g.
+`https://marvinhauke.github.io/ACKB/data/ic/ca3080.json`. Types are `manufacturer`, `product`,
+`module`, `subcircuit`, `function`, `ic`, `author`; `data/index.json` lists every id and maps
+PDF_OCR kinds to subcircuit paths (`pdfOcrKinds`). Subtypes sit under their parent
+(`data/module/fx/delay.json`). `schemaVersion` 3 (one record per article, kebab-case ids).
 
 ## Pages
 
-`/`, `/entry/<id>`, and one page per used tag: `/manufacturer/…`, `/product/…`,
-`/type/…`, `/subcircuit/…`, `/function/…`, `/ic/…`.
+- `/`: search and filters (`?ic=ca3080&module=filter`). One row per article; the title opens the
+  resource in a new tab, tag chips open the tag pages, "Details" the article page.
+- `/<type>/<path>` (`/ic/ca3080`, `/module/fx/delay`, `/author/juergen-haible`, …): one page per used tag
+  with facts, related tags and its articles.
+- `/article/<id>`: one page per article with its tags and related articles.
 
 ## Search and filters
 

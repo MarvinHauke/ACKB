@@ -1,0 +1,39 @@
+{
+	"$schema": "../../schema/article.schema.json",
+	"schemaVersion": 3,
+	"title": "Two StompLFO projects: Mini Tremolo",
+	"url": "https://electricdruid.net/two-stomplfo-projects-mini-tremolo/",
+	"type": "website",
+	"authors": [
+		"tom-wiltshire"
+	],
+	"year": 2022,
+	"license": "CC BY-NC-SA 4.0",
+	"summary": "Two small pedal projects driven by the 8-pin STOMPLFO chip: an optical tremolo using a vactrol, and \"PTWobble\", a PT2399 delay with LFO modulation of the delay time.",
+	"summaryFromGroup": true,
+	"modules": [
+		"lfo",
+		"fx",
+		"modulation",
+		"delay"
+	],
+	"subcircuits": [
+		"microcontroller",
+		"vactrol",
+		"digital-delay-line",
+		"voltage-follower"
+	],
+	"functions": [
+		"tremolo",
+		"delay-echo",
+		"pitch-modulation",
+		"periodic-modulation",
+		"tap-tempo"
+	],
+	"ics": [
+		"pt2399",
+		"pic"
+	],
+	"kinds": ["explanation"],
+	"added": "2026-09-26"
+}

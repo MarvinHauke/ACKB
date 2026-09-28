@@ -1,0 +1,37 @@
+{
+	"$schema": "../../schema/article.schema.json",
+	"schemaVersion": 3,
+	"title": "Roland Juno DCOs",
+	"url": "https://electricdruid.net/roland-juno-dcos/",
+	"type": "website",
+	"authors": [
+		"tom-wiltshire"
+	],
+	"year": 2008,
+	"license": "CC BY-NC-SA 4.0",
+	"summary": "How the Juno-106 style digitally controlled oscillator works: a master clock divided by programmable counters sets the pitch, and each cycle resets an analog ramp whose amplitude is corrected so the level stays constant. Covers the waveshapers for sawtooth, PWM and the sub-oscillator, a scheme Roland reused across the JX and Juno lines.",
+	"manufacturers": [
+		"roland"
+	],
+	"products": [
+		"juno-106",
+		"juno-6",
+		"jx-8p"
+	],
+	"modules": [
+		"oscillator"
+	],
+	"subcircuits": [
+		"dco-core",
+		"integrator",
+		"frequency-divider",
+		"waveshaper"
+	],
+	"functions": [
+		"pulse-width-modulation",
+		"frequency-division",
+		"digital-waveform-generation"
+	],
+	"kinds": ["explanation"],
+	"added": "2026-09-26"
+}

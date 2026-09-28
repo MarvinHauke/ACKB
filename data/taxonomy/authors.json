@@ -1,0 +1,68 @@
+[
+	{
+		"id": "tom-wiltshire",
+		"label": "Tom Wiltshire",
+		"description": "Electric Druid",
+		"url": "https://electricdruid.net/",
+		"aliases": [
+			"Tom Wiltshire (Electric Druid)"
+		]
+	},
+	{
+		"id": "aaron-lanterman",
+		"label": "Aaron Lanterman",
+		"description": "Georgia Tech, ECE4450 Analog Circuits for Music Synthesis",
+		"aliases": [
+			"Aaron Lanterman (Georgia Tech)"
+		]
+	},
+	{
+		"id": "rene-schmitz",
+		"label": "René Schmitz",
+		"description": "schmitzbits.de",
+		"url": "https://www.schmitzbits.de/"
+	},
+	{
+		"id": "juergen-haible",
+		"label": "Jürgen Haible",
+		"description": "Legacy site, designs now owned by Random*Source",
+		"url": "http://jhaible.com/legacy/"
+	},
+	{
+		"id": "moritz-klein",
+		"label": "Moritz Klein",
+		"description": "YouTube, DIY synth design from scratch"
+	},
+	{
+		"id": "n8-synthesizers",
+		"label": "N8 Synthesizers",
+		"url": "https://www.n8synth.co.uk/"
+	},
+	{
+		"id": "andrew-kilpatrick",
+		"label": "Andrew Kilpatrick",
+		"description": "Dintree (Kilpatrick Audio)",
+		"url": "https://github.com/hires/Dintree",
+		"aliases": [
+			"Andrew Kilpatrick (Dintree)"
+		]
+	},
+	{
+		"id": "timothy-stinchcombe",
+		"label": "Timothy E. Stinchcombe",
+		"url": "https://www.timstinchcombe.co.uk/"
+	},
+	{
+		"id": "eddy-bergman",
+		"label": "Eddy Bergman",
+		"url": "https://www.eddybergman.com/"
+	},
+	{
+		"id": "kieran-reck",
+		"label": "Kieran Reck"
+	},
+	{
+		"id": "look-mum-no-computer",
+		"label": "Look Mum No Computer"
+	}
+]

@@ -1,0 +1,15 @@
+{
+	"$schema": "../../schema/article.schema.json",
+	"schemaVersion": 3,
+	"title": "ECE4450 L1: Introduction",
+	"url": "https://www.youtube.com/watch?v=mYk8r3QlNi8",
+	"type": "video",
+	"authors": [
+		"aaron-lanterman"
+	],
+	"origin": "academic",
+	"summary": "Georgia Tech lecture series introducing the course \"Analog Circuits for Music Synthesis\": the analog ancestors, the arrival of microprocessors, sampling, and where synthesis is heading, plus why solid EE design fundamentals matter for synth circuits.",
+	"summaryFromGroup": true,
+	"kinds": ["explanation"],
+	"added": "2026-09-26"
+}

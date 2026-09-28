@@ -1,0 +1,42 @@
+{
+	"$schema": "../../schema/article.schema.json",
+	"schemaVersion": 3,
+	"title": "A study of Sub-Oscillators (and Oscillator Waveshaping)",
+	"url": "https://electricdruid.net/a-study-of-sub-oscillators/",
+	"type": "website",
+	"authors": [
+		"tom-wiltshire"
+	],
+	"year": 2017,
+	"license": "CC BY-NC-SA 4.0",
+	"summary": "Survey of sub-oscillator designs in classic synths: CD4013 flip-flop dividers for square waves one or two octaves down (SH-101), pulse variants via diode logic, and how ramp, triangle and sine sub-oscillators are built by mixing divider outputs and waveshaping with rectifiers or soft clipping.",
+	"manufacturers": [
+		"roland",
+		"korg"
+	],
+	"products": [
+		"sh-101",
+		"polysix",
+		"juno-106"
+	],
+	"modules": [
+		"oscillator"
+	],
+	"subcircuits": [
+		"frequency-divider",
+		"waveshaper",
+		"differential-pair",
+		"ota-stage",
+		"inverting-amp"
+	],
+	"functions": [
+		"frequency-division",
+		"waveshaping",
+		"soft-clipping"
+	],
+	"ics": [
+		"cd4013"
+	],
+	"kinds": ["explanation"],
+	"added": "2026-09-26"
+}

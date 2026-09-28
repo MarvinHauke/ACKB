@@ -8,7 +8,7 @@ No server or REST API: the static lookup files cover that.
 
 - **Instrument list** from [Synthesizers 1896–2024](https://github.com/iftah-og/Synthesizers-1896-2024)
   (MIT): spec sheets on product pages and a coverage to-do list (famous analog instruments without
-  entries yet).
+  articles yet).
 - **Crawler** that suggests resources into a small review queue; nothing is added without review.
 - **More static sources**: go through the [Synth DIY Wiki resource list](https://sdiy.info/wiki/Online_resources).
   Prefer static sites and blogs; forums only as single hand-picked threads (synth-diy.org blocks bots).
@@ -26,5 +26,6 @@ No server or REST API: the static lookup files cover that.
 ## Stable for other tools
 
 - Entry and tag ids never change or get reused.
-- Subcircuit ids stay equal to PDF_OCR's pattern kinds (`pdfOcrKind` in `subcircuits.json`).
-- Lookup file paths (`data/<type>/<id>.json`) and their `schemaVersion` stay stable.
+- PDF_OCR's pattern kinds stay mapped through `pdfOcrKind` in `subcircuits.json` and
+  `pdfOcrKinds` in `data/index.json` (ids are kebab-case since 2026-09-28).
+- Lookup file paths (`data/<type>/<path>.json`) and their `schemaVersion` stay stable.

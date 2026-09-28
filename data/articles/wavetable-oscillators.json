@@ -1,0 +1,33 @@
+{
+	"$schema": "../../schema/article.schema.json",
+	"schemaVersion": 3,
+	"title": "Wavetable Oscillators",
+	"url": "https://electricdruid.net/wavetable-oscillators/",
+	"type": "website",
+	"authors": [
+		"tom-wiltshire"
+	],
+	"year": 2008,
+	"license": "CC BY-NC-SA 4.0",
+	"summary": "Overview of the two classic ways to build a wavetable oscillator: fixed-rate DDS as used in the Korg DW series, and variable-sample-rate playback as in the PPG Wave. Compares how the two approaches work and where each was used.",
+	"manufacturers": [
+		"ppg",
+		"korg"
+	],
+	"products": [
+		"ppg-wave"
+	],
+	"modules": [
+		"oscillator"
+	],
+	"subcircuits": [
+		"dds-oscillator",
+		"dac-output"
+	],
+	"functions": [
+		"wavetable-synthesis",
+		"digital-waveform-generation"
+	],
+	"kinds": ["explanation"],
+	"added": "2026-09-26"
+}

@@ -1,0 +1,47 @@
+{
+	"$schema": "../../schema/article.schema.json",
+	"schemaVersion": 3,
+	"title": "ECE4450 L26: Sallen-Key Filters & the Korg MS-20 VCF",
+	"url": "https://www.youtube.com/watch?v=beQLUA0BQP4",
+	"type": "video",
+	"authors": [
+		"aaron-lanterman"
+	],
+	"origin": "academic",
+	"summary": "In-depth analysis of the early (KORG35) and late (LM13600 OTA) MS-20 filters: the Sallen-Key topology, transistors in reverse saturation used as current-controlled resistors, the exponential cutoff control and the diode-limited resonance loop that gives the filter its aggressive character.",
+	"summaryFromGroup": true,
+	"manufacturers": [
+		"korg"
+	],
+	"products": [
+		"ms-20",
+		"ms-10"
+	],
+	"modules": [
+		"filter"
+	],
+	"subcircuits": [
+		"sallen-key",
+		"ota-stage",
+		"integrator",
+		"feedback-network",
+		"diode-limiter",
+		"exponential-converter"
+	],
+	"functions": [
+		"nonlinear-feedback",
+		"soft-clipping",
+		"resonance-control",
+		"self-oscillation",
+		"voltage-controlled-cutoff",
+		"exponential-response",
+		"lowpass-response",
+		"highpass-response"
+	],
+	"ics": [
+		"korg35",
+		"lm13600"
+	],
+	"kinds": ["analysis", "schematic"],
+	"added": "2026-09-26"
+}

@@ -1,0 +1,25 @@
+{
+	"$schema": "../../schema/article.schema.json",
+	"schemaVersion": 3,
+	"title": "Designing a white, pink & blue noise generator from scratch",
+	"url": "https://www.youtube.com/watch?v=0yB_h_wFkh4",
+	"type": "video",
+	"authors": [
+		"moritz-klein"
+	],
+	"summary": "Video design of an analog noise source with white, pink and blue noise outputs, using filtering to shape the spectrum.",
+	"modules": [
+		"noise"
+	],
+	"subcircuits": [
+		"noise-generator",
+		"rc-lowpass",
+		"rc-highpass",
+		"opamp-stage"
+	],
+	"functions": [
+		"noise-generation"
+	],
+	"kinds": ["explanation"],
+	"added": "2026-09-26"
+}

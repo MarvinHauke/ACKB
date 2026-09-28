@@ -1,0 +1,13 @@
+{
+	"$schema": "https://json-schema.org/draft/2020-12/schema",
+	"$id": "https://ackb.local/schema/taxonomy/author.schema.json",
+	"title": "ACKB author registry",
+	"type": "array",
+	"items": {
+		"allOf": [{ "$ref": "term.schema.json#/$defs/term" }],
+		"unevaluatedProperties": false,
+		"properties": {
+			"url": { "type": "string", "format": "uri", "description": "The author's website or channel" }
+		}
+	}
+}

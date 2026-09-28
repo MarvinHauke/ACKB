@@ -1,0 +1,29 @@
+{
+	"$schema": "../../schema/article.schema.json",
+	"schemaVersion": 3,
+	"title": "Rbe (bulk resistance) comparison of transistor pairs",
+	"url": "https://www.schmitzbits.de/rbe.html",
+	"type": "website",
+	"authors": [
+		"rene-schmitz"
+	],
+	"summary": "How a transistor pair turns a linear control voltage into an exponential current for 1V/oct tracking, and how to keep it stable over temperature with tempco resistors. René Schmitz's tutorial explains the transistor physics step by step, with measured bulk resistances of common transistor pairs; Lanterman's lecture covers the same from the university side.",
+	"summaryFromGroup": true,
+	"modules": [
+		"oscillator"
+	],
+	"subcircuits": [
+		"exponential-converter",
+		"differential-pair",
+		"current-mirror"
+	],
+	"functions": [
+		"exponential-response",
+		"temperature-compensation"
+	],
+	"ics": [
+		"lm394"
+	],
+	"kinds": ["analysis", "explanation"],
+	"added": "2026-09-26"
+}

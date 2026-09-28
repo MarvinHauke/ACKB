@@ -1,0 +1,27 @@
+{
+	"$schema": "../../schema/article.schema.json",
+	"schemaVersion": 3,
+	"title": "JH. Transient Gate",
+	"url": "http://jhaible.com/legacy/transient/jh_tran_gate.html",
+	"type": "website",
+	"authors": [
+		"juergen-haible"
+	],
+	"license": "non-commercial, educational use (Random*Source)",
+	"summary": "Transient shaper combined with a noise gate, with vactrol voltage control, randomizing features and SPICE simulations of the transient functions.",
+	"modules": [
+		"fx",
+		"dynamics"
+	],
+	"subcircuits": [
+		"vactrol",
+		"envelope-follower"
+	],
+	"functions": [
+		"dynamics-compression",
+		"envelope-following",
+		"random-modulation"
+	],
+	"kinds": ["explanation", "analysis"],
+	"added": "2026-09-28"
+}

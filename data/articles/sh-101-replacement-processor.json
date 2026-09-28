@@ -1,0 +1,31 @@
+{
+	"$schema": "../../schema/article.schema.json",
+	"schemaVersion": 3,
+	"title": "SH-101 replacement processor – a feasibility study",
+	"url": "https://electricdruid.net/sh101-replacement-processor-a-feasibility-study/",
+	"type": "website",
+	"authors": [
+		"tom-wiltshire"
+	],
+	"year": 2016,
+	"license": "CC BY-NC-SA 4.0",
+	"summary": "Could the SH-101's 40-pin keyboard-scanning microprocessor be replaced with a modern one? Maps the original pins and functions, what could be added, and whether it is worth it.",
+	"manufacturers": [
+		"roland"
+	],
+	"products": [
+		"sh-101"
+	],
+	"modules": [
+		"utility"
+	],
+	"subcircuits": [
+		"microcontroller",
+		"dac-output"
+	],
+	"ics": [
+		"pic"
+	],
+	"kinds": ["analysis"],
+	"added": "2026-09-26"
+}

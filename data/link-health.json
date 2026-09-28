@@ -1,5 +1,5 @@
 {
-	"generatedAt": "2026-09-28T14:02:48.427Z",
+	"generatedAt": "2026-09-28T15:32:37.665Z",
 	"links": [
 		{
 			"url": "http://jhaible.com/legacy/additional_schemos.html",
@@ -11,7 +11,7 @@
 			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
-				"data/entries/jh-additional-schematics.json"
+				"data/articles/jh-additional-schematics.json"
 			]
 		},
 		{
@@ -24,7 +24,7 @@
 			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
-				"data/entries/jh-krautrock-phaser.json"
+				"data/articles/jh-krautrock-phaser.json"
 			]
 		},
 		{
@@ -37,7 +37,7 @@
 			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
-				"data/entries/jh-fixed-filter-bank.json"
+				"data/articles/jh-fixed-filter-bank.json"
 			]
 		},
 		{
@@ -50,7 +50,7 @@
 			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
-				"data/entries/jh-fs1-frequency-shifter.json"
+				"data/articles/jh-fs-1a-frequency-shifter-pcb-version.json"
 			]
 		},
 		{
@@ -63,7 +63,7 @@
 			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
-				"data/entries/jh-neptune-phaser.json"
+				"data/articles/jh-neptune-phaser.json"
 			]
 		},
 		{
@@ -76,7 +76,7 @@
 			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
-				"data/entries/jh-ob8-poly-modulation.json"
+				"data/articles/jh-ob8-poly-modulation.json"
 			]
 		},
 		{
@@ -89,7 +89,7 @@
 			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
-				"data/entries/jh-ob8-multimode-filter.json"
+				"data/articles/jh-ob8-multimode-filter.json"
 			]
 		},
 		{
@@ -102,7 +102,7 @@
 			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
-				"data/entries/jh-interpolating-scanner.json"
+				"data/articles/jh-interpolating-scanner.json"
 			]
 		},
 		{
@@ -115,7 +115,7 @@
 			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
-				"data/entries/jh-720-solo-synth.json"
+				"data/articles/jh-720-solo-synth.json"
 			]
 		},
 		{
@@ -128,7 +128,7 @@
 			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
-				"data/entries/jh-yamaha-cs-series.json"
+				"data/articles/jh-yamaha-cs-series.json"
 			]
 		},
 		{
@@ -141,7 +141,7 @@
 			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
-				"data/entries/jh-storm-tide-flanger.json"
+				"data/articles/jh-storm-tide-flanger.json"
 			]
 		},
 		{
@@ -154,7 +154,7 @@
 			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
-				"data/entries/jh-wave-shapers.json"
+				"data/articles/jh-wave-shapers.json"
 			]
 		},
 		{
@@ -167,7 +167,7 @@
 			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
-				"data/entries/jh-5-modular.json"
+				"data/articles/jh-5-modular.json"
 			]
 		},
 		{
@@ -180,7 +180,7 @@
 			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
-				"data/entries/jh-living-vcos.json"
+				"data/articles/jh-living-vcos.json"
 			]
 		},
 		{
@@ -193,7 +193,7 @@
 			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
-				"data/entries/jh-polykorg-clone.json"
+				"data/articles/jh-polykorg-clone.json"
 			]
 		},
 		{
@@ -206,7 +206,7 @@
 			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
-				"data/entries/jh-polymoog-resonator.json"
+				"data/articles/jh-polymoog-resonator.json"
 			]
 		},
 		{
@@ -219,7 +219,7 @@
 			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
-				"data/entries/jh-son-of-storm-tide-flanger.json"
+				"data/articles/jh-son-of-storm-tide-flanger.json"
 			]
 		},
 		{
@@ -232,7 +232,7 @@
 			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
-				"data/entries/jh-string-filter.json"
+				"data/articles/jh-string-filter.json"
 			]
 		},
 		{
@@ -245,7 +245,7 @@
 			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
-				"data/entries/jh-subtle-chorus.json"
+				"data/articles/jh-subtle-chorus.json"
 			]
 		},
 		{
@@ -258,7 +258,7 @@
 			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
-				"data/entries/jh-tau-phaser.json"
+				"data/articles/jh-tau-phaser.json"
 			]
 		},
 		{
@@ -271,7 +271,7 @@
 			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
-				"data/entries/jh-fs1-frequency-shifter.json"
+				"data/articles/jh-fs-1-frequency-shifter.json"
 			]
 		},
 		{
@@ -284,7 +284,7 @@
 			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
-				"data/entries/jh-1-modular.json"
+				"data/articles/jh-1-modular.json"
 			]
 		},
 		{
@@ -297,7 +297,7 @@
 			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
-				"data/entries/jh-synthi-clone.json"
+				"data/articles/jh-synthi-clone.json"
 			]
 		},
 		{
@@ -310,7 +310,7 @@
 			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
-				"data/entries/jh-wasp-filter-clone.json"
+				"data/articles/jh-wasp-filter-clone.json"
 			]
 		},
 		{
@@ -323,7 +323,7 @@
 			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
-				"data/entries/jh-transient-gate.json"
+				"data/articles/jh-transient-gate.json"
 			]
 		},
 		{
@@ -336,7 +336,7 @@
 			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
-				"data/entries/jh-trapezoid-vca.json"
+				"data/articles/jh-trapezoid-vca.json"
 			]
 		},
 		{
@@ -349,7 +349,7 @@
 			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
-				"data/entries/jh-triple-chorus.json"
+				"data/articles/jh-triple-chorus.json"
 			]
 		},
 		{
@@ -362,7 +362,7 @@
 			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
-				"data/entries/jh-varislope-filter-phaser.json"
+				"data/articles/jh-varislope-filter-phaser.json"
 			]
 		},
 		{
@@ -375,7 +375,7 @@
 			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
-				"data/entries/jh-living-vocoder.json"
+				"data/articles/jh-living-vocoder.json"
 			]
 		},
 		{
@@ -388,7 +388,7 @@
 			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
-				"data/entries/korg-ms20-late-filter-diy-builds.json"
+				"data/articles/ms20-filter-rene-schmitz-lmnc-resources.json"
 			]
 		},
 		{
@@ -401,7 +401,7 @@
 			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
-				"data/entries/graphic-wave-lfo.json"
+				"data/articles/graphic-wave-lfo.json"
 			]
 		},
 		{
@@ -414,7 +414,7 @@
 			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
-				"data/entries/electric-druid-sub-oscillators.json"
+				"data/articles/electric-druid-sub-oscillators.json"
 			]
 		},
 		{
@@ -427,7 +427,7 @@
 			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
-				"data/entries/vintage-hiss-crackle-pop.json"
+				"data/articles/vintage-hiss-crackle-pop.json"
 			]
 		},
 		{
@@ -440,7 +440,7 @@
 			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
-				"data/entries/top-octave-generation.json"
+				"data/articles/top-octave-generation.json"
 			]
 		},
 		{
@@ -453,7 +453,7 @@
 			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
-				"data/entries/boss-dr-110-drum-machine.json"
+				"data/articles/boss-dr-110-drum-machine.json"
 			]
 		},
 		{
@@ -466,7 +466,7 @@
 			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
-				"data/entries/korg-kr-55-drum-machine.json"
+				"data/articles/korg-kr-55-drum-machine.json"
 			]
 		},
 		{
@@ -479,7 +479,7 @@
 			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
-				"data/entries/boss-mt2-metal-zone-analysis.json"
+				"data/articles/boss-mt2-metal-zone-analysis.json"
 			]
 		},
 		{
@@ -492,7 +492,7 @@
 			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
-				"data/entries/electric-druid-filter-chip-designs.json"
+				"data/articles/cem3320-filter-designs.json"
 			]
 		},
 		{
@@ -505,7 +505,7 @@
 			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
-				"data/entries/cem3340-vco-designs.json"
+				"data/articles/cem3340-vco-designs.json"
 			]
 		},
 		{
@@ -518,7 +518,7 @@
 			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
-				"data/entries/comparing-otas.json"
+				"data/articles/comparing-the-ca3080-as3080e-lm13600-and-lm13700-otas.json"
 			]
 		},
 		{
@@ -531,7 +531,7 @@
 			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
-				"data/entries/lm13700-eurorack-vca.json"
+				"data/articles/lm13700-eurorack-vca.json"
 			]
 		},
 		{
@@ -544,7 +544,7 @@
 			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
-				"data/entries/classic-overdrive-design.json"
+				"data/articles/classic-overdrive-design.json"
 			]
 		},
 		{
@@ -557,7 +557,7 @@
 			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
-				"data/entries/hard-bargain-distortion.json"
+				"data/articles/hard-bargain-distortion.json"
 			]
 		},
 		{
@@ -570,7 +570,7 @@
 			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
-				"data/entries/digitech-pds-1550-analysis.json"
+				"data/articles/digitech-pds-1550-analysis.json"
 			]
 		},
 		{
@@ -583,7 +583,7 @@
 			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
-				"data/entries/direct-digital-synthesis.json"
+				"data/articles/direct-digital-synthesis.json"
 			]
 		},
 		{
@@ -596,7 +596,7 @@
 			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
-				"data/entries/diy-digital-delay.json"
+				"data/articles/diy-digital-delay.json"
 			]
 		},
 		{
@@ -609,7 +609,7 @@
 			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
-				"data/entries/vc-adsr-envelope-generator.json"
+				"data/articles/envelope-generator-some-notes-on-the-code.json"
 			]
 		},
 		{
@@ -622,7 +622,7 @@
 			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
-				"data/entries/variable-rate-drum-samples.json"
+				"data/articles/variable-rate-drum-samples.json"
 			]
 		},
 		{
@@ -635,7 +635,7 @@
 			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
-				"data/entries/filterfx-lfo-filter-pedal.json"
+				"data/articles/filterfx-lfo-filter-pedal.json"
 			]
 		},
 		{
@@ -648,7 +648,7 @@
 			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
-				"data/entries/flangelicious-flanger.json"
+				"data/articles/flangelicious-flanger.json"
 			]
 		},
 		{
@@ -661,7 +661,7 @@
 			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
-				"data/entries/fourier-analysis-non-mathematicians.json"
+				"data/articles/fourier-analysis-non-mathematicians.json"
 			]
 		},
 		{
@@ -674,7 +674,7 @@
 			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
-				"data/entries/highpass-filters-in-synths.json"
+				"data/articles/highpass-filters-in-synths.json"
 			]
 		},
 		{
@@ -687,7 +687,7 @@
 			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
-				"data/entries/bbd-chorus-clock-modulation.json"
+				"data/articles/investigations-into-what-a-bbd-chorus-unit-really-does.json"
 			]
 		},
 		{
@@ -700,7 +700,7 @@
 			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
-				"data/entries/roland-jupiter-4-oscillator.json"
+				"data/articles/roland-jupiter-4-oscillator.json"
 			]
 		},
 		{
@@ -713,7 +713,7 @@
 			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
-				"data/entries/led-bargraph-level-display.json"
+				"data/articles/led-bargraph-level-display.json"
 			]
 		},
 		{
@@ -726,7 +726,7 @@
 			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
-				"data/entries/midi-clock-to-gate.json"
+				"data/articles/midi-clock-to-gate.json"
 			]
 		},
 		{
@@ -739,7 +739,7 @@
 			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
-				"data/entries/bbd-chorus-clock-modulation.json"
+				"data/articles/modulated-bbd-delay-simulation.json"
 			]
 		},
 		{
@@ -752,7 +752,7 @@
 			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
-				"data/entries/moog-911-adsr-clone.json"
+				"data/articles/moog-911-adsr-clone.json"
 			]
 		},
 		{
@@ -765,7 +765,7 @@
 			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
-				"data/entries/electric-druid-multimode-filters.json"
+				"data/articles/multimode-filters-part-1-reconfigurable-filters.json"
 			]
 		},
 		{
@@ -778,7 +778,7 @@
 			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
-				"data/entries/electric-druid-multimode-filters.json"
+				"data/articles/multimode-filters-part-2-pole-mixing-filters.json"
 			]
 		},
 		{
@@ -791,7 +791,7 @@
 			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
-				"data/entries/noise-reduction-companders.json"
+				"data/articles/noise-reduction-companders.json"
 			]
 		},
 		{
@@ -804,7 +804,7 @@
 			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
-				"data/entries/noise2-white-pink-noise.json"
+				"data/articles/noise2-white-pink-noise.json"
 			]
 		},
 		{
@@ -817,7 +817,7 @@
 			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
-				"data/entries/one-shot-event-generator.json"
+				"data/articles/one-shot-event-generator.json"
 			]
 		},
 		{
@@ -830,7 +830,7 @@
 			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
-				"data/entries/phase-distortion-synthesis.json"
+				"data/articles/phase-distortion-synthesis.json"
 			]
 		},
 		{
@@ -843,7 +843,7 @@
 			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
-				"data/entries/lfsr-random-number-generators.json"
+				"data/articles/lfsr-random-number-generators.json"
 			]
 		},
 		{
@@ -856,7 +856,7 @@
 			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
-				"data/entries/rc-filter-calculator.json"
+				"data/articles/rc-filter-calculator.json"
 			]
 		},
 		{
@@ -869,7 +869,7 @@
 			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
-				"data/entries/ssm2164-dac-cv-filtering.json"
+				"data/articles/ssm2164-dac-cv-filtering.json"
 			]
 		},
 		{
@@ -882,7 +882,7 @@
 			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
-				"data/entries/roland-cross-mod-metal-sync.json"
+				"data/articles/roland-cross-mod-metal-sync.json"
 			]
 		},
 		{
@@ -895,7 +895,7 @@
 			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
-				"data/entries/roland-ir3109-filter-designs.json"
+				"data/articles/roland-ir3109-filter-designs.json"
 			]
 		},
 		{
@@ -908,7 +908,7 @@
 			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
-				"data/entries/roland-juno-dco.json"
+				"data/articles/roland-juno-dco.json"
 			]
 		},
 		{
@@ -921,7 +921,7 @@
 			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
-				"data/entries/sh-101-replacement-processor.json"
+				"data/articles/sh-101-replacement-processor.json"
 			]
 		},
 		{
@@ -934,7 +934,7 @@
 			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
-				"data/entries/single-vca-crossfader.json"
+				"data/articles/single-vca-crossfader.json"
 			]
 		},
 		{
@@ -947,7 +947,7 @@
 			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
-				"data/entries/slapback-echo-pedal.json"
+				"data/articles/slapback-echo-pedal.json"
 			]
 		},
 		{
@@ -960,7 +960,7 @@
 			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
-				"data/entries/electric-druid-filter-chip-designs.json"
+				"data/articles/ssm2044-lp-filter-designs.json"
 			]
 		},
 		{
@@ -973,7 +973,7 @@
 			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
-				"data/entries/tap-tempo-lfo.json"
+				"data/articles/tap-tempo-lfo-taplfo-v2d.json"
 			]
 		},
 		{
@@ -986,7 +986,7 @@
 			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
-				"data/entries/tap-tempo-lfo.json"
+				"data/articles/taplfo-3c-squashing-the-bug.json"
 			]
 		},
 		{
@@ -999,7 +999,7 @@
 			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
-				"data/entries/hammond-organ-technical-aspects.json"
+				"data/articles/hammond-organ-technical-aspects.json"
 			]
 		},
 		{
@@ -1012,7 +1012,7 @@
 			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
-				"data/entries/timbral-evolution-harmonic-analysis.json"
+				"data/articles/timbral-evolution-harmonic-analysis.json"
 			]
 		},
 		{
@@ -1025,7 +1025,7 @@
 			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
-				"data/entries/tr-909-noise-generator.json"
+				"data/articles/tr-909-noise-generator.json"
 			]
 		},
 		{
@@ -1038,7 +1038,7 @@
 			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
-				"data/entries/stomplfo-projects.json"
+				"data/articles/two-stomplfo-projects-mini-tremolo.json"
 			]
 		},
 		{
@@ -1051,7 +1051,7 @@
 			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
-				"data/entries/stomplfo-projects.json"
+				"data/articles/two-stomplfo-projects-mod-delay.json"
 			]
 		},
 		{
@@ -1064,7 +1064,7 @@
 			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
-				"data/entries/pt2399-design-equations.json"
+				"data/articles/pt2399-design-equations.json"
 			]
 		},
 		{
@@ -1077,7 +1077,7 @@
 			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
-				"data/entries/vc-adsr-envelope-generator.json"
+				"data/articles/voltage-controlled-adsr-envelope-generator-vc-adsr-7b.json"
 			]
 		},
 		{
@@ -1090,7 +1090,7 @@
 			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
-				"data/entries/vcdo-digital-oscillator.json"
+				"data/articles/vcdo-digital-oscillator.json"
 			]
 		},
 		{
@@ -1103,7 +1103,7 @@
 			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
-				"data/entries/vclfo-voltage-controlled-lfo.json"
+				"data/articles/vclfo-voltage-controlled-lfo.json"
 			]
 		},
 		{
@@ -1116,7 +1116,7 @@
 			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
-				"data/entries/looping-envelope-generator.json"
+				"data/articles/looping-envelope-generator.json"
 			]
 		},
 		{
@@ -1129,7 +1129,7 @@
 			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
-				"data/entries/wavetable-oscillators.json"
+				"data/articles/wavetable-oscillators.json"
 			]
 		},
 		{
@@ -1142,7 +1142,7 @@
 			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
-				"data/entries/bbd-chorus-clock-modulation.json"
+				"data/articles/weird-wiggles-or-further-investigations-into-what-a-bbd.json"
 			]
 		},
 		{
@@ -1155,7 +1155,7 @@
 			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
-				"data/entries/which-noise-chip.json"
+				"data/articles/which-noise-chip.json"
 			]
 		},
 		{
@@ -1168,7 +1168,7 @@
 			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
-				"data/entries/mm5837-noise-replacement.json"
+				"data/articles/mm5837-noise-replacement.json"
 			]
 		},
 		{
@@ -1181,7 +1181,7 @@
 			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
-				"data/entries/dintree-d100-quad-vca.json"
+				"data/articles/dintree-d100-quad-vca.json"
 			]
 		},
 		{
@@ -1194,7 +1194,7 @@
 			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
-				"data/entries/dintree-d101-dual-envelope.json"
+				"data/articles/dintree-d101-dual-envelope.json"
 			]
 		},
 		{
@@ -1207,7 +1207,7 @@
 			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
-				"data/entries/dintree-d102-output-mixer.json"
+				"data/articles/dintree-d102-output-mixer.json"
 			]
 		},
 		{
@@ -1220,7 +1220,7 @@
 			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
-				"data/entries/dintree-d103-reverb-delay.json"
+				"data/articles/dintree-d103-reverb-delay.json"
 			]
 		},
 		{
@@ -1233,7 +1233,7 @@
 			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
-				"data/entries/dintree-d104-four-vs.json"
+				"data/articles/dintree-d104-four-vs.json"
 			]
 		},
 		{
@@ -1246,7 +1246,7 @@
 			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
-				"data/entries/dintree-d105-quad-cv-proc.json"
+				"data/articles/dintree-d105-quad-cv-proc.json"
 			]
 		},
 		{
@@ -1259,7 +1259,7 @@
 			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
-				"data/entries/dintree-d106-step-sequencer.json"
+				"data/articles/dintree-d106-step-sequencer.json"
 			]
 		},
 		{
@@ -1272,7 +1272,7 @@
 			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
-				"data/entries/dintree-d107-slew.json"
+				"data/articles/dintree-d107-slew.json"
 			]
 		},
 		{
@@ -1285,7 +1285,7 @@
 			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
-				"data/entries/dintree-d112-power-supply.json"
+				"data/articles/dintree-d112-power-supply.json"
 			]
 		},
 		{
@@ -1298,7 +1298,7 @@
 			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
-				"data/entries/dintree-d41-violin-preamp.json"
+				"data/articles/dintree-d41-violin-preamp.json"
 			]
 		},
 		{
@@ -1311,7 +1311,7 @@
 			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
-				"data/entries/dintree-dsupply-power-supply.json"
+				"data/articles/dintree-dsupply-power-supply.json"
 			]
 		},
 		{
@@ -1324,7 +1324,7 @@
 			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
-				"data/entries/korg-ms20-late-filter-diy-builds.json"
+				"data/articles/synthesizer-build-part-12-the-korg-ms20-filter.json"
 			]
 		},
 		{
@@ -1337,7 +1337,7 @@
 			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
-				"data/entries/korg-ms20-late-filter-diy-builds.json"
+				"data/articles/synthesizer-build-part-15-dual-korg-ms-20-hp-lp-filter.json"
 			]
 		},
 		{
@@ -1350,7 +1350,7 @@
 			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
-				"data/entries/korg-ms20-late-filter-diy-builds.json"
+				"data/articles/lmnc-rene-schmitz-ms-20-filter.json"
 			]
 		},
 		{
@@ -1363,7 +1363,7 @@
 			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
-				"data/entries/korg-ms20-owners-manual.json"
+				"data/articles/korg-ms20-owners-manual.json"
 			]
 		},
 		{
@@ -1376,7 +1376,7 @@
 			"lastOk": null,
 			"archiveUrl": "https://web.archive.org/web/20240620222245/https://www.modwiggler.com/forum/viewtopic.php?t=219572",
 			"usedBy": [
-				"data/entries/korg-ms20-late-filter-diy-builds.json"
+				"data/articles/issues-with-the-diy-ms-20-type-filter-by-rene-schmitz-and.json"
 			]
 		},
 		{
@@ -1389,7 +1389,7 @@
 			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
-				"data/entries/n8-attenuverter.json"
+				"data/articles/n8-attenuverter.json"
 			]
 		},
 		{
@@ -1402,7 +1402,7 @@
 			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
-				"data/entries/n8-buffered-mult.json"
+				"data/articles/n8-buffered-mult.json"
 			]
 		},
 		{
@@ -1415,7 +1415,7 @@
 			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
-				"data/entries/n8-lm13700-vca.json"
+				"data/articles/n8-lm13700-vca.json"
 			]
 		},
 		{
@@ -1428,7 +1428,7 @@
 			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
-				"data/entries/n8-adsr-envelope.json"
+				"data/articles/n8-adsr-envelope.json"
 			]
 		},
 		{
@@ -1441,7 +1441,7 @@
 			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
-				"data/entries/n8-3340-vco.json"
+				"data/articles/n8-3340-vco.json"
 			]
 		},
 		{
@@ -1454,7 +1454,7 @@
 			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
-				"data/entries/n8-808-kick.json"
+				"data/articles/n8-808-kick.json"
 			]
 		},
 		{
@@ -1467,7 +1467,7 @@
 			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
-				"data/entries/n8-808-snare.json"
+				"data/articles/n8-808-snare.json"
 			]
 		},
 		{
@@ -1480,7 +1480,7 @@
 			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
-				"data/entries/n8-eurorack-lfo.json"
+				"data/articles/n8-eurorack-lfo.json"
 			]
 		},
 		{
@@ -1493,7 +1493,7 @@
 			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
-				"data/entries/n8-eurorack-mixer.json"
+				"data/articles/n8-eurorack-mixer.json"
 			]
 		},
 		{
@@ -1506,7 +1506,7 @@
 			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
-				"data/entries/korg-ms20-late-filter-diy-builds.json"
+				"data/articles/building-a-diy-eurorack-ms-20-lowpass-filter.json"
 			]
 		},
 		{
@@ -1519,7 +1519,7 @@
 			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
-				"data/entries/n8-pedal-io.json"
+				"data/articles/n8-pedal-io.json"
 			]
 		},
 		{
@@ -1532,7 +1532,7 @@
 			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
-				"data/entries/n8-lm13700-svf.json"
+				"data/articles/diy-eurorack-state-variable-filter-part-2.json"
 			]
 		},
 		{
@@ -1545,7 +1545,7 @@
 			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
-				"data/entries/n8-lm13700-svf.json"
+				"data/articles/diy-eurorack-lm13700-state-variable-filter.json"
 			]
 		},
 		{
@@ -1558,7 +1558,7 @@
 			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
-				"data/entries/rs-discrete-adsr.json"
+				"data/articles/rs-discrete-adsr.json"
 			]
 		},
 		{
@@ -1571,7 +1571,7 @@
 			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
-				"data/entries/rs-parallel-port-cv-interface.json"
+				"data/articles/rs-parallel-port-cv-interface.json"
 			]
 		},
 		{
@@ -1584,7 +1584,7 @@
 			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
-				"data/entries/rs-delta-modulation-delay.json"
+				"data/articles/rs-delta-modulation-delay.json"
 			]
 		},
 		{
@@ -1597,7 +1597,7 @@
 			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
-				"data/entries/rs-dronebox.json"
+				"data/articles/rs-dronebox.json"
 			]
 		},
 		{
@@ -1610,7 +1610,7 @@
 			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
-				"data/entries/rs-envelope-follower.json"
+				"data/articles/rs-envelope-follower.json"
 			]
 		},
 		{
@@ -1623,7 +1623,7 @@
 			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
-				"data/entries/exponential-converters-tempco.json"
+				"data/articles/exponential-convertors-a-tutorial-on-expo-and-tempco.json"
 			]
 		},
 		{
@@ -1636,7 +1636,7 @@
 			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
-				"data/entries/moog-ladder-filter.json"
+				"data/articles/minimoog-filter-classic-four-pole-lowpass.json"
 			]
 		},
 		{
@@ -1649,7 +1649,7 @@
 			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
-				"data/entries/rs-jfet-mic-preamp.json"
+				"data/articles/rs-jfet-mic-preamp.json"
 			]
 		},
 		{
@@ -1662,7 +1662,7 @@
 			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
-				"data/entries/korg-ms20-filter-study.json"
+				"data/articles/synth-schematics-ms-20-filter.json"
 			]
 		},
 		{
@@ -1675,7 +1675,7 @@
 			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
-				"data/entries/rs-white-noise-source.json"
+				"data/articles/rs-white-noise-source.json"
 			]
 		},
 		{
@@ -1688,7 +1688,7 @@
 			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
-				"data/entries/ota-tutorial-zumchak.json"
+				"data/articles/ota-tutorial-zumchak.json"
 			]
 		},
 		{
@@ -1701,7 +1701,7 @@
 			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
-				"data/entries/rs-synth-power-supply.json"
+				"data/articles/rs-synth-power-supply.json"
 			]
 		},
 		{
@@ -1714,7 +1714,7 @@
 			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
-				"data/entries/rs-pt2399-delay.json"
+				"data/articles/rs-pt2399-delay.json"
 			]
 		},
 		{
@@ -1727,7 +1727,7 @@
 			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
-				"data/entries/exponential-converters-tempco.json"
+				"data/articles/rbe-bulk-resistance-comparison-of-transistor-pairs.json"
 			]
 		},
 		{
@@ -1740,7 +1740,7 @@
 			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
-				"data/entries/rs-ssm2040-discrete.json"
+				"data/articles/rs-ssm2040-discrete.json"
 			]
 		},
 		{
@@ -1753,7 +1753,7 @@
 			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
-				"data/entries/rs-sample-and-hold.json"
+				"data/articles/rs-sample-and-hold.json"
 			]
 		},
 		{
@@ -1766,7 +1766,7 @@
 			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
-				"data/entries/rs-signal-switch.json"
+				"data/articles/rs-signal-switch.json"
 			]
 		},
 		{
@@ -1779,7 +1779,7 @@
 			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
-				"data/entries/rs-three-phase-lfo.json"
+				"data/articles/rs-three-phase-lfo.json"
 			]
 		},
 		{
@@ -1792,7 +1792,7 @@
 			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
-				"data/entries/rs-differential-pair-vca.json"
+				"data/articles/rs-differential-pair-vca.json"
 			]
 		},
 		{
@@ -1805,7 +1805,7 @@
 			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
-				"data/entries/rs-voltage-controlled-adsr.json"
+				"data/articles/rs-voltage-controlled-adsr.json"
 			]
 		},
 		{
@@ -1818,7 +1818,7 @@
 			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
-				"data/entries/rs-cmos-4007-filter.json"
+				"data/articles/rs-cmos-4007-filter.json"
 			]
 		},
 		{
@@ -1831,7 +1831,7 @@
 			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
-				"data/entries/rs-sawtooth-vcos.json"
+				"data/articles/vco-1-and-2.json"
 			]
 		},
 		{
@@ -1844,7 +1844,7 @@
 			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
-				"data/entries/rs-vco3-integrator.json"
+				"data/articles/rs-vco3-integrator.json"
 			]
 		},
 		{
@@ -1857,7 +1857,7 @@
 			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
-				"data/entries/rs-sawtooth-vcos.json"
+				"data/articles/vco-4.json"
 			]
 		},
 		{
@@ -1870,7 +1870,7 @@
 			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
-				"data/entries/rs-cmos-4069-vco.json"
+				"data/articles/rs-cmos-4069-vco.json"
 			]
 		},
 		{
@@ -1883,7 +1883,7 @@
 			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
-				"data/entries/rs-ne566-vco.json"
+				"data/articles/rs-ne566-vco.json"
 			]
 		},
 		{
@@ -1896,7 +1896,7 @@
 			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
-				"data/entries/rs-through-zero-vco.json"
+				"data/articles/rs-through-zero-vco.json"
 			]
 		},
 		{
@@ -1909,7 +1909,7 @@
 			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
-				"data/entries/rs-vacuum-tube-synth.json"
+				"data/articles/vacuum-tube-expo-convertor.json"
 			]
 		},
 		{
@@ -1922,7 +1922,7 @@
 			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
-				"data/entries/rs-vacuum-tube-synth.json"
+				"data/articles/valve-vca.json"
 			]
 		},
 		{
@@ -1935,7 +1935,7 @@
 			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
-				"data/entries/rs-vacuum-tube-synth.json"
+				"data/articles/tube-filter.json"
 			]
 		},
 		{
@@ -1948,7 +1948,7 @@
 			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
-				"data/entries/rs-vacuum-tube-synth.json"
+				"data/articles/vacuum-tube-vco-neon-lamp.json"
 			]
 		},
 		{
@@ -1961,7 +1961,7 @@
 			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
-				"data/entries/rs-vacuum-tube-synth.json"
+				"data/articles/thyratron-tube-vco.json"
 			]
 		},
 		{
@@ -1974,7 +1974,7 @@
 			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
-				"data/entries/rs-wasp-filter-clone.json"
+				"data/articles/rs-wasp-filter-clone.json"
 			]
 		},
 		{
@@ -2013,7 +2013,7 @@
 			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
-				"data/entries/moog-ladder-filter.json"
+				"data/articles/analysis-of-the-moog-transistor-ladder-and-derivative.json"
 			]
 		},
 		{
@@ -2026,7 +2026,7 @@
 			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
-				"data/entries/korg-ms20-filter-study.json"
+				"data/articles/a-study-of-the-korg-ms10-ms20-filters.json"
 			]
 		},
 		{
@@ -2039,7 +2039,7 @@
 			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
-				"data/entries/history-of-music-synthesis.json"
+				"data/articles/ece4450-analog-circuits-for-music-synthesis-full-playlist.json"
 			]
 		},
 		{
@@ -2052,7 +2052,7 @@
 			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
-				"data/entries/classic-vca-analysis-roland-serge.json"
+				"data/articles/ece4450-l6-roland-130-vca-analysis.json"
 			]
 		},
 		{
@@ -2065,7 +2065,7 @@
 			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
-				"data/entries/mk-es-edu-kits.json"
+				"data/articles/introducing-the-mki-x-es-edu-diy-s-h-noise-and-mixer-kits.json"
 			]
 		},
 		{
@@ -2078,8 +2078,7 @@
 			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
-				"data/entries/comparing-otas.json",
-				"data/entries/ota-vcas-lectures.json"
+				"data/articles/ece4450-l4-2-3080-vs-13700.json"
 			]
 		},
 		{
@@ -2092,7 +2091,7 @@
 			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
-				"data/entries/triangle-core-vcos.json"
+				"data/articles/ece4450-l13-triangle-to-sawtooth-waveshaping.json"
 			]
 		},
 		{
@@ -2105,7 +2104,7 @@
 			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
-				"data/entries/mk-noise-generator.json"
+				"data/articles/mk-noise-generator.json"
 			]
 		},
 		{
@@ -2118,7 +2117,7 @@
 			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
-				"data/entries/mk-bbd-delay.json"
+				"data/articles/mk-bbd-delay.json"
 			]
 		},
 		{
@@ -2131,7 +2130,7 @@
 			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
-				"data/entries/mk-vco-waveshaping.json"
+				"data/articles/diy-synth-quick-tip-sawtooth-to-triangle-converter.json"
 			]
 		},
 		{
@@ -2144,7 +2143,7 @@
 			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
-				"data/entries/buchla-serge-wavefolders.json"
+				"data/articles/ece4450-l16-buchla-s-timbre-modulation-easel-259.json"
 			]
 		},
 		{
@@ -2157,7 +2156,7 @@
 			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
-				"data/entries/mk-es-edu-kits.json"
+				"data/articles/introducing-the-mki-x-es-edu-diy-vco-kit.json"
 			]
 		},
 		{
@@ -2170,7 +2169,7 @@
 			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
-				"data/entries/ota-vcas-lectures.json"
+				"data/articles/ece4450-l4-1-voltage-controlled-amplifiers-operational.json"
 			]
 		},
 		{
@@ -2183,7 +2182,7 @@
 			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
-				"data/entries/ota-vcas-lectures.json"
+				"data/articles/ece4450-l5-alternatives-to-operational-transconductance.json"
 			]
 		},
 		{
@@ -2196,7 +2195,7 @@
 			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
-				"data/entries/sawtooth-core-vcos.json"
+				"data/articles/ece4450-l9-scaling-and-shifting-waveforms.json"
 			]
 		},
 		{
@@ -2209,7 +2208,7 @@
 			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
-				"data/entries/mk-adsr-envelope.json"
+				"data/articles/designing-a-simple-adsr-ish-envelope-generator-from-scratch.json"
 			]
 		},
 		{
@@ -2222,7 +2221,7 @@
 			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
-				"data/entries/korg-ms20-filter-study.json"
+				"data/articles/ece4450-l26-sallen-key-filters-the-korg-ms-20-vcf.json"
 			]
 		},
 		{
@@ -2235,7 +2234,7 @@
 			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
-				"data/entries/history-of-music-synthesis.json"
+				"data/articles/ece4450-l3-the-importance-of-ece-design-fundamentals.json"
 			]
 		},
 		{
@@ -2248,7 +2247,7 @@
 			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
-				"data/entries/ota-c-filters.json"
+				"data/articles/ece4450-l21-four-pole-filters-with-feedback-ota-c-examples.json"
 			]
 		},
 		{
@@ -2261,7 +2260,7 @@
 			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
-				"data/entries/sawtooth-core-vcos.json"
+				"data/articles/ece4450-l10-sawtooth-to-triangle-waveshaping.json"
 			]
 		},
 		{
@@ -2274,7 +2273,7 @@
 			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
-				"data/entries/state-variable-filters-sem.json"
+				"data/articles/ece4450-l23-second-order-filters-mathematical-structure.json"
 			]
 		},
 		{
@@ -2287,7 +2286,7 @@
 			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
-				"data/entries/mk-vco-waveshaping.json"
+				"data/articles/adding-voltage-controlled-pwm-to-my-vco.json"
 			]
 		},
 		{
@@ -2300,7 +2299,7 @@
 			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
-				"data/entries/history-of-music-synthesis.json"
+				"data/articles/ece4450-l2-5-the-synthularity-is-here.json"
 			]
 		},
 		{
@@ -2313,7 +2312,7 @@
 			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
-				"data/entries/history-of-music-synthesis.json"
+				"data/articles/ece4450-l2-4-the-synthularity-is-near.json"
 			]
 		},
 		{
@@ -2326,7 +2325,7 @@
 			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
-				"data/entries/history-of-music-synthesis.json"
+				"data/articles/ece4450-l2-3-the-sound-of-sampling.json"
 			]
 		},
 		{
@@ -2339,7 +2338,7 @@
 			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
-				"data/entries/mk-808-snare.json"
+				"data/articles/mk-808-snare.json"
 			]
 		},
 		{
@@ -2352,7 +2351,7 @@
 			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
-				"data/entries/moog-ladder-filter.json"
+				"data/articles/ece4450-l22-moog-ladder-filters-analyzed.json"
 			]
 		},
 		{
@@ -2365,7 +2364,7 @@
 			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
-				"data/entries/mk-resonant-highpass-vactrol.json"
+				"data/articles/mk-resonant-highpass-vactrol.json"
 			]
 		},
 		{
@@ -2378,7 +2377,7 @@
 			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
-				"data/entries/state-variable-filters-sem.json"
+				"data/articles/ece4450-l24-state-variable-filters-and-the-oberheim-sem-vcf.json"
 			]
 		},
 		{
@@ -2391,7 +2390,7 @@
 			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
-				"data/entries/mk-double-wavefolder.json"
+				"data/articles/mk-double-wavefolder.json"
 			]
 		},
 		{
@@ -2404,7 +2403,7 @@
 			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
-				"data/entries/mk-diode-ladder-filter.json"
+				"data/articles/designing-a-diode-ladder-filter-from-scratch.json"
 			]
 		},
 		{
@@ -2417,7 +2416,7 @@
 			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
-				"data/entries/mk-sample-and-hold.json"
+				"data/articles/mk-sample-and-hold.json"
 			]
 		},
 		{
@@ -2430,7 +2429,7 @@
 			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
-				"data/entries/history-of-music-synthesis.json"
+				"data/articles/ece4450-l2-2-march-of-the-microprocessors.json"
 			]
 		},
 		{
@@ -2443,7 +2442,7 @@
 			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
-				"data/entries/mk-adsr-envelope.json"
+				"data/articles/how-to-loop-any-envelope.json"
 			]
 		},
 		{
@@ -2456,7 +2455,7 @@
 			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
-				"data/entries/history-of-music-synthesis.json"
+				"data/articles/ece4450-l1-introduction.json"
 			]
 		},
 		{
@@ -2469,7 +2468,7 @@
 			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
-				"data/entries/buchla-lowpass-gates.json"
+				"data/articles/buchla-lowpass-gates.json"
 			]
 		},
 		{
@@ -2482,7 +2481,7 @@
 			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
-				"data/entries/mk-es-edu-kits.json"
+				"data/articles/introducing-the-mki-x-es-edu-diy-vca-kit.json"
 			]
 		},
 		{
@@ -2495,7 +2494,7 @@
 			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
-				"data/entries/history-of-music-synthesis.json"
+				"data/articles/ece4450-l2-1-50-years-of-music-synthesis-our-analog.json"
 			]
 		},
 		{
@@ -2508,7 +2507,7 @@
 			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
-				"data/entries/mk-audio-compressor.json"
+				"data/articles/designing-a-production-ready-audio-compressor.json"
 			]
 		},
 		{
@@ -2521,7 +2520,7 @@
 			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
-				"data/entries/mk-es-edu-kits.json"
+				"data/articles/introducing-the-mki-x-es-edu-diy-eg-kit.json"
 			]
 		},
 		{
@@ -2534,7 +2533,7 @@
 			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
-				"data/entries/classic-vca-analysis-roland-serge.json"
+				"data/articles/ece4450-l7-serge-vca-analysis.json"
 			]
 		},
 		{
@@ -2547,7 +2546,7 @@
 			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
-				"data/entries/ota-c-filters.json"
+				"data/articles/ece4450-l19-single-pole-ota-c-filters.json"
 			]
 		},
 		{
@@ -2560,7 +2559,7 @@
 			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
-				"data/entries/state-variable-filters-sem.json"
+				"data/articles/ece4450-l25-more-state-variable-filter-examples.json"
 			]
 		},
 		{
@@ -2573,7 +2572,7 @@
 			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
-				"data/entries/mk-mixer-diode-distortion.json"
+				"data/articles/mk-mixer-diode-distortion.json"
 			]
 		},
 		{
@@ -2586,7 +2585,7 @@
 			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
-				"data/entries/sawtooth-core-vcos.json"
+				"data/articles/ece4450-l8-voltage-controlled-oscillators-sawtooth-cores.json"
 			]
 		},
 		{
@@ -2599,7 +2598,7 @@
 			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
-				"data/entries/mk-es-edu-kits.json"
+				"data/articles/introducing-the-mki-x-es-edu-diy-sequencer-kit.json"
 			]
 		},
 		{
@@ -2612,7 +2611,7 @@
 			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
-				"data/entries/sawtooth-core-vcos.json"
+				"data/articles/ece4450-l11-sawtooth-to-pulse-waveshaping.json"
 			]
 		},
 		{
@@ -2625,7 +2624,7 @@
 			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
-				"data/entries/mk-breadboard-prototyping.json"
+				"data/articles/i-created-a-diy-synth-prototyping-station.json"
 			]
 		},
 		{
@@ -2638,7 +2637,7 @@
 			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
-				"data/entries/ota-c-filters.json"
+				"data/articles/ece4450-l20-four-pole-filters-with-feedback-theory.json"
 			]
 		},
 		{
@@ -2651,7 +2650,7 @@
 			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
-				"data/entries/mk-step-sequencers.json"
+				"data/articles/this-drum-sequencer-breaks-all-the-rules.json"
 			]
 		},
 		{
@@ -2664,7 +2663,7 @@
 			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
-				"data/entries/mk-diode-ladder-filter.json"
+				"data/articles/turning-my-diode-ladder-filter-into-a-eurorack-module.json"
 			]
 		},
 		{
@@ -2677,7 +2676,7 @@
 			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
-				"data/entries/triangle-core-vcos.json"
+				"data/articles/ece4450-l14-triangle-to-sine-waveshaping.json"
 			]
 		},
 		{
@@ -2690,7 +2689,7 @@
 			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
-				"data/entries/mk-step-sequencers.json"
+				"data/articles/designing-a-simple-5-step-sequencer-from-scratch.json"
 			]
 		},
 		{
@@ -2703,7 +2702,7 @@
 			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
-				"data/entries/triangle-core-vcos.json"
+				"data/articles/ece4450-l12-voltage-controlled-oscillators-triangle-cores.json"
 			]
 		},
 		{
@@ -2716,7 +2715,7 @@
 			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
-				"data/entries/mk-audio-compressor.json"
+				"data/articles/designing-a-simple-audio-compressor-from-scratch.json"
 			]
 		},
 		{
@@ -2729,7 +2728,7 @@
 			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
-				"data/entries/mk-es-edu-kits.json"
+				"data/articles/introducing-the-mki-x-es-edu-diy-vcf-kit.json"
 			]
 		},
 		{
@@ -2742,7 +2741,7 @@
 			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
-				"data/entries/mk-universal-drum-voice.json"
+				"data/articles/mk-universal-drum-voice.json"
 			]
 		},
 		{
@@ -2755,7 +2754,7 @@
 			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
-				"data/entries/mk-breadboard-prototyping.json"
+				"data/articles/complete-beginner-s-guide-to-using-a-breadboard.json"
 			]
 		},
 		{
@@ -2768,7 +2767,7 @@
 			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
-				"data/entries/buchla-serge-wavefolders.json"
+				"data/articles/ece4450-l15-buchla-s-diodeless-deadband-circuits.json"
 			]
 		},
 		{
@@ -2781,7 +2780,7 @@
 			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
-				"data/entries/mk-transistor-vca.json"
+				"data/articles/mk-transistor-vca.json"
 			]
 		},
 		{
@@ -2794,7 +2793,7 @@
 			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
-				"data/entries/mk-analog-kick.json"
+				"data/articles/mk-analog-kick.json"
 			]
 		},
 		{
@@ -2807,7 +2806,7 @@
 			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
-				"data/entries/mk-606-hihat.json"
+				"data/articles/mk-606-hihat.json"
 			]
 		},
 		{
@@ -2820,7 +2819,7 @@
 			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
-				"data/entries/buchla-serge-wavefolders.json"
+				"data/articles/ece4450-l17-the-serge-wave-multipliers.json"
 			]
 		},
 		{
@@ -2833,7 +2832,7 @@
 			"lastOk": "2026-09-28",
 			"archiveUrl": null,
 			"usedBy": [
-				"data/entries/exponential-converters-tempco.json"
+				"data/articles/ece4450-l18-exponential-voltage-to-current-conversion.json"
 			]
 		}
 	]

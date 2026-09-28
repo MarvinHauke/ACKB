@@ -1,0 +1,25 @@
+{
+	"$schema": "../../schema/article.schema.json",
+	"schemaVersion": 3,
+	"title": "DIY SYNTH Quick Tip: Sawtooth-to-Triangle Converter",
+	"url": "https://www.youtube.com/watch?v=4r3TTaUKNe0",
+	"type": "video",
+	"authors": [
+		"moritz-klein"
+	],
+	"summary": "Two short videos extending a DIY VCO: a sawtooth-to-triangle converter and voltage-controlled pulse width modulation.",
+	"summaryFromGroup": true,
+	"modules": [
+		"oscillator"
+	],
+	"subcircuits": [
+		"waveshaper",
+		"comparator"
+	],
+	"functions": [
+		"pulse-width-modulation",
+		"waveshaping"
+	],
+	"kinds": ["explanation"],
+	"added": "2026-09-26"
+}

@@ -1,0 +1,23 @@
+{
+	"$schema": "../../schema/article.schema.json",
+	"schemaVersion": 3,
+	"title": "Designing a 3-channel mixer with diode distortion from scratch",
+	"url": "https://www.youtube.com/watch?v=q8tmUgaXrEQ",
+	"type": "video",
+	"authors": [
+		"moritz-klein"
+	],
+	"summary": "Video design of a three-channel mixer with a diode distortion stage.",
+	"modules": [
+		"mixer"
+	],
+	"subcircuits": [
+		"inverting-amp",
+		"diode-limiter"
+	],
+	"functions": [
+		"soft-clipping"
+	],
+	"kinds": ["explanation"],
+	"added": "2026-09-26"
+}

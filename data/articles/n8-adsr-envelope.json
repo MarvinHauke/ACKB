@@ -1,0 +1,25 @@
+{
+	"$schema": "../../schema/article.schema.json",
+	"schemaVersion": 3,
+	"title": "Build a DIY Eurorack Envelope Generator",
+	"url": "https://www.n8synth.co.uk/diy-eurorack/envelope-generator/",
+	"type": "website",
+	"authors": [
+		"n8-synthesizers"
+	],
+	"summary": "Build guide for an ADSR envelope generator module with schematic, layout, bill of materials and testing.",
+	"modules": [
+		"envelope"
+	],
+	"subcircuits": [
+		"comparator"
+	],
+	"functions": [
+		"envelope-generation"
+	],
+	"ics": [
+		"tl072"
+	],
+	"kinds": ["build-guide"],
+	"added": "2026-09-26"
+}

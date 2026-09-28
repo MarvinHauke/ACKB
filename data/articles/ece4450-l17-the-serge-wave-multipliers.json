@@ -1,0 +1,37 @@
+{
+	"$schema": "../../schema/article.schema.json",
+	"schemaVersion": 3,
+	"title": "ECE4450 L17: The Serge Wave Multipliers",
+	"url": "https://www.youtube.com/watch?v=zL9ao3Uc3Yk",
+	"type": "video",
+	"authors": [
+		"aaron-lanterman"
+	],
+	"origin": "academic",
+	"summary": "West-coast timbre circuits: Buchla's diodeless deadband circuits, the timbre modulation of the Music Easel and 259, and the Serge wave multipliers.",
+	"summaryFromGroup": true,
+	"manufacturers": [
+		"buchla",
+		"serge"
+	],
+	"products": [
+		"music-easel",
+		"buchla-259",
+		"serge-modular"
+	],
+	"modules": [
+		"oscillator",
+		"fx",
+		"distortion"
+	],
+	"subcircuits": [
+		"wavefolder",
+		"waveshaper"
+	],
+	"functions": [
+		"wavefolding",
+		"waveshaping"
+	],
+	"kinds": ["analysis"],
+	"added": "2026-09-26"
+}

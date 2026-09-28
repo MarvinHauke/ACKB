@@ -1,0 +1,45 @@
+{
+	"$schema": "../../schema/article.schema.json",
+	"schemaVersion": 3,
+	"title": "Synth schematics: MS 20 Filter",
+	"url": "https://www.schmitzbits.de/ms20.html",
+	"type": "schematic",
+	"authors": [
+		"rene-schmitz"
+	],
+	"summary": "Reference DIY schematic of the late MS-20 filter with op-amp buffers and a CA3080/LM13700.",
+	"manufacturers": [
+		"korg"
+	],
+	"products": [
+		"ms-20",
+		"ms-10"
+	],
+	"modules": [
+		"filter"
+	],
+	"subcircuits": [
+		"sallen-key",
+		"ota-stage",
+		"integrator",
+		"feedback-network",
+		"diode-limiter",
+		"exponential-converter"
+	],
+	"functions": [
+		"nonlinear-feedback",
+		"soft-clipping",
+		"resonance-control",
+		"self-oscillation",
+		"voltage-controlled-cutoff",
+		"exponential-response",
+		"lowpass-response",
+		"highpass-response"
+	],
+	"ics": [
+		"korg35",
+		"lm13600"
+	],
+	"kinds": ["analysis", "schematic"],
+	"added": "2026-09-26"
+}

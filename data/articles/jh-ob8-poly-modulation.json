@@ -1,0 +1,27 @@
+{
+	"$schema": "../../schema/article.schema.json",
+	"schemaVersion": 3,
+	"title": "Poly Modulation for OB-8",
+	"url": "http://jhaible.com/legacy/hj_pmob8.html",
+	"type": "website",
+	"authors": [
+		"juergen-haible"
+	],
+	"license": "non-commercial, educational use (Random*Source)",
+	"summary": "Adds Prophet-5-style poly modulation to the OB-8: routing the filter envelope and oscillator B to oscillator A pitch and the filter, per voice.",
+	"manufacturers": [
+		"oberheim"
+	],
+	"products": [
+		"ob-8"
+	],
+	"modules": [
+		"oscillator"
+	],
+	"functions": [
+		"cross-modulation",
+		"pitch-modulation"
+	],
+	"kinds": ["explanation"],
+	"added": "2026-09-28"
+}

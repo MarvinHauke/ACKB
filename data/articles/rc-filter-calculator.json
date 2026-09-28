@@ -1,0 +1,27 @@
+{
+	"$schema": "../../schema/article.schema.json",
+	"schemaVersion": 3,
+	"title": "RC Filter Calculator",
+	"url": "https://electricdruid.net/rc-filter-calc/",
+	"type": "website",
+	"authors": [
+		"tom-wiltshire"
+	],
+	"year": 2017,
+	"license": "CC BY-NC-SA 4.0",
+	"summary": "Online calculator for simple RC filters: enter two of resistance, capacitance and cutoff frequency to get the third.",
+	"modules": [
+		"filter",
+		"utility"
+	],
+	"subcircuits": [
+		"rc-lowpass",
+		"rc-highpass"
+	],
+	"functions": [
+		"lowpass-response",
+		"highpass-response"
+	],
+	"kinds": ["reference"],
+	"added": "2026-09-26"
+}

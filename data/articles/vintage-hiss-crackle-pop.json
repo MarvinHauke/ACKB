@@ -1,0 +1,30 @@
+{
+	"$schema": "../../schema/article.schema.json",
+	"schemaVersion": 3,
+	"title": "Adding Vintage Hiss, Crackle, and Pop!",
+	"url": "https://electricdruid.net/adding-vintage-hiss-crackle-and-pop/",
+	"type": "website",
+	"authors": [
+		"tom-wiltshire"
+	],
+	"year": 2017,
+	"license": "CC BY-NC-SA 4.0",
+	"summary": "A circuit that deliberately generates vinyl-style background noise (hiss, crackle and pops) to make recordings sound old.",
+	"modules": [
+		"noise",
+		"fx"
+	],
+	"subcircuits": [
+		"noise-generator",
+		"microcontroller"
+	],
+	"functions": [
+		"noise-generation",
+		"random-modulation"
+	],
+	"ics": [
+		"pic"
+	],
+	"kinds": ["explanation"],
+	"added": "2026-09-26"
+}

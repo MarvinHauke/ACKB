@@ -1,0 +1,24 @@
+{
+	"$schema": "../../schema/article.schema.json",
+	"schemaVersion": 3,
+	"title": "JH Synthi Clone",
+	"url": "http://jhaible.com/legacy/tonline_stuff/hj_synclon.html",
+	"type": "website",
+	"authors": [
+		"juergen-haible"
+	],
+	"license": "non-commercial, educational use (Random*Source)",
+	"summary": "Build story of a Synthi A / VCS3 clone with own modifications, and why building one does not save money.",
+	"manufacturers": [
+		"ems"
+	],
+	"products": [
+		"vcs3"
+	],
+	"modules": [
+		"oscillator",
+		"filter"
+	],
+	"kinds": ["explanation"],
+	"added": "2026-09-28"
+}

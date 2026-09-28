@@ -1,0 +1,31 @@
+{
+	"$schema": "../../schema/article.schema.json",
+	"schemaVersion": 3,
+	"title": "Noise Reduction with Companders",
+	"url": "https://electricdruid.net/noise-reduction-with-companders/",
+	"type": "website",
+	"authors": [
+		"tom-wiltshire"
+	],
+	"year": 2016,
+	"license": "CC BY-NC-SA 4.0",
+	"summary": "How a compander quiets noisy effects like BBD or PT2399 delays: compress before the effect, expand after it. Uses the SA571/NE571.",
+	"modules": [
+		"fx",
+		"dynamics",
+		"utility"
+	],
+	"subcircuits": [
+		"compander",
+		"bbd-delay-line"
+	],
+	"functions": [
+		"noise-reduction"
+	],
+	"ics": [
+		"sa571",
+		"pt2399"
+	],
+	"kinds": ["explanation"],
+	"added": "2026-09-26"
+}

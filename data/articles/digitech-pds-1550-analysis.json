@@ -1,0 +1,41 @@
+{
+	"$schema": "../../schema/article.schema.json",
+	"schemaVersion": 3,
+	"title": "Digitech PDS-1550 Programmable Distortion pedal analysis",
+	"url": "https://electricdruid.net/digitech-pds-1550-distortion-pedal-analysis/",
+	"type": "website",
+	"authors": [
+		"tom-wiltshire"
+	],
+	"year": 2018,
+	"license": "CC BY-NC-SA 4.0",
+	"summary": "Analysis of the DOD/DigiTech PDS-1550 dual distortion: the metal channel turns out to be a Boss HM-2 in disguise; transistor gain stages, op-amp clipping and a BBD \"double tracking\" delay.",
+	"manufacturers": [
+		"digitech",
+		"boss"
+	],
+	"products": [
+		"pds-1550"
+	],
+	"modules": [
+		"fx",
+		"distortion"
+	],
+	"subcircuits": [
+		"emitter-follower",
+		"diode-limiter",
+		"bbd-delay-line",
+		"tone-control"
+	],
+	"functions": [
+		"hard-clipping",
+		"tone-shaping",
+		"delay-echo"
+	],
+	"ics": [
+		"mn3007",
+		"lm13600"
+	],
+	"kinds": ["analysis"],
+	"added": "2026-09-26"
+}

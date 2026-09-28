@@ -48,7 +48,8 @@
 
 <footer class="muted">
 	External resources stay with their authors; this index only links to them.
-	<a href={asset('/data/kb.jsonl')}>kb.jsonl</a> · <a href={asset('/data/taxonomy.json')}>taxonomy.json</a> ·
+	<a href={asset('/data/kb.jsonl')}>kb.jsonl</a> · <a href={asset('/data/graph.json')}>graph.json</a> ·
+	<a href={asset('/data/taxonomy.json')}>taxonomy.json</a> ·
 	<a href={asset('/llms.txt')}>llms.txt</a>
 </footer>
 
@@ -61,7 +62,7 @@
 	nav,
 	main,
 	footer {
-		max-width: 60rem;
+		max-width: 64rem;
 		margin: 0 auto;
 		padding: 0 1rem;
 	}

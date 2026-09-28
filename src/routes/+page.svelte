@@ -1,7 +1,8 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
 	import { replaceState } from '$app/navigation';
-	import EntryList from '$lib/components/EntryList.svelte';
+	import { resolve } from '$app/paths';
+	import ArticleList from '$lib/components/ArticleList.svelte';
 	import {
 		FILTER_KEYS,
 		activeCount,
@@ -26,8 +27,8 @@
 
 	let { data } = $props();
 
-	const facetIndex = $derived(buildFacetIndex(data.entries));
-	const byId = $derived(new Map(data.entries.map((e) => [e.id, e])));
+	const facetIndex = $derived(buildFacetIndex(data.articles));
+	const byId = $derived(new Map(data.articles.map((e) => [e.id, e])));
 	const labels = $derived(
 		new Map([
 			...REGISTRY_KEYS.flatMap((k) => data.terms[k].map((t) => [t.id, t.label] as [string, string])),
@@ -41,7 +42,19 @@
 		confidence: 'Confidence'
 	} as Record<FilterKey, string>;
 
-	type Option = { id: string; label: string; group?: string; manufacturer?: string; category?: string };
+	type Option = {
+		id: string;
+		label: string;
+		group?: string;
+		parent?: string;
+		manufacturer?: string;
+		category?: string;
+		status?: string;
+		datasheetUrl?: string;
+		alternatives?: string[];
+		/** Articles using this term in the whole knowledge base (taxonomy terms only). */
+		count?: number;
+	};
 
 	// Facet options: taxonomy terms with labels, content kinds with display names, confidence as plain values.
 	const options = $derived(
@@ -69,14 +82,13 @@
 	const RECENT_KEY = 'ackb:recent-filters';
 	const RECENT_MAX = 6;
 	let recent: { key: FilterKey; id: string }[] = $state([]);
-	// Source types the reader unticked, and http:// links if hidden; entries whose sources are all
-	// hidden drop out of every list.
+	// Source types the reader unticked, and whether http:// links are hidden; those articles drop
+	// out of every list.
 	let hiddenTypes: string[] = $state([]);
 	let hideHttp = $state(false);
 	let sourceTypesOpen = $state(false);
-	const sourceTypeOptions = $derived(SOURCE_TYPES.filter((t) => data.entries.some((e) => e.sources.some((s) => s.type === t))));
-	const shown = (e: { sources: { type: string; secure: boolean }[] }) =>
-		e.sources.some((s) => sourceVisible(s, hiddenTypes, hideHttp));
+	const sourceTypeOptions = $derived(SOURCE_TYPES.filter((t) => data.articles.some((e) => e.type === t)));
+	const shown = (e: { type: string; secure: boolean }) => sourceVisible(e, hiddenTypes, hideHttp);
 
 	function toggleSourceType(type: string) {
 		hiddenTypes = hiddenTypes.includes(type) ? hiddenTypes.filter((t) => t !== type) : [...hiddenTypes, type];
@@ -91,9 +103,9 @@
 	// Sidebar sections, top to bottom. Products are nested under manufacturers, not listed on their own.
 	const SECTIONS: { label: string; keys: FilterKey[] }[] = [
 		{ label: 'Instrument', keys: ['manufacturers'] },
-		{ label: 'Module', keys: ['circuitTypes'] },
+		{ label: 'Module', keys: ['modules'] },
 		{ label: 'Electronics', keys: ['subcircuits', 'functions', 'ics'] },
-		{ label: 'Resource', keys: ['kind', 'confidence'] }
+		{ label: 'Resource', keys: ['kind', 'authors', 'confidence'] }
 	];
 	// Long lists show the most used first and hide the rest behind "Show all".
 	const TOP_N = 8;
@@ -103,11 +115,18 @@
 
 	const count = (key: FilterKey, id: string) => facetCounts[key].get(id) ?? 0;
 
-	/** Options with matches (or selected), most entries first. */
+	/** Options with matches (or selected). */
+	/**
+	 * Options with matches (or selected). Order is by overall use (the term's count in the whole
+	 * knowledge base), not by matches in the current results, so lists don't reshuffle on every
+	 * click. Content kinds and confidence have no count and keep their fixed order.
+	 */
 	function visibleOptions(key: FilterKey, list: Option[]) {
 		return list
 			.filter((o) => count(key, o.id) > 0 || filters[key].includes(o.id))
-			.sort((a, b) => count(key, b.id) - count(key, a.id) || a.label.localeCompare(b.label));
+			.sort((a, b) =>
+				a.count === undefined || b.count === undefined ? 0 : b.count - a.count || a.label.localeCompare(b.label)
+			);
 	}
 
 	function groupOf(key: FilterKey, o: Option) {
@@ -140,6 +159,11 @@
 			if (m) openSub[`manufacturers:${m}`] = true;
 		}
 		for (const id of filters.manufacturers) openSub[`manufacturers:${id}`] = true;
+		// Open FX (or any module with subtypes) when it or one of its subtypes is selected.
+		for (const id of filters.modules) {
+			const parent = options.modules.find((t) => t.id === id)?.parent ?? id;
+			openSub[`modules:${parent}`] = true;
+		}
 		if (filters.products.length) openGroups.manufacturers = true;
 		for (const key of ['subcircuits', 'functions', 'ics'] as FilterKey[]) {
 			for (const id of filters[key]) {
@@ -156,7 +180,7 @@
 	});
 
 	function syncUrl() {
-		const params = filtersToParams(filters, query.trim()).toString();
+		const params = filtersToParams(filters, query.trim(), data.parents).toString();
 		replaceState(params ? `?${params}` : location.pathname, {});
 	}
 
@@ -172,6 +196,17 @@
 		const adding = !list.includes(id);
 		filters[key] = adding ? [...list, id] : list.filter((v) => v !== id);
 		if (adding) remember(key, id);
+		syncUrl();
+	}
+
+	/**
+	 * A child was clicked while its "All" row (the parent) is ticked: the children only look
+	 * ticked, so switch the filter from the whole group to just this child.
+	 */
+	function narrowTo(parent: { key: FilterKey; id: string }, key: FilterKey, id: string) {
+		filters[parent.key] = filters[parent.key].filter((v) => v !== parent.id);
+		if (!filters[key].includes(id)) filters[key] = [...filters[key], id];
+		remember(key, id);
 		syncUrl();
 	}
 
@@ -205,7 +240,7 @@
 
 	const results = $derived.by(() => {
 		const allowed = (id: string) => (facetMatch === null || facetMatch.has(id)) && shown(byId.get(id)!);
-		if (!q) return data.entries.filter((e) => allowed(e.id));
+		if (!q) return data.articles.filter((e) => allowed(e.id));
 		if (searcher) {
 			return searcher(q)
 				.filter((r) => byId.has(r.id) && allowed(r.id))
@@ -213,14 +248,25 @@
 		}
 		// Until Fuse is loaded: plain substring match, so typing never shows an empty page.
 		const needle = q.toLowerCase();
-		return data.entries.filter(
+		return data.articles.filter(
 			(e) => allowed(e.id) && (e.title.toLowerCase().includes(needle) || e.summary.toLowerCase().includes(needle))
 		);
 	});
 
 	const isFiltering = $derived(q !== '' || activeCount(filters) > 0);
-	// Count for the results bar: matching entries while filtering, otherwise all visible entries.
-	const shownCount = $derived(isFiltering ? results.length : data.entries.filter(shown).length);
+	// Count for the results bar: visible articles of the matching or all articles.
+	const shownCount = $derived(isFiltering ? results.length : data.articles.filter(shown).length);
+
+	const IC_CATEGORY_LABEL: Record<string, string> = {
+		ota: 'OTA',
+		vca: 'VCA',
+		opamp: 'op-amp',
+		dac: 'DAC',
+		mcu: 'microcontroller',
+		'transistor-array': 'transistor array'
+	};
+	// Facts about a single selected IC (these used to live on the removed /ic/<id> pages).
+	const icInfo = $derived(filters.ics.length === 1 ? options.ics.find((t) => t.id === filters.ics[0]) : undefined);
 
 	let searchFocused = $state(false);
 	const showRecent = $derived(searchFocused && q === '' && recent.length > 0);
@@ -291,7 +337,7 @@
 
 <!-- Always shown, so ticking a filter doesn't push the page down. -->
 <div class="active" aria-label="Active filters" aria-live="polite">
-	<span class="status">{shownCount} {shownCount === 1 ? 'entry' : 'entries'}</span>
+	<span class="status">{shownCount} {shownCount === 1 ? 'article' : 'articles'}</span>
 	<ul class="chips">
 		{#if q}
 			<li>
@@ -319,25 +365,60 @@
 
 <div class="layout">
 	<aside aria-label="Filters" class:open={showFilters}>
-		{#snippet checkbox(key: FilterKey, o: Option)}
-			<label>
-				<input type="checkbox" checked={filters[key].includes(o.id)} onchange={() => toggle(key, o.id)} />
+		<!-- `parent`: the "All" row of this child's group; while it's ticked, the child shows as ticked too. -->
+		{#snippet checkbox(key: FilterKey, o: Option, parent?: { key: FilterKey; id: string })}
+			{@const implied = !!parent && filters[parent.key].includes(parent.id)}
+			<label class:implied>
+				<input
+					type="checkbox"
+					checked={implied || filters[key].includes(o.id)}
+					onchange={(e) => {
+						if (!implied) return toggle(key, o.id);
+						narrowTo(parent!, key, o.id);
+						// It showed ticked before (via "All") and is ticked after, so Svelte sees no change
+						// and wouldn't undo the browser's untick.
+						e.currentTarget.checked = true;
+					}}
+				/>
 				{o.label} <span class="muted">{count(key, o.id)}</span>
 			</label>
 		{/snippet}
 
 		<!-- `first` renders an extra checkbox at the top of the same list (the "All" row of a maker). -->
-		{#snippet list(key: FilterKey, id: string, opts: Option[], first?: import('svelte').Snippet)}
+		{#snippet list(
+			key: FilterKey,
+			id: string,
+			opts: Option[],
+			first?: import('svelte').Snippet,
+			parent?: { key: FilterKey; id: string }
+		)}
 			{@const all = showAll[id] || opts.length <= TOP_N + 2}
 			<ul>
 				{#if first}<li>{@render first()}</li>{/if}
 				{#each all ? opts : opts.slice(0, TOP_N) as o (o.id)}
-					<li>{@render checkbox(key, o)}</li>
+					<li>{@render checkbox(key, o, parent)}</li>
 				{/each}
 			</ul>
 			{#if !all}
 				<button class="link more" onclick={() => (showAll[id] = true)}>Show all ({opts.length})</button>
 			{/if}
+		{/snippet}
+
+		<!-- A parent term (manufacturer, FX) with its children: same look as the subcircuit/function
+		     groups, a fold row, then "All" (the parent itself) and the children inside. -->
+		{#snippet parentGroup(key: FilterKey, m: Option, childKey: FilterKey, children: Option[])}
+			{@const sel = (filters[key].includes(m.id) ? 1 : 0) + children.filter((c) => filters[childKey].includes(c.id)).length}
+			<details
+				class="group"
+				open={openSub[`${key}:${m.id}`] ?? false}
+				ontoggle={(e) => (openSub[`${key}:${m.id}`] = (e.currentTarget as HTMLDetailsElement).open)}
+			>
+				<summary>{m.label} <span class="muted">{sel ? `${sel} selected` : count(key, m.id)}</span></summary>
+				{#snippet allRow()}
+					{@render checkbox(key, { ...m, label: children.length ? 'All' : m.label })}
+				{/snippet}
+				{@render list(childKey, `${childKey}:${m.id}`, children, allRow, { key, id: m.id })}
+			</details>
 		{/snippet}
 
 		{#snippet facet(key: FilterKey, body: import('svelte').Snippet)}
@@ -359,26 +440,33 @@
 						{#snippet makerList()}
 							{@const all = showAll.manufacturers || makers.length <= TOP_N + 2}
 							{#each all ? makers : makers.slice(0, TOP_N) as m (m.id)}
-								{@const products = productsOf(m.id)}
-								{@const sel = (filters.manufacturers.includes(m.id) ? 1 : 0) + products.filter((p) => filters.products.includes(p.id)).length}
-								<!-- Same look as the subcircuit/function groups: fold row, then checkboxes inside. -->
-								<details
-									class="group"
-									open={openSub[`manufacturers:${m.id}`] ?? false}
-									ontoggle={(e) => (openSub[`manufacturers:${m.id}`] = (e.currentTarget as HTMLDetailsElement).open)}
-								>
-									<summary>{m.label} <span class="muted">{sel ? `${sel} selected` : count(key, m.id)}</span></summary>
-									{#snippet allMaker()}
-										{@render checkbox(key, { ...m, label: products.length ? 'All' : m.label })}
-									{/snippet}
-									{@render list('products', `products:${m.id}`, products, allMaker)}
-								</details>
+								{@render parentGroup(key, m, 'products', productsOf(m.id))}
 							{/each}
 							{#if !all}
 								<button class="link more" onclick={() => (showAll.manufacturers = true)}>Show all ({makers.length})</button>
 							{/if}
 						{/snippet}
 						{@render facet(key, makerList)}
+					{/if}
+				{:else if key === 'modules'}
+					<!-- Modules: plain rows, except those with subtypes (FX), which fold like a manufacturer. -->
+					{@const mods = visibleOptions(key, options[key].filter((o) => !o.parent))}
+					{#if mods.length}
+						{#snippet moduleList()}
+							<ul class="grow">
+								{#each mods as m (m.id)}
+									{@const subs = visibleOptions(key, options[key].filter((o) => o.parent === m.id))}
+									<li>
+										{#if subs.length}
+											{@render parentGroup(key, m, key, subs)}
+										{:else}
+											{@render checkbox(key, m)}
+										{/if}
+									</li>
+								{/each}
+							</ul>
+						{/snippet}
+						{@render facet(key, moduleList)}
 					{/if}
 				{:else if key === 'subcircuits' || key === 'functions' || key === 'ics'}
 					{@const groups = groupsOf(key)}
@@ -421,7 +509,7 @@
 							<li>
 								<label>
 									<input type="checkbox" checked={!hiddenTypes.includes(t)} onchange={() => toggleSourceType(t)} />
-									{t} <span class="muted">{results.filter((e) => e.sources.some((s) => s.type === t)).length}</span>
+									{t} <span class="muted">{results.filter((e) => e.type === t).length}</span>
 								</label>
 							</li>
 						{/each}
@@ -440,15 +528,29 @@
 	</aside>
 
 	<section>
+		<!-- Inside the results column, so the sidebar doesn't move when it appears. -->
+		{#if icInfo}
+			<p class="ic-info">
+				<strong>{icInfo.label}</strong>
+				{[IC_CATEGORY_LABEL[icInfo.category ?? ''] ?? icInfo.category, icInfo.manufacturer, icInfo.status].filter(Boolean).join(' · ')}
+				{#if icInfo.datasheetUrl}
+					· <a href={icInfo.datasheetUrl} target="_blank" rel="noopener external" data-out="datasheet">Datasheet ↗</a>
+				{/if}
+				{#if icInfo.alternatives?.length}
+					· Alternatives: {icInfo.alternatives.map((id) => labels.get(id) ?? id).join(', ')}
+				{/if}
+				· <a href={resolve('/[type=node]/[...path]', { type: 'ic', path: icInfo.id })}>About {icInfo.label} →</a>
+			</p>
+		{/if}
 		{#if isFiltering}
 			{#if results.length}
-				<EntryList entries={results} {labels} />
+				<ArticleList articles={results} {labels} parents={data.parents} {hiddenTypes} {hideHttp} />
 			{:else}
-				<p class="muted">No entry matches. Remove a filter or try a broader term.</p>
+				<p class="muted">No article matches. Remove a filter or try a broader term.</p>
 			{/if}
 		{:else}
-			<h2>Recent entries</h2>
-			<EntryList entries={data.entries.filter(shown).slice(0, 10)} {labels} />
+			<h2>Recent articles</h2>
+			<ArticleList articles={data.articles} {labels} parents={data.parents} {hiddenTypes} {hideHttp} limit={10} />
 
 			<h2>Popular functions</h2>
 			<ul class="chips">
@@ -544,6 +646,12 @@
 		color: var(--bad);
 	}
 
+	.ic-info {
+		margin: 0 0 var(--space-2);
+		font-size: 0.9rem;
+		color: var(--muted);
+	}
+
 	.status {
 		color: var(--muted);
 		font-size: 0.9rem;
@@ -551,7 +659,7 @@
 
 	.layout {
 		display: grid;
-		grid-template-columns: 14rem 1fr;
+		grid-template-columns: 18rem 1fr;
 		gap: var(--space-5);
 		border-top: 1px solid var(--line);
 		padding-top: var(--space-3);
@@ -577,6 +685,11 @@
 
 	.section:first-child {
 		margin-top: 0;
+	}
+
+	/* Lists holding foldable groups grow instead of scrolling inside the sidebar. */
+	aside ul.grow {
+		max-height: none;
 	}
 
 	details.group {

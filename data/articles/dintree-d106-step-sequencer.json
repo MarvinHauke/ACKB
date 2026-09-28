@@ -1,0 +1,28 @@
+{
+	"$schema": "../../schema/article.schema.json",
+	"schemaVersion": 3,
+	"title": "Dintree D106 Step Sequencer: schematic, parts list and design notes",
+	"url": "https://github.com/hires/Dintree/tree/master/D106-Step_Sequencer",
+	"type": "repo",
+	"authors": [
+		"andrew-kilpatrick"
+	],
+	"license": "non-commercial, educational use",
+	"summary": "Four-step, four-row sequencer: analog multiplexers route the step pots to buffered outputs, a PIC acts as clock/reset/direction counter, and a scrub input addresses steps by CV.",
+	"modules": [
+		"sequencer-clock"
+	],
+	"subcircuits": [
+		"microcontroller",
+		"analog-switch",
+		"voltage-follower"
+	],
+	"functions": [
+		"sequencing"
+	],
+	"ics": [
+		"pic"
+	],
+	"kinds": ["schematic", "explanation"],
+	"added": "2026-09-28"
+}

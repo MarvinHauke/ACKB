@@ -281,7 +281,7 @@
 		"id": "lm394",
 		"label": "LM394",
 		"manufacturer": "National",
-		"category": "transistor_array",
+		"category": "transistor-array",
 		"status": "obsolete",
 		"aliases": [
 			"SuperMatch pair"

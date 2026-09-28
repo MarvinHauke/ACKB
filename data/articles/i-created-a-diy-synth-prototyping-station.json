@@ -1,0 +1,17 @@
+{
+	"$schema": "../../schema/article.schema.json",
+	"schemaVersion": 3,
+	"title": "I created a DIY synth prototyping station",
+	"url": "https://www.youtube.com/watch?v=QyapQpQOwUM",
+	"type": "video",
+	"authors": [
+		"moritz-klein"
+	],
+	"summary": "Beginner's guide to using a breadboard for synth circuits, and a DIY prototyping station for developing synth modules.",
+	"summaryFromGroup": true,
+	"modules": [
+		"utility"
+	],
+	"kinds": ["build-guide"],
+	"added": "2026-09-26"
+}

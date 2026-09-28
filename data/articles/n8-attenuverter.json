@@ -1,0 +1,26 @@
+{
+	"$schema": "../../schema/article.schema.json",
+	"schemaVersion": 3,
+	"title": "Build a DIY Eurorack Attenuverter",
+	"url": "https://www.n8synth.co.uk/diy-eurorack/4hp-eurorack-attenuverter/",
+	"type": "website",
+	"authors": [
+		"n8-synthesizers"
+	],
+	"summary": "Build guide for a 4HP attenuverter, a CV utility that scales and inverts control voltages.",
+	"modules": [
+		"utility"
+	],
+	"subcircuits": [
+		"inverting-amp"
+	],
+	"functions": [
+		"attenuation",
+		"signal-inversion"
+	],
+	"ics": [
+		"tl072"
+	],
+	"kinds": ["build-guide"],
+	"added": "2026-09-26"
+}

@@ -1,0 +1,25 @@
+{
+	"$schema": "../../schema/article.schema.json",
+	"schemaVersion": 3,
+	"title": "Dintree D41 Violin Pre: schematic, parts list and design notes",
+	"url": "https://github.com/hires/Dintree/tree/master/D41-Violin_Pre",
+	"type": "repo",
+	"authors": [
+		"andrew-kilpatrick"
+	],
+	"license": "non-commercial, educational use",
+	"summary": "Battery-powered high-impedance buffer with a passive attenuator, to connect a violin pickup to pedals and mixers; tone set by component choice.",
+	"modules": [
+		"utility"
+	],
+	"subcircuits": [
+		"voltage-follower",
+		"voltage-divider"
+	],
+	"functions": [
+		"attenuation",
+		"tone-shaping"
+	],
+	"kinds": ["schematic", "explanation"],
+	"added": "2026-09-28"
+}

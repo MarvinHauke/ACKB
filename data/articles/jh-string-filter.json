@@ -1,0 +1,27 @@
+{
+	"$schema": "../../schema/article.schema.json",
+	"schemaVersion": 3,
+	"title": "JH. String Filter",
+	"url": "http://jhaible.com/legacy/string_filter/jh_string_filter.html",
+	"type": "website",
+	"authors": [
+		"juergen-haible"
+	],
+	"license": "non-commercial, educational use (Random*Source)",
+	"summary": "Formant-style filter for string sounds (2004), based on a GIC filter variant; includes the history of why the first topology failed.",
+	"manufacturers": [
+		"arp"
+	],
+	"products": [
+		"string-ensemble"
+	],
+	"modules": [
+		"filter"
+	],
+	"functions": [
+		"formant-filtering",
+		"bandpass-response"
+	],
+	"kinds": ["explanation"],
+	"added": "2026-09-28"
+}

@@ -1,0 +1,33 @@
+{
+	"$schema": "../../schema/article.schema.json",
+	"schemaVersion": 3,
+	"title": "Experiments with variable rate drum sample playback",
+	"url": "https://electricdruid.net/experiments-with-variable-rate-drum-sample-playback/",
+	"type": "website",
+	"authors": [
+		"tom-wiltshire"
+	],
+	"year": 2018,
+	"license": "CC BY-NC-SA 4.0",
+	"summary": "Experiments with pitching drum samples the way early digital drum machines (LinnDrum, Oberheim DMX) did: by changing the playback sample rate instead of resampling.",
+	"manufacturers": [
+		"oberheim"
+	],
+	"modules": [
+		"drum"
+	],
+	"subcircuits": [
+		"microcontroller",
+		"dac-output"
+	],
+	"functions": [
+		"drum-synthesis",
+		"pitch-modulation",
+		"sample-playback"
+	],
+	"ics": [
+		"pic"
+	],
+	"kinds": ["explanation"],
+	"added": "2026-09-26"
+}

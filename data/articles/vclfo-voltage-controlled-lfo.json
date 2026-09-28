@@ -1,0 +1,30 @@
+{
+	"$schema": "../../schema/article.schema.json",
+	"schemaVersion": 3,
+	"title": "Voltage Controlled LFO (VCLFO 9D)",
+	"url": "https://electricdruid.net/voltage-controlled-lfo-vclfo-9d/",
+	"type": "website",
+	"authors": [
+		"tom-wiltshire"
+	],
+	"year": 2008,
+	"license": "CC BY-NC-SA 4.0",
+	"summary": "A PIC 16F684-based voltage-controlled LFO with seven waveforms plus noise, waveform morphing and distortion. Later replaced by the VCLFO10 with two sets of eight waveforms.",
+	"modules": [
+		"lfo"
+	],
+	"subcircuits": [
+		"microcontroller",
+		"dds-oscillator"
+	],
+	"functions": [
+		"periodic-modulation",
+		"random-modulation",
+		"waveshaping"
+	],
+	"ics": [
+		"pic"
+	],
+	"kinds": ["explanation"],
+	"added": "2026-09-26"
+}

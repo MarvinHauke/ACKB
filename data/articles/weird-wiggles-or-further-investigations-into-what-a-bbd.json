@@ -1,0 +1,35 @@
+{
+	"$schema": "../../schema/article.schema.json",
+	"schemaVersion": 3,
+	"title": "Weird wiggles, or \"Further investigations into what a BBD Chorus unit really does\"",
+	"url": "https://electricdruid.net/weird-wiggles-bbd-clock-modulation/",
+	"type": "website",
+	"authors": [
+		"tom-wiltshire"
+	],
+	"year": 2026,
+	"license": "CC BY-NC-SA 4.0",
+	"summary": "Simulation-based look at BBD chorus: why modulating the BBD clock gives distorted pitch modulation, linear versus exponential clock modulation, and the effect of different LFO waveforms. The 2026 article replaces the 2015 one; an interactive simulation shows delay and pitch over time.",
+	"summaryFromGroup": true,
+	"manufacturers": [
+		"boss"
+	],
+	"modules": [
+		"fx",
+		"modulation"
+	],
+	"subcircuits": [
+		"bbd-delay-line",
+		"clock-generator"
+	],
+	"functions": [
+		"chorus-flanging",
+		"pitch-modulation",
+		"periodic-modulation"
+	],
+	"ics": [
+		"mn3007"
+	],
+	"kinds": ["analysis"],
+	"added": "2026-09-26"
+}

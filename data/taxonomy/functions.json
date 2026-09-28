@@ -1,129 +1,129 @@
 [
 	{
-		"id": "nonlinear_feedback",
+		"id": "nonlinear-feedback",
 		"label": "Nonlinear Feedback",
-		"group": "distortion_shaping"
+		"group": "distortion-shaping"
 	},
 	{
-		"id": "soft_clipping",
+		"id": "soft-clipping",
 		"label": "Soft Clipping",
 		"aliases": [
 			"saturation",
 			"overdrive"
 		],
-		"group": "distortion_shaping"
+		"group": "distortion-shaping"
 	},
 	{
-		"id": "hard_clipping",
+		"id": "hard-clipping",
 		"label": "Hard Clipping",
 		"aliases": [
 			"distortion"
 		],
-		"group": "distortion_shaping"
+		"group": "distortion-shaping"
 	},
 	{
-		"id": "resonance_control",
+		"id": "resonance-control",
 		"label": "Resonance Control",
 		"aliases": [
 			"Q",
 			"emphasis",
 			"peak"
 		],
-		"group": "filter_response"
+		"group": "filter-response"
 	},
 	{
-		"id": "self_oscillation",
+		"id": "self-oscillation",
 		"label": "Self Oscillation",
-		"group": "filter_response"
+		"group": "filter-response"
 	},
 	{
-		"id": "signal_inversion",
+		"id": "signal-inversion",
 		"label": "Signal Inversion",
-		"group": "levels_utility"
+		"group": "levels-utility"
 	},
 	{
-		"id": "current_controlled_amplification",
+		"id": "current-controlled-amplification",
 		"label": "Current Controlled Amplification",
 		"aliases": [
 			"transconductance",
 			"Iabc control"
 		],
-		"group": "effects_dynamics"
+		"group": "effects-dynamics"
 	},
 	{
-		"id": "voltage_controlled_cutoff",
+		"id": "voltage-controlled-cutoff",
 		"label": "Voltage Controlled Cutoff",
 		"aliases": [
 			"cutoff CV",
 			"frequency modulation of filter"
 		],
-		"group": "filter_response"
+		"group": "filter-response"
 	},
 	{
-		"id": "exponential_response",
+		"id": "exponential-response",
 		"label": "Exponential Response",
 		"aliases": [
 			"1V/oct",
 			"volt per octave"
 		],
-		"group": "pitch_oscillator"
+		"group": "pitch-oscillator"
 	},
 	{
-		"id": "temperature_compensation",
+		"id": "temperature-compensation",
 		"label": "Temperature Compensation",
 		"aliases": [
 			"tempco",
 			"thermal drift"
 		],
-		"group": "pitch_oscillator"
+		"group": "pitch-oscillator"
 	},
 	{
 		"id": "hysteresis",
 		"label": "Hysteresis",
-		"group": "levels_utility"
+		"group": "levels-utility"
 	},
 	{
-		"id": "multimode_output",
+		"id": "multimode-output",
 		"label": "Multimode Output",
 		"aliases": [
 			"LP/BP/HP",
 			"pole mixing"
 		],
-		"group": "filter_response"
+		"group": "filter-response"
 	},
 	{
-		"id": "lowpass_response",
+		"id": "lowpass-response",
 		"label": "Lowpass Response",
 		"aliases": [
 			"LPF"
 		],
-		"group": "filter_response"
+		"group": "filter-response"
 	},
 	{
-		"id": "highpass_response",
+		"id": "highpass-response",
 		"label": "Highpass Response",
 		"aliases": [
 			"HPF"
 		],
-		"group": "filter_response"
+		"group": "filter-response"
 	},
 	{
-		"id": "bandpass_response",
+		"id": "bandpass-response",
 		"label": "Bandpass Response",
 		"aliases": [
 			"BPF"
 		],
-		"group": "filter_response"
+		"group": "filter-response"
 	},
 	{
-		"id": "frequency_division",
+		"id": "frequency-division",
 		"label": "Frequency Division",
 		"aliases": [
 			"sub-oscillator",
 			"sub oscillator",
 			"octave down"
 		],
-		"group": "pitch_oscillator"
+		"group": "pitch-oscillator"
 	},
 	{
 		"id": "waveshaping",
@@ -131,100 +131,100 @@
 		"aliases": [
 			"wave shaping"
 		],
-		"group": "distortion_shaping"
+		"group": "distortion-shaping"
 	},
 	{
-		"id": "wavetable_synthesis",
+		"id": "wavetable-synthesis",
 		"label": "Wavetable Synthesis",
 		"aliases": [
 			"wavetable"
 		],
-		"group": "sound_generation"
+		"group": "sound-generation"
 	},
 	{
-		"id": "phase_distortion",
+		"id": "phase-distortion",
 		"label": "Phase Distortion",
 		"aliases": [
 			"PD synthesis"
 		],
-		"group": "sound_generation"
+		"group": "sound-generation"
 	},
 	{
-		"id": "oscillator_sync",
+		"id": "oscillator-sync",
 		"label": "Oscillator Sync",
 		"aliases": [
 			"hard sync",
 			"metal sync"
 		],
-		"group": "pitch_oscillator"
+		"group": "pitch-oscillator"
 	},
 	{
-		"id": "cross_modulation",
+		"id": "cross-modulation",
 		"label": "Cross Modulation",
 		"aliases": [
 			"cross mod",
 			"audio-rate FM"
 		],
-		"group": "pitch_oscillator"
+		"group": "pitch-oscillator"
 	},
 	{
-		"id": "pulse_width_modulation",
+		"id": "pulse-width-modulation",
 		"label": "Pulse Width Modulation",
 		"aliases": [
 			"PWM"
 		],
-		"group": "pitch_oscillator"
+		"group": "pitch-oscillator"
 	},
 	{
-		"id": "envelope_generation",
+		"id": "envelope-generation",
 		"label": "Envelope Generation",
 		"aliases": [
 			"ADSR",
 			"envelope"
 		],
-		"group": "modulation_control"
+		"group": "modulation-control"
 	},
 	{
-		"id": "periodic_modulation",
+		"id": "periodic-modulation",
 		"label": "Periodic Modulation",
 		"aliases": [
 			"LFO modulation",
 			"modulation source"
 		],
-		"group": "modulation_control"
+		"group": "modulation-control"
 	},
 	{
-		"id": "tap_tempo",
+		"id": "tap-tempo",
 		"label": "Tap Tempo",
-		"group": "modulation_control"
+		"group": "modulation-control"
 	},
 	{
-		"id": "delay_echo",
+		"id": "delay-echo",
 		"label": "Delay / Echo",
 		"aliases": [
 			"echo",
 			"delay"
 		],
-		"group": "effects_dynamics"
+		"group": "effects-dynamics"
 	},
 	{
-		"id": "chorus_flanging",
+		"id": "chorus-flanging",
 		"label": "Chorus / Flanging",
 		"aliases": [
 			"chorus",
 			"flanger",
 			"flanging"
 		],
-		"group": "effects_dynamics"
+		"group": "effects-dynamics"
 	},
 	{
-		"id": "pitch_modulation",
+		"id": "pitch-modulation",
 		"label": "Pitch Modulation",
 		"aliases": [
 			"vibrato",
 			"pitch shift"
 		],
-		"group": "pitch_oscillator"
+		"group": "pitch-oscillator"
 	},
 	{
 		"id": "tremolo",
@@ -232,42 +232,42 @@
 		"aliases": [
 			"amplitude modulation"
 		],
-		"group": "effects_dynamics"
+		"group": "effects-dynamics"
 	},
 	{
-		"id": "tone_shaping",
+		"id": "tone-shaping",
 		"label": "Tone Shaping",
 		"aliases": [
 			"EQ",
 			"mid control"
 		],
-		"group": "distortion_shaping"
+		"group": "distortion-shaping"
 	},
 	{
-		"id": "noise_generation",
+		"id": "noise-generation",
 		"label": "Noise Generation",
 		"aliases": [
 			"white noise",
 			"pink noise"
 		],
-		"group": "sound_generation"
+		"group": "sound-generation"
 	},
 	{
-		"id": "random_modulation",
+		"id": "random-modulation",
 		"label": "Random Modulation",
 		"aliases": [
 			"random voltages",
 			"sample and hold"
 		],
-		"group": "modulation_control"
+		"group": "modulation-control"
 	},
 	{
-		"id": "noise_reduction",
+		"id": "noise-reduction",
 		"label": "Noise Reduction",
 		"aliases": [
 			"companding"
 		],
-		"group": "effects_dynamics"
+		"group": "effects-dynamics"
 	},
 	{
 		"id": "crossfading",
@@ -276,38 +276,38 @@
 			"wet/dry mix",
 			"blend"
 		],
-		"group": "effects_dynamics"
+		"group": "effects-dynamics"
 	},
 	{
-		"id": "clock_conversion",
+		"id": "clock-conversion",
 		"label": "Clock Conversion",
 		"aliases": [
 			"MIDI clock",
 			"clock sync",
 			"gate pulses"
 		],
-		"group": "modulation_control"
+		"group": "modulation-control"
 	},
 	{
-		"id": "level_metering",
+		"id": "level-metering",
 		"label": "Level Metering",
 		"aliases": [
 			"VU",
 			"LED meter"
 		],
-		"group": "levels_utility"
+		"group": "levels-utility"
 	},
 	{
-		"id": "harmonic_analysis",
+		"id": "harmonic-analysis",
 		"label": "Harmonic Analysis",
 		"aliases": [
 			"Fourier",
 			"spectrum"
 		],
-		"group": "levels_utility"
+		"group": "levels-utility"
 	},
 	{
-		"id": "drum_synthesis",
+		"id": "drum-synthesis",
 		"label": "Drum Synthesis",
 		"aliases": [
 			"analogue drums",
@@ -316,35 +316,35 @@
 			"snare circuit",
 			"cymbal generator"
 		],
-		"group": "sound_generation"
+		"group": "sound-generation"
 	},
 	{
-		"id": "cv_smoothing",
+		"id": "cv-smoothing",
 		"label": "CV Smoothing",
 		"aliases": [
 			"CV filtering",
 			"DAC filtering"
 		],
-		"group": "modulation_control"
+		"group": "modulation-control"
 	},
 	{
-		"id": "digital_waveform_generation",
+		"id": "digital-waveform-generation",
 		"label": "Digital Waveform Generation",
 		"aliases": [
 			"DDS",
 			"digital oscillator"
 		],
-		"group": "sound_generation"
+		"group": "sound-generation"
 	},
 	{
-		"id": "polyphonic_tone_generation",
+		"id": "polyphonic-tone-generation",
 		"label": "Polyphonic Tone Generation",
 		"aliases": [
 			"divide-down",
 			"string synth",
 			"organ tones"
 		],
-		"group": "sound_generation"
+		"group": "sound-generation"
 	},
 	{
 		"id": "wavefolding",
@@ -353,25 +353,25 @@
 			"folding",
 			"timbre modulation"
 		],
-		"group": "distortion_shaping"
+		"group": "distortion-shaping"
 	},
 	{
-		"id": "through_zero_fm",
+		"id": "through-zero-fm",
 		"label": "Through-Zero FM",
 		"aliases": [
 			"TZFM",
 			"thru zero"
 		],
-		"group": "pitch_oscillator"
+		"group": "pitch-oscillator"
 	},
 	{
-		"id": "dynamics_compression",
+		"id": "dynamics-compression",
 		"label": "Dynamics Compression",
 		"aliases": [
 			"compressor",
 			"limiter"
 		],
-		"group": "effects_dynamics"
+		"group": "effects-dynamics"
 	},
 	{
 		"id": "attenuation",
@@ -380,7 +380,7 @@
 			"attenuverter",
 			"CV scaling"
 		],
-		"group": "levels_utility"
+		"group": "levels-utility"
 	},
 	{
 		"id": "sequencing",
@@ -391,47 +391,47 @@
 			"4017 sequencer",
 			"sequencer"
 		],
-		"group": "modulation_control"
+		"group": "modulation-control"
 	},
 	{
-		"id": "envelope_following",
+		"id": "envelope-following",
 		"label": "Envelope Following",
 		"aliases": [
 			"amplitude tracking"
 		],
-		"group": "modulation_control"
+		"group": "modulation-control"
 	},
 	{
-		"id": "signal_distribution",
+		"id": "signal-distribution",
 		"label": "Signal Distribution",
 		"aliases": [
 			"multiple",
 			"buffered mult",
 			"signal routing"
 		],
-		"group": "levels_utility"
+		"group": "levels-utility"
 	},
 	{
-		"id": "sample_playback",
+		"id": "sample-playback",
 		"label": "Sample Playback",
 		"aliases": [
 			"ROM sample player"
 		],
-		"group": "sound_generation"
+		"group": "sound-generation"
 	},
 	{
 		"id": "phasing",
 		"label": "Phasing",
-		"group": "effects_dynamics",
+		"group": "effects-dynamics",
 		"aliases": [
 			"phaser",
 			"phase shifting"
 		]
 	},
 	{
-		"id": "frequency_shifting",
+		"id": "frequency-shifting",
 		"label": "Frequency Shifting",
-		"group": "effects_dynamics",
+		"group": "effects-dynamics",
 		"aliases": [
 			"frequency shifter",
 			"Bode shifter",
@@ -439,9 +439,9 @@
 		]
 	},
 	{
-		"id": "ring_modulation",
+		"id": "ring-modulation",
 		"label": "Ring Modulation",
-		"group": "effects_dynamics",
+		"group": "effects-dynamics",
 		"aliases": [
 			"ring mod",
 			"amplitude multiplication"
@@ -450,16 +450,16 @@
 	{
 		"id": "vocoding",
 		"label": "Vocoding",
-		"group": "effects_dynamics",
+		"group": "effects-dynamics",
 		"aliases": [
 			"vocoder",
 			"channel vocoder"
 		]
 	},
 	{
-		"id": "formant_filtering",
+		"id": "formant-filtering",
 		"label": "Formant Filtering",
-		"group": "filter_response",
+		"group": "filter-response",
 		"aliases": [
 			"resonator",
 			"fixed filter bank",

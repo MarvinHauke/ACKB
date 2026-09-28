@@ -1,0 +1,32 @@
+{
+	"$schema": "../../schema/article.schema.json",
+	"schemaVersion": 3,
+	"title": "A Multimode Filter For The OB-8",
+	"url": "http://jhaible.com/legacy/hjob8mod.html",
+	"type": "website",
+	"authors": [
+		"juergen-haible"
+	],
+	"license": "non-commercial, educational use (Random*Source)",
+	"summary": "Adds two programmable modes to the OB-8 filter: a 2-pole SEM-like high-pass and a resonant 6 dB/oct low-pass.",
+	"manufacturers": [
+		"oberheim"
+	],
+	"products": [
+		"ob-8"
+	],
+	"modules": [
+		"filter"
+	],
+	"subcircuits": [
+		"state-variable"
+	],
+	"functions": [
+		"highpass-response",
+		"lowpass-response",
+		"multimode-output",
+		"resonance-control"
+	],
+	"kinds": ["explanation", "schematic"],
+	"added": "2026-09-28"
+}

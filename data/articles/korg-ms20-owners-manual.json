@@ -1,0 +1,29 @@
+{
+	"$schema": "../../schema/article.schema.json",
+	"schemaVersion": 3,
+	"title": "MS-20 Original Owner's Manual (Korg support downloads)",
+	"url": "https://www.korg.com/us/support/download/manual/0/134/2441/",
+	"type": "manual",
+	"summary": "Korg's original owner's manual for the MS-20: the signal flow of the patch panel, how the highpass and lowpass filters, peak (resonance) and cutoff controls behave, and the external signal processor. The user-level reference for how the circuits are meant to be played.",
+	"manufacturers": [
+		"korg"
+	],
+	"products": [
+		"ms-20"
+	],
+	"modules": [
+		"filter",
+		"oscillator",
+		"envelope",
+		"vca"
+	],
+	"functions": [
+		"resonance-control",
+		"self-oscillation",
+		"voltage-controlled-cutoff",
+		"lowpass-response",
+		"highpass-response"
+	],
+	"kinds": ["reference"],
+	"added": "2026-09-26"
+}

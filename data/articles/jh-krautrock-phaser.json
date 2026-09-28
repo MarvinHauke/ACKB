@@ -1,0 +1,31 @@
+{
+	"$schema": "../../schema/article.schema.json",
+	"schemaVersion": 3,
+	"title": "JH. Krautrock Phaser (Compact Clone)",
+	"url": "http://jhaible.com/legacy/compact_clone/",
+	"type": "website",
+	"authors": [
+		"juergen-haible"
+	],
+	"license": "non-commercial, educational use (Random*Source)",
+	"summary": "Clone of the Schulte Compact A phaser heard on 1970s Berlin-school records (Klaus Schulze, Tangerine Dream), first built on veroboard in 1999 and later as a PCB project.",
+	"manufacturers": [
+		"schulte"
+	],
+	"products": [
+		"compact-a"
+	],
+	"modules": [
+		"fx",
+		"modulation"
+	],
+	"subcircuits": [
+		"allpass-stage"
+	],
+	"functions": [
+		"phasing",
+		"periodic-modulation"
+	],
+	"kinds": ["explanation", "schematic"],
+	"added": "2026-09-28"
+}

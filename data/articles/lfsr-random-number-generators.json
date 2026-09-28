@@ -1,0 +1,29 @@
+{
+	"$schema": "../../schema/article.schema.json",
+	"schemaVersion": 3,
+	"title": "Practical LFSR random number generators",
+	"url": "https://electricdruid.net/practical-lfsr-random-number-generators/",
+	"type": "website",
+	"authors": [
+		"tom-wiltshire"
+	],
+	"year": 2009,
+	"license": "CC BY-NC-SA 4.0",
+	"summary": "How linear feedback shift registers produce pseudo-random numbers for noise and random modulation, their limitations, and practical implementations.",
+	"modules": [
+		"noise",
+		"utility"
+	],
+	"subcircuits": [
+		"lfsr"
+	],
+	"functions": [
+		"random-modulation",
+		"noise-generation"
+	],
+	"ics": [
+		"pic"
+	],
+	"kinds": ["explanation"],
+	"added": "2026-09-26"
+}

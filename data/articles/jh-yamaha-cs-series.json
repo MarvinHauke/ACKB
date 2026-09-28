@@ -1,0 +1,29 @@
+{
+	"$schema": "../../schema/article.schema.json",
+	"schemaVersion": 3,
+	"title": "Yamaha CS-50 / CS-60 / CS-80",
+	"url": "http://jhaible.com/legacy/jh_cs50.html",
+	"type": "website",
+	"authors": [
+		"juergen-haible"
+	],
+	"license": "non-commercial, educational use (Random*Source)",
+	"summary": "Schematic pages from Yamaha's CS-series servicing guide (VCO, VCF, VCA, KAS) with Haible's analysis of the CS-80 filter and vibrato.",
+	"manufacturers": [
+		"yamaha"
+	],
+	"products": [
+		"cs-80"
+	],
+	"modules": [
+		"oscillator",
+		"filter",
+		"vca"
+	],
+	"functions": [
+		"lowpass-response",
+		"highpass-response"
+	],
+	"kinds": ["schematic", "analysis"],
+	"added": "2026-09-28"
+}

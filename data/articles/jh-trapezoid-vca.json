@@ -1,0 +1,28 @@
+{
+	"$schema": "../../schema/article.schema.json",
+	"schemaVersion": 3,
+	"title": "Trapezoid VCA",
+	"url": "http://jhaible.com/legacy/trapezoid/trapezoid.html",
+	"type": "website",
+	"authors": [
+		"juergen-haible"
+	],
+	"license": "non-commercial, educational use (Random*Source)",
+	"summary": "Emulates the EMS VCS3 / Synthi A trapezoid envelope without copying the circuit, with a FET VCA, self-cycling and both trigger types.",
+	"manufacturers": [
+		"ems"
+	],
+	"products": [
+		"vcs3"
+	],
+	"modules": [
+		"envelope",
+		"vca"
+	],
+	"functions": [
+		"envelope-generation",
+		"current-controlled-amplification"
+	],
+	"kinds": ["explanation", "schematic"],
+	"added": "2026-09-28"
+}
