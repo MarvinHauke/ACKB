@@ -1,8 +1,7 @@
 name: Link health
 
-# Weekly full check. Results are committed to data/link-health.json, then the deploy workflow is
-# started so broken links show their archived copy. (Pushes made with GITHUB_TOKEN don't trigger
-# workflows by themselves; workflow_dispatch is the allowed exception.)
+# Weekly full check. Results are committed to data/link-health.json on the `data` branch (the only
+# branch that writes it, so PRs data → main don't conflict); they go live with the next merge.
 on:
   schedule:
     - cron: '17 4 * * 1'
@@ -10,13 +9,14 @@ on:
 
 permissions:
   contents: write
-  actions: write
 
 jobs:
   links:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          ref: data
       - uses: actions/setup-node@v4
         with:
           node-version: 22
@@ -30,8 +30,5 @@ jobs:
           git add data/link-health.json
           if ! git diff --cached --quiet; then
             git commit -m "chore: update link health"
-            git push
-            gh workflow run deploy.yml --ref main
+            git push origin data
           fi
-        env:
-          GH_TOKEN: ${{ github.token }}

@@ -1,7 +1,7 @@
 # Taxonomy
 
 `data/taxonomy/` holds one list per tag type (the tag nodes of the graph). Articles reference
-terms by `id`; every used term gets a page, e.g. `/ic/ca3080`.
+terms by `id`; every used term gets a page, e.g. `/component/ca3080`.
 
 | File                 | Tags                                         |
 | -------------------- | -------------------------------------------- |
@@ -10,7 +10,7 @@ terms by `id`; every used term gets a page, e.g. `/ic/ca3080`.
 | `modules.json`       | Filter, VCA, FX › Delay & Reverb, … (keep small) |
 | `subcircuits.json`   | OTA stage, voltage follower, …               |
 | `functions.json`     | Soft clipping, resonance control, …          |
-| `ics.json`           | LM13700, TL072, … (needs `category`)         |
+| `components.json`    | Components & ICs: LM13700, vactrol, … (needs `category`) |
 | `authors.json`       | Jürgen Haible, N8 Synthesizers, … (`url`)    |
 
 Every term has `id` and `label`; optional `aliases` (searchable: "buffer" finds Voltage
@@ -20,7 +20,7 @@ subcircuits and functions).
 ## Which list does a tag belong to?
 
 Quick test: *one box in the block diagram?* → module · *can I circle, name and simulate it?* →
-subcircuit · *noticeable at the outputs or controls?* → function · *has a part number?* → IC.
+subcircuit · *noticeable at the outputs or controls?* → function · *a specific part you'd buy?* → component.
 
 - **Module** (`modules.json`, field `modules`): the job of a whole module or voice, one
   box in a synth's signal-flow diagram (VCO, VCF, VCA, envelope, LFO, sequencer, power supply, …).
@@ -36,7 +36,10 @@ subcircuit · *noticeable at the outputs or controls?* → function · *has a pa
 - **Function**: a behavior you notice at the module's outputs or controls without knowing the
   parts: by ear (soft clipping, resonance), by eye (LED meter, scope trace), at the controls (tap
   tempo) or in a spec (1 V/oct, 24 dB/oct, tempco). One function can come from many subcircuits.
-- **IC**: the concrete chip (LM13700, TL072). Grouped in the sidebar by its `category`.
+- **Component** ("Components & ICs"): a specific part you'd buy, with a part number or a distinct
+  device type: ICs (LM13700, TL072) and special parts such as vactrols, optocouplers, tape heads or
+  matched pairs. Generic resistors and capacitors are not listed. Grouped in the sidebar by
+  `category` (optical and magnetic parts have their own groups).
 
 A look-alike pair stays when both sides pass their test (wavefolder = the circuit, wavefolding =
 the sound).

@@ -34,7 +34,7 @@
 		"temperature-compensation",
 		"lowpass-response"
 	],
-	"ics": [
+	"components": [
 		"cem3320",
 		"ssm2044"
 	],

@@ -23,7 +23,7 @@
 		saveHideHttp,
 		sourceVisible
 	} from '$lib/source-types';
-	import { IC_CATEGORY_GROUP, KIND_LABEL, REGISTRY_KEYS, REGISTRY_META, TERM_GROUPS } from '$lib/types';
+	import { COMPONENT_CATEGORY_GROUP, KIND_LABEL, REGISTRY_KEYS, REGISTRY_META, TERM_GROUPS } from '$lib/types';
 
 	let { data } = $props();
 
@@ -104,7 +104,7 @@
 	const SECTIONS: { label: string; keys: FilterKey[] }[] = [
 		{ label: 'Instrument', keys: ['manufacturers'] },
 		{ label: 'Module', keys: ['modules'] },
-		{ label: 'Electronics', keys: ['subcircuits', 'functions', 'ics'] },
+		{ label: 'Electronics', keys: ['subcircuits', 'functions', 'components'] },
 		{ label: 'Resource', keys: ['kind', 'authors', 'confidence'] }
 	];
 	// Long lists show the most used first and hide the rest behind "Show all".
@@ -128,7 +128,7 @@
 	}
 
 	function groupOf(key: FilterKey, o: Option) {
-		return key === 'ics' ? IC_CATEGORY_GROUP[o.category ?? 'other'] : o.group;
+		return key === 'components' ? COMPONENT_CATEGORY_GROUP[o.category ?? 'other'] : o.group;
 	}
 
 	/** Grouped filters: groups in their fixed order, each with its visible options. */
@@ -164,7 +164,7 @@
 			openSub[`modules:${parent}`] = true;
 		}
 		if (filters.products.length) openGroups.manufacturers = true;
-		for (const key of ['subcircuits', 'functions', 'ics'] as FilterKey[]) {
+		for (const key of ['subcircuits', 'functions', 'components'] as FilterKey[]) {
 			for (const id of filters[key]) {
 				const o = options[key].find((t) => t.id === id);
 				if (o) openSub[`${key}:${groupOf(key, o)}`] = true;
@@ -262,10 +262,14 @@
 		opamp: 'op-amp',
 		dac: 'DAC',
 		mcu: 'microcontroller',
-		'transistor-array': 'transistor array'
+		'transistor-array': 'transistor array',
+		optical: 'optical',
+		magnetic: 'magnetic'
 	};
-	// Facts about a single selected IC (these used to live on the removed /ic/<id> pages).
-	const icInfo = $derived(filters.ics.length === 1 ? options.ics.find((t) => t.id === filters.ics[0]) : undefined);
+	// Facts about a single selected component or IC, with a link to its page.
+	const icInfo = $derived(
+		filters.components.length === 1 ? options.components.find((t) => t.id === filters.components[0]) : undefined
+	);
 
 	let searchFocused = $state(false);
 	const showRecent = $derived(searchFocused && q === '' && recent.length > 0);
@@ -295,6 +299,12 @@
 		content="Curated index of papers, datasheets and build logs on synthesizer circuits (analog, digital, mixed), searchable by subcircuit, function and IC."
 	/>
 </svelte:head>
+
+<p class="intro">
+	A curated index of articles, schematics, videos and papers on synthesizer circuits:
+	{data.articles.length} resources by {data.terms.authors.length} authors. 
+  Every result links straight to the original.
+</p>
 
 <search class="searchbar">
 	<label class="visually-hidden" for="q">Search</label>
@@ -477,7 +487,7 @@
 						{/snippet}
 						{@render facet(key, moduleList)}
 					{/if}
-				{:else if key === 'subcircuits' || key === 'functions' || key === 'ics'}
+				{:else if key === 'subcircuits' || key === 'functions' || key === 'components'}
 					{@const groups = groupsOf(key)}
 					{#if groups.length}
 						{#snippet groupList()}
@@ -550,7 +560,7 @@
 				{#if icInfo.alternatives?.length}
 					· Alternatives: {icInfo.alternatives.map((id) => labels.get(id) ?? id).join(', ')}
 				{/if}
-				· <a href={resolve('/[type=node]/[...path]', { type: 'ic', path: icInfo.id })}>About {icInfo.label} →</a>
+				· <a href={resolve('/[type=node]/[...path]', { type: 'component', path: icInfo.id })}>About {icInfo.label} →</a>
 			</p>
 		{/if}
 		{#if isFiltering}
@@ -578,6 +588,14 @@
 </div>
 
 <style>
+	.intro {
+		max-width: 44rem;
+		margin: var(--space-3) 0 0;
+		color: var(--muted);
+		font-size: 0.95rem;
+		line-height: 1.5;
+	}
+
 	.searchbar {
 		position: relative;
 		display: block;

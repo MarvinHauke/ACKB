@@ -22,7 +22,7 @@
 		"envelope-generation",
 		"periodic-modulation"
 	],
-	"ics": [
+	"components": [
 		"pic",
 		"ltc2622",
 		"tl072"

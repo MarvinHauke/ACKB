@@ -20,7 +20,7 @@
 	"functions": [
 		"delay-echo"
 	],
-	"ics": [
+	"components": [
 		"mn3007"
 	],
 	"kinds": ["explanation"],

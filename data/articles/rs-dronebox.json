@@ -15,7 +15,7 @@
 	"subcircuits": [
 		"cmos-inverter-stage"
 	],
-	"ics": [
+	"components": [
 		"cd40106"
 	],
 	"kinds": ["schematic"],

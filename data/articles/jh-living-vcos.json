@@ -27,7 +27,7 @@
 		"exponential-response",
 		"temperature-compensation"
 	],
-	"ics": [
+	"components": [
 		"cem3340"
 	],
 	"kinds": ["explanation", "schematic"],

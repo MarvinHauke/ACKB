@@ -21,7 +21,7 @@
 		"lowpass-response",
 		"resonance-control"
 	],
-	"ics": [
+	"components": [
 		"ssm2040"
 	],
 	"kinds": ["schematic"],

@@ -35,7 +35,7 @@
 		"oscillator-sync",
 		"pulse-width-modulation"
 	],
-	"ics": [
+	"components": [
 		"cem3340"
 	],
 	"kinds": ["explanation"],

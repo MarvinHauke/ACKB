@@ -22,7 +22,7 @@
 		"random-modulation",
 		"waveshaping"
 	],
-	"ics": [
+	"components": [
 		"pic"
 	],
 	"kinds": ["explanation"],

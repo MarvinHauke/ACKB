@@ -35,7 +35,7 @@
 		"lowpass-response",
 		"highpass-response"
 	],
-	"ics": [
+	"components": [
 		"lm13700",
 		"tl072"
 	],

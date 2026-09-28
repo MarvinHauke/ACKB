@@ -16,7 +16,7 @@
 		"cmos-inverter-stage",
 		"exponential-converter"
 	],
-	"ics": [
+	"components": [
 		"cd4069"
 	],
 	"kinds": ["schematic"],

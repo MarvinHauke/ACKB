@@ -20,7 +20,7 @@
 	"functions": [
 		"sequencing"
 	],
-	"ics": [
+	"components": [
 		"pic"
 	],
 	"kinds": ["schematic", "explanation"],

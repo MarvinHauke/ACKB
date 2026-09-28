@@ -19,7 +19,7 @@
 	"functions": [
 		"signal-distribution"
 	],
-	"ics": [
+	"components": [
 		"tl072"
 	],
 	"kinds": ["schematic"],

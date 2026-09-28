@@ -20,7 +20,7 @@
 	"functions": [
 		"clock-conversion"
 	],
-	"ics": [
+	"components": [
 		"pic"
 	],
 	"kinds": ["explanation"],

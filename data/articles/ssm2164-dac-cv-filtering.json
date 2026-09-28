@@ -22,7 +22,7 @@
 	"functions": [
 		"cv-smoothing"
 	],
-	"ics": [
+	"components": [
 		"ssm2164",
 		"mcp4822"
 	],

@@ -23,7 +23,7 @@
 		"microcontroller",
 		"dac-output"
 	],
-	"ics": [
+	"components": [
 		"pic"
 	],
 	"kinds": ["analysis"],

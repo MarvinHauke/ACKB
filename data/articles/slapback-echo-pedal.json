@@ -29,7 +29,7 @@
 		"delay-echo",
 		"crossfading"
 	],
-	"ics": [
+	"components": [
 		"pt2399"
 	],
 	"kinds": ["explanation"],

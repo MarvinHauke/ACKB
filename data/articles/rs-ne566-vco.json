@@ -15,7 +15,7 @@
 		"vco-core",
 		"exponential-converter"
 	],
-	"ics": [
+	"components": [
 		"ne566"
 	],
 	"kinds": ["schematic"],

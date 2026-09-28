@@ -16,7 +16,7 @@
 		"rectifier-bridge",
 		"decoupling-network"
 	],
-	"ics": [
+	"components": [
 		"lm317"
 	],
 	"kinds": ["schematic"],

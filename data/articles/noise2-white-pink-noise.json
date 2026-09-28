@@ -21,7 +21,7 @@
 	"functions": [
 		"noise-generation"
 	],
-	"ics": [
+	"components": [
 		"pic"
 	],
 	"kinds": ["explanation"],

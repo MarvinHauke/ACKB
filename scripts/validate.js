@@ -19,7 +19,7 @@ function loadSchemas() {
 	const ajv = new Ajv2020({ allErrors: true, strict: false });
 	addFormats(ajv);
 	const read = (p) => JSON.parse(readFileSync(join(ROOT, 'schema', p), 'utf8'));
-	for (const name of ['term', 'product', 'ic', 'subcircuit', 'author']) {
+	for (const name of ['term', 'product', 'component', 'subcircuit', 'author']) {
 		ajv.addSchema(read(`taxonomy/${name}.schema.json`));
 	}
 	return {
@@ -91,9 +91,9 @@ export function validate() {
 			errors.push(`data/taxonomy/products.json: "${product.id}" has unknown manufacturer "${product.manufacturer}"`);
 		}
 	}
-	for (const ic of taxonomy.ics) {
-		for (const alt of ic.alternatives ?? []) {
-			if (!index.ics.has(alt)) errors.push(`data/taxonomy/ics.json: "${ic.id}" lists unknown alternative "${alt}"`);
+	for (const c of taxonomy.components) {
+		for (const alt of c.alternatives ?? []) {
+			if (!index.components.has(alt)) errors.push(`data/taxonomy/components.json: "${c.id}" lists unknown alternative "${alt}"`);
 		}
 	}
 
@@ -153,7 +153,7 @@ export function validate() {
 	}
 
 	// Unused terms are fine for broad registries; only flag the ones meant to be discovered through articles.
-	for (const key of ['subcircuits', 'functions', 'ics']) {
+	for (const key of ['subcircuits', 'functions', 'components']) {
 		const parents = new Set(taxonomy[key].map((t) => t.parent).filter(Boolean));
 		for (const term of taxonomy[key]) {
 			if (!used[key].has(term.id) && !parents.has(term.id)) {

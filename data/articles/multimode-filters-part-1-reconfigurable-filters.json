@@ -26,7 +26,7 @@
 		"bandpass-response",
 		"resonance-control"
 	],
-	"ics": [
+	"components": [
 		"cem3320",
 		"lm13700"
 	],

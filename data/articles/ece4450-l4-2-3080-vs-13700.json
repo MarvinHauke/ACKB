@@ -10,6 +10,8 @@
 	"origin": "academic",
 	"summary": "Why the LM13700 is not quite \"two CA3080s in one package\": a look at the current mirrors inside each OTA (Widlar, Wilson, PNP versions) and the differences between the LM13600 and LM13700 that matter in synth circuits.",
 	"summaryFromGroup": true,
+	"manufacturers": [],
+	"products": [],
 	"modules": [
 		"vca"
 	],
@@ -21,13 +23,11 @@
 	"functions": [
 		"current-controlled-amplification"
 	],
-	"ics": [
+	"components": [
 		"ca3080",
 		"lm13600",
 		"lm13700"
 	],
 	"kinds": ["analysis"],
-	"added": "2026-09-26",
-	"manufacturers": [],
-	"products": []
+	"added": "2026-09-26"
 }

@@ -23,7 +23,7 @@
 		"resonance-control",
 		"voltage-controlled-cutoff"
 	],
-	"ics": [
+	"components": [
 		"lm13700",
 		"ca3080"
 	],

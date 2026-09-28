@@ -27,7 +27,7 @@
 		"drum-synthesis",
 		"noise-generation"
 	],
-	"ics": [
+	"components": [
 		"cd4013"
 	],
 	"kinds": ["explanation"],

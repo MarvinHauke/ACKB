@@ -23,7 +23,7 @@
 	"functions": [
 		"drum-synthesis"
 	],
-	"ics": [
+	"components": [
 		"tl072"
 	],
 	"kinds": ["build-guide"],

@@ -22,7 +22,7 @@
 		"noise-generation",
 		"random-modulation"
 	],
-	"ics": [
+	"components": [
 		"pic"
 	],
 	"kinds": ["explanation"],

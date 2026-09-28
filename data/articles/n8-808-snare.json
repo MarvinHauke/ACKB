@@ -25,7 +25,7 @@
 		"drum-synthesis",
 		"noise-generation"
 	],
-	"ics": [
+	"components": [
 		"tl072"
 	],
 	"kinds": ["build-guide"],

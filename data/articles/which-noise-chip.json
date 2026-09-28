@@ -19,7 +19,7 @@
 	"functions": [
 		"noise-generation"
 	],
-	"ics": [
+	"components": [
 		"mm5837",
 		"pic"
 	],

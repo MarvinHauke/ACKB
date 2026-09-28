@@ -19,7 +19,7 @@
 	"functions": [
 		"delay-echo"
 	],
-	"ics": [
+	"components": [
 		"pic"
 	],
 	"kinds": ["schematic"],

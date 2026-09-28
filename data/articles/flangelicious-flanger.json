@@ -23,7 +23,7 @@
 		"chorus-flanging",
 		"periodic-modulation"
 	],
-	"ics": [
+	"components": [
 		"mn3007",
 		"pic"
 	],

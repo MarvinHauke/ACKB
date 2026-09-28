@@ -36,7 +36,7 @@
 		"voltage-controlled-cutoff",
 		"multimode-output"
 	],
-	"ics": [
+	"components": [
 		"ir3109",
 		"ba662"
 	],

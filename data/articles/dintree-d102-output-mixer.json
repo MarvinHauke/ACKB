@@ -20,7 +20,7 @@
 		"level-metering",
 		"attenuation"
 	],
-	"ics": [
+	"components": [
 		"ne5532",
 		"tl072",
 		"lm3915"

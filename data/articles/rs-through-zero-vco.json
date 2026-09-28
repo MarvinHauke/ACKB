@@ -21,7 +21,7 @@
 		"through-zero-fm",
 		"cross-modulation"
 	],
-	"ics": [
+	"components": [
 		"ca3080",
 		"lm13600"
 	],

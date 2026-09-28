@@ -3,7 +3,7 @@
 //   static/data/search-index.json          Fuse docs + prebuilt index, lazy-loaded by the search box
 //   static/data/kb.jsonl                   one article per line, flattened for embeddings / LLM tools
 //   static/data/taxonomy.json              all registries, for other tools to reuse the vocabulary
-//   static/data/<slug>/<id>.json           articles and related nodes per tag (e.g. ic/ca3080.json), for the PDF_OCR CLI
+//   static/data/<slug>/<id>.json           articles and related nodes per tag (e.g. component/ca3080.json), for the PDF_OCR CLI
 //   static/data/index.json                 lists those lookup files
 //   static/data/graph.json                 the knowledge graph: nodes (articles, tags) and edges
 //   static/llms.txt                        plain-text site map for LLM crawlers
@@ -29,7 +29,7 @@ const SEARCH_KEYS = [
 
 // Related articles: weight per shared term type. Shared subcircuit parents count half.
 const RELATED_WEIGHTS = {
-	ics: 3,
+	components: 3,
 	subcircuits: 3,
 	subcircuitParents: 1.5,
 	functions: 2,
@@ -50,7 +50,7 @@ const SLUGS = {
 	modules: 'module',
 	subcircuits: 'subcircuit',
 	functions: 'function',
-	ics: 'ic',
+	components: 'component',
 	authors: 'author'
 };
 
@@ -189,10 +189,10 @@ function nodeRelations(taxonomy, articles, byNode) {
 		for (const t of taxonomy[key]) {
 			if (!used(key, t.id)) continue;
 			const same = [];
-			if (key === 'ics') {
-				for (const alt of t.alternatives ?? []) same.push(ref('ics', alt));
-				for (const o of taxonomy.ics) {
-					if (o.id !== t.id && o.category === t.category && used('ics', o.id)) same.push(ref('ics', o.id));
+			if (key === 'components') {
+				for (const alt of t.alternatives ?? []) same.push(ref('components', alt));
+				for (const o of taxonomy.components) {
+					if (o.id !== t.id && o.category === t.category && used('components', o.id)) same.push(ref('components', o.id));
 				}
 			} else if (key === 'products') {
 				for (const o of taxonomy.products) {
@@ -363,7 +363,7 @@ function graphJson(articles, taxonomy) {
 			nodes.push({ id: `${slug}:${t.id}`, type: slug, label: t.label });
 			if (t.parent) edges.push({ from: `${slug}:${t.id}`, to: `${slug}:${t.parent}`, rel: 'subtype_of' });
 			if (key === 'products') edges.push({ from: `product:${t.id}`, to: `manufacturer:${t.manufacturer}`, rel: 'made_by' });
-			for (const alt of t.alternatives ?? []) edges.push({ from: `ic:${t.id}`, to: `ic:${alt}`, rel: 'alternative' });
+			for (const alt of t.alternatives ?? []) edges.push({ from: `component:${t.id}`, to: `component:${alt}`, rel: 'alternative' });
 		}
 	}
 	for (const a of articles) {
@@ -394,8 +394,8 @@ function llmsTxt(articles, taxonomy) {
 		'## Functions',
 		...taxonomy.functions.filter((t) => t.count).map((t) => `- [${t.label}](function/${termPath(t)})`),
 		'',
-		'## ICs',
-		...taxonomy.ics.filter((t) => t.count).map((t) => `- [${t.label}](ic/${t.id})`)
+		'## Components & ICs',
+		...taxonomy.components.filter((t) => t.count).map((t) => `- [${t.label}](component/${t.id})`)
 	];
 	return lines.join('\n') + '\n';
 }
@@ -422,7 +422,8 @@ write(join(OUT_STATIC, 'search-index.json'), { docs, index: Fuse.createIndex(SEA
 write(join(OUT_STATIC, 'kb.jsonl'), kbJsonl(articles, index) + '\n');
 write(join(OUT_STATIC, 'taxonomy.json'), taxonomy);
 write(join(OUT_STATIC, 'graph.json'), graphJson(articles, enriched));
-rmSync(join(OUT_STATIC, 'type'), { recursive: true, force: true }); // old name of data/module/
+// Old names of data/module/ and data/component/.
+for (const old of ['type', 'ic']) rmSync(join(OUT_STATIC, old), { recursive: true, force: true });
 writeLookups(articles, enriched);
 write(join(ROOT, 'static/llms.txt'), llmsTxt(articles, enriched));
 

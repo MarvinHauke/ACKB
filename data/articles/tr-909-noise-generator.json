@@ -28,7 +28,7 @@
 	"functions": [
 		"noise-generation"
 	],
-	"ics": [
+	"components": [
 		"cd4006"
 	],
 	"kinds": ["analysis"],

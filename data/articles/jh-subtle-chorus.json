@@ -8,7 +8,7 @@
 		"juergen-haible"
 	],
 	"license": "non-commercial, educational use (Random*Source)",
-	"summary": "Modular chorus project of three PCBs: a true-stereo dual-BBD chorus with voltage-controlled rate and depth like in Roland's analogue polysynths, expandable further.",
+	"summary": "Three combinable PCBs around bucket-brigade delays: the base board is a stereo chorus in the style of Roland's analogue polysynths, with rate and depth under CV control.",
 	"manufacturers": [
 		"roland"
 	],

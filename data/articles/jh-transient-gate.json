@@ -14,13 +14,15 @@
 		"dynamics"
 	],
 	"subcircuits": [
-		"vactrol",
 		"envelope-follower"
 	],
 	"functions": [
 		"dynamics-compression",
 		"envelope-following",
 		"random-modulation"
+	],
+	"components": [
+		"vactrol"
 	],
 	"kinds": ["explanation", "analysis"],
 	"added": "2026-09-28"

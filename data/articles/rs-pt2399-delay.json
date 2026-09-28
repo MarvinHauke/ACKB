@@ -19,7 +19,7 @@
 	"functions": [
 		"delay-echo"
 	],
-	"ics": [
+	"components": [
 		"pt2399"
 	],
 	"kinds": ["schematic"],

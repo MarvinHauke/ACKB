@@ -386,5 +386,35 @@
 			"FV-1",
 			"Spin Semi FV-1"
 		]
+	},
+	{
+		"id": "vactrol",
+		"label": "Vactrol",
+		"manufacturer": "PerkinElmer / Xvive / Silonex",
+		"category": "optical",
+		"status": "reissued",
+		"description": "LED and light-dependent resistor (LDR) in one light-tight package: a voltage- or current-controlled resistor with a slow, smooth response, typical for lowpass gates and opto compressors.",
+		"aliases": [
+			"VTL5C3",
+			"VTL5C1",
+			"NSL-32",
+			"LDR optocoupler",
+			"optical attenuator"
+		]
+	},
+	{
+		"id": "optocoupler",
+		"label": "Optocoupler",
+		"manufacturer": "various",
+		"category": "optical",
+		"status": "active",
+		"description": "LED and phototransistor or photodiode in one package for galvanic isolation, e.g. the MIDI input of every synth.",
+		"aliases": [
+			"6N138",
+			"6N137",
+			"H11L1",
+			"PC900",
+			"opto-isolator"
+		]
 	}
 ]
