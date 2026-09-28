@@ -1,0 +1,30 @@
+{
+	"$schema": "../../schema/article.schema.json",
+	"schemaVersion": 3,
+	"title": "VCO 6: Triangle thru zero VCO",
+	"url": "https://www.schmitzbits.de/vco6.html",
+	"type": "schematic",
+	"authors": [
+		"rene-schmitz"
+	],
+	"summary": "A triangle oscillator that can run forwards and backwards, allowing deep through-zero frequency modulation with FM-style sounds.",
+	"modules": [
+		"oscillator"
+	],
+	"subcircuits": [
+		"vco-core",
+		"integrator",
+		"ota-stage",
+		"comparator"
+	],
+	"functions": [
+		"through-zero-fm",
+		"cross-modulation"
+	],
+	"ics": [
+		"ca3080",
+		"lm13600"
+	],
+	"kinds": ["schematic"],
+	"added": "2026-09-26"
+}

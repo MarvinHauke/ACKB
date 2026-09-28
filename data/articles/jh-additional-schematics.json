@@ -1,0 +1,31 @@
+{
+	"$schema": "../../schema/article.schema.json",
+	"schemaVersion": 3,
+	"title": "Jürgen Haible: Schematics",
+	"url": "http://jhaible.com/legacy/additional_schemos.html",
+	"type": "website",
+	"authors": [
+		"juergen-haible"
+	],
+	"license": "non-commercial, educational use (Random*Source)",
+	"summary": "Smaller circuits from the JH-1 and JH-3: a one-OTA ring modulator, an analog shift register and a Schmitt-trigger/integrator quadrature VCO.",
+	"modules": [
+		"oscillator",
+		"fx",
+		"spectral"
+	],
+	"subcircuits": [
+		"ring-modulator",
+		"ota-stage",
+		"quadrature-oscillator",
+		"integrator"
+	],
+	"functions": [
+		"ring-modulation"
+	],
+	"ics": [
+		"ca3080"
+	],
+	"kinds": ["schematic"],
+	"added": "2026-09-28"
+}

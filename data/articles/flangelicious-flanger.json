@@ -1,0 +1,32 @@
+{
+	"$schema": "../../schema/article.schema.json",
+	"schemaVersion": 3,
+	"title": "Flangelicious – A super-dooper flanger",
+	"url": "https://electricdruid.net/flangelicious-a-super-dooper-flanger/",
+	"type": "website",
+	"authors": [
+		"tom-wiltshire"
+	],
+	"year": 2016,
+	"license": "CC BY-NC-SA 4.0",
+	"summary": "Flanger pedal that avoids the usual chip count by generating the LFO-modulated BBD clock directly from a microcontroller. Two versions: a classic four-knob flanger and an experimental multi-waveform one.",
+	"modules": [
+		"fx",
+		"modulation"
+	],
+	"subcircuits": [
+		"bbd-delay-line",
+		"clock-generator",
+		"microcontroller"
+	],
+	"functions": [
+		"chorus-flanging",
+		"periodic-modulation"
+	],
+	"ics": [
+		"mn3007",
+		"pic"
+	],
+	"kinds": ["explanation"],
+	"added": "2026-09-26"
+}

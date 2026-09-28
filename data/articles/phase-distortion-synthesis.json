@@ -1,0 +1,32 @@
+{
+	"$schema": "../../schema/article.schema.json",
+	"schemaVersion": 3,
+	"title": "Phase Distortion Synthesis",
+	"url": "https://electricdruid.net/phase-distortion-synthesis/",
+	"type": "website",
+	"authors": [
+		"tom-wiltshire"
+	],
+	"year": 2008,
+	"license": "CC BY-NC-SA 4.0",
+	"summary": "Explains Casio's phase distortion technique: reading a sine wave with a bent phase ramp to produce brighter waveforms, and how PD relates to and differs from FM/PM synthesis.",
+	"manufacturers": [
+		"casio"
+	],
+	"products": [
+		"cz-series"
+	],
+	"modules": [
+		"oscillator"
+	],
+	"subcircuits": [
+		"dds-oscillator"
+	],
+	"functions": [
+		"phase-distortion",
+		"digital-waveform-generation",
+		"waveshaping"
+	],
+	"kinds": ["explanation"],
+	"added": "2026-09-26"
+}

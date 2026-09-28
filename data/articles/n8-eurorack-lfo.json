@@ -1,0 +1,26 @@
+{
+	"$schema": "../../schema/article.schema.json",
+	"schemaVersion": 3,
+	"title": "DIY Eurorack LFO",
+	"url": "https://www.n8synth.co.uk/diy-eurorack/eurorack-lfo/",
+	"type": "website",
+	"authors": [
+		"n8-synthesizers"
+	],
+	"summary": "Build guide for an LFO module: schematic, layout, bill of materials, construction and testing.",
+	"modules": [
+		"lfo"
+	],
+	"subcircuits": [
+		"integrator",
+		"comparator"
+	],
+	"functions": [
+		"periodic-modulation"
+	],
+	"ics": [
+		"tl072"
+	],
+	"kinds": ["build-guide"],
+	"added": "2026-09-26"
+}

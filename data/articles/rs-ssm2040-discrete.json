@@ -1,0 +1,29 @@
+{
+	"$schema": "../../schema/article.schema.json",
+	"schemaVersion": 3,
+	"title": "SSM 2040 Filter",
+	"url": "https://www.schmitzbits.de/rs2040.html",
+	"type": "schematic",
+	"authors": [
+		"rene-schmitz"
+	],
+	"summary": "An SMD filter based on Jürgen Haible's SSM2040 clone: a four-pole OTA-style lowpass rebuilt from discrete parts, with different supply rails than the original.",
+	"modules": [
+		"filter"
+	],
+	"subcircuits": [
+		"differential-pair",
+		"integrator",
+		"feedback-network",
+		"exponential-converter"
+	],
+	"functions": [
+		"lowpass-response",
+		"resonance-control"
+	],
+	"ics": [
+		"ssm2040"
+	],
+	"kinds": ["schematic"],
+	"added": "2026-09-26"
+}

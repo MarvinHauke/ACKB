@@ -1,0 +1,25 @@
+{
+	"$schema": "../../schema/article.schema.json",
+	"schemaVersion": 3,
+	"title": "JH. Storm Tide Flanger",
+	"url": "http://jhaible.com/legacy/jh_storm_tide_flanger.html",
+	"type": "website",
+	"authors": [
+		"juergen-haible"
+	],
+	"license": "non-commercial, educational use (Random*Source)",
+	"summary": "One-off analogue BBD flanger inspired by a vintage unit, with a full front panel and design notes on why yet another flanger.",
+	"modules": [
+		"fx",
+		"modulation"
+	],
+	"subcircuits": [
+		"bbd-delay-line",
+		"clock-generator"
+	],
+	"functions": [
+		"chorus-flanging"
+	],
+	"kinds": ["explanation"],
+	"added": "2026-09-28"
+}

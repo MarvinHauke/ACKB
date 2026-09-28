@@ -1,0 +1,23 @@
+{
+	"$schema": "../../schema/article.schema.json",
+	"schemaVersion": 3,
+	"title": "Dronebox",
+	"url": "https://www.schmitzbits.de/dronebox.html",
+	"type": "schematic",
+	"authors": [
+		"rene-schmitz"
+	],
+	"summary": "A self-contained drone and texture generator from just two ICs: three oscillators from CD40106 Schmitt-trigger gates plus processing.",
+	"modules": [
+		"oscillator",
+		"fx"
+	],
+	"subcircuits": [
+		"cmos-inverter-stage"
+	],
+	"ics": [
+		"cd40106"
+	],
+	"kinds": ["schematic"],
+	"added": "2026-09-26"
+}

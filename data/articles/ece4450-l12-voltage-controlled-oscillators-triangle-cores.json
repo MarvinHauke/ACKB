@@ -1,0 +1,34 @@
+{
+	"$schema": "../../schema/article.schema.json",
+	"schemaVersion": 3,
+	"title": "ECE4450 L12: Voltage Controlled Oscillators: Triangle Cores; Buchla 259",
+	"url": "https://www.youtube.com/watch?v=vZriAoE9MA4",
+	"type": "video",
+	"authors": [
+		"aaron-lanterman"
+	],
+	"origin": "academic",
+	"summary": "Triangle-core oscillators with the Buchla 259 as example, and the waveshapers that turn a triangle into a sawtooth or a sine.",
+	"summaryFromGroup": true,
+	"manufacturers": [
+		"buchla"
+	],
+	"products": [
+		"buchla-259"
+	],
+	"modules": [
+		"oscillator"
+	],
+	"subcircuits": [
+		"vco-core",
+		"integrator",
+		"comparator",
+		"waveshaper",
+		"differential-pair"
+	],
+	"functions": [
+		"waveshaping"
+	],
+	"kinds": ["analysis"],
+	"added": "2026-09-26"
+}

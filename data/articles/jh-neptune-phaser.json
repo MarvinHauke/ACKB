@@ -1,0 +1,26 @@
+{
+	"$schema": "../../schema/article.schema.json",
+	"schemaVersion": 3,
+	"title": "JH Neptune Phaser",
+	"url": "http://jhaible.com/legacy/hj_neptune.html",
+	"type": "website",
+	"authors": [
+		"juergen-haible"
+	],
+	"license": "non-commercial, educational use (Random*Source)",
+	"summary": "Six-stage discrete-transistor all-pass phaser with LDR control like the Univibe, plus feedback, wet/dry mix, two LFOs and a pluggable \"Colour\" function.",
+	"modules": [
+		"fx",
+		"modulation"
+	],
+	"subcircuits": [
+		"allpass-stage",
+		"vactrol"
+	],
+	"functions": [
+		"phasing",
+		"periodic-modulation"
+	],
+	"kinds": ["explanation"],
+	"added": "2026-09-28"
+}

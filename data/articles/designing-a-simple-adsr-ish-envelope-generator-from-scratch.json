@@ -1,0 +1,26 @@
+{
+	"$schema": "../../schema/article.schema.json",
+	"schemaVersion": 3,
+	"title": "Designing a simple ADSR(-ish) envelope generator from scratch",
+	"url": "https://www.youtube.com/watch?v=aGFb7JbTdNU",
+	"type": "video",
+	"authors": [
+		"moritz-klein"
+	],
+	"summary": "Video design of a simple ADSR-style envelope generator from scratch, plus a follow-up on making any envelope loop.",
+	"summaryFromGroup": true,
+	"modules": [
+		"envelope"
+	],
+	"subcircuits": [
+		"comparator",
+		"rc-lowpass",
+		"opamp-stage"
+	],
+	"functions": [
+		"envelope-generation",
+		"periodic-modulation"
+	],
+	"kinds": ["explanation"],
+	"added": "2026-09-26"
+}

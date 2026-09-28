@@ -1,0 +1,35 @@
+{
+	"$schema": "../../schema/article.schema.json",
+	"schemaVersion": 3,
+	"title": "Multimode filters, Part 1: Reconfigurable filters",
+	"url": "https://electricdruid.net/multimode-filters-part-1-reconfigurable-filters/",
+	"type": "website",
+	"authors": [
+		"tom-wiltshire"
+	],
+	"license": "CC BY-NC-SA 4.0",
+	"summary": "Electric Druid's two-part series on getting several responses from one filter core: switching the topology of cascaded poles and state-variable filters, and mixing the outputs of a 4-pole cascade to derive lowpass, bandpass, highpass and notch responses.",
+	"summaryFromGroup": true,
+	"modules": [
+		"filter"
+	],
+	"subcircuits": [
+		"state-variable",
+		"integrator",
+		"ota-stage",
+		"inverting-amp"
+	],
+	"functions": [
+		"multimode-output",
+		"lowpass-response",
+		"highpass-response",
+		"bandpass-response",
+		"resonance-control"
+	],
+	"ics": [
+		"cem3320",
+		"lm13700"
+	],
+	"kinds": ["explanation"],
+	"added": "2026-09-26"
+}

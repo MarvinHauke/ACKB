@@ -1,0 +1,25 @@
+{
+	"$schema": "../../schema/article.schema.json",
+	"schemaVersion": 3,
+	"title": "Designing a production-ready audio compressor",
+	"url": "https://www.youtube.com/watch?v=OMeKERW1E60",
+	"type": "video",
+	"authors": [
+		"moritz-klein"
+	],
+	"summary": "Two-part video: a simple audio compressor designed from scratch, then a production-ready version.",
+	"summaryFromGroup": true,
+	"modules": [
+		"fx",
+		"dynamics"
+	],
+	"subcircuits": [
+		"envelope-follower"
+	],
+	"functions": [
+		"dynamics-compression",
+		"envelope-following"
+	],
+	"kinds": ["explanation"],
+	"added": "2026-09-26"
+}

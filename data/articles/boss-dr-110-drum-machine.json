@@ -1,0 +1,38 @@
+{
+	"$schema": "../../schema/article.schema.json",
+	"schemaVersion": 3,
+	"title": "Analogue Drums: Boss DR-110 Drum Machine",
+	"url": "https://electricdruid.net/analogue-drums-boss-dr-110-drum-machine/",
+	"type": "website",
+	"authors": [
+		"tom-wiltshire"
+	],
+	"year": 2023,
+	"license": "CC BY-NC-SA 4.0",
+	"summary": "Walk-through of the 1983 Boss DR-110 schematic: CPU board, voicing board, noise and cymbal generator, the Roland-style swing-type VCA, and the bass and snare drum voices.",
+	"manufacturers": [
+		"boss",
+		"roland"
+	],
+	"products": [
+		"dr-110"
+	],
+	"modules": [
+		"drum"
+	],
+	"subcircuits": [
+		"noise-generator",
+		"lfsr",
+		"microcontroller"
+	],
+	"functions": [
+		"drum-synthesis",
+		"noise-generation",
+		"envelope-generation"
+	],
+	"ics": [
+		"cd4006"
+	],
+	"kinds": ["explanation"],
+	"added": "2026-09-26"
+}

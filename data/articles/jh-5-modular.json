@@ -1,0 +1,32 @@
+{
+	"$schema": "../../schema/article.schema.json",
+	"schemaVersion": 3,
+	"title": "JH-5 MOTM-compatible \"Moog-Style\" Modular Synthesizer",
+	"url": "http://jhaible.com/legacy/jh5/jh5.html",
+	"type": "website",
+	"authors": [
+		"juergen-haible"
+	],
+	"license": "non-commercial, educational use (Random*Source)",
+	"summary": "MOTM-compatible monophonic modular with roughly a Minimoog layout (3 VCOs, VCF, VCA) aiming for the sound of the old Moog modulars.",
+	"manufacturers": [
+		"moog"
+	],
+	"products": [
+		"moog-modular",
+		"minimoog"
+	],
+	"modules": [
+		"oscillator",
+		"filter",
+		"vca"
+	],
+	"subcircuits": [
+		"ladder-filter"
+	],
+	"functions": [
+		"lowpass-response"
+	],
+	"kinds": ["explanation"],
+	"added": "2026-09-28"
+}

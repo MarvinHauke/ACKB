@@ -1,0 +1,25 @@
+{
+	"$schema": "../../schema/article.schema.json",
+	"schemaVersion": 3,
+	"title": "Designing a TR-606 style hi-hat from scratch",
+	"url": "https://www.youtube.com/watch?v=zbBY7JL9nnQ",
+	"type": "video",
+	"authors": [
+		"moritz-klein"
+	],
+	"summary": "Video design of a hi-hat voice in the style of the TR-606.",
+	"manufacturers": [
+		"roland"
+	],
+	"products": [
+		"tr-606"
+	],
+	"modules": [
+		"drum"
+	],
+	"functions": [
+		"drum-synthesis"
+	],
+	"kinds": ["explanation"],
+	"added": "2026-09-26"
+}

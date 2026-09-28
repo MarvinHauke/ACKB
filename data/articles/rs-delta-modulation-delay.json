@@ -1,0 +1,27 @@
+{
+	"$schema": "../../schema/article.schema.json",
+	"schemaVersion": 3,
+	"title": "Simple 1-bit delayline",
+	"url": "https://www.schmitzbits.de/ddl.html",
+	"type": "schematic",
+	"authors": [
+		"rene-schmitz"
+	],
+	"summary": "A digital delay core using bit-serial adaptive delta modulation encoding (after US patent 4462106) and a long shift register.",
+	"modules": [
+		"fx",
+		"delay"
+	],
+	"subcircuits": [
+		"digital-delay-line",
+		"microcontroller"
+	],
+	"functions": [
+		"delay-echo"
+	],
+	"ics": [
+		"pic"
+	],
+	"kinds": ["schematic"],
+	"added": "2026-09-26"
+}

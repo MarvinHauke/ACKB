@@ -1,0 +1,43 @@
+{
+	"$schema": "../../schema/article.schema.json",
+	"schemaVersion": 3,
+	"title": "SSM2044 LP Filter designs",
+	"url": "https://electricdruid.net/ssm2044-lp-filter-designs/",
+	"type": "website",
+	"authors": [
+		"tom-wiltshire"
+	],
+	"license": "CC BY-NC-SA 4.0",
+	"summary": "Comparison of how various classic synths wired the CEM3320 and SSM2044 filter chips, using the datasheet application circuits as reference: input scaling, resonance feedback, CV summing and temperature compensation of the exponential converter.",
+	"summaryFromGroup": true,
+	"manufacturers": [
+		"sequential",
+		"korg"
+	],
+	"products": [
+		"prophet-5",
+		"pro-one"
+	],
+	"modules": [
+		"filter"
+	],
+	"subcircuits": [
+		"ota-stage",
+		"feedback-network",
+		"exponential-converter",
+		"inverting-amp"
+	],
+	"functions": [
+		"resonance-control",
+		"voltage-controlled-cutoff",
+		"exponential-response",
+		"temperature-compensation",
+		"lowpass-response"
+	],
+	"ics": [
+		"cem3320",
+		"ssm2044"
+	],
+	"kinds": ["explanation"],
+	"added": "2026-09-26"
+}

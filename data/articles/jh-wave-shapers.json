@@ -1,0 +1,29 @@
+{
+	"$schema": "../../schema/article.schema.json",
+	"schemaVersion": 3,
+	"title": "Wave Shapers",
+	"url": "http://jhaible.com/legacy/jh_wavefolder.html",
+	"type": "website",
+	"authors": [
+		"juergen-haible"
+	],
+	"license": "non-commercial, educational use (Random*Source)",
+	"summary": "Background and circuits for nonlinear wave shaping: overdrive (soft/hard clipping), full-wave rectifiers, wavefolders and triangle-to-sine/saw-to-pulse shapers.",
+	"modules": [
+		"fx",
+		"distortion"
+	],
+	"subcircuits": [
+		"waveshaper",
+		"wavefolder",
+		"diode-limiter"
+	],
+	"functions": [
+		"waveshaping",
+		"wavefolding",
+		"soft-clipping",
+		"hard-clipping"
+	],
+	"kinds": ["explanation", "schematic"],
+	"added": "2026-09-28"
+}

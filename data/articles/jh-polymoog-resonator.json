@@ -1,0 +1,31 @@
+{
+	"$schema": "../../schema/article.schema.json",
+	"schemaVersion": 3,
+	"title": "JH. Polymoog Resonator Clone",
+	"url": "http://jhaible.com/legacy/resonator/resonator.html",
+	"type": "website",
+	"authors": [
+		"juergen-haible"
+	],
+	"license": "non-commercial, educational use (Random*Source)",
+	"summary": "Clone of the Polymoog's 3-band resonator section for formant filtering, as a PCB project (later a Random*Source Eurorack module).",
+	"manufacturers": [
+		"moog"
+	],
+	"products": [
+		"polymoog"
+	],
+	"modules": [
+		"filter"
+	],
+	"subcircuits": [
+		"state-variable"
+	],
+	"functions": [
+		"formant-filtering",
+		"bandpass-response",
+		"multimode-output"
+	],
+	"kinds": ["explanation", "schematic"],
+	"added": "2026-09-28"
+}

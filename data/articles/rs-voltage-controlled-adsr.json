@@ -1,0 +1,26 @@
+{
+	"$schema": "../../schema/article.schema.json",
+	"schemaVersion": 3,
+	"title": "Voltage controlled envelope generator",
+	"url": "https://www.schmitzbits.de/vcadsr.html",
+	"type": "schematic",
+	"authors": [
+		"rene-schmitz"
+	],
+	"summary": "A voltage-controlled envelope generator built around an up-down integrator from half an LM3900; logic outputs per envelope phase can drive LEDs or trigger other events.",
+	"modules": [
+		"envelope"
+	],
+	"subcircuits": [
+		"integrator",
+		"comparator"
+	],
+	"functions": [
+		"envelope-generation"
+	],
+	"ics": [
+		"lm3900"
+	],
+	"kinds": ["schematic"],
+	"added": "2026-09-26"
+}

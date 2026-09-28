@@ -1,0 +1,30 @@
+{
+	"$schema": "../../schema/article.schema.json",
+	"schemaVersion": 3,
+	"title": "Designing a TR-808 style snare drum from scratch",
+	"url": "https://www.youtube.com/watch?v=hULEn2_4Unw",
+	"type": "video",
+	"authors": [
+		"moritz-klein"
+	],
+	"summary": "Video design of a snare drum voice in the style of the TR-808, combining tuned resonators with filtered noise.",
+	"manufacturers": [
+		"roland"
+	],
+	"products": [
+		"tr-808"
+	],
+	"modules": [
+		"drum"
+	],
+	"subcircuits": [
+		"bridged-t-resonator",
+		"noise-generator"
+	],
+	"functions": [
+		"drum-synthesis",
+		"noise-generation"
+	],
+	"kinds": ["explanation"],
+	"added": "2026-09-26"
+}

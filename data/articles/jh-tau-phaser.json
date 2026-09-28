@@ -1,0 +1,24 @@
+{
+	"$schema": "../../schema/article.schema.json",
+	"schemaVersion": 3,
+	"title": "JH. Tau Phaser",
+	"url": "http://jhaible.com/legacy/tau/jh_tau.html",
+	"type": "website",
+	"authors": [
+		"juergen-haible"
+	],
+	"license": "non-commercial, educational use (Random*Source)",
+	"summary": "Redesign of the Tau \"The Pipe\": a 20-stage all-pass phaser related to ARP and Aries circuits, without obsolete parts and potted modules.",
+	"modules": [
+		"fx",
+		"modulation"
+	],
+	"subcircuits": [
+		"allpass-stage"
+	],
+	"functions": [
+		"phasing"
+	],
+	"kinds": ["explanation", "schematic"],
+	"added": "2026-09-28"
+}

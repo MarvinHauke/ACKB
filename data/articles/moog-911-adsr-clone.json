@@ -1,0 +1,33 @@
+{
+	"$schema": "../../schema/article.schema.json",
+	"schemaVersion": 3,
+	"title": "Moog 911 ADSR Envelope Generator clone",
+	"url": "https://electricdruid.net/moog-911-adsr-envelope-generator-clone/",
+	"type": "website",
+	"authors": [
+		"tom-wiltshire"
+	],
+	"year": 2010,
+	"license": "CC BY-NC-SA 4.0",
+	"summary": "Jean-Pierre Desrochers' clone of the Moog 911 envelope generator response, built on Electric Druid's PIC envelope code.",
+	"manufacturers": [
+		"moog"
+	],
+	"products": [
+		"moog-911"
+	],
+	"modules": [
+		"envelope"
+	],
+	"subcircuits": [
+		"microcontroller"
+	],
+	"functions": [
+		"envelope-generation"
+	],
+	"ics": [
+		"pic"
+	],
+	"kinds": ["build-guide"],
+	"added": "2026-09-26"
+}

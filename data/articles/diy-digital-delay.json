@@ -1,0 +1,31 @@
+{
+	"$schema": "../../schema/article.schema.json",
+	"schemaVersion": 3,
+	"title": "DIY 4 Second Digital Delay",
+	"url": "https://electricdruid.net/diy-digital-delay/",
+	"type": "website",
+	"authors": [
+		"tom-wiltshire"
+	],
+	"year": 2016,
+	"license": "CC BY-NC-SA 4.0",
+	"summary": "A dsPIC-based digital delay with four seconds of delay time, tap tempo and trails, as an alternative to PT2399 designs. Covers the schematic, improving signal-to-noise for guitar levels, and project files.",
+	"modules": [
+		"fx",
+		"delay"
+	],
+	"subcircuits": [
+		"microcontroller",
+		"digital-delay-line",
+		"dac-output"
+	],
+	"functions": [
+		"delay-echo",
+		"tap-tempo"
+	],
+	"ics": [
+		"pic"
+	],
+	"kinds": ["build-guide"],
+	"added": "2026-09-26"
+}

@@ -1,0 +1,28 @@
+{
+	"$schema": "../../schema/article.schema.json",
+	"schemaVersion": 3,
+	"title": "JH FS-1 Frequency Shifter",
+	"url": "http://jhaible.com/legacy/tonline_stuff/hj_fs.html",
+	"type": "website",
+	"authors": [
+		"juergen-haible"
+	],
+	"license": "non-commercial, educational use (Random*Source)",
+	"summary": "Frequency shifter in the Moog/Bode class with a quadrature through-zero VCO instead of a beat oscillator, down to sub-audio barber-pole phasing; plus common myths about frequency shifters.",
+	"summaryFromGroup": true,
+	"modules": [
+		"fx",
+		"spectral"
+	],
+	"subcircuits": [
+		"phase-shift-network",
+		"quadrature-oscillator",
+		"ring-modulator"
+	],
+	"functions": [
+		"frequency-shifting",
+		"through-zero-fm"
+	],
+	"kinds": ["explanation", "schematic"],
+	"added": "2026-09-28"
+}

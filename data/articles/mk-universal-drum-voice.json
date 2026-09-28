@@ -1,0 +1,19 @@
+{
+	"$schema": "../../schema/article.schema.json",
+	"schemaVersion": 3,
+	"title": "This analog circuit can sound like any drum",
+	"url": "https://www.youtube.com/watch?v=Xbl1xwFR3eg",
+	"type": "video",
+	"authors": [
+		"moritz-klein"
+	],
+	"summary": "Video on a flexible analog drum voice that can be tuned to cover many different drum sounds.",
+	"modules": [
+		"drum"
+	],
+	"functions": [
+		"drum-synthesis"
+	],
+	"kinds": ["explanation"],
+	"added": "2026-09-26"
+}

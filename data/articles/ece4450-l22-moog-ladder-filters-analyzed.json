@@ -1,0 +1,36 @@
+{
+	"$schema": "../../schema/article.schema.json",
+	"schemaVersion": 3,
+	"title": "ECE4450 L22: Moog Ladder Filters Analyzed",
+	"url": "https://www.youtube.com/watch?v=IRxeIEeAAnU",
+	"type": "video",
+	"authors": [
+		"aaron-lanterman"
+	],
+	"origin": "academic",
+	"summary": "The transistor ladder filter of the Minimoog: a university lecture analyzing how the ladder works, Tim Stinchcombe's mathematical analysis of the ladder and its derivatives, and René Schmitz's buildable version of the Minimoog filter with notes on common pitfalls.",
+	"summaryFromGroup": true,
+	"manufacturers": [
+		"moog"
+	],
+	"products": [
+		"minimoog"
+	],
+	"modules": [
+		"filter"
+	],
+	"subcircuits": [
+		"ladder-filter",
+		"differential-pair",
+		"feedback-network",
+		"exponential-converter"
+	],
+	"functions": [
+		"lowpass-response",
+		"resonance-control",
+		"self-oscillation",
+		"voltage-controlled-cutoff"
+	],
+	"kinds": ["analysis", "schematic"],
+	"added": "2026-09-26"
+}

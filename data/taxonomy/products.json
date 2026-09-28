@@ -337,7 +337,89 @@
 		"manufacturer": "ems",
 		"year": 1969,
 		"aliases": [
-			"Putney"
+			"Putney",
+			"Synthi A"
+		]
+	},
+	{
+		"id": "ob-8",
+		"label": "OB-8",
+		"manufacturer": "oberheim",
+		"year": 1983,
+		"aliases": [
+			"OB8"
+		]
+	},
+	{
+		"id": "cs-80",
+		"label": "CS-80",
+		"manufacturer": "yamaha",
+		"year": 1977,
+		"aliases": [
+			"CS-50",
+			"CS-60",
+			"CS80"
+		]
+	},
+	{
+		"id": "ps-3200",
+		"label": "PS-3200",
+		"manufacturer": "korg",
+		"year": 1978,
+		"aliases": [
+			"PS3200",
+			"PS-3100",
+			"PS-3300"
+		]
+	},
+	{
+		"id": "polymoog",
+		"label": "Polymoog",
+		"manufacturer": "moog",
+		"year": 1975,
+		"aliases": [
+			"Polymoog Resonator"
+		]
+	},
+	{
+		"id": "moog-modular",
+		"label": "Moog Modular",
+		"manufacturer": "moog",
+		"year": 1964,
+		"aliases": [
+			"Moog 914",
+			"Fixed Filter Bank",
+			"Moog System 55"
+		]
+	},
+	{
+		"id": "string-ensemble",
+		"label": "String Ensemble (Solina)",
+		"manufacturer": "arp",
+		"year": 1974,
+		"aliases": [
+			"Solina",
+			"ARP String Ensemble"
+		]
+	},
+	{
+		"id": "korg-700",
+		"label": "700 (miniKorg)",
+		"manufacturer": "korg",
+		"year": 1973,
+		"aliases": [
+			"miniKorg",
+			"Korg 700"
+		]
+	},
+	{
+		"id": "compact-a",
+		"label": "Compact A Phaser",
+		"manufacturer": "schulte",
+		"year": 1973,
+		"aliases": [
+			"Schulte Phaser",
+			"Krautrock Phaser"
 		]
 	}
 ]

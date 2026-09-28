@@ -1,10 +1,11 @@
 // Builds everything the site needs from data/ (validates first; aborts on errors):
-//   src/lib/server/generated/catalog.json  resolved entries + taxonomy, read by prerendered pages
+//   src/lib/server/generated/catalog.json  resolved articles + taxonomy (with related nodes), read by prerendered pages
 //   static/data/search-index.json          Fuse docs + prebuilt index, lazy-loaded by the search box
-//   static/data/kb.jsonl                   one entry per line, flattened for embeddings / LLM tools
+//   static/data/kb.jsonl                   one article per line, flattened for embeddings / LLM tools
 //   static/data/taxonomy.json              all registries, for other tools to reuse the vocabulary
-//   static/data/<slug>/<id>.json           entries per tag (e.g. subcircuit/ota_stage.json), for the PDF_OCR CLI
+//   static/data/<slug>/<id>.json           articles and related nodes per tag (e.g. ic/ca3080.json), for the PDF_OCR CLI
 //   static/data/index.json                 lists those lookup files
+//   static/data/graph.json                 the knowledge graph: nodes (articles, tags) and edges
 //   static/llms.txt                        plain-text site map for LLM crawlers
 // Usage: node scripts/build-data.js
 import { existsSync, mkdirSync, rmSync, writeFileSync } from 'node:fs';
@@ -15,16 +16,18 @@ import { validate } from './validate.js';
 
 const OUT_CATALOG = join(ROOT, 'src/lib/server/generated/catalog.json');
 const OUT_STATIC = join(ROOT, 'static/data');
+const SCHEMA_VERSION = 2;
 
 // Must match the keys in src/lib/search.ts.
 const SEARCH_KEYS = [
 	{ name: 'title', weight: 3 },
 	{ name: 'labels', weight: 2 },
 	{ name: 'aliases', weight: 1 },
-	{ name: 'summary', weight: 1 }
+	{ name: 'summary', weight: 1 },
+	{ name: 'authors', weight: 1 }
 ];
 
-// Related entries: weight per shared term type. Shared subcircuit parents count half.
+// Related articles: weight per shared term type. Shared subcircuit parents count half.
 const RELATED_WEIGHTS = {
 	ics: 3,
 	subcircuits: 3,
@@ -32,10 +35,27 @@ const RELATED_WEIGHTS = {
 	functions: 2,
 	products: 2,
 	manufacturers: 1,
-	circuitTypes: 1
+	modules: 1
 };
 const RELATED_MIN_SCORE = 0.08;
-const RELATED_MAX = 5;
+const RELATED_MAX = 6;
+// Tag nodes "often used together" with a node: at most this many, from at least this many shared articles.
+const TOGETHER_MAX = 10;
+const TOGETHER_MIN = 2;
+
+// URL segment per registry, same as REGISTRY_META in src/lib/types.ts.
+const SLUGS = {
+	manufacturers: 'manufacturer',
+	products: 'product',
+	modules: 'module',
+	subcircuits: 'subcircuit',
+	functions: 'function',
+	ics: 'ic',
+	authors: 'author'
+};
+
+/** A tag's path below its type: its id, or parent/id for subtypes (same as termPath in src/lib/types.ts). */
+const termPath = (t) => (t.parent ? `${t.parent}/${t.id}` : t.id);
 
 function write(path, content) {
 	mkdirSync(dirname(path), { recursive: true });
@@ -51,18 +71,17 @@ function loadLinkHealth() {
 }
 
 /**
- * Confidence from the sources, highest wins: official (datasheet, manual or manufacturer origin),
- * academic (paper, patent or academic origin), otherwise community.
+ * Confidence from the article's type and origin: official (datasheet, manual or manufacturer
+ * origin), academic (paper, patent or academic origin), otherwise community.
  */
-function deriveConfidence(sources) {
-	const is = (types, origin) => sources.some((s) => types.includes(s.type) || s.origin === origin);
-	if (is(['datasheet', 'manual'], 'manufacturer')) return 'official';
-	if (is(['paper', 'patent'], 'academic')) return 'academic';
+function deriveConfidence({ type, origin }) {
+	if (['datasheet', 'manual'].includes(type) || origin === 'manufacturer') return 'official';
+	if (['paper', 'patent'].includes(type) || origin === 'academic') return 'academic';
 	return 'community';
 }
 
-function resolveEntries(entries, index, health) {
-	return entries.map(({ id, data }) => {
+function resolveArticles(raw, index, health) {
+	return raw.map(({ id, data }) => {
 		const terms = {};
 		for (const [key, { field }] of Object.entries(REGISTRIES)) {
 			terms[key] = (data[field] ?? []).map((ref) => {
@@ -73,40 +92,41 @@ function resolveEntries(entries, index, health) {
 		const subcircuitParents = [
 			...new Set((data.subcircuits ?? []).map((s) => index.subcircuits.get(s).parent).filter(Boolean))
 		];
+		const h = health.get(data.url);
 		return {
 			id,
 			title: data.title,
+			url: data.url,
+			type: data.type,
+			year: data.year ?? null,
+			lang: data.lang ?? 'en',
+			license: data.license ?? null,
 			summary: data.summary,
+			summaryFromGroup: data.summaryFromGroup ?? false,
 			kinds: data.kinds,
-			confidence: deriveConfidence(data.sources),
+			confidence: deriveConfidence(data),
 			added: data.added,
 			reviewed: data.reviewed ?? null,
+			status: h?.status ?? 'unchecked',
+			archiveUrl: h?.archiveUrl ?? null,
 			terms,
-			subcircuitParents,
-			sources: data.sources.map((s) => {
-				const h = health.get(s.url);
-				return {
-					...s,
-					status: h?.status ?? 'unchecked',
-					archiveUrl: h?.archiveUrl ?? null
-				};
-			})
+			subcircuitParents
 		};
 	});
 }
 
-function computeRelated(entries) {
-	const sets = entries.map((e) => {
+function computeRelated(articles) {
+	const sets = articles.map((e) => {
 		const s = { subcircuitParents: new Set(e.subcircuitParents) };
-		for (const key of Object.keys(REGISTRIES)) s[key] = new Set(e.terms[key].map((t) => t.id));
+		for (const key of Object.keys(RELATED_WEIGHTS)) if (key in e.terms) s[key] = new Set(e.terms[key].map((t) => t.id));
 		return s;
 	});
 	const labels = new Map();
-	for (const e of entries) for (const list of Object.values(e.terms)) for (const t of list) labels.set(t.id, t.label);
+	for (const e of articles) for (const list of Object.values(e.terms)) for (const t of list) labels.set(t.id, t.label);
 
-	return entries.map((_, i) => {
+	return articles.map((_, i) => {
 		const scored = [];
-		for (let j = 0; j < entries.length; j++) {
+		for (let j = 0; j < articles.length; j++) {
 			if (i === j) continue;
 			let inter = 0;
 			let union = 0;
@@ -127,8 +147,8 @@ function computeRelated(entries) {
 			if (score >= RELATED_MIN_SCORE) {
 				shared.sort((x, y) => y.w - x.w);
 				scored.push({
-					id: entries[j].id,
-					title: entries[j].title,
+					id: articles[j].id,
+					title: articles[j].title,
 					score: Math.round(score * 1000) / 1000,
 					reasons: shared.slice(0, 4).map((s) => s.label)
 				});
@@ -139,141 +159,248 @@ function computeRelated(entries) {
 	});
 }
 
-function taxonomyWithCounts(taxonomy, entries) {
+/** Article ids per tag node; a parent term also collects the articles of its children. */
+function articlesByNode(taxonomy, articles) {
 	const out = {};
 	for (const key of Object.keys(REGISTRIES)) {
-		// A parent term counts every entry tagged with it or with one of its children.
 		const parentOf = new Map(taxonomy[key].map((t) => [t.id, t.parent]));
-		const counts = new Map();
-		for (const e of entries) {
-			const ids = new Set(e.terms[key].flatMap((t) => [t.id, parentOf.get(t.id)]).filter(Boolean));
-			for (const id of ids) counts.set(id, (counts.get(id) ?? 0) + 1);
+		const map = new Map(taxonomy[key].map((t) => [t.id, []]));
+		for (const a of articles) {
+			const ids = new Set(a.terms[key].flatMap((t) => [t.id, parentOf.get(t.id)]).filter(Boolean));
+			for (const id of ids) map.get(id)?.push(a.id);
 		}
-		out[key] = taxonomy[key].map((t) => ({ ...t, count: counts.get(t.id) ?? 0 }));
+		out[key] = map;
 	}
 	return out;
 }
 
-function searchDocs(entries, index) {
-	return entries.map((e) => {
+/**
+ * Related tag nodes, the edges between tags:
+ * - `same`: same kind of thing (IC alternatives and same category, subtypes/siblings, a maker's products)
+ * - `together`: tags of other types most often on the same articles (e.g. CA3080 ↔ OTA stage, VCA)
+ */
+function nodeRelations(taxonomy, articles, byNode) {
+	const byId = new Map(articles.map((a) => [a.id, a]));
+	const used = (key, id) => (byNode[key].get(id)?.length ?? 0) > 0;
+	const ref = (key, id) => ({ key, id });
+	const out = {};
+	for (const key of Object.keys(REGISTRIES)) {
+		out[key] = new Map();
+		for (const t of taxonomy[key]) {
+			if (!used(key, t.id)) continue;
+			const same = [];
+			if (key === 'ics') {
+				for (const alt of t.alternatives ?? []) same.push(ref('ics', alt));
+				for (const o of taxonomy.ics) {
+					if (o.id !== t.id && o.category === t.category && used('ics', o.id)) same.push(ref('ics', o.id));
+				}
+			} else if (key === 'products') {
+				for (const o of taxonomy.products) {
+					if (o.id !== t.id && o.manufacturer === t.manufacturer && used('products', o.id)) same.push(ref('products', o.id));
+				}
+			} else if (key === 'manufacturers') {
+				for (const o of taxonomy.products) if (o.manufacturer === t.id && used('products', o.id)) same.push(ref('products', o.id));
+			} else {
+				// Parent, children and siblings (same parent), then the rest of the sidebar group.
+				for (const o of taxonomy[key]) {
+					if (o.id === t.id || !used(key, o.id)) continue;
+					const family = o.id === t.parent || o.parent === t.id || (t.parent && o.parent === t.parent);
+					const group = t.group && o.group === t.group;
+					if (family || group) same.push(ref(key, o.id));
+				}
+			}
+			const counts = new Map();
+			for (const aid of byNode[key].get(t.id)) {
+				for (const [k, list] of Object.entries(byId.get(aid).terms)) {
+					if (k === key || k === 'authors') continue;
+					for (const x of list) counts.set(`${k}:${x.id}`, (counts.get(`${k}:${x.id}`) ?? 0) + 1);
+				}
+			}
+			const together = [...counts]
+				.filter(([, n]) => n >= TOGETHER_MIN)
+				.sort((a, b) => b[1] - a[1])
+				.slice(0, TOGETHER_MAX)
+				.map(([k, n]) => {
+					const [rk, id] = k.split(':');
+					return { key: rk, id, n };
+				});
+			const seen = new Set();
+			out[key].set(t.id, {
+				same: same.filter((r) => !seen.has(r.id) && seen.add(r.id)),
+				together
+			});
+		}
+	}
+	return out;
+}
+
+/** Terms with their article count and related nodes (unused terms get count 0 and no relations). */
+function enrichTaxonomy(taxonomy, byNode, relations) {
+	const out = {};
+	for (const key of Object.keys(REGISTRIES)) {
+		out[key] = taxonomy[key].map((t) => ({
+			...t,
+			count: byNode[key].get(t.id)?.length ?? 0,
+			related: relations[key].get(t.id) ?? { same: [], together: [] }
+		}));
+	}
+	return out;
+}
+
+function searchDocs(articles, index) {
+	return articles.map((e) => {
 		const labels = [];
 		const aliases = [];
 		for (const [key, list] of Object.entries(e.terms)) {
+			if (key === 'authors') continue;
 			for (const { id } of list) {
 				const t = index[key].get(id);
 				labels.push(t.label);
 				aliases.push(...(t.aliases ?? []));
 			}
 		}
-		return { id: e.id, title: e.title, summary: e.summary, labels, aliases };
+		const authors = e.terms.authors.flatMap(({ id }) => {
+			const t = index.authors.get(id);
+			return [t.label, ...(t.aliases ?? [])];
+		});
+		return { id: e.id, title: e.title, summary: e.summary, labels, aliases, authors };
 	});
 }
 
-function kbJsonl(entries, index) {
-	return entries
+function termsOut(e, index) {
+	return Object.fromEntries(
+		Object.entries(e.terms).map(([key, list]) => [
+			key,
+			list.map(({ id }) => {
+				const t = index[key].get(id);
+				return { id, label: t.label, aliases: t.aliases ?? [] };
+			})
+		])
+	);
+}
+
+function articleOut(e) {
+	return {
+		id: e.id,
+		title: e.title,
+		url: e.url,
+		type: e.type,
+		summary: e.summary,
+		kinds: e.kinds,
+		confidence: e.confidence,
+		year: e.year,
+		status: e.status,
+		path: `article/${e.id}`
+	};
+}
+
+function kbJsonl(articles, index) {
+	return articles
 		.map((e) => {
-			const terms = Object.fromEntries(
-				Object.entries(e.terms).map(([key, list]) => [
-					key,
-					list.map(({ id }) => {
-						const t = index[key].get(id);
-						return { id, label: t.label, aliases: t.aliases ?? [] };
-					})
-				])
-			);
-			const labelText = Object.values(terms)
-				.flat()
-				.map((t) => t.label)
+			const terms = termsOut(e, index);
+			const labelText = Object.entries(terms)
+				.filter(([key]) => key !== 'authors')
+				.flatMap(([, list]) => list.map((t) => t.label))
 				.join(', ');
 			return JSON.stringify({
-				id: e.id,
-				title: e.title,
-				summary: e.summary,
-				kinds: e.kinds,
-				confidence: e.confidence,
+				schemaVersion: SCHEMA_VERSION,
+				...articleOut(e),
 				added: e.added,
 				terms,
-				sources: e.sources.map(({ type, title, url, author, year }) => ({ type, title, url, author, year })),
 				embedText: `${e.title}. ${e.summary} Topics: ${labelText}.`
 			});
 		})
 		.join('\n');
 }
 
-// URL segment per registry, same as REGISTRY_META in src/lib/types.ts.
-const LOOKUP_SLUGS = {
-	manufacturers: 'manufacturer',
-	products: 'product',
-	circuitTypes: 'type',
-	subcircuits: 'subcircuit',
-	functions: 'function',
-	ics: 'ic'
-};
-
 /**
- * One small file per used tag, so a tool can fetch exactly the entries for one detection
+ * One small file per used tag, so a tool can fetch exactly what it needs for one detection
  * (data/subcircuit/ota_stage.json) instead of all of kb.jsonl. Stale files are removed first.
  */
-function writeLookups(entries, counted) {
+function writeLookups(articles, taxonomy) {
+	const byId = new Map(articles.map((a) => [a.id, a]));
+	const find = (key, id) => taxonomy[key].find((t) => t.id === id);
 	const lookups = {};
-	for (const [key, slug] of Object.entries(LOOKUP_SLUGS)) {
+	for (const [key, slug] of Object.entries(SLUGS)) {
 		rmSync(join(OUT_STATIC, slug), { recursive: true, force: true });
 		lookups[slug] = [];
-		for (const term of counted[key].filter((t) => t.count)) {
-			const matches = entries.filter((e) => e.terms[key].some((t) => t.id === term.id));
-			write(join(OUT_STATIC, slug, `${term.id}.json`), {
-				schemaVersion: 1,
-				term: {
-					id: term.id,
-					label: term.label,
-					aliases: term.aliases ?? [],
-					...(term.pdfOcrKind ? { pdfOcrKind: term.pdfOcrKind } : {})
-				},
-				entries: matches.map((e) => ({
-					id: e.id,
-					title: e.title,
-					summary: e.summary,
-					kinds: e.kinds,
-					confidence: e.confidence,
-					path: `entry/${e.id}`,
-					sources: e.sources.map(({ type, title, url, author, year, status }) => ({ type, title, url, author, year, status }))
-				}))
+		for (const term of taxonomy[key].filter((t) => t.count)) {
+			const refOut = (r) => {
+				const t = find(r.key, r.id);
+				return { type: SLUGS[r.key], id: r.id, path: termPath(t), label: t.label, ...(r.n ? { articles: r.n } : {}) };
+			};
+			const { related, count, ...facts } = term;
+			write(join(OUT_STATIC, slug, `${termPath(term)}.json`), {
+				schemaVersion: SCHEMA_VERSION,
+				type: slug,
+				term: { ...facts, path: termPath(term), aliases: term.aliases ?? [] },
+				related: { same: related.same.map(refOut), together: related.together.map(refOut) },
+				articles: articles
+					.filter((a) => a.terms[key].some((t) => t.id === term.id || term.id === find(key, t.id)?.parent))
+					.map((a) => articleOut(byId.get(a.id)))
 			});
-			lookups[slug].push(term.id);
+			lookups[slug].push(termPath(term));
 		}
 	}
 	write(join(OUT_STATIC, 'index.json'), {
-		schemaVersion: 1,
-		pattern: 'data/<type>/<id>.json',
-		// PDF_OCR detection kind → subcircuit id, for kinds whose name differs from the ACKB id.
+		schemaVersion: SCHEMA_VERSION,
+		pattern: 'data/<type>/<path>.json (path = id, or parent/id for subtypes)',
+		// PDF_OCR detection kind (snake_case) → subcircuit path: data/subcircuit/<path>.json.
 		pdfOcrKinds: Object.fromEntries(
-			counted.subcircuits.filter((t) => t.count && t.pdfOcrKind).map((t) => [t.pdfOcrKind, t.id])
+			taxonomy.subcircuits.filter((t) => t.count && t.pdfOcrKind).map((t) => [t.pdfOcrKind, termPath(t)])
 		),
 		lookups
 	});
 }
 
-function llmsTxt(entries, taxonomy) {
+/** The whole knowledge graph in one file: nodes are articles and used tags, edges connect them. */
+function graphJson(articles, taxonomy) {
+	const nodes = [];
+	const edges = [];
+	for (const a of articles) nodes.push({ id: `article:${a.id}`, type: 'article', label: a.title, url: a.url });
+	for (const [key, slug] of Object.entries(SLUGS)) {
+		for (const t of taxonomy[key].filter((x) => x.count)) {
+			nodes.push({ id: `${slug}:${t.id}`, type: slug, label: t.label });
+			if (t.parent) edges.push({ from: `${slug}:${t.id}`, to: `${slug}:${t.parent}`, rel: 'subtype_of' });
+			if (key === 'products') edges.push({ from: `product:${t.id}`, to: `manufacturer:${t.manufacturer}`, rel: 'made_by' });
+			for (const alt of t.alternatives ?? []) edges.push({ from: `ic:${t.id}`, to: `ic:${alt}`, rel: 'alternative' });
+		}
+	}
+	for (const a of articles) {
+		for (const [key, list] of Object.entries(a.terms)) {
+			for (const t of list) {
+				edges.push({ from: `article:${a.id}`, to: `${SLUGS[key]}:${t.id}`, rel: key === 'authors' ? 'by' : 'tagged' });
+			}
+		}
+	}
+	return { schemaVersion: SCHEMA_VERSION, nodes, edges };
+}
+
+function llmsTxt(articles, taxonomy) {
 	const lines = [
 		'# Analog Circuit Knowledge Base',
 		'',
-		'> Curated index of external resources (papers, datasheets, build logs, forum threads) on analog',
-		'> synthesizer circuits, classified by manufacturer, product, circuit type, subcircuit, function and IC.',
-		'> Machine-readable: data/kb.jsonl (one entry per line), data/taxonomy.json (vocabulary).',
+		'> Curated index of external resources (papers, datasheets, build logs, videos) on synthesizer',
+		'> circuits, tagged by manufacturer, product, module, subcircuit, function, IC and author.',
+		'> Machine-readable: data/kb.jsonl (one article per line), data/graph.json (knowledge graph),',
+		'> data/<type>/<id>.json (per tag), data/taxonomy.json (vocabulary).',
 		'',
-		'## Entries',
-		...entries.map((e) => `- [${e.title}](entry/${e.id}): ${e.summary}`),
+		'## Articles',
+		...articles.map((e) => `- [${e.title}](article/${e.id}): ${e.summary}`),
 		'',
 		'## Subcircuits',
-		...taxonomy.subcircuits.filter((t) => t.count).map((t) => `- [${t.label}](subcircuit/${t.id})`),
+		...taxonomy.subcircuits.filter((t) => t.count).map((t) => `- [${t.label}](subcircuit/${termPath(t)})`),
 		'',
 		'## Functions',
-		...taxonomy.functions.filter((t) => t.count).map((t) => `- [${t.label}](function/${t.id})`)
+		...taxonomy.functions.filter((t) => t.count).map((t) => `- [${t.label}](function/${termPath(t)})`),
+		'',
+		'## ICs',
+		...taxonomy.ics.filter((t) => t.count).map((t) => `- [${t.label}](ic/${t.id})`)
 	];
 	return lines.join('\n') + '\n';
 }
 
-const { errors, warnings, entries: raw, taxonomy } = validate();
+const { errors, warnings, articles: raw, taxonomy } = validate();
 for (const e of errors) console.error(`error ${e}`);
 if (errors.length) {
 	console.error(`build-data: ${errors.length} validation errors, nothing written`);
@@ -281,19 +408,22 @@ if (errors.length) {
 }
 
 const index = indexTaxonomy(taxonomy);
-const entries = resolveEntries(raw, index, loadLinkHealth());
-const related = computeRelated(entries);
-entries.forEach((e, i) => (e.related = related[i]));
-entries.sort((a, b) => b.added.localeCompare(a.added) || a.title.localeCompare(b.title));
+const articles = resolveArticles(raw, index, loadLinkHealth());
+const related = computeRelated(articles);
+articles.forEach((e, i) => (e.related = related[i]));
+articles.sort((a, b) => b.added.localeCompare(a.added) || a.title.localeCompare(b.title));
 
-const counted = taxonomyWithCounts(taxonomy, entries);
-const docs = searchDocs(entries, index);
+const byNode = articlesByNode(taxonomy, articles);
+const enriched = enrichTaxonomy(taxonomy, byNode, nodeRelations(taxonomy, articles, byNode));
+const docs = searchDocs(articles, index);
 
-write(OUT_CATALOG, { generatedAt: new Date().toISOString(), entries, taxonomy: counted });
+write(OUT_CATALOG, { generatedAt: new Date().toISOString(), articles, taxonomy: enriched });
 write(join(OUT_STATIC, 'search-index.json'), { docs, index: Fuse.createIndex(SEARCH_KEYS, docs).toJSON() });
-write(join(OUT_STATIC, 'kb.jsonl'), kbJsonl(entries, index) + '\n');
+write(join(OUT_STATIC, 'kb.jsonl'), kbJsonl(articles, index) + '\n');
 write(join(OUT_STATIC, 'taxonomy.json'), taxonomy);
-writeLookups(entries, counted);
-write(join(ROOT, 'static/llms.txt'), llmsTxt(entries, counted));
+write(join(OUT_STATIC, 'graph.json'), graphJson(articles, enriched));
+rmSync(join(OUT_STATIC, 'type'), { recursive: true, force: true }); // old name of data/module/
+writeLookups(articles, enriched);
+write(join(ROOT, 'static/llms.txt'), llmsTxt(articles, enriched));
 
-console.log(`build-data: ${entries.length} entries written (${warnings.length} warnings)`);
+console.log(`build-data: ${articles.length} articles written (${warnings.length} warnings)`);

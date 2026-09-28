@@ -1,0 +1,25 @@
+{
+	"$schema": "../../schema/article.schema.json",
+	"schemaVersion": 3,
+	"title": "Build a Eurorack Buffered Mult",
+	"url": "https://www.n8synth.co.uk/diy-eurorack/diy-buffered-multiple/",
+	"type": "website",
+	"authors": [
+		"n8-synthesizers"
+	],
+	"summary": "Beginner build guide for an active buffered multiple that copies one signal to several outputs.",
+	"modules": [
+		"utility"
+	],
+	"subcircuits": [
+		"voltage-follower"
+	],
+	"functions": [
+		"signal-distribution"
+	],
+	"ics": [
+		"tl072"
+	],
+	"kinds": ["build-guide"],
+	"added": "2026-09-26"
+}

@@ -1,0 +1,25 @@
+{
+	"$schema": "../../schema/article.schema.json",
+	"schemaVersion": 3,
+	"title": "Dintree D104 Four Vs: schematic, parts list and design notes",
+	"url": "https://github.com/hires/Dintree/tree/master/D104-Four_Vs",
+	"type": "repo",
+	"authors": [
+		"andrew-kilpatrick"
+	],
+	"license": "non-commercial, educational use",
+	"summary": "Four buffered 0–5 V manual voltage sources from a small +5 V regulator, four pots and op-amp buffers.",
+	"modules": [
+		"utility"
+	],
+	"subcircuits": [
+		"linear-regulator",
+		"voltage-divider",
+		"voltage-follower"
+	],
+	"functions": [
+		"signal-distribution"
+	],
+	"kinds": ["schematic", "explanation"],
+	"added": "2026-09-28"
+}

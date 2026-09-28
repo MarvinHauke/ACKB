@@ -6,37 +6,38 @@ their original sites; ACKB stores the links, a short summary and tags.
 
 Live site: https://marvinhauke.github.io/ACKB/
 
-## What an entry is
+## What an article is
 
-One entry is one topic, for example "Korg MS-20 filter analysis". It collects several sources on
-that topic and tags them by manufacturer, instrument, circuit type, subcircuit (OTA stage, voltage
-follower, …), function (soft clipping, resonance, …) and IC (LM13700, TL072, …).
+One article is one link: a page, video, repo or paper. It is tagged by manufacturer, instrument,
+module (VCO, filter, …), subcircuit (OTA stage, voltage follower, …), function (soft clipping,
+resonance, …), IC (LM13700, TL072, …) and author. The tags connect articles with each other: a
+small knowledge graph.
 
 ## Finding things
 
-Type in the search box (MS-20, LM13700, "buffer", …) or combine filters on the left, including
-the content kind (build guide, explanation, analysis, schematic, reference). Untick a source type
-(e.g. forum) to hide those links everywhere; your browser remembers it. Every tag has its own page,
-and each entry lists related entries and why they are related.
+Type in the search box (MS-20, LM13700, "buffer", …) or combine filters on the left. Each result
+opens the resource directly; "Details" shows its tags and related articles. Every tag has a page,
+e.g. [/ic/ca3080](https://marvinhauke.github.io/ACKB/ic/ca3080) with facts, similar parts and its
+articles. Hide source types (e.g. forum) or http:// links; your browser remembers it.
 
 ## How trustworthy is it
 
-Every entry has a confidence level, worked out from its sources: `official` (manufacturer
+Every article has a confidence level, worked out from what it is: `official` (manufacturer
 datasheets and manuals), `academic` (papers, patents, university lectures) or `community`
-(everything else). Links are checked weekly; if a source goes
-offline, the entry points to an archived copy on archive.org when one exists.
+(everything else). Links are checked weekly; if one goes offline, the article points to an
+archived copy on archive.org when one exists.
 
 ## Data for tools and AI
 
-The whole index can be downloaded as plain data: `data/kb.jsonl` (one entry per line) and
-`data/taxonomy.json` (all tags). One small file per tag, e.g. `data/subcircuit/ota_stage.json`,
-lets tools like the PDF_OCR CLI fetch just what they need; `data/index.json` lists them.
+The whole index can be downloaded as plain data: `data/kb.jsonl` (one article per line),
+`data/graph.json` (the knowledge graph) and `data/taxonomy.json` (all tags). One small file per
+tag, e.g. `data/ic/ca3080.json`, lets tools like the PDF_OCR CLI fetch just what they need.
 `llms.txt` gives language models a map of the site.
 
-## Adding entries
+## Adding articles
 
-One JSON file per entry in `data/entries/`. `npm run new -- "Title"` creates one,
-`npm run validate` checks it. Details: [docs/adding-entries.md](docs/adding-entries.md) and
+One JSON file per link in `data/articles/`. `npm run new -- "Title"` creates one,
+`npm run validate` checks it. Details: [docs/adding-articles.md](docs/adding-articles.md) and
 [docs/taxonomy.md](docs/taxonomy.md).
 
 ## Run it locally

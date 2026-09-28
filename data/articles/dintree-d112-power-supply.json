@@ -1,0 +1,20 @@
+{
+	"$schema": "../../schema/article.schema.json",
+	"schemaVersion": 3,
+	"title": "Dintree D112 Power Supply: schematic, parts list and design notes",
+	"url": "https://github.com/hires/Dintree/tree/master/D112-Power_Supply",
+	"type": "repo",
+	"authors": [
+		"andrew-kilpatrick"
+	],
+	"license": "non-commercial, educational use",
+	"summary": "Eurorack supply from a single +12 V input: an isolated DC-DC module makes ±12 V (625 mA), a second converter +5 V, with reverse-polarity protection and bus LEDs.",
+	"modules": [
+		"power-supply"
+	],
+	"subcircuits": [
+		"decoupling-network"
+	],
+	"kinds": ["schematic", "explanation"],
+	"added": "2026-09-28"
+}

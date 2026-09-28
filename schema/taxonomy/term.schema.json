@@ -11,7 +11,7 @@
 	"$defs": {
 		"id": {
 			"type": "string",
-			"pattern": "^[a-z0-9]+([_-][a-z0-9]+)*$"
+			"pattern": "^[a-z0-9]+(-[a-z0-9]+)*$"
 		},
 		"term": {
 			"type": "object",
@@ -36,6 +36,10 @@
 				},
 				"description": {
 					"type": "string"
+				},
+				"group": {
+					"$ref": "#/$defs/id",
+					"description": "Sidebar group (subcircuits and functions), e.g. opamp_stages; labels live in src/lib/types.ts"
 				},
 				"parent": {
 					"$ref": "#/$defs/id",

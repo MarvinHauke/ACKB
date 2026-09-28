@@ -1,5 +1,5 @@
 {
-	"name": "electronikc-knowledgebase",
+	"name": "ackb",
 	"private": true,
 	"version": "0.0.1",
 	"type": "module",
@@ -7,7 +7,7 @@
 		"dev": "npm run data && vite dev",
 		"data": "node scripts/build-data.js",
 		"validate": "node scripts/validate.js",
-		"new": "node scripts/new-entry.js",
+		"new": "node scripts/new-article.js",
 		"links": "node scripts/check-links.js",
 		"prebuild": "npm run data",
 		"build": "vite build",

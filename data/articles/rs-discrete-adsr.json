@@ -1,0 +1,19 @@
+{
+	"$schema": "../../schema/article.schema.json",
+	"schemaVersion": 3,
+	"title": "Envelope Generator ADSR",
+	"url": "https://www.schmitzbits.de/adsr.html",
+	"type": "schematic",
+	"authors": [
+		"rene-schmitz"
+	],
+	"summary": "A discrete-transistor ADSR expanded from Barry Klein's AD envelope design, with build notes.",
+	"modules": [
+		"envelope"
+	],
+	"functions": [
+		"envelope-generation"
+	],
+	"kinds": ["schematic"],
+	"added": "2026-09-26"
+}

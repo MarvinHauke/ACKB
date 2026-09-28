@@ -1,17 +1,17 @@
-// Checks every external URL (entry sources + IC datasheets) and writes data/link-health.json.
+// Checks every external URL (article links + IC datasheets) and writes data/link-health.json.
 // Broken links are reported as warnings, never as a failing exit code.
 //
 // Usage:
 //   node scripts/check-links.js                     check all URLs
-//   node scripts/check-links.js --changed origin/main   only URLs of entries changed since a git ref
-//   node scripts/check-links.js --files data/entries/a.json …
+//   node scripts/check-links.js --changed origin/main   only URLs of articles changed since a git ref
+//   node scripts/check-links.js --files data/articles/a.json …
 //
 // Politeness: one request at a time per host, a pause between requests to the same host,
 // a few hosts in parallel. For links that aren't OK, the Wayback Machine is asked for a snapshot.
 import { execFileSync } from 'node:child_process';
 import { existsSync, readFileSync, writeFileSync } from 'node:fs';
 import { join, resolve } from 'node:path';
-import { DATA_DIR, ROOT, loadEntries, loadTaxonomy } from './lib/data.js';
+import { DATA_DIR, ROOT, loadArticles, loadTaxonomy } from './lib/data.js';
 
 const OUT = join(DATA_DIR, 'link-health.json');
 const USER_AGENT = 'ACKB-link-checker/1.0 (+https://github.com; static knowledge base link check)';
@@ -27,7 +27,7 @@ function selectedFiles() {
 	const i = args.indexOf('--changed');
 	if (i !== -1) {
 		const ref = args[i + 1] ?? 'origin/main';
-		const out = execFileSync('git', ['diff', '--name-only', ref, '--', 'data/entries'], { cwd: ROOT, encoding: 'utf8' });
+		const out = execFileSync('git', ['diff', '--name-only', ref, '--', 'data/articles'], { cwd: ROOT, encoding: 'utf8' });
 		return new Set(out.split('\n').filter(Boolean));
 	}
 	const j = args.indexOf('--files');
@@ -35,13 +35,13 @@ function selectedFiles() {
 	return null;
 }
 
-/** url → list of places it is used ("data/entries/x.json", "ic:lm13700"). */
+/** url → list of places it is used ("data/articles/x.json", "ic:lm13700"). */
 function collectUrls(files) {
 	const urls = new Map();
 	const add = (url, where) => urls.set(url, [...(urls.get(url) ?? []), where]);
-	for (const { file, data } of loadEntries().entries) {
+	for (const { file, data } of loadArticles().articles) {
 		if (files && !files.has(file)) continue;
-		for (const s of data.sources ?? []) add(s.url, file);
+		if (data.url) add(data.url, file);
 	}
 	if (!files) {
 		for (const ic of loadTaxonomy().taxonomy.ics) if (ic.datasheetUrl) add(ic.datasheetUrl, `ic:${ic.id}`);

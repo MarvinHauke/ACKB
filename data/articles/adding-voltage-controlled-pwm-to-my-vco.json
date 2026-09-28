@@ -1,0 +1,25 @@
+{
+	"$schema": "../../schema/article.schema.json",
+	"schemaVersion": 3,
+	"title": "Adding voltage controlled PWM to my VCO",
+	"url": "https://www.youtube.com/watch?v=FUz3gFAh9pY",
+	"type": "video",
+	"authors": [
+		"moritz-klein"
+	],
+	"summary": "Two short videos extending a DIY VCO: a sawtooth-to-triangle converter and voltage-controlled pulse width modulation.",
+	"summaryFromGroup": true,
+	"modules": [
+		"oscillator"
+	],
+	"subcircuits": [
+		"waveshaper",
+		"comparator"
+	],
+	"functions": [
+		"pulse-width-modulation",
+		"waveshaping"
+	],
+	"kinds": ["explanation"],
+	"added": "2026-09-26"
+}

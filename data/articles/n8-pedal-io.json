@@ -1,0 +1,27 @@
+{
+	"$schema": "../../schema/article.schema.json",
+	"schemaVersion": 3,
+	"title": "DIY Eurorack Stompbox Interface",
+	"url": "https://www.n8synth.co.uk/diy-eurorack/eurorack-pedal-io/",
+	"type": "website",
+	"authors": [
+		"n8-synthesizers"
+	],
+	"summary": "Build guide for a module that connects guitar effects pedals to a modular: level conversion from Eurorack to pedal levels and back.",
+	"modules": [
+		"utility",
+		"fx"
+	],
+	"subcircuits": [
+		"voltage-divider",
+		"non-inverting-amp"
+	],
+	"functions": [
+		"attenuation"
+	],
+	"ics": [
+		"tl072"
+	],
+	"kinds": ["build-guide"],
+	"added": "2026-09-26"
+}

@@ -1,0 +1,32 @@
+{
+	"$schema": "../../schema/article.schema.json",
+	"schemaVersion": 3,
+	"title": "ECE4450 L21: Four-Pole Filters with Feedback: OTA-C Examples",
+	"url": "https://www.youtube.com/watch?v=DRWZ39ae2_k",
+	"type": "video",
+	"authors": [
+		"aaron-lanterman"
+	],
+	"origin": "academic",
+	"summary": "Lectures on filters built from OTAs and capacitors: single-pole OTA-C stages, the theory of four-pole filters with resonance feedback, and worked OTA-C examples.",
+	"summaryFromGroup": true,
+	"modules": [
+		"filter"
+	],
+	"subcircuits": [
+		"ota-stage",
+		"integrator",
+		"feedback-network"
+	],
+	"functions": [
+		"lowpass-response",
+		"resonance-control",
+		"voltage-controlled-cutoff"
+	],
+	"ics": [
+		"lm13700",
+		"ca3080"
+	],
+	"kinds": ["analysis"],
+	"added": "2026-09-26"
+}

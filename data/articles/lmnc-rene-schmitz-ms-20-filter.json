@@ -1,0 +1,43 @@
+{
+	"$schema": "../../schema/article.schema.json",
+	"schemaVersion": 3,
+	"title": "LMNC René Schmitz MS-20 Filter",
+	"url": "https://www.kieranreck.co.uk/_posts/2023-10-15-LMNC-Ren%C3%A9-Schmitz-MS-20-Filter/",
+	"type": "website",
+	"authors": [
+		"kieran-reck"
+	],
+	"year": 2023,
+	"summary": "Condensed version of Look Mum No Computer's stripboard layout.",
+	"manufacturers": [
+		"korg"
+	],
+	"products": [
+		"ms-20"
+	],
+	"modules": [
+		"filter"
+	],
+	"subcircuits": [
+		"sallen-key",
+		"ota-stage",
+		"voltage-follower",
+		"feedback-network",
+		"diode-limiter"
+	],
+	"functions": [
+		"nonlinear-feedback",
+		"soft-clipping",
+		"resonance-control",
+		"self-oscillation",
+		"current-controlled-amplification",
+		"lowpass-response",
+		"highpass-response"
+	],
+	"ics": [
+		"lm13700",
+		"tl072"
+	],
+	"kinds": ["build-guide", "schematic"],
+	"added": "2026-09-26"
+}

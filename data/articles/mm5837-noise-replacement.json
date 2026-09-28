@@ -1,0 +1,38 @@
+{
+	"$schema": "../../schema/article.schema.json",
+	"schemaVersion": 3,
+	"title": "White Noise Source for MM5837 / MM5437 replacement",
+	"url": "https://electricdruid.net/white-noise-source-mm5837-mm5437-replacement/",
+	"type": "website",
+	"authors": [
+		"tom-wiltshire"
+	],
+	"year": 2009,
+	"license": "CC BY-NC-SA 4.0",
+	"summary": "A pure white noise generator on an 8-pin PIC 12F675, as a drop-in replacement for the obsolete MM5837/MM5437 used in the Prophet-5, Korg Mono/Poly and Oberheim OB-X.",
+	"manufacturers": [
+		"sequential",
+		"korg",
+		"oberheim"
+	],
+	"products": [
+		"prophet-5"
+	],
+	"modules": [
+		"noise"
+	],
+	"subcircuits": [
+		"microcontroller",
+		"lfsr",
+		"noise-generator"
+	],
+	"functions": [
+		"noise-generation"
+	],
+	"ics": [
+		"mm5837",
+		"pic"
+	],
+	"kinds": ["explanation"],
+	"added": "2026-09-26"
+}

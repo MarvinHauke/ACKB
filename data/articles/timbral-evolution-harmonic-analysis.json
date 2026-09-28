@@ -1,0 +1,24 @@
+{
+	"$schema": "../../schema/article.schema.json",
+	"schemaVersion": 3,
+	"title": "Timbral Evolution: Harmonic analysis of classic synth sounds",
+	"url": "https://electricdruid.net/timbral-evolution-harmonic-analysis-of-classic-synth-sounds/",
+	"type": "website",
+	"authors": [
+		"tom-wiltshire"
+	],
+	"year": 2016,
+	"license": "CC BY-NC-SA 4.0",
+	"summary": "How classic techniques make timbre change over time, analysed harmonically: pulse width modulation, sums and differences of phase-shifted waveforms, oscillator sync and phase distortion.",
+	"modules": [
+		"oscillator"
+	],
+	"functions": [
+		"harmonic-analysis",
+		"pulse-width-modulation",
+		"oscillator-sync",
+		"phase-distortion"
+	],
+	"kinds": ["analysis"],
+	"added": "2026-09-26"
+}

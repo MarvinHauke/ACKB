@@ -1,0 +1,45 @@
+{
+	"$schema": "../../schema/article.schema.json",
+	"schemaVersion": 3,
+	"title": "Roland filter designs with the IR3109 or AS3109",
+	"url": "https://electricdruid.net/roland-filter-designs-with-the-ir3109-or-as3109/",
+	"type": "website",
+	"authors": [
+		"tom-wiltshire"
+	],
+	"year": 2025,
+	"license": "CC BY-NC-SA 4.0",
+	"summary": "How Roland used its IR3109 four-pole OTA filter chip (now cloned as AS3109): the datasheet filter, then the Juno-6, SH-101, Jupiter-8 and Jupiter-6 versions, and the Boss PH-2 phaser.",
+	"manufacturers": [
+		"roland",
+		"boss"
+	],
+	"products": [
+		"juno-6",
+		"sh-101",
+		"jupiter-8",
+		"jupiter-6",
+		"juno-106"
+	],
+	"modules": [
+		"filter"
+	],
+	"subcircuits": [
+		"ota-stage",
+		"integrator",
+		"feedback-network",
+		"exponential-converter"
+	],
+	"functions": [
+		"lowpass-response",
+		"resonance-control",
+		"voltage-controlled-cutoff",
+		"multimode-output"
+	],
+	"ics": [
+		"ir3109",
+		"ba662"
+	],
+	"kinds": ["explanation"],
+	"added": "2026-09-26"
+}

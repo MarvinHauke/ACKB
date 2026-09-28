@@ -1,0 +1,18 @@
+{
+	"$schema": "../../schema/article.schema.json",
+	"schemaVersion": 3,
+	"title": "Fourier Analysis for non-mathematicians",
+	"url": "https://electricdruid.net/fourier-analysis-for-non-mathematicians/",
+	"type": "website",
+	"authors": [
+		"tom-wiltshire"
+	],
+	"year": 2015,
+	"license": "CC BY-NC-SA 4.0",
+	"summary": "Fourier analysis explained without equations: multiplying a signal by sine waves step by step to find the harmonics of ramp and square waves.",
+	"functions": [
+		"harmonic-analysis"
+	],
+	"kinds": ["explanation"],
+	"added": "2026-09-26"
+}

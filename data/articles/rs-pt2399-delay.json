@@ -1,0 +1,27 @@
+{
+	"$schema": "../../schema/article.schema.json",
+	"schemaVersion": 3,
+	"title": "PT2399 based Delay",
+	"url": "https://www.schmitzbits.de/pt2399.html",
+	"type": "schematic",
+	"authors": [
+		"rene-schmitz"
+	],
+	"summary": "A delay unit based on the PT2399 datasheet circuit with tweaks to the delta encoder and decoder capacitors for more high end.",
+	"modules": [
+		"fx",
+		"delay"
+	],
+	"subcircuits": [
+		"digital-delay-line",
+		"rc-lowpass"
+	],
+	"functions": [
+		"delay-echo"
+	],
+	"ics": [
+		"pt2399"
+	],
+	"kinds": ["schematic"],
+	"added": "2026-09-26"
+}

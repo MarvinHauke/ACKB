@@ -1,0 +1,26 @@
+{
+	"$schema": "../../schema/article.schema.json",
+	"schemaVersion": 3,
+	"title": "DIY SYNTH VCF Part 3: Resonant High-Pass & Vactrol-Based Voltage Control",
+	"url": "https://www.youtube.com/watch?v=ITJX9jP-zm4",
+	"type": "video",
+	"authors": [
+		"moritz-klein"
+	],
+	"summary": "Part of a DIY VCF video series: a resonant high-pass filter whose cutoff is voltage-controlled with a vactrol.",
+	"modules": [
+		"filter"
+	],
+	"subcircuits": [
+		"vactrol",
+		"feedback-network",
+		"opamp-stage"
+	],
+	"functions": [
+		"highpass-response",
+		"resonance-control",
+		"voltage-controlled-cutoff"
+	],
+	"kinds": ["explanation"],
+	"added": "2026-09-26"
+}

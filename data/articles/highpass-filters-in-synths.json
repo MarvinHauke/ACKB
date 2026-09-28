@@ -1,0 +1,43 @@
+{
+	"$schema": "../../schema/article.schema.json",
+	"schemaVersion": 3,
+	"title": "Highpass filters in synths",
+	"url": "https://electricdruid.net/highpass-filters-in-synths/",
+	"type": "website",
+	"authors": [
+		"tom-wiltshire"
+	],
+	"year": 2026,
+	"license": "CC BY-NC-SA 4.0",
+	"summary": "Survey of synths that have a dedicated highpass filter next to the lowpass, including the Juno series, Jupiter-8, MS-20 and ARP Odyssey, and the circuits they use.",
+	"manufacturers": [
+		"roland",
+		"korg",
+		"arp"
+	],
+	"products": [
+		"juno-6",
+		"juno-106",
+		"jupiter-8",
+		"ms-20"
+	],
+	"modules": [
+		"filter"
+	],
+	"subcircuits": [
+		"rc-highpass",
+		"ota-stage",
+		"sallen-key"
+	],
+	"functions": [
+		"highpass-response",
+		"voltage-controlled-cutoff"
+	],
+	"ics": [
+		"ir3109",
+		"ca3080",
+		"lm13700"
+	],
+	"kinds": ["explanation"],
+	"added": "2026-09-26"
+}

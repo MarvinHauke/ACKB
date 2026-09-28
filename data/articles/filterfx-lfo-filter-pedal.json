@@ -1,0 +1,36 @@
+{
+	"$schema": "../../schema/article.schema.json",
+	"schemaVersion": 3,
+	"title": "FilterFX – 12dB/oct LP/BP/HP LFO filter with 8 waveshapes",
+	"url": "https://electricdruid.net/filterfx-lp-bp-hp-lfo-filter/",
+	"type": "website",
+	"authors": [
+		"tom-wiltshire"
+	],
+	"year": 2019,
+	"license": "CC BY-NC-SA 4.0",
+	"summary": "Pedal project: a 12 dB/oct state-variable filter with lowpass, bandpass and highpass outputs, swept by the STOMPLFO chip with eight waveforms, tap tempo and external sync. Includes sound examples, PCB and build documents.",
+	"modules": [
+		"filter",
+		"fx",
+		"modulation"
+	],
+	"subcircuits": [
+		"state-variable",
+		"integrator",
+		"microcontroller"
+	],
+	"functions": [
+		"multimode-output",
+		"lowpass-response",
+		"bandpass-response",
+		"highpass-response",
+		"periodic-modulation",
+		"tap-tempo"
+	],
+	"ics": [
+		"pic"
+	],
+	"kinds": ["explanation"],
+	"added": "2026-09-26"
+}

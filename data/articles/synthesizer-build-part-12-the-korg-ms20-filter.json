@@ -1,0 +1,44 @@
+{
+	"$schema": "../../schema/article.schema.json",
+	"schemaVersion": 3,
+	"title": "Synthesizer Build part-12: The Korg MS20 Filter",
+	"url": "https://www.eddybergman.com/2019/12/synthesizer-build-part-12-korg-ms20.html",
+	"type": "website",
+	"authors": [
+		"eddy-bergman"
+	],
+	"year": 2019,
+	"summary": "Practical builds of René Schmitz's late MS-20 lowpass/highpass filter using an LM13700 OTA: Eurorack PCB versions, stripboard layouts and build logs covering calibration, the LED limiter in the resonance loop and part substitutions.",
+	"summaryFromGroup": true,
+	"manufacturers": [
+		"korg"
+	],
+	"products": [
+		"ms-20"
+	],
+	"modules": [
+		"filter"
+	],
+	"subcircuits": [
+		"sallen-key",
+		"ota-stage",
+		"voltage-follower",
+		"feedback-network",
+		"diode-limiter"
+	],
+	"functions": [
+		"nonlinear-feedback",
+		"soft-clipping",
+		"resonance-control",
+		"self-oscillation",
+		"current-controlled-amplification",
+		"lowpass-response",
+		"highpass-response"
+	],
+	"ics": [
+		"lm13700",
+		"tl072"
+	],
+	"kinds": ["build-guide", "schematic"],
+	"added": "2026-09-26"
+}

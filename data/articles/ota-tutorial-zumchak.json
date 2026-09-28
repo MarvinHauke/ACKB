@@ -1,0 +1,29 @@
+{
+	"$schema": "../../schema/article.schema.json",
+	"schemaVersion": 3,
+	"title": "A Short Discussion of the Operational Transconductance Amplifier (OTA)",
+	"url": "https://www.schmitzbits.de/ota3080.html",
+	"type": "website",
+	"authors": [
+		"rene-schmitz"
+	],
+	"summary": "Written by Gene Zumchak.",
+	"modules": [
+		"vca"
+	],
+	"subcircuits": [
+		"ota-stage",
+		"differential-pair",
+		"current-mirror"
+	],
+	"functions": [
+		"current-controlled-amplification"
+	],
+	"ics": [
+		"ca3080",
+		"lm13600",
+		"lm13700"
+	],
+	"kinds": ["explanation"],
+	"added": "2026-09-26"
+}

@@ -1,0 +1,29 @@
+{
+	"$schema": "../../schema/article.schema.json",
+	"schemaVersion": 3,
+	"title": "Dintree D103 Reverb Delay: schematic, parts list and design notes",
+	"url": "https://github.com/hires/Dintree/tree/master/D103-Reverb_Delay",
+	"type": "repo",
+	"authors": [
+		"andrew-kilpatrick"
+	],
+	"license": "non-commercial, educational use",
+	"summary": "Stereo reverb and delay built around the Spin FV-1 DSP, with input attenuation and multiple-feedback output filters; the algorithms are left to the builder.",
+	"modules": [
+		"fx",
+		"delay"
+	],
+	"subcircuits": [
+		"digital-delay-line",
+		"voltage-divider"
+	],
+	"functions": [
+		"delay-echo",
+		"lowpass-response"
+	],
+	"ics": [
+		"fv1"
+	],
+	"kinds": ["schematic", "explanation"],
+	"added": "2026-09-28"
+}

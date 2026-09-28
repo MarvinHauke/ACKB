@@ -1,0 +1,33 @@
+{
+	"$schema": "../../schema/article.schema.json",
+	"schemaVersion": 3,
+	"title": "ECE4450 L4.2: 3080 vs 13700",
+	"url": "https://www.youtube.com/watch?v=0tk5zl6xTsI",
+	"type": "video",
+	"authors": [
+		"aaron-lanterman"
+	],
+	"origin": "academic",
+	"summary": "Why the LM13700 is not quite \"two CA3080s in one package\": a look at the current mirrors inside each OTA (Widlar, Wilson, PNP versions) and the differences between the LM13600 and LM13700 that matter in synth circuits.",
+	"summaryFromGroup": true,
+	"modules": [
+		"vca"
+	],
+	"subcircuits": [
+		"ota-stage",
+		"current-mirror",
+		"differential-pair"
+	],
+	"functions": [
+		"current-controlled-amplification"
+	],
+	"ics": [
+		"ca3080",
+		"lm13600",
+		"lm13700"
+	],
+	"kinds": ["analysis"],
+	"added": "2026-09-26",
+	"manufacturers": [],
+	"products": []
+}

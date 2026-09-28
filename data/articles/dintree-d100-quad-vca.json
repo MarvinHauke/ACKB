@@ -1,0 +1,30 @@
+{
+	"$schema": "../../schema/article.schema.json",
+	"schemaVersion": 3,
+	"title": "Dintree D100 Quad VCA: schematic, parts list and design notes",
+	"url": "https://github.com/hires/Dintree/tree/master/D100-Quad_VCA",
+	"type": "repo",
+	"authors": [
+		"andrew-kilpatrick"
+	],
+	"license": "non-commercial, educational use",
+	"summary": "Four DC-coupled VCA channels from one SSM2164, with two summed CV inputs per channel, CV inversion so 0 V means unity gain, and op-amp current-to-voltage output stages.",
+	"modules": [
+		"vca"
+	],
+	"subcircuits": [
+		"inverting-amp",
+		"voltage-follower"
+	],
+	"functions": [
+		"current-controlled-amplification",
+		"exponential-response",
+		"tremolo"
+	],
+	"ics": [
+		"ssm2164",
+		"tl072"
+	],
+	"kinds": ["schematic", "explanation"],
+	"added": "2026-09-28"
+}

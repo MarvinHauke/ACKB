@@ -1,0 +1,45 @@
+{
+	"$schema": "../../schema/article.schema.json",
+	"schemaVersion": 3,
+	"title": "A Study of the Korg MS10 & MS20 Filters",
+	"url": "https://www.timstinchcombe.co.uk/synth/MS20_study.pdf",
+	"type": "paper",
+	"authors": [
+		"timothy-stinchcombe"
+	],
+	"summary": "Mathematical analysis of both filter generations, including the KORG35 chip internals.",
+	"manufacturers": [
+		"korg"
+	],
+	"products": [
+		"ms-20",
+		"ms-10"
+	],
+	"modules": [
+		"filter"
+	],
+	"subcircuits": [
+		"sallen-key",
+		"ota-stage",
+		"integrator",
+		"feedback-network",
+		"diode-limiter",
+		"exponential-converter"
+	],
+	"functions": [
+		"nonlinear-feedback",
+		"soft-clipping",
+		"resonance-control",
+		"self-oscillation",
+		"voltage-controlled-cutoff",
+		"exponential-response",
+		"lowpass-response",
+		"highpass-response"
+	],
+	"ics": [
+		"korg35",
+		"lm13600"
+	],
+	"kinds": ["analysis", "schematic"],
+	"added": "2026-09-26"
+}

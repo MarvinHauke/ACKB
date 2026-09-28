@@ -1,0 +1,25 @@
+{
+	"$schema": "../../schema/article.schema.json",
+	"schemaVersion": 3,
+	"title": "Envelope Follower",
+	"url": "https://www.schmitzbits.de/envf.html",
+	"type": "schematic",
+	"authors": [
+		"rene-schmitz"
+	],
+	"summary": "An envelope follower that avoids the phase errors of diode-plus-lowpass detectors: a peak hold that is sampled after each zero crossing and then reset by CMOS switches.",
+	"modules": [
+		"utility"
+	],
+	"subcircuits": [
+		"envelope-follower",
+		"sample-and-hold",
+		"analog-switch",
+		"comparator"
+	],
+	"functions": [
+		"envelope-following"
+	],
+	"kinds": ["schematic"],
+	"added": "2026-09-26"
+}

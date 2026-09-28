@@ -1,0 +1,34 @@
+{
+	"$schema": "../../schema/article.schema.json",
+	"schemaVersion": 3,
+	"title": "Modular Synthesizers: JH-1",
+	"url": "http://jhaible.com/legacy/tonline_stuff/hj_modul.html",
+	"type": "website",
+	"authors": [
+		"juergen-haible"
+	],
+	"license": "non-commercial, educational use (Random*Source)",
+	"summary": "Early \"processor synth\" without VCOs, built from FX boxes for a Crumar Performer: one-3080 ring modulator, state-variable VCF, VCA, ADSR/AR, LFO, S&H.",
+	"modules": [
+		"filter",
+		"vca",
+		"envelope",
+		"lfo",
+		"fx",
+		"spectral"
+	],
+	"subcircuits": [
+		"ring-modulator",
+		"ota-stage",
+		"state-variable"
+	],
+	"functions": [
+		"ring-modulation",
+		"multimode-output"
+	],
+	"ics": [
+		"ca3080"
+	],
+	"kinds": ["explanation"],
+	"added": "2026-09-28"
+}

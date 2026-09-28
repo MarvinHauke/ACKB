@@ -1,0 +1,31 @@
+{
+	"$schema": "../../schema/article.schema.json",
+	"schemaVersion": 3,
+	"title": "Roland \"Cross Mod\" and \"Metal Sync\" – What do they actually do?",
+	"url": "https://electricdruid.net/roland-cross-mod-metal-sync/",
+	"type": "website",
+	"authors": [
+		"tom-wiltshire"
+	],
+	"year": 2019,
+	"license": "CC BY-NC-SA 4.0",
+	"summary": "What Roland's \"Cross Mod\" and \"Metal Sync\" actually do on the Jupiter-8, Jupiter-6, MKS-80 and the later JX and Juno generations: which oscillator modulates which, how sync is combined with cross modulation, and what that means for the sound.",
+	"manufacturers": [
+		"roland"
+	],
+	"products": [
+		"jupiter-8",
+		"jupiter-6",
+		"mks-80",
+		"jx-8p"
+	],
+	"modules": [
+		"oscillator"
+	],
+	"functions": [
+		"cross-modulation",
+		"oscillator-sync"
+	],
+	"kinds": ["explanation"],
+	"added": "2026-09-26"
+}

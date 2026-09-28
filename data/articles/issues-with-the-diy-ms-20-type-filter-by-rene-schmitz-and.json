@@ -1,0 +1,39 @@
+{
+	"$schema": "../../schema/article.schema.json",
+	"schemaVersion": 3,
+	"title": "Issues with the DIY MS-20 type filter by René Schmitz and LMNC",
+	"url": "https://www.modwiggler.com/forum/viewtopic.php?t=219572",
+	"type": "forum",
+	"summary": "Troubleshooting thread: common build mistakes.",
+	"manufacturers": [
+		"korg"
+	],
+	"products": [
+		"ms-20"
+	],
+	"modules": [
+		"filter"
+	],
+	"subcircuits": [
+		"sallen-key",
+		"ota-stage",
+		"voltage-follower",
+		"feedback-network",
+		"diode-limiter"
+	],
+	"functions": [
+		"nonlinear-feedback",
+		"soft-clipping",
+		"resonance-control",
+		"self-oscillation",
+		"current-controlled-amplification",
+		"lowpass-response",
+		"highpass-response"
+	],
+	"ics": [
+		"lm13700",
+		"tl072"
+	],
+	"kinds": ["build-guide", "schematic"],
+	"added": "2026-09-26"
+}

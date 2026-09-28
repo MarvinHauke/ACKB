@@ -1,0 +1,25 @@
+{
+	"$schema": "../../schema/article.schema.json",
+	"schemaVersion": 3,
+	"title": "Direct Digital Synthesis (DDS) and Numerically Controlled Oscillators (NCOs)",
+	"url": "https://electricdruid.net/direct-digital-synthesis/",
+	"type": "website",
+	"authors": [
+		"tom-wiltshire"
+	],
+	"year": 2008,
+	"license": "CC BY-NC-SA 4.0",
+	"summary": "Introduction to direct digital synthesis: a phase accumulator steps through a wavetable at a rate set by a tuning word, giving fine frequency resolution from a fixed clock. Explains how in-between notes and other waveshapes are produced and the trade-offs that keep it from being used everywhere.",
+	"modules": [
+		"oscillator"
+	],
+	"subcircuits": [
+		"dds-oscillator",
+		"dac-output"
+	],
+	"functions": [
+		"digital-waveform-generation"
+	],
+	"kinds": ["explanation"],
+	"added": "2026-09-26"
+}

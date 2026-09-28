@@ -1,0 +1,31 @@
+{
+	"$schema": "../../schema/article.schema.json",
+	"schemaVersion": 3,
+	"title": "Adventures in Top Octave Generation",
+	"url": "https://electricdruid.net/adventures-in-top-octave-generation/",
+	"type": "website",
+	"authors": [
+		"tom-wiltshire"
+	],
+	"year": 2016,
+	"license": "CC BY-NC-SA 4.0",
+	"summary": "Can the top octave generator chips of 1970s string synths and combo organs be recreated with modern parts? Explains the divide-down principle behind polyphonic organs, an alternative clocking scheme with a 4046 PLL, and possible improvements over the originals.",
+	"modules": [
+		"oscillator"
+	],
+	"subcircuits": [
+		"top-octave-generator",
+		"frequency-divider",
+		"microcontroller"
+	],
+	"functions": [
+		"polyphonic-tone-generation",
+		"frequency-division"
+	],
+	"ics": [
+		"cd4046",
+		"pic"
+	],
+	"kinds": ["explanation"],
+	"added": "2026-09-26"
+}

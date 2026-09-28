@@ -1,13 +1,14 @@
 {
 	"json.schemas": [
-		{ "fileMatch": ["data/entries/*.json"], "url": "./schema/entry.schema.json" },
+		{ "fileMatch": ["data/articles/*.json"], "url": "./schema/article.schema.json" },
 		{ "fileMatch": ["data/taxonomy/products.json"], "url": "./schema/taxonomy/product.schema.json" },
 		{ "fileMatch": ["data/taxonomy/ics.json"], "url": "./schema/taxonomy/ic.schema.json" },
 		{ "fileMatch": ["data/taxonomy/subcircuits.json"], "url": "./schema/taxonomy/subcircuit.schema.json" },
+		{ "fileMatch": ["data/taxonomy/authors.json"], "url": "./schema/taxonomy/author.schema.json" },
 		{
 			"fileMatch": [
 				"data/taxonomy/manufacturers.json",
-				"data/taxonomy/circuit-types.json",
+				"data/taxonomy/modules.json",
 				"data/taxonomy/functions.json"
 			],
 			"url": "./schema/taxonomy/term.schema.json"

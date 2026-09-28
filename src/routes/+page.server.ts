@@ -1,10 +1,11 @@
-import { catalog, summarize, usedTerms } from '$lib/server/catalog';
+import { catalog, summarize, termParents, usedTerms } from '$lib/server/catalog';
 import { CONFIDENCES, CONTENT_KINDS } from '$lib/types';
 
 export function load() {
 	return {
-		entries: catalog.entries.map(summarize),
+		articles: catalog.articles.map(summarize),
 		terms: usedTerms(),
+		parents: termParents(),
 		kinds: CONTENT_KINDS,
 		confidences: CONFIDENCES
 	};

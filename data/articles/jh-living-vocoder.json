@@ -1,0 +1,26 @@
+{
+	"$schema": "../../schema/article.schema.json",
+	"schemaVersion": 3,
+	"title": "JH Living Vocoder",
+	"url": "http://jhaible.com/legacy/vocoder/living_vocoder.html",
+	"type": "website",
+	"authors": [
+		"juergen-haible"
+	],
+	"license": "non-commercial, educational use (Random*Source)",
+	"summary": "20-band vocoder with 8-pole band filters and a filterbank mode that can fade in during speech pauses (\"silence bridging\").",
+	"modules": [
+		"fx",
+		"spectral"
+	],
+	"subcircuits": [
+		"envelope-follower"
+	],
+	"functions": [
+		"vocoding",
+		"bandpass-response",
+		"envelope-following"
+	],
+	"kinds": ["explanation"],
+	"added": "2026-09-28"
+}

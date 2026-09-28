@@ -1,0 +1,30 @@
+{
+	"$schema": "../../schema/article.schema.json",
+	"schemaVersion": 3,
+	"title": "ECE4450 L4.1: Voltage Controlled Amplifiers: Operational Transconductance Amps",
+	"url": "https://www.youtube.com/watch?v=96j2tNKFCPI",
+	"type": "video",
+	"authors": [
+		"aaron-lanterman"
+	],
+	"origin": "academic",
+	"summary": "University lectures on voltage-controlled amplifiers: how operational transconductance amplifiers work as VCAs, the differences between the CA3080 and LM13700, and other ways to build a VCA without an OTA.",
+	"summaryFromGroup": true,
+	"modules": [
+		"vca"
+	],
+	"subcircuits": [
+		"ota-stage",
+		"differential-pair",
+		"current-mirror"
+	],
+	"functions": [
+		"current-controlled-amplification"
+	],
+	"ics": [
+		"ca3080",
+		"lm13700"
+	],
+	"kinds": ["analysis"],
+	"added": "2026-09-26"
+}

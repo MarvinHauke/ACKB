@@ -86,5 +86,13 @@
 	{
 		"id": "ems",
 		"label": "EMS"
+	},
+	{
+		"id": "schulte",
+		"label": "Schulte Audio Elektronik",
+		"aliases": [
+			"Gert Schulte",
+			"Schulte"
+		]
 	}
 ]

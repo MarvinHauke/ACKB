@@ -1,0 +1,37 @@
+{
+	"$schema": "../../schema/article.schema.json",
+	"schemaVersion": 3,
+	"title": "Designing a Slapback Echo pedal",
+	"url": "https://electricdruid.net/slapback-echo/",
+	"type": "website",
+	"authors": [
+		"tom-wiltshire"
+	],
+	"year": 2024,
+	"license": "CC BY-NC-SA 4.0",
+	"summary": "Designing a workalike of the 1978 EHX Slapback Echo with a PT2399: resistor values for the delay times, delay filtering, wet/dry blend, a boost stage and the power supply.",
+	"manufacturers": [
+		"ehx"
+	],
+	"products": [
+		"slapback-echo"
+	],
+	"modules": [
+		"fx",
+		"delay"
+	],
+	"subcircuits": [
+		"digital-delay-line",
+		"rc-lowpass",
+		"inverting-amp"
+	],
+	"functions": [
+		"delay-echo",
+		"crossfading"
+	],
+	"ics": [
+		"pt2399"
+	],
+	"kinds": ["explanation"],
+	"added": "2026-09-26"
+}

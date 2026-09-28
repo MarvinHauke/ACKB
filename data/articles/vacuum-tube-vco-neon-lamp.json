@@ -1,0 +1,27 @@
+{
+	"$schema": "../../schema/article.schema.json",
+	"schemaVersion": 3,
+	"title": "Vacuum tube VCO (neon lamp)",
+	"url": "https://www.schmitzbits.de/vtvco.html",
+	"type": "schematic",
+	"authors": [
+		"rene-schmitz"
+	],
+	"summary": "René Schmitz's tube experiments: a neon lamp VCO, a thyratron VCO, a tube VCF, a valve VCA based on subminiature tubes, and an exponential converter that uses a vacuum diode as its nonlinear element. Most of them use high voltages.",
+	"summaryFromGroup": true,
+	"modules": [
+		"oscillator",
+		"filter",
+		"vca"
+	],
+	"subcircuits": [
+		"vacuum-tube-stage",
+		"exponential-converter"
+	],
+	"functions": [
+		"exponential-response",
+		"soft-clipping"
+	],
+	"kinds": ["schematic"],
+	"added": "2026-09-26"
+}

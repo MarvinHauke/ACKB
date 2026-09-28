@@ -1,0 +1,33 @@
+{
+	"$schema": "../../schema/article.schema.json",
+	"schemaVersion": 3,
+	"title": "DIY Eurorack State Variable Filter (part 2)",
+	"url": "https://www.n8synth.co.uk/diy-eurorack/lm13700-state-variable-filter-page2/",
+	"type": "website",
+	"authors": [
+		"n8-synthesizers"
+	],
+	"summary": "Two-part guide: what a state-variable filter is and how the LM13700 version works, then construction, testing and calibration of the Eurorack module.",
+	"summaryFromGroup": true,
+	"modules": [
+		"filter"
+	],
+	"subcircuits": [
+		"state-variable",
+		"ota-stage",
+		"integrator"
+	],
+	"functions": [
+		"multimode-output",
+		"lowpass-response",
+		"bandpass-response",
+		"highpass-response",
+		"resonance-control"
+	],
+	"ics": [
+		"lm13700",
+		"tl072"
+	],
+	"kinds": ["build-guide"],
+	"added": "2026-09-26"
+}

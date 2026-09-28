@@ -1,0 +1,27 @@
+{
+	"$schema": "../../schema/article.schema.json",
+	"schemaVersion": 3,
+	"title": "Turning my diode ladder filter into a eurorack module",
+	"url": "https://www.youtube.com/watch?v=tWKLFcc_BJM",
+	"type": "video",
+	"authors": [
+		"moritz-klein"
+	],
+	"summary": "Video design walk-through of a diode ladder lowpass filter from scratch on the breadboard, followed by turning it into a Eurorack module.",
+	"summaryFromGroup": true,
+	"modules": [
+		"filter"
+	],
+	"subcircuits": [
+		"ladder-filter",
+		"differential-pair",
+		"feedback-network"
+	],
+	"functions": [
+		"lowpass-response",
+		"resonance-control",
+		"voltage-controlled-cutoff"
+	],
+	"kinds": ["explanation"],
+	"added": "2026-09-26"
+}

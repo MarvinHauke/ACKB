@@ -1,0 +1,28 @@
+{
+	"$schema": "../../schema/article.schema.json",
+	"schemaVersion": 3,
+	"title": "MIDI clock to analog gate pulses",
+	"url": "https://electricdruid.net/midi-clock-to-analog-gate-pulses/",
+	"type": "website",
+	"authors": [
+		"tom-wiltshire"
+	],
+	"year": 2015,
+	"license": "CC BY-NC-SA 4.0",
+	"summary": "A small chip that converts MIDI clock messages into analog clock and gate pulses to sync a modular synth or vintage gear to MIDI equipment.",
+	"modules": [
+		"sequencer-clock"
+	],
+	"subcircuits": [
+		"midi-interface",
+		"microcontroller"
+	],
+	"functions": [
+		"clock-conversion"
+	],
+	"ics": [
+		"pic"
+	],
+	"kinds": ["explanation"],
+	"added": "2026-09-26"
+}

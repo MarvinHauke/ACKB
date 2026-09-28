@@ -1,0 +1,22 @@
+{
+	"$schema": "../../schema/article.schema.json",
+	"schemaVersion": 3,
+	"title": "Building a DIY Eurorack mixer",
+	"url": "https://www.n8synth.co.uk/diy-eurorack/eurorack-mixer/",
+	"type": "website",
+	"authors": [
+		"n8-synthesizers"
+	],
+	"summary": "Beginner build guide for an active five-channel Eurorack mixer.",
+	"modules": [
+		"mixer"
+	],
+	"subcircuits": [
+		"inverting-amp"
+	],
+	"ics": [
+		"tl072"
+	],
+	"kinds": ["build-guide"],
+	"added": "2026-09-26"
+}

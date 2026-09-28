@@ -1,0 +1,29 @@
+{
+	"$schema": "../../schema/article.schema.json",
+	"schemaVersion": 3,
+	"title": "One-shot Event Generator",
+	"url": "https://electricdruid.net/one-shot-event-generator/",
+	"type": "website",
+	"authors": [
+		"tom-wiltshire"
+	],
+	"year": 2018,
+	"license": "CC BY-NC-SA 4.0",
+	"summary": "Half envelope, half LFO: a chip that plays a single cycle of a selectable waveform when triggered, for \"ping\" style modulation events.",
+	"modules": [
+		"envelope",
+		"lfo"
+	],
+	"subcircuits": [
+		"microcontroller"
+	],
+	"functions": [
+		"envelope-generation",
+		"periodic-modulation"
+	],
+	"ics": [
+		"pic"
+	],
+	"kinds": ["explanation"],
+	"added": "2026-09-26"
+}

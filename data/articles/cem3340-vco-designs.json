@@ -1,0 +1,43 @@
+{
+	"$schema": "../../schema/article.schema.json",
+	"schemaVersion": 3,
+	"title": "CEM3340 VCO (Voltage Controlled Oscillator) designs",
+	"url": "https://electricdruid.net/cem3340-vco-voltage-controlled-oscillator-designs/",
+	"type": "website",
+	"authors": [
+		"tom-wiltshire"
+	],
+	"year": 2016,
+	"license": "CC BY-NC-SA 4.0",
+	"summary": "How the SH-101, Prophet-5 Rev 3, Prophet T8, Memorymoog and Roland MKS-80 wired the CEM3340 VCO chip, each compared against the datasheet circuit. Useful now that the chip is in production again as AS3340/V3340.",
+	"manufacturers": [
+		"roland",
+		"sequential",
+		"moog"
+	],
+	"products": [
+		"sh-101",
+		"prophet-5",
+		"memorymoog",
+		"mks-80"
+	],
+	"modules": [
+		"oscillator"
+	],
+	"subcircuits": [
+		"vco-core",
+		"exponential-converter",
+		"inverting-amp"
+	],
+	"functions": [
+		"exponential-response",
+		"temperature-compensation",
+		"oscillator-sync",
+		"pulse-width-modulation"
+	],
+	"ics": [
+		"cem3340"
+	],
+	"kinds": ["explanation"],
+	"added": "2026-09-26"
+}

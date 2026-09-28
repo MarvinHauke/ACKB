@@ -1,0 +1,27 @@
+{
+	"$schema": "../../schema/article.schema.json",
+	"schemaVersion": 3,
+	"title": "Signal switcher",
+	"url": "https://www.schmitzbits.de/switch.html",
+	"type": "schematic",
+	"authors": [
+		"rene-schmitz"
+	],
+	"summary": "Switching a pair of audio or CV signals to one output with standard CMOS switches, arranged to remove most of their distortion and handle the full voltage range.",
+	"modules": [
+		"utility",
+		"mixer"
+	],
+	"subcircuits": [
+		"analog-switch",
+		"inverting-amp"
+	],
+	"functions": [
+		"signal-distribution"
+	],
+	"ics": [
+		"tl072"
+	],
+	"kinds": ["schematic"],
+	"added": "2026-09-26"
+}
