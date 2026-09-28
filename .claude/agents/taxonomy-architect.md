@@ -32,7 +32,7 @@ circuits, modeled as a small knowledge graph in JSON). You never edit files. You
   alphabetical order not broken by odd labels.
 
 **Articles and sources (docs/source-rules.md)**
-- Editorial rule: individual articles only when the main value is designing, modifying,
+- Editorial rule (docs/source-rules.md, "What belongs in ACKB"): individual articles only when the main value is designing, modifying,
   repairing or documenting electronic musical instruments; general electronics only when it
   explains an existing ACKB tag; never mirror an external site's structure. General sites belong
   on the planned Reference Shelf, not in the graph.

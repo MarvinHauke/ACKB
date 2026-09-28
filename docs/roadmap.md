@@ -9,7 +9,8 @@ No server or REST API: the static lookup files cover that.
 1. **Editorial rule**: index a resource individually when its main value is designing, modifying,
    repairing or documenting electronic musical instruments. General electronics resources get in
    only when they explain an existing ACKB tag (e.g. a good voltage-follower article). Never
-   import an external site's structure. Goes into `docs/source-rules.md` and the PR checklist.
+   import an external site's structure. Done 2026-09-29: `docs/source-rules.md` ("What belongs
+   in ACKB") and the PR checklist.
 2. **Reviewer agent**: `taxonomy-architect` checks taxonomy and architecture before commits
    (see `CLAUDE.md`). Done 2026-09-29.
 3. **Data debt**: rewrite the inherited group summaries (`summaryFromGroup`, listed by
