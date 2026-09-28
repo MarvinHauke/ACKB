@@ -21,7 +21,7 @@
 		"delay-echo",
 		"lowpass-response"
 	],
-	"ics": [
+	"components": [
 		"fv1"
 	],
 	"kinds": ["schematic", "explanation"],

@@ -20,7 +20,7 @@
 		"lowpass-response",
 		"voltage-controlled-cutoff"
 	],
-	"ics": [
+	"components": [
 		"cd4007"
 	],
 	"kinds": ["schematic"],

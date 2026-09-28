@@ -30,7 +30,7 @@
 		"noise-generation",
 		"envelope-generation"
 	],
-	"ics": [
+	"components": [
 		"cd4006"
 	],
 	"kinds": ["explanation"],

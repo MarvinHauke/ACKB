@@ -23,7 +23,7 @@
 	"functions": [
 		"ring-modulation"
 	],
-	"ics": [
+	"components": [
 		"ca3080"
 	],
 	"kinds": ["schematic"],

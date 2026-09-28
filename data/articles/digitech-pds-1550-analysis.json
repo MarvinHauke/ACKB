@@ -32,7 +32,7 @@
 		"tone-shaping",
 		"delay-echo"
 	],
-	"ics": [
+	"components": [
 		"mn3007",
 		"lm13600"
 	],

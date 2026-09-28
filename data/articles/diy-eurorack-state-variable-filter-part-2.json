@@ -24,7 +24,7 @@
 		"highpass-response",
 		"resonance-control"
 	],
-	"ics": [
+	"components": [
 		"lm13700",
 		"tl072"
 	],

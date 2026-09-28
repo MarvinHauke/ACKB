@@ -28,7 +28,7 @@
 		"periodic-modulation",
 		"tap-tempo"
 	],
-	"ics": [
+	"components": [
 		"pic"
 	],
 	"kinds": ["explanation"],

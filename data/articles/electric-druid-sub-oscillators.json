@@ -34,7 +34,7 @@
 		"waveshaping",
 		"soft-clipping"
 	],
-	"ics": [
+	"components": [
 		"cd4013"
 	],
 	"kinds": ["explanation"],

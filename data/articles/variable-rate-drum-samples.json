@@ -25,7 +25,7 @@
 		"pitch-modulation",
 		"sample-playback"
 	],
-	"ics": [
+	"components": [
 		"pic"
 	],
 	"kinds": ["explanation"],

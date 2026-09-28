@@ -1,6 +1,6 @@
 <script lang="ts">
 	// One row per article: the title links straight to the resource in a new tab; tag chips open
-	// the tag pages (/ic/ca3080); "Details" opens the article page with related articles.
+	// the tag pages (/component/ca3080); "Details" opens the article page with related articles.
 	import { resolve } from '$app/paths';
 	import { sourceVisible } from '$lib/source-types';
 	import { KIND_LABEL, REGISTRY_META, termPath, type ArticleSummary, type ParentMap, type RegistryKey } from '$lib/types';
@@ -28,7 +28,7 @@
 		return limit === undefined ? all : all.slice(0, limit);
 	});
 
-	const CHIP_KEYS: RegistryKey[] = ['products', 'ics', 'subcircuits'];
+	const CHIP_KEYS: RegistryKey[] = ['products', 'components', 'subcircuits'];
 	/** Up to a few tags per row, each linking to its tag page. */
 	function chips(a: ArticleSummary) {
 		return CHIP_KEYS.flatMap((key) =>

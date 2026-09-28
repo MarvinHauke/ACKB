@@ -18,7 +18,7 @@
 	"functions": [
 		"current-controlled-amplification"
 	],
-	"ics": [
+	"components": [
 		"lm13700",
 		"tl072"
 	],

@@ -17,7 +17,7 @@
 	"functions": [
 		"random-modulation"
 	],
-	"ics": [
+	"components": [
 		"lf398"
 	],
 	"kinds": ["schematic"],

@@ -18,12 +18,14 @@
 		opamp: 'op-amp',
 		dac: 'DAC',
 		mcu: 'microcontroller',
-		'transistor-array': 'transistor array'
+		'transistor-array': 'transistor array',
+		optical: 'optical component',
+		magnetic: 'magnetic component'
 	};
 
 	// "Same kind" heading per node type.
 	const SAME_LABEL: Record<string, string> = $derived({
-		ics: term.category ? `Other ${IC_CATEGORY_LABEL[term.category] ?? term.category.replace('_', ' ')}s & alternatives` : 'Similar ICs',
+		components: term.category ? `Other ${IC_CATEGORY_LABEL[term.category] ?? term.category.replace('_', ' ')}s & alternatives` : 'Similar ICs',
 		products: 'More from this maker',
 		manufacturers: 'Products',
 		modules: 'Related modules',

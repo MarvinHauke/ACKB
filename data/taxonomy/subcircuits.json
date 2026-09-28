@@ -397,15 +397,6 @@
 		"group": "digital-interface"
 	},
 	{
-		"id": "vactrol",
-		"label": "Vactrol",
-		"aliases": [
-			"LDR optocoupler",
-			"optical attenuator"
-		],
-		"group": "shaping-dynamics"
-	},
-	{
 		"id": "led-driver",
 		"label": "LED Driver",
 		"aliases": [

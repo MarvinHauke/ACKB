@@ -22,7 +22,7 @@
 		"exponential-response",
 		"temperature-compensation"
 	],
-	"ics": [
+	"components": [
 		"lm394"
 	],
 	"kinds": ["analysis", "explanation"],

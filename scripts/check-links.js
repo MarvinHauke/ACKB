@@ -12,13 +12,11 @@ import { execFileSync } from 'node:child_process';
 import { existsSync, readFileSync, writeFileSync } from 'node:fs';
 import { join, resolve } from 'node:path';
 import { DATA_DIR, ROOT, loadArticles, loadTaxonomy } from './lib/data.js';
+import { TIMEOUT_MS, USER_AGENT, check } from './lib/fetch.js';
 
 const OUT = join(DATA_DIR, 'link-health.json');
-const USER_AGENT = 'ACKB-link-checker/1.0 (+https://github.com; static knowledge base link check)';
-const TIMEOUT_MS = 15_000;
 const HOST_DELAY_MS = 1_000;
 const PARALLEL_HOSTS = 4;
-const MAX_REDIRECTS = 8;
 
 const args = process.argv.slice(2);
 const today = new Date().toISOString().slice(0, 10);
@@ -44,51 +42,9 @@ function collectUrls(files) {
 		if (data.url) add(data.url, file);
 	}
 	if (!files) {
-		for (const ic of loadTaxonomy().taxonomy.ics) if (ic.datasheetUrl) add(ic.datasheetUrl, `ic:${ic.id}`);
+		for (const c of loadTaxonomy().taxonomy.components) if (c.datasheetUrl) add(c.datasheetUrl, `component:${c.id}`);
 	}
 	return urls;
-}
-
-async function request(url, method) {
-	const ctrl = new AbortController();
-	const timer = setTimeout(() => ctrl.abort(), TIMEOUT_MS);
-	try {
-		const res = await fetch(url, {
-			method,
-			redirect: 'manual',
-			signal: ctrl.signal,
-			headers: { 'user-agent': USER_AGENT, accept: '*/*' }
-		});
-		// Don't download bodies (PDFs can be large).
-		await res.body?.cancel();
-		return res;
-	} finally {
-		clearTimeout(timer);
-	}
-}
-
-/** HEAD first (GET if the server rejects HEAD), following redirects by hand to count them. */
-async function check(url) {
-	let current = url;
-	let redirects = 0;
-	try {
-		for (;;) {
-			let res = await request(current, 'HEAD');
-			if ([400, 403, 404, 405, 501].includes(res.status)) res = await request(current, 'GET');
-			const location = res.headers.get('location');
-			if (res.status >= 300 && res.status < 400 && location) {
-				if (++redirects > MAX_REDIRECTS) return { status: 'broken', httpStatus: res.status, redirects, finalUrl: current, error: 'too many redirects' };
-				current = new URL(location, current).href;
-				continue;
-			}
-			const status =
-				res.status < 300 ? (redirects ? 'redirect' : 'ok') : [401, 403, 429].includes(res.status) ? 'blocked' : 'broken';
-			return { status, httpStatus: res.status, redirects, finalUrl: current };
-		}
-	} catch (err) {
-		const timeout = err.name === 'AbortError' || err.name === 'TimeoutError';
-		return { status: timeout ? 'timeout' : 'broken', httpStatus: null, redirects, finalUrl: current, error: String(err.cause?.code ?? err.message) };
-	}
 }
 
 async function waybackSnapshot(url) {

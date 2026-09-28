@@ -34,7 +34,7 @@ const article = {
 	modules: [],
 	subcircuits: [],
 	functions: [],
-	ics: [],
+	components: [],
 	kinds: [],
 	added: new Date().toISOString().slice(0, 10)
 };

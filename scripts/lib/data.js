@@ -20,7 +20,7 @@ export const REGISTRIES = {
 	modules: { file: 'modules.json', schema: 'term', field: 'modules' },
 	subcircuits: { file: 'subcircuits.json', schema: 'subcircuit', field: 'subcircuits' },
 	functions: { file: 'functions.json', schema: 'term', field: 'functions' },
-	ics: { file: 'ics.json', schema: 'ic', field: 'ics' },
+	components: { file: 'components.json', schema: 'component', field: 'components' },
 	authors: { file: 'authors.json', schema: 'author', field: 'authors' }
 };
 

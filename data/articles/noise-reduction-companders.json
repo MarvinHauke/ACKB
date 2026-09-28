@@ -22,7 +22,7 @@
 	"functions": [
 		"noise-reduction"
 	],
-	"ics": [
+	"components": [
 		"sa571",
 		"pt2399"
 	],

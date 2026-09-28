@@ -22,7 +22,7 @@
 		"polyphonic-tone-generation",
 		"frequency-division"
 	],
-	"ics": [
+	"components": [
 		"cd4046",
 		"pic"
 	],

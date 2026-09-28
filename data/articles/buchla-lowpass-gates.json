@@ -20,12 +20,14 @@
 		"filter"
 	],
 	"subcircuits": [
-		"lowpass-gate",
-		"vactrol"
+		"lowpass-gate"
 	],
 	"functions": [
 		"lowpass-response",
 		"current-controlled-amplification"
+	],
+	"components": [
+		"vactrol"
 	],
 	"kinds": ["analysis"],
 	"added": "2026-09-26"

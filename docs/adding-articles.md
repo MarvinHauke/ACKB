@@ -26,13 +26,17 @@ npm run validate
 	"modules": ["filter"],
 	"subcircuits": ["sallen-key", "ota-stage", "diode-limiter"],
 	"functions": ["nonlinear-feedback", "soft-clipping"],
-	"ics": ["lm13700"],
+	"components": ["lm13700"],
 	"kinds": ["build-guide", "schematic"],
 	"added": "2026-09-26"
 }
 ```
 
 ## Rules
+
+The full checklist, including what CI checks on every pull request, is in
+[source-rules.md](source-rules.md).
+
 
 - The file name is the id (`lowercase-kebab-case.json`), usually a slug of the title. All ids
   are kebab-case.

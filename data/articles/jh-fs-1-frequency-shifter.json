@@ -8,8 +8,7 @@
 		"juergen-haible"
 	],
 	"license": "non-commercial, educational use (Random*Source)",
-	"summary": "Frequency shifter in the Moog/Bode class with a quadrature through-zero VCO instead of a beat oscillator, down to sub-audio barber-pole phasing; plus common myths about frequency shifters.",
-	"summaryFromGroup": true,
+	"summary": "Haible's original veroboard frequency shifter and an essay that clears up common misconceptions, e.g. that shifting always sounds inharmonic.",
 	"modules": [
 		"fx",
 		"spectral"

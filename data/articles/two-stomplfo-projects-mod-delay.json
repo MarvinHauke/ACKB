@@ -19,7 +19,6 @@
 	],
 	"subcircuits": [
 		"microcontroller",
-		"vactrol",
 		"digital-delay-line",
 		"voltage-follower"
 	],
@@ -30,9 +29,10 @@
 		"periodic-modulation",
 		"tap-tempo"
 	],
-	"ics": [
+	"components": [
 		"pt2399",
-		"pic"
+		"pic",
+		"vactrol"
 	],
 	"kinds": ["explanation"],
 	"added": "2026-09-26"

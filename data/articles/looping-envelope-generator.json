@@ -21,7 +21,7 @@
 		"envelope-generation",
 		"periodic-modulation"
 	],
-	"ics": [
+	"components": [
 		"pic"
 	],
 	"kinds": ["explanation"],

@@ -14,7 +14,7 @@ No server or REST API: the static lookup files cover that.
   Prefer static sites and blogs; forums only as single hand-picked threads (synth-diy.org blocks bots).
 - **Review content kinds**: Moritz Klein videos and Electric Druid projects are tagged `explanation`
   only; add `build-guide` where you can build along.
-- **Custom domain**: serve ACKB at irregular-instruments.com/ACKB once the Irregular site moves to
+- **Custom domain**: serve ackb at irregular-instruments.com/ackb once the Irregular site moves to
   the `marvinhauke.github.io` repo (ACKB itself needs no change).
 
 ## Later

@@ -8,8 +8,7 @@
 		"juergen-haible"
 	],
 	"license": "non-commercial, educational use (Random*Source)",
-	"summary": "Frequency shifter in the Moog/Bode class with a quadrature through-zero VCO instead of a beat oscillator, down to sub-audio barber-pole phasing; plus common myths about frequency shifters.",
-	"summaryFromGroup": true,
+	"summary": "The PCB successor of the FS-1: a linear/expo quadrature oscillator that goes through zero instead of the Bode's beat oscillator, reaching slow barber-pole sweeps, plus a reworked approach to carrier bleed.",
 	"modules": [
 		"fx",
 		"spectral"

@@ -23,10 +23,9 @@ jobs:
       - run: npm ci
       - name: Validate schema and references
         run: npm run validate -- --verbose
-      - name: Check links of changed entries (warnings only)
+      - name: Source rules for new and changed articles (docs/source-rules.md)
         if: github.event_name == 'pull_request'
-        run: node scripts/check-links.js --changed origin/${{ github.base_ref }}
-        continue-on-error: true
+        run: npm run check:sources -- --base origin/${{ github.base_ref }}
       - name: Build (search index, related entries, pages)
         run: npm run build
         env:

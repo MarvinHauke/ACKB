@@ -20,6 +20,10 @@
 		"year": { "type": "integer", "minimum": 1900, "maximum": 2100 },
 		"lang": { "type": "string", "pattern": "^[a-z]{2}$", "description": "ISO 639-1, default en" },
 		"license": { "type": "string" },
+		"linkCheck": {
+			"const": "blocked",
+			"description": "The site blocks automated link checks (e.g. a forum returning 403); checked by hand"
+		},
 		"summary": { "type": "string", "minLength": 20, "maxLength": 600, "description": "What this resource covers, in your own words" },
 		"summaryFromGroup": {
 			"const": true,
@@ -30,7 +34,7 @@
 		"modules": { "$ref": "#/$defs/idList", "description": "Ids from data/taxonomy/modules.json; empty for general topics (history, theory)" },
 		"subcircuits": { "$ref": "#/$defs/idList", "description": "Ids from data/taxonomy/subcircuits.json" },
 		"functions": { "$ref": "#/$defs/idList", "description": "Ids from data/taxonomy/functions.json" },
-		"ics": { "$ref": "#/$defs/idList", "description": "Ids from data/taxonomy/ics.json" },
+		"components": { "$ref": "#/$defs/idList", "description": "Ids from data/taxonomy/components.json (ICs and special parts such as vactrols)" },
 		"kinds": {
 			"type": "array",
 			"minItems": 1,

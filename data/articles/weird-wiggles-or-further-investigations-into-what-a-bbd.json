@@ -27,7 +27,7 @@
 		"pitch-modulation",
 		"periodic-modulation"
 	],
-	"ics": [
+	"components": [
 		"mn3007"
 	],
 	"kinds": ["analysis"],

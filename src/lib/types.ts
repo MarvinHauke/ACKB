@@ -1,7 +1,7 @@
 // Shapes of the files written by scripts/build-data.js.
 // The data is a small knowledge graph: articles (one per link) and tag nodes, connected by the tags.
 
-export type RegistryKey = 'manufacturers' | 'products' | 'modules' | 'subcircuits' | 'functions' | 'ics' | 'authors';
+export type RegistryKey = 'manufacturers' | 'products' | 'modules' | 'subcircuits' | 'functions' | 'components' | 'authors';
 
 export type ContentKind = 'build-guide' | 'explanation' | 'analysis' | 'schematic' | 'reference';
 export type Confidence = 'official' | 'academic' | 'community';
@@ -22,7 +22,7 @@ export interface Term {
 	parent?: string;
 	/** Articles tagged with it (a parent also counts its children's). */
 	count: number;
-	// Registry-specific extras (products, ics, subcircuits, authors).
+	// Registry-specific extras (products, components, subcircuits, authors).
 	manufacturer?: string;
 	year?: number;
 	category?: string;
@@ -103,18 +103,18 @@ export const REGISTRY_KEYS: RegistryKey[] = [
 	'modules',
 	'subcircuits',
 	'functions',
-	'ics',
+	'components',
 	'authors'
 ];
 
-/** URL name for each registry (/ic/ca3080, ?ic=ca3080, data/ic/ca3080.json) and its display names. */
+/** URL name for each registry (/component/ca3080, ?component=ca3080, data/component/ca3080.json) and its display names. */
 export const REGISTRY_META: Record<RegistryKey, { slug: string; label: string; plural: string }> = {
 	manufacturers: { slug: 'manufacturer', label: 'Manufacturer', plural: 'Manufacturers' },
 	products: { slug: 'product', label: 'Product', plural: 'Products' },
 	modules: { slug: 'module', label: 'Module', plural: 'Modules' },
 	subcircuits: { slug: 'subcircuit', label: 'Subcircuit', plural: 'Subcircuits' },
 	functions: { slug: 'function', label: 'Function', plural: 'Functions' },
-	ics: { slug: 'ic', label: 'IC', plural: 'ICs' },
+	components: { slug: 'component', label: 'Component', plural: 'Components & ICs' },
 	authors: { slug: 'author', label: 'Author', plural: 'Authors' }
 };
 
@@ -165,18 +165,20 @@ export const TERM_GROUPS: Partial<Record<RegistryKey, { id: string; label: strin
 		{ id: 'effects-dynamics', label: 'Effects & Dynamics' },
 		{ id: 'levels-utility', label: 'Levels & Utility' }
 	],
-	ics: [
+	components: [
 		{ id: 'ota-vca', label: 'OTAs & VCAs' },
 		{ id: 'synth-chips', label: 'Filter & Oscillator Chips' },
 		{ id: 'opamp-transistor', label: 'Op-Amps & Transistor Arrays' },
 		{ id: 'delay-noise', label: 'Delay & Noise' },
 		{ id: 'logic-digital', label: 'Logic & Digital' },
+		{ id: 'optical', label: 'Optical' },
+		{ id: 'magnetic', label: 'Magnetic' },
 		{ id: 'power-other', label: 'Power & Other' }
 	]
 };
 
-/** ICs are grouped by their `category`. */
-export const IC_CATEGORY_GROUP: Record<string, string> = {
+/** Components & ICs are grouped by their `category`. */
+export const COMPONENT_CATEGORY_GROUP: Record<string, string> = {
 	ota: 'ota-vca',
 	vca: 'ota-vca',
 	filter: 'synth-chips',
@@ -190,6 +192,8 @@ export const IC_CATEGORY_GROUP: Record<string, string> = {
 	mcu: 'logic-digital',
 	dac: 'logic-digital',
 	timer: 'logic-digital',
+	optical: 'optical',
+	magnetic: 'magnetic',
 	regulator: 'power-other',
 	other: 'power-other'
 };

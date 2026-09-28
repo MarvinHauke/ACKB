@@ -18,7 +18,7 @@
 		"attenuation",
 		"signal-inversion"
 	],
-	"ics": [
+	"components": [
 		"tl072"
 	],
 	"kinds": ["build-guide"],

@@ -18,7 +18,7 @@
 	"functions": [
 		"envelope-generation"
 	],
-	"ics": [
+	"components": [
 		"lm3900"
 	],
 	"kinds": ["schematic"],

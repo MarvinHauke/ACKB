@@ -32,16 +32,16 @@ data/articles + data/taxonomy          (the knowledge graph: articles, tag nodes
 ## Lookup files (static API)
 
 No server: one JSON file per used tag, e.g.
-`https://marvinhauke.github.io/ACKB/data/ic/ca3080.json`. Types are `manufacturer`, `product`,
+`https://marvinhauke.github.io/ACKB/data/component/ca3080.json`. Types are `manufacturer`, `product`, `component`,
 `module`, `subcircuit`, `function`, `ic`, `author`; `data/index.json` lists every id and maps
 PDF_OCR kinds to subcircuit paths (`pdfOcrKinds`). Subtypes sit under their parent
 (`data/module/fx/delay.json`). `schemaVersion` 3 (one record per article, kebab-case ids).
 
 ## Pages
 
-- `/`: search and filters (`?ic=ca3080&module=filter`). One row per article; the title opens the
+- `/`: search and filters (`?component=ca3080&module=filter`). One row per article; the title opens the
   resource in a new tab, tag chips open the tag pages, "Details" the article page.
-- `/<type>/<path>` (`/ic/ca3080`, `/module/fx/delay`, `/author/juergen-haible`, …): one page per used tag
+- `/<type>/<path>` (`/component/ca3080`, `/module/fx/delay`, `/author/juergen-haible`, …): one page per used tag
   with facts, related tags and its articles.
 - `/article/<id>`: one page per article with its tags and related articles.
 

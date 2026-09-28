@@ -23,7 +23,7 @@
 		"delay-echo",
 		"tap-tempo"
 	],
-	"ics": [
+	"components": [
 		"pic"
 	],
 	"kinds": ["build-guide"],

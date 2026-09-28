@@ -22,7 +22,7 @@
 		"crossfading",
 		"current-controlled-amplification"
 	],
-	"ics": [
+	"components": [
 		"ca3080"
 	],
 	"kinds": ["explanation"],

@@ -36,7 +36,7 @@
 		"lowpass-response",
 		"highpass-response"
 	],
-	"ics": [
+	"components": [
 		"korg35",
 		"lm13600"
 	],

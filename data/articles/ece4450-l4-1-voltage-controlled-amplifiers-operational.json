@@ -21,7 +21,7 @@
 	"functions": [
 		"current-controlled-amplification"
 	],
-	"ics": [
+	"components": [
 		"ca3080",
 		"lm13700"
 	],

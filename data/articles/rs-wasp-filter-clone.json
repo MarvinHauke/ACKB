@@ -27,7 +27,7 @@
 		"bandpass-response",
 		"soft-clipping"
 	],
-	"ics": [
+	"components": [
 		"cd4069"
 	],
 	"kinds": ["schematic"],

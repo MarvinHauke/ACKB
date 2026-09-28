@@ -33,7 +33,7 @@
 		"highpass-response",
 		"voltage-controlled-cutoff"
 	],
-	"ics": [
+	"components": [
 		"ir3109",
 		"ca3080",
 		"lm13700"

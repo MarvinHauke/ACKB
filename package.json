@@ -9,6 +9,7 @@
 		"validate": "node scripts/validate.js",
 		"new": "node scripts/new-article.js",
 		"links": "node scripts/check-links.js",
+		"check:sources": "node scripts/check-sources.js",
 		"prebuild": "npm run data",
 		"build": "vite build",
 		"preview": "vite preview",

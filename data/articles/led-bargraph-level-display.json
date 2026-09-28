@@ -20,7 +20,7 @@
 	"functions": [
 		"level-metering"
 	],
-	"ics": [
+	"components": [
 		"pic"
 	],
 	"kinds": ["explanation"],

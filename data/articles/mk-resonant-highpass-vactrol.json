@@ -12,7 +12,6 @@
 		"filter"
 	],
 	"subcircuits": [
-		"vactrol",
 		"feedback-network",
 		"opamp-stage"
 	],
@@ -20,6 +19,9 @@
 		"highpass-response",
 		"resonance-control",
 		"voltage-controlled-cutoff"
+	],
+	"components": [
+		"vactrol"
 	],
 	"kinds": ["explanation"],
 	"added": "2026-09-26"

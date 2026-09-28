@@ -14,7 +14,7 @@
 	"subcircuits": [
 		"inverting-amp"
 	],
-	"ics": [
+	"components": [
 		"tl072"
 	],
 	"kinds": ["build-guide"],

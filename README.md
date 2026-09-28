@@ -17,7 +17,7 @@ small knowledge graph.
 
 Type in the search box (MS-20, LM13700, "buffer", …) or combine filters on the left. Each result
 opens the resource directly; "Details" shows its tags and related articles. Every tag has a page,
-e.g. [/ic/ca3080](https://marvinhauke.github.io/ACKB/ic/ca3080) with facts, similar parts and its
+e.g. [/component/ca3080](https://marvinhauke.github.io/ackb/component/ca3080) with facts, similar parts and its
 articles. Hide source types (e.g. forum) or http:// links; your browser remembers it.
 
 ## How trustworthy is it
@@ -31,14 +31,14 @@ archived copy on archive.org when one exists.
 
 The whole index can be downloaded as plain data: `data/kb.jsonl` (one article per line),
 `data/graph.json` (the knowledge graph) and `data/taxonomy.json` (all tags). One small file per
-tag, e.g. `data/ic/ca3080.json`, lets tools like the PDF_OCR CLI fetch just what they need.
+tag, e.g. `data/component/ca3080.json`, lets tools like the PDF_OCR CLI fetch just what they need.
 `llms.txt` gives language models a map of the site.
 
 ## Adding articles
 
 One JSON file per link in `data/articles/`. `npm run new -- "Title"` creates one,
-`npm run validate` checks it. Details: [docs/adding-articles.md](docs/adding-articles.md) and
-[docs/taxonomy.md](docs/taxonomy.md).
+`npm run validate` checks it; pull requests must pass [the source rules](docs/source-rules.md).
+Details: [docs/adding-articles.md](docs/adding-articles.md) and [docs/taxonomy.md](docs/taxonomy.md).
 
 ## Run it locally
 

@@ -18,7 +18,7 @@
 	"functions": [
 		"noise-generation"
 	],
-	"ics": [
+	"components": [
 		"tl072"
 	],
 	"kinds": ["schematic"],

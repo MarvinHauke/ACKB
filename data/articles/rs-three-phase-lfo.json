@@ -17,7 +17,7 @@
 	"functions": [
 		"periodic-modulation"
 	],
-	"ics": [
+	"components": [
 		"cd4069"
 	],
 	"kinds": ["schematic"],

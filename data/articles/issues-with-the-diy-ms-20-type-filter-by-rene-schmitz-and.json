@@ -4,6 +4,7 @@
 	"title": "Issues with the DIY MS-20 type filter by René Schmitz and LMNC",
 	"url": "https://www.modwiggler.com/forum/viewtopic.php?t=219572",
 	"type": "forum",
+	"linkCheck": "blocked",
 	"summary": "Troubleshooting thread: common build mistakes.",
 	"manufacturers": [
 		"korg"
@@ -30,7 +31,7 @@
 		"lowpass-response",
 		"highpass-response"
 	],
-	"ics": [
+	"components": [
 		"lm13700",
 		"tl072"
 	],

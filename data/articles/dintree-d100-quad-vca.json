@@ -21,7 +21,7 @@
 		"exponential-response",
 		"tremolo"
 	],
-	"ics": [
+	"components": [
 		"ssm2164",
 		"tl072"
 	],
