@@ -87,7 +87,7 @@
 	let hiddenTypes: string[] = $state([]);
 	let hideHttp = $state(false);
 	let sourceTypesOpen = $state(false);
-	const sourceTypeOptions = $derived(SOURCE_TYPES.filter((t) => data.articles.some((e) => e.type === t)));
+	const sourceTypeOptions = $derived(SOURCE_TYPES.filter((t) => data.articles.some((e) => e.type === t)).sort());
 	const shown = (e: { type: string; secure: boolean }) => sourceVisible(e, hiddenTypes, hideHttp);
 
 	function toggleSourceType(type: string) {
@@ -115,18 +115,16 @@
 
 	const count = (key: FilterKey, id: string) => facetCounts[key].get(id) ?? 0;
 
-	/** Options with matches (or selected). */
+	/** Alphabetical by label ("TR-606" before "TR-808"). */
+	const byLabel = (a: { label: string }, b: { label: string }) =>
+		a.label.localeCompare(b.label, 'en', { numeric: true, sensitivity: 'base' });
+
 	/**
-	 * Options with matches (or selected). Order is by overall use (the term's count in the whole
-	 * knowledge base), not by matches in the current results, so lists don't reshuffle on every
-	 * click. Content kinds and confidence have no count and keep their fixed order.
+	 * All options of a filter, alphabetically. Options without matches stay in place (greyed out),
+	 * so nothing moves when a filter is ticked.
 	 */
 	function visibleOptions(key: FilterKey, list: Option[]) {
-		return list
-			.filter((o) => count(key, o.id) > 0 || filters[key].includes(o.id))
-			.sort((a, b) =>
-				a.count === undefined || b.count === undefined ? 0 : b.count - a.count || a.label.localeCompare(b.label)
-			);
+		return [...list].sort(byLabel);
 	}
 
 	function groupOf(key: FilterKey, o: Option) {
@@ -138,7 +136,8 @@
 		const groups = TERM_GROUPS[key as keyof typeof TERM_GROUPS] ?? [];
 		return groups
 			.map((g) => ({ ...g, options: visibleOptions(key, options[key].filter((o) => groupOf(key, o) === g.id)) }))
-			.filter((g) => g.options.length);
+			.filter((g) => g.options.length)
+			.sort(byLabel);
 	}
 
 	const productsOf = (manufacturer: string) =>
@@ -368,10 +367,14 @@
 		<!-- `parent`: the "All" row of this child's group; while it's ticked, the child shows as ticked too. -->
 		{#snippet checkbox(key: FilterKey, o: Option, parent?: { key: FilterKey; id: string })}
 			{@const implied = !!parent && filters[parent.key].includes(parent.id)}
-			<label class:implied>
+			{@const checked = implied || filters[key].includes(o.id)}
+			<!-- No matches with the current filters: stays in place, greyed out and not clickable. -->
+			{@const empty = !checked && count(key, o.id) === 0}
+			<label class:implied class:empty>
 				<input
 					type="checkbox"
-					checked={implied || filters[key].includes(o.id)}
+					{checked}
+					disabled={empty}
 					onchange={(e) => {
 						if (!implied) return toggle(key, o.id);
 						narrowTo(parent!, key, o.id);
@@ -413,7 +416,9 @@
 				open={openSub[`${key}:${m.id}`] ?? false}
 				ontoggle={(e) => (openSub[`${key}:${m.id}`] = (e.currentTarget as HTMLDetailsElement).open)}
 			>
-				<summary>{m.label} <span class="muted">{sel ? `${sel} selected` : count(key, m.id)}</span></summary>
+				<summary class:empty={!sel && count(key, m.id) === 0}
+					>{m.label} <span class="muted">{sel ? `${sel} selected` : count(key, m.id)}</span></summary
+				>
 				{#snippet allRow()}
 					{@render checkbox(key, { ...m, label: children.length ? 'All' : m.label })}
 				{/snippet}
@@ -450,7 +455,11 @@
 					{/if}
 				{:else if key === 'modules'}
 					<!-- Modules: plain rows, except those with subtypes (FX), which fold like a manufacturer. -->
-					{@const mods = visibleOptions(key, options[key].filter((o) => !o.parent))}
+					<!-- Modules with subtypes (FX) come first, then the rest; each part alphabetically. -->
+					{@const hasSubs = (id: string) => options[key].some((o) => o.parent === id)}
+					{@const mods = visibleOptions(key, options[key].filter((o) => !o.parent)).sort(
+						(a, b) => Number(hasSubs(b.id)) - Number(hasSubs(a.id))
+					)}
 					{#if mods.length}
 						{#snippet moduleList()}
 							<ul class="grow">
@@ -479,7 +488,9 @@
 									open={openSub[`${key}:${g.id}`] ?? false}
 									ontoggle={(e) => (openSub[`${key}:${g.id}`] = (e.currentTarget as HTMLDetailsElement).open)}
 								>
-									<summary>{g.label} <span class="muted">{sel ? `${sel} selected` : g.options.length}</span></summary>
+									<summary class:empty={!sel && g.options.every((o) => count(key, o.id) === 0)}
+										>{g.label} <span class="muted">{sel ? `${sel} selected` : g.options.length}</span></summary
+									>
 									{@render list(key, `${key}:${g.id}`, g.options)}
 								</details>
 							{/each}
@@ -748,6 +759,13 @@
 		align-items: baseline;
 		cursor: pointer;
 		padding: 0.1rem 0;
+	}
+
+	/* No matches with the current filters: kept in place so the list doesn't shift. */
+	aside label.empty,
+	aside summary.empty {
+		opacity: 0.45;
+		cursor: default;
 	}
 
 	aside label .muted {
