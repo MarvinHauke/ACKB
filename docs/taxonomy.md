@@ -53,8 +53,9 @@ Group ids and their labels are listed in `TERM_GROUPS` in `src/lib/types.ts`.
   digital & interface, power.
 - Functions (by where you notice them): filter response, distortion & shaping, pitch & oscillator,
   sound generation, modulation & control, effects & dynamics, levels & utility.
-- ICs: OTAs & VCAs, filter & oscillator chips, op-amps & transistor arrays, delay & noise,
-  logic & digital, power & other (from `category`).
+- Components & ICs (from `category`): OTAs & VCAs, filter & oscillator chips, op-amps &
+  transistor arrays, delay & noise, logic & digital, optical, magnetic, power & other. Empty
+  groups stay hidden until a term in them is used.
 
 ## Adding a term
 

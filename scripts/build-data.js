@@ -16,7 +16,8 @@ import { validate } from './validate.js';
 
 const OUT_CATALOG = join(ROOT, 'src/lib/server/generated/catalog.json');
 const OUT_STATIC = join(ROOT, 'static/data');
-const SCHEMA_VERSION = 2;
+// 3 since 2026-09-29: kebab-case ids, nested subtype paths, `components` (was `ics`), /component/ paths.
+const SCHEMA_VERSION = 3;
 
 // Must match the keys in src/lib/search.ts.
 const SEARCH_KEYS = [
@@ -176,7 +177,7 @@ function articlesByNode(taxonomy, articles) {
 
 /**
  * Related tag nodes, the edges between tags:
- * - `same`: same kind of thing (IC alternatives and same category, subtypes/siblings, a maker's products)
+ * - `same`: same kind of thing (component alternatives and same category, subtypes/siblings, a maker's products)
  * - `together`: tags of other types most often on the same articles (e.g. CA3080 ↔ OTA stage, VCA)
  */
 function nodeRelations(taxonomy, articles, byNode) {
@@ -381,7 +382,7 @@ function llmsTxt(articles, taxonomy) {
 		'# Analog Circuit Knowledge Base',
 		'',
 		'> Curated index of external resources (papers, datasheets, build logs, videos) on synthesizer',
-		'> circuits, tagged by manufacturer, product, module, subcircuit, function, IC and author.',
+		'> circuits, tagged by manufacturer, product, module, subcircuit, function, component and author.',
 		'> Machine-readable: data/kb.jsonl (one article per line), data/graph.json (knowledge graph),',
 		'> data/<type>/<id>.json (per tag), data/taxonomy.json (vocabulary).',
 		'',

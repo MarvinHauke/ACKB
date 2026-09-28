@@ -23,17 +23,17 @@ data/articles + data/taxonomy          (the knowledge graph: articles, tag nodes
 ## Knowledge graph
 
 - **Nodes**: articles (`data/articles/*.json`) and tags (`data/taxonomy/*.json`: manufacturers,
-  products, modules, subcircuits, functions, ICs, authors).
-- **Edges**: an article's tags; product → manufacturer; `parent` (subtypes); IC `alternatives`.
-- The build adds per tag: its articles, **same kind** (IC alternatives and same category,
+  products, modules, subcircuits, functions, components & ICs, authors).
+- **Edges**: an article's tags; product → manufacturer; `parent` (subtypes); component `alternatives`.
+- The build adds per tag: its articles, **same kind** (component alternatives and same category,
   subtypes/siblings, a maker's products) and **often used together** (tags that share articles).
 - No graph database needed at this size; `graph.json` can be imported into one later.
 
 ## Lookup files (static API)
 
 No server: one JSON file per used tag, e.g.
-`https://marvinhauke.github.io/ACKB/data/component/ca3080.json`. Types are `manufacturer`, `product`, `component`,
-`module`, `subcircuit`, `function`, `ic`, `author`; `data/index.json` lists every id and maps
+`https://marvinhauke.github.io/ackb/data/component/ca3080.json`. Types are `manufacturer`, `product`,
+`module`, `subcircuit`, `function`, `component`, `author`; `data/index.json` lists every id and maps
 PDF_OCR kinds to subcircuit paths (`pdfOcrKinds`). Subtypes sit under their parent
 (`data/module/fx/delay.json`). `schemaVersion` 3 (one record per article, kebab-case ids).
 
