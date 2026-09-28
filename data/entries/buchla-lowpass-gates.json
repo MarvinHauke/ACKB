@@ -21,14 +21,14 @@
 		"lowpass_response",
 		"current_controlled_amplification"
 	],
-	"difficulty": "intermediate",
-	"confidence": "academic",
+	"kinds": ["analysis"],
 	"added": "2026-09-26",
 	"sources": [
 		{
 			"type": "video",
 			"title": "ECE4450 L27: Buchla Lowpass Gates",
 			"url": "https://www.youtube.com/watch?v=NGz3dDnoVVk",
+			"origin": "academic",
 			"author": "Aaron Lanterman (Georgia Tech)"
 		}
 	]

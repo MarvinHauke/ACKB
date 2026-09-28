@@ -17,8 +17,7 @@
 		"polyphonic_tone_generation",
 		"chorus_flanging"
 	],
-	"difficulty": "beginner",
-	"confidence": "community-verified",
+	"kinds": ["explanation"],
 	"added": "2026-09-26",
 	"sources": [
 		{

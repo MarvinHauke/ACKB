@@ -12,8 +12,7 @@
 	"functions": [
 		"clock_conversion"
 	],
-	"difficulty": "intermediate",
-	"confidence": "community",
+	"kinds": ["schematic"],
 	"added": "2026-09-26",
 	"sources": [
 		{

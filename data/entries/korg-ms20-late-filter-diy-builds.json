@@ -9,8 +9,7 @@
 	"subcircuits": ["sallen_key", "ota_stage", "voltage_follower", "feedback_network", "diode_limiter"],
 	"functions": ["nonlinear_feedback", "soft_clipping", "resonance_control", "self_oscillation", "current_controlled_amplification", "lowpass_response", "highpass_response"],
 	"ics": ["lm13700", "tl072"],
-	"difficulty": "intermediate",
-	"confidence": "community-verified",
+	"kinds": ["build-guide", "schematic"],
 	"added": "2026-09-26",
 	"sources": [
 		{

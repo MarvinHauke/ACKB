@@ -19,8 +19,7 @@
 	"ics": [
 		"lm394"
 	],
-	"difficulty": "advanced",
-	"confidence": "academic",
+	"kinds": ["analysis", "explanation"],
 	"added": "2026-09-26",
 	"sources": [
 		{
@@ -39,6 +38,7 @@
 			"type": "video",
 			"title": "ECE4450 L18: Exponential Voltage-to-Current Conversion & Tempco Resistors",
 			"url": "https://www.youtube.com/watch?v=ZWJhApUmfEU",
+			"origin": "academic",
 			"author": "Aaron Lanterman (Georgia Tech)"
 		}
 	]

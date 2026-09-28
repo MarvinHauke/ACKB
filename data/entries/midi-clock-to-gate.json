@@ -16,8 +16,7 @@
 	"ics": [
 		"pic"
 	],
-	"difficulty": "beginner",
-	"confidence": "community",
+	"kinds": ["explanation"],
 	"added": "2026-09-26",
 	"sources": [
 		{

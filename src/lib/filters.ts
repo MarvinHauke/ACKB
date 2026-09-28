@@ -3,16 +3,16 @@
 import type { EntrySummary, RegistryKey } from './types';
 import { REGISTRY_KEYS, REGISTRY_META } from './types';
 
-export type FilterKey = RegistryKey | 'difficulty' | 'confidence';
+export type FilterKey = RegistryKey | 'kind' | 'confidence';
 
 export type Filters = Record<FilterKey, string[]>;
 
-export const FILTER_KEYS: FilterKey[] = [...REGISTRY_KEYS, 'difficulty', 'confidence'];
+export const FILTER_KEYS: FilterKey[] = [...REGISTRY_KEYS, 'kind', 'confidence'];
 
 /** URL query parameter per filter. */
 export const PARAM: Record<FilterKey, string> = {
 	...(Object.fromEntries(REGISTRY_KEYS.map((k) => [k, REGISTRY_META[k].slug])) as Record<RegistryKey, string>),
-	difficulty: 'difficulty',
+	kind: 'kind',
 	confidence: 'confidence'
 };
 
@@ -48,7 +48,7 @@ export function buildFacetIndex(entries: EntrySummary[]): FacetIndex {
 	};
 	for (const e of entries) {
 		for (const k of REGISTRY_KEYS) for (const t of e.terms[k]) add(k, t, e.id);
-		add('difficulty', e.difficulty, e.id);
+		for (const k of e.kinds) add('kind', k, e.id);
 		add('confidence', e.confidence, e.id);
 	}
 	return index;
@@ -57,7 +57,7 @@ export function buildFacetIndex(entries: EntrySummary[]): FacetIndex {
 /**
  * Entry ids matching all filters, or null when no filter is active.
  * Taxonomy terms combine with AND (an entry must have every selected term);
- * difficulty and confidence are single-valued per entry, so their values combine with OR.
+ * content kind and confidence values combine with OR ("build guide or explanation").
  */
 export function matchingIds(index: FacetIndex, filters: Filters): Set<string> | null {
 	let result: Set<string> | null = null;
@@ -67,7 +67,7 @@ export function matchingIds(index: FacetIndex, filters: Filters): Set<string> | 
 	for (const key of REGISTRY_KEYS) {
 		for (const value of filters[key]) intersect(index[key].get(value) ?? new Set());
 	}
-	for (const key of ['difficulty', 'confidence'] as const) {
+	for (const key of ['kind', 'confidence'] as const) {
 		if (!filters[key].length) continue;
 		const union = new Set<string>();
 		for (const value of filters[key]) for (const id of index[key].get(value) ?? []) union.add(id);

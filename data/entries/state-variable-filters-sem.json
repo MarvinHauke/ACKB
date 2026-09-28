@@ -24,26 +24,28 @@
 		"highpass_response",
 		"resonance_control"
 	],
-	"difficulty": "intermediate",
-	"confidence": "academic",
+	"kinds": ["analysis"],
 	"added": "2026-09-26",
 	"sources": [
 		{
 			"type": "video",
 			"title": "ECE4450 L23: Second-Order Filters: Mathematical Structure",
 			"url": "https://www.youtube.com/watch?v=f8ITRgPgzmY",
+			"origin": "academic",
 			"author": "Aaron Lanterman (Georgia Tech)"
 		},
 		{
 			"type": "video",
 			"title": "ECE4450 L24: State Variable Filters and the Oberheim SEM VCF",
 			"url": "https://www.youtube.com/watch?v=jAokGV71MEw",
+			"origin": "academic",
 			"author": "Aaron Lanterman (Georgia Tech)"
 		},
 		{
 			"type": "video",
 			"title": "ECE4450 L25: More State Variable Filter Examples",
 			"url": "https://www.youtube.com/watch?v=Pwe3DwoBP8g",
+			"origin": "academic",
 			"author": "Aaron Lanterman (Georgia Tech)"
 		}
 	]

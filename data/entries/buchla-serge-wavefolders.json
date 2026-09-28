@@ -24,26 +24,28 @@
 		"wavefolding",
 		"waveshaping"
 	],
-	"difficulty": "advanced",
-	"confidence": "academic",
+	"kinds": ["analysis"],
 	"added": "2026-09-26",
 	"sources": [
 		{
 			"type": "video",
 			"title": "ECE4450 L15: Buchla's Diodeless Deadband Circuits",
 			"url": "https://www.youtube.com/watch?v=Yd3hxfaPqPA",
+			"origin": "academic",
 			"author": "Aaron Lanterman (Georgia Tech)"
 		},
 		{
 			"type": "video",
 			"title": "ECE4450 L16: Buchla's Timbre Modulation (Easel & 259)",
 			"url": "https://www.youtube.com/watch?v=7X7Dss67WWs",
+			"origin": "academic",
 			"author": "Aaron Lanterman (Georgia Tech)"
 		},
 		{
 			"type": "video",
 			"title": "ECE4450 L17: The Serge Wave Multipliers",
 			"url": "https://www.youtube.com/watch?v=zL9ao3Uc3Yk",
+			"origin": "academic",
 			"author": "Aaron Lanterman (Georgia Tech)"
 		}
 	]

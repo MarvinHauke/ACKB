@@ -6,56 +6,63 @@
 	"circuitTypes": [
 		"theory"
 	],
-	"difficulty": "beginner",
-	"confidence": "academic",
+	"kinds": ["explanation"],
 	"added": "2026-09-26",
 	"sources": [
 		{
 			"type": "video",
 			"title": "ECE4450 Analog Circuits for Music Synthesis (full playlist)",
 			"url": "https://www.youtube.com/playlist?list=PLOunECWxELQS5bMdWo9VhmZtsCjhjYNcV",
+			"origin": "academic",
 			"author": "Aaron Lanterman (Georgia Tech)"
 		},
 		{
 			"type": "video",
 			"title": "ECE4450 L1: Introduction",
 			"url": "https://www.youtube.com/watch?v=mYk8r3QlNi8",
+			"origin": "academic",
 			"author": "Aaron Lanterman (Georgia Tech)"
 		},
 		{
 			"type": "video",
 			"title": "ECE4450 L2.1: 50 Years of Music Synthesis: Our Analog Ancestors",
 			"url": "https://www.youtube.com/watch?v=oi0d2YqrOfQ",
+			"origin": "academic",
 			"author": "Aaron Lanterman (Georgia Tech)"
 		},
 		{
 			"type": "video",
 			"title": "ECE4450 L2.2: March of the Microprocessors",
 			"url": "https://www.youtube.com/watch?v=l-DEMEkdyNY",
+			"origin": "academic",
 			"author": "Aaron Lanterman (Georgia Tech)"
 		},
 		{
 			"type": "video",
 			"title": "ECE4450 L2.3: The Sound of Sampling",
 			"url": "https://www.youtube.com/watch?v=HrC68gUmJVo",
+			"origin": "academic",
 			"author": "Aaron Lanterman (Georgia Tech)"
 		},
 		{
 			"type": "video",
 			"title": "ECE4450 L2.4: The Synthularity is Near",
 			"url": "https://www.youtube.com/watch?v=GZz8PJCfK1c",
+			"origin": "academic",
 			"author": "Aaron Lanterman (Georgia Tech)"
 		},
 		{
 			"type": "video",
 			"title": "ECE4450 L2.5: The Synthularity is Here!",
 			"url": "https://www.youtube.com/watch?v=GLHF7hSSp_M",
+			"origin": "academic",
 			"author": "Aaron Lanterman (Georgia Tech)"
 		},
 		{
 			"type": "video",
 			"title": "ECE4450 L3: The Importance of ECE Design Fundamentals",
 			"url": "https://www.youtube.com/watch?v=c5KYIfC4KS8",
+			"origin": "academic",
 			"author": "Aaron Lanterman (Georgia Tech)"
 		}
 	]

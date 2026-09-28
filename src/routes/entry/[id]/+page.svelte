@@ -1,9 +1,22 @@
 <script lang="ts">
+	import { onMount } from 'svelte';
 	import { resolve } from '$app/paths';
-	import { REGISTRY_KEYS, REGISTRY_META } from '$lib/types';
+	import { loadHiddenTypes, saveHiddenTypes } from '$lib/source-types';
+	import { KIND_LABEL, REGISTRY_KEYS, REGISTRY_META } from '$lib/types';
 
 	let { data } = $props();
 	const entry = $derived(data.entry);
+
+	// Source types unticked in the home page filters; read after hydration, so the prerendered page lists all.
+	let hiddenTypes: string[] = $state([]);
+	onMount(() => (hiddenTypes = loadHiddenTypes()));
+	const visibleSources = $derived(entry.sources.filter((s) => !hiddenTypes.includes(s.type)));
+	const hiddenHere = $derived([...new Set(entry.sources.filter((s) => hiddenTypes.includes(s.type)).map((s) => s.type))]);
+
+	function showHidden() {
+		hiddenTypes = hiddenTypes.filter((t) => !hiddenHere.includes(t));
+		saveHiddenTypes(hiddenTypes);
+	}
 
 	const STATUS_TEXT: Record<string, string> = {
 		broken: 'link broken',
@@ -20,7 +33,6 @@
 			description: entry.summary,
 			dateCreated: entry.added,
 			...(entry.reviewed ? { dateModified: entry.reviewed } : {}),
-			proficiencyLevel: entry.difficulty,
 			keywords: REGISTRY_KEYS.flatMap((k) => entry.terms[k].map((t) => t.label)).join(', '),
 			citation: entry.sources.map((s) => ({ '@type': 'CreativeWork', name: s.title, url: s.url, author: s.author }))
 		}).replace(/</g, '\\u003c')
@@ -35,32 +47,14 @@
 </svelte:head>
 
 <article>
-	<p class="badge">{entry.confidence} · {entry.difficulty} · added {entry.added}{entry.reviewed ? ` · reviewed ${entry.reviewed}` : ''}</p>
+	<p class="badge">{entry.kinds.map((k) => KIND_LABEL[k]).join(' · ')} · {entry.confidence} · added {entry.added}{entry.reviewed ? ` · reviewed ${entry.reviewed}` : ''}</p>
 	<h1>{entry.title}</h1>
 	<p class="summary">{entry.summary}</p>
 
-	<dl class="terms">
-		{#each REGISTRY_KEYS as key (key)}
-			{#if entry.terms[key].length}
-				<dt>{entry.terms[key].length > 1 ? REGISTRY_META[key].plural : REGISTRY_META[key].label}</dt>
-				<dd>
-					<ul class="chips">
-						{#each entry.terms[key] as t (t.id)}
-							<li>
-								<a class="chip" href={resolve('/[kind=taxonomy]/[id]', { kind: REGISTRY_META[key].slug, id: t.id })}
-									>{t.label}</a
-								>
-							</li>
-						{/each}
-					</ul>
-				</dd>
-			{/if}
-		{/each}
-	</dl>
 
 	<h2>Resources</h2>
 	<ul class="sources">
-		{#each entry.sources as s (s.url)}
+		{#each visibleSources as s (s.url)}
 			<li>
 				<span class="badge type">{s.type}</span>
 				<div>
@@ -80,6 +74,13 @@
 			</li>
 		{/each}
 	</ul>
+	{#if hiddenHere.length}
+		{@const n = entry.sources.length - visibleSources.length}
+		<p class="hidden-note muted">
+			{n} {hiddenHere.join('/')} {n === 1 ? 'source' : 'sources'} hidden by your filters.
+			<button class="link" onclick={showHidden}>Show</button>
+		</p>
+	{/if}
 
 	{#if entry.related.length}
 		<h2>Related entries</h2>
@@ -92,6 +93,26 @@
 			{/each}
 		</ul>
 	{/if}
+
+	<h2>Tags</h2>
+	<dl class="terms">
+		{#each REGISTRY_KEYS as key (key)}
+			{#if entry.terms[key].length}
+				<dt>{entry.terms[key].length > 1 ? REGISTRY_META[key].plural : REGISTRY_META[key].label}</dt>
+				<dd>
+					<ul class="chips">
+						{#each entry.terms[key] as t (t.id)}
+							<li>
+								<a class="chip" href={resolve('/[kind=taxonomy]/[id]', { kind: REGISTRY_META[key].slug, id: t.id })}
+									>{t.label}</a
+								>
+							</li>
+						{/each}
+					</ul>
+				</dd>
+			{/if}
+		{/each}
+	</dl>
 </article>
 
 <style>
@@ -107,7 +128,7 @@
 		display: grid;
 		grid-template-columns: max-content 1fr;
 		gap: 0.45rem 1rem;
-		margin: 1.5rem 0;
+		margin: 0 0 1.5rem;
 	}
 
 	dt {
@@ -165,6 +186,20 @@
 	.archive {
 		font-size: 0.85rem;
 		margin-left: 0.4rem;
+	}
+
+	.hidden-note {
+		font-size: 0.88rem;
+	}
+
+	.link {
+		background: none;
+		border: 0;
+		padding: 0;
+		color: var(--accent);
+		font: inherit;
+		text-decoration: underline;
+		cursor: pointer;
 	}
 
 	.related li {

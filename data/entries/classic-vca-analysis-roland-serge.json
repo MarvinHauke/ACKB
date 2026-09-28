@@ -21,20 +21,21 @@
 	"functions": [
 		"current_controlled_amplification"
 	],
-	"difficulty": "advanced",
-	"confidence": "academic",
+	"kinds": ["analysis"],
 	"added": "2026-09-26",
 	"sources": [
 		{
 			"type": "video",
 			"title": "ECE4450 L6: Roland 130 VCA Analysis",
 			"url": "https://www.youtube.com/watch?v=_rDZ9R-HHEo",
+			"origin": "academic",
 			"author": "Aaron Lanterman (Georgia Tech)"
 		},
 		{
 			"type": "video",
 			"title": "ECE4450 L7: Serge VCA Analysis",
 			"url": "https://www.youtube.com/watch?v=PlFpEW_GfKk",
+			"origin": "academic",
 			"author": "Aaron Lanterman (Georgia Tech)"
 		}
 	]

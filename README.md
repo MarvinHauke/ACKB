@@ -14,21 +14,24 @@ follower, …), function (soft clipping, resonance, …) and IC (LM13700, TL072,
 
 ## Finding things
 
-Type in the search box (MS-20, LM13700, "buffer", …) or combine filters on the left. Every tag has
-its own page, e.g. all entries using an LM13700. Each entry lists related entries and explains why
-they are related (shared ICs, subcircuits, …).
+Type in the search box (MS-20, LM13700, "buffer", …) or combine filters on the left, including
+the content kind (build guide, explanation, analysis, schematic, reference). Untick a source type
+(e.g. forum) to hide those links everywhere; your browser remembers it. Every tag has its own page,
+and each entry lists related entries and why they are related.
 
 ## How trustworthy is it
 
-Every entry has a confidence level: `official` (manufacturer), `academic` (papers),
-`community-verified`, `community`, `experimental`. Links are checked weekly; if a source goes
+Every entry has a confidence level, worked out from its sources: `official` (manufacturer
+datasheets and manuals), `academic` (papers, patents, university lectures) or `community`
+(everything else). Links are checked weekly; if a source goes
 offline, the entry points to an archived copy on archive.org when one exists.
 
 ## Data for tools and AI
 
 The whole index can be downloaded as plain data: `data/kb.jsonl` (one entry per line) and
-`data/taxonomy.json` (all tags). `llms.txt` gives language models a map of the site.
-Subcircuit names match the PDF_OCR project, so its detections can link straight to ACKB.
+`data/taxonomy.json` (all tags). One small file per tag, e.g. `data/subcircuit/ota_stage.json`,
+lets tools like the PDF_OCR CLI fetch just what they need; `data/index.json` lists them.
+`llms.txt` gives language models a map of the site.
 
 ## Adding entries
 

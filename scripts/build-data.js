@@ -3,9 +3,11 @@
 //   static/data/search-index.json          Fuse docs + prebuilt index, lazy-loaded by the search box
 //   static/data/kb.jsonl                   one entry per line, flattened for embeddings / LLM tools
 //   static/data/taxonomy.json              all registries, for other tools to reuse the vocabulary
+//   static/data/<slug>/<id>.json           entries per tag (e.g. subcircuit/ota_stage.json), for the PDF_OCR CLI
+//   static/data/index.json                 lists those lookup files
 //   static/llms.txt                        plain-text site map for LLM crawlers
 // Usage: node scripts/build-data.js
-import { existsSync, mkdirSync, writeFileSync } from 'node:fs';
+import { existsSync, mkdirSync, rmSync, writeFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import Fuse from 'fuse.js';
 import { DATA_DIR, REGISTRIES, ROOT, indexTaxonomy, readJson } from './lib/data.js';
@@ -48,6 +50,17 @@ function loadLinkHealth() {
 	return new Map((value?.links ?? []).map((l) => [l.url, l]));
 }
 
+/**
+ * Confidence from the sources, highest wins: official (datasheet, manual or manufacturer origin),
+ * academic (paper, patent or academic origin), otherwise community.
+ */
+function deriveConfidence(sources) {
+	const is = (types, origin) => sources.some((s) => types.includes(s.type) || s.origin === origin);
+	if (is(['datasheet', 'manual'], 'manufacturer')) return 'official';
+	if (is(['paper', 'patent'], 'academic')) return 'academic';
+	return 'community';
+}
+
 function resolveEntries(entries, index, health) {
 	return entries.map(({ id, data }) => {
 		const terms = {};
@@ -64,8 +77,8 @@ function resolveEntries(entries, index, health) {
 			id,
 			title: data.title,
 			summary: data.summary,
-			difficulty: data.difficulty,
-			confidence: data.confidence,
+			kinds: data.kinds,
+			confidence: deriveConfidence(data.sources),
 			added: data.added,
 			reviewed: data.reviewed ?? null,
 			terms,
@@ -176,7 +189,7 @@ function kbJsonl(entries, index) {
 				id: e.id,
 				title: e.title,
 				summary: e.summary,
-				difficulty: e.difficulty,
+				kinds: e.kinds,
 				confidence: e.confidence,
 				added: e.added,
 				terms,
@@ -185,6 +198,59 @@ function kbJsonl(entries, index) {
 			});
 		})
 		.join('\n');
+}
+
+// URL segment per registry, same as REGISTRY_META in src/lib/types.ts.
+const LOOKUP_SLUGS = {
+	manufacturers: 'manufacturer',
+	products: 'product',
+	circuitTypes: 'type',
+	subcircuits: 'subcircuit',
+	functions: 'function',
+	ics: 'ic'
+};
+
+/**
+ * One small file per used tag, so a tool can fetch exactly the entries for one detection
+ * (data/subcircuit/ota_stage.json) instead of all of kb.jsonl. Stale files are removed first.
+ */
+function writeLookups(entries, counted) {
+	const lookups = {};
+	for (const [key, slug] of Object.entries(LOOKUP_SLUGS)) {
+		rmSync(join(OUT_STATIC, slug), { recursive: true, force: true });
+		lookups[slug] = [];
+		for (const term of counted[key].filter((t) => t.count)) {
+			const matches = entries.filter((e) => e.terms[key].some((t) => t.id === term.id));
+			write(join(OUT_STATIC, slug, `${term.id}.json`), {
+				schemaVersion: 1,
+				term: {
+					id: term.id,
+					label: term.label,
+					aliases: term.aliases ?? [],
+					...(term.pdfOcrKind ? { pdfOcrKind: term.pdfOcrKind } : {})
+				},
+				entries: matches.map((e) => ({
+					id: e.id,
+					title: e.title,
+					summary: e.summary,
+					kinds: e.kinds,
+					confidence: e.confidence,
+					path: `entry/${e.id}`,
+					sources: e.sources.map(({ type, title, url, author, year, status }) => ({ type, title, url, author, year, status }))
+				}))
+			});
+			lookups[slug].push(term.id);
+		}
+	}
+	write(join(OUT_STATIC, 'index.json'), {
+		schemaVersion: 1,
+		pattern: 'data/<type>/<id>.json',
+		// PDF_OCR detection kind → subcircuit id, for kinds whose name differs from the ACKB id.
+		pdfOcrKinds: Object.fromEntries(
+			counted.subcircuits.filter((t) => t.count && t.pdfOcrKind).map((t) => [t.pdfOcrKind, t.id])
+		),
+		lookups
+	});
 }
 
 function llmsTxt(entries, taxonomy) {
@@ -227,6 +293,7 @@ write(OUT_CATALOG, { generatedAt: new Date().toISOString(), entries, taxonomy: c
 write(join(OUT_STATIC, 'search-index.json'), { docs, index: Fuse.createIndex(SEARCH_KEYS, docs).toJSON() });
 write(join(OUT_STATIC, 'kb.jsonl'), kbJsonl(entries, index) + '\n');
 write(join(OUT_STATIC, 'taxonomy.json'), taxonomy);
+writeLookups(entries, counted);
 write(join(ROOT, 'static/llms.txt'), llmsTxt(entries, counted));
 
 console.log(`build-data: ${entries.length} entries written (${warnings.length} warnings)`);

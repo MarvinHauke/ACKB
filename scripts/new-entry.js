@@ -32,8 +32,7 @@ const entry = {
 	subcircuits: [],
 	functions: [],
 	ics: [],
-	difficulty: 'intermediate',
-	confidence: 'community',
+	kinds: [],
 	added: new Date().toISOString().slice(0, 10),
 	sources: [{ type: 'website', title: '', url: 'https://' }]
 };

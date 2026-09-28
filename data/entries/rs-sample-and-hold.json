@@ -15,8 +15,7 @@
 	"ics": [
 		"lf398"
 	],
-	"difficulty": "beginner",
-	"confidence": "community-verified",
+	"kinds": ["schematic"],
 	"added": "2026-09-26",
 	"sources": [
 		{
