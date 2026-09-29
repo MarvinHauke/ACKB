@@ -2615,19 +2615,6 @@
 			]
 		},
 		{
-			"url": "https://www.youtube.com/watch?v=QyapQpQOwUM",
-			"status": "ok",
-			"httpStatus": 200,
-			"redirects": 0,
-			"finalUrl": "https://www.youtube.com/watch?v=QyapQpQOwUM",
-			"lastChecked": "2026-09-28",
-			"lastOk": "2026-09-28",
-			"archiveUrl": null,
-			"usedBy": [
-				"data/articles/i-created-a-diy-synth-prototyping-station.json"
-			]
-		},
-		{
 			"url": "https://www.youtube.com/watch?v=rnP_vo1ij50",
 			"status": "ok",
 			"httpStatus": 200,
