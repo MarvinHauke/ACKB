@@ -12,11 +12,17 @@ application notes of parts used in synths.
   `voltage-follower`. It gets no product, module or function tags it doesn't actually discuss.
 - **Never mirror another site's structure**: don't add a site's chapters one by one, and don't
   create tags just because another site has a page about something.
-- **Broad sites** (All About Circuits, Electronics Tutorials, simulators) go on the **Reference
-  Shelf** instead: one entry per site in `data/references.json`, shown on `/references`, outside
-  the graph, search and filters. Each entry needs an https url, a category (`learning`,
-  `simulation`, `calculators`, `parts`) and a summary in your own words; `npm run validate`
-  checks them, and a site can't be both an article and a shelf entry.
+- **General electronics sites** (All About Circuits, Electronics Tutorials, simulators) are
+  **references**, never articles. They live in `data/references.json`, apart from the graph:
+  - a *site* entry per site: https url, `category` (`learning`, `simulation`, `calculators`,
+    `parts`) and a summary in your own words;
+  - optional *page* entries: one page on a listed site (`site`) that explains an existing tag,
+    with the tag fields articles use (`subcircuits`, `components`, …). Pages only point to tags,
+    never create them; pick at most one or two per tag, only where the basics help.
+
+  References show up on `/references` and, folded, under "Need the basics?" on tag and article
+  pages; never in search, filters, related tags or the exports. `npm run validate` checks them
+  (schema, known site, same host, known tags, not also an article).
 
 In doubt, ask: would someone working on a synth circuit be glad to find this under that tag?
 

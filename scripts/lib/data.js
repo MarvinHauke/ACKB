@@ -1,6 +1,6 @@
 // Loads the raw JSON data (taxonomy registries + articles) from data/.
 // Shared by validate.js, build-data.js, check-links.js and new-article.js.
-// Also the Reference Shelf (data/references.json).
+// Also the references (data/references.json): general electronics sites and pages, outside the graph.
 import { readdirSync, readFileSync } from 'node:fs';
 import { basename, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -10,7 +10,7 @@ export const DATA_DIR = join(ROOT, 'data');
 // One file per article (link).
 export const ARTICLES_DIR = join(DATA_DIR, 'articles');
 export const TAXONOMY_DIR = join(DATA_DIR, 'taxonomy');
-// Reference Shelf: general sites on /references, outside the graph (docs/source-rules.md).
+// References: general electronics sites and single pages pointing to tags, outside the graph (docs/source-rules.md).
 export const REFERENCES_FILE = join(DATA_DIR, 'references.json');
 
 /**
@@ -28,6 +28,9 @@ export const REGISTRIES = {
 };
 
 export const ARTICLE_ID = /^[a-z0-9]+(-[a-z0-9]+)*$/;
+
+/** Registries a reference page may point to (same as REFERENCE_TAG_KEYS in src/lib/types.ts). */
+export const REFERENCE_TAG_KEYS = ['modules', 'subcircuits', 'functions', 'components'];
 
 /** Parse a JSON file; returns { value } or { error } so callers can collect all errors. */
 export function readJson(path) {

@@ -59,8 +59,11 @@ the sound).
 
 A build video that explains every step is `build-guide` and `explanation`. `reference` says how
 you use it, `type` says what it is (a `datasheet` is usually `reference`, but not every
-`reference` is a datasheet). Whole general-electronics sites don't become articles; they belong on
-the Reference Shelf (`data/references.json`, `/references`).
+`reference` is a datasheet). General-electronics sites and their tutorial pages don't become
+articles at all; they go into the separate references collection (`data/references.json`,
+`/references`), which only points to tags. Don't confuse the two: the kind `reference` marks an
+*article* you consult (a synth part's datasheet), the references collection holds general
+electronics outside the graph.
 
 ## Groups
 

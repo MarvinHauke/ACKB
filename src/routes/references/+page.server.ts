@@ -1,4 +1,4 @@
-// Reference Shelf: general electronics sites, outside the graph, search and filters.
+// References: general electronics sites and their pages, outside the graph, search and filters.
 import { catalog } from '$lib/server/catalog';
 
 export function load() {

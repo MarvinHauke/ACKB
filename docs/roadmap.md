@@ -30,10 +30,11 @@ No server or REST API: the static lookup files cover that.
 6. **More static sources** from the [Synth DIY Wiki resource list](https://sdiy.info/wiki/Online_resources),
    always through the source rules. Prefer static sites and blogs; forums only as single
    hand-picked threads (synth-diy.org blocks bots).
-7. **Reference Shelf**: a small, separate list of general electronics sites on `/references`,
+7. **References** (formerly "Reference Shelf"): a small, separate list of general electronics sites on `/references`,
    outside the graph, filters and search: a way out of ACKB, not part of it. Done 2026-09-29
    (`data/references.json`) with All About Circuits and Electronics Tutorials; candidates:
-   Elektronik-Kompendium, Falstad, LTspice.
+   Elektronik-Kompendium, Falstad, LTspice. Single reference pages point to tags and appear
+   folded under "Need the basics?" (the bridge from 4.9), never as articles.
 8. **Instrument list** from [Synthesizers 1896–2024](https://github.com/iftah-og/Synthesizers-1896-2024)
    (MIT): spec sheets on product pages and a coverage to-do list.
 

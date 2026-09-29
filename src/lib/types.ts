@@ -74,16 +74,32 @@ export interface Article {
 
 export type Taxonomy = Record<RegistryKey, Term[]>;
 
-/** A general site on the Reference Shelf (/references): outside the graph, search and filters. */
-export interface Reference {
+/**
+ * References (data/references.json): general electronics, kept apart from the articles and the graph.
+ * A site is listed on /references; a page belongs to a site and points to existing tags, shown under
+ * "Need the basics?" on those tag pages and on articles sharing them.
+ */
+interface ReferenceBase {
 	id: string;
 	title: string;
 	url: string;
 	summary: string;
-	category: 'learning' | 'simulation' | 'calculators' | 'parts';
 	lang?: string;
 	linkCheck?: 'blocked';
 }
+export interface ReferenceSite extends ReferenceBase {
+	category: 'learning' | 'simulation' | 'calculators' | 'parts';
+	site?: undefined;
+}
+export type ReferenceTagKey = 'modules' | 'subcircuits' | 'functions' | 'components';
+// Same list as REFERENCE_TAG_KEYS in scripts/lib/data.js.
+export const REFERENCE_TAG_KEYS: ReferenceTagKey[] = ['modules', 'subcircuits', 'functions', 'components'];
+export interface ReferencePage extends ReferenceBase, Partial<Record<ReferenceTagKey, string[]>> {
+	site: string;
+}
+export type Reference = ReferenceSite | ReferencePage;
+/** A reference page as shown under "Need the basics?": with its site's name. */
+export type BasicsLink = Pick<ReferencePage, 'id' | 'title' | 'url' | 'summary'> & { siteName: string };
 
 export interface Catalog {
 	generatedAt: string;

@@ -1,6 +1,7 @@
 <script lang="ts">
 	// One article (link): what it is, where it goes, its tags (edges to the tag pages) and related articles.
 	import { resolve } from '$app/paths';
+	import Basics from '$lib/components/Basics.svelte';
 	import { KIND_LABEL, REGISTRY_KEYS, REGISTRY_META, termPath } from '$lib/types';
 
 	let { data } = $props();
@@ -92,6 +93,8 @@
 			{/if}
 		{/each}
 	</dl>
+
+	<Basics links={data.basics} />
 
 	{#if data.related.length}
 		<h2>Related articles</h2>

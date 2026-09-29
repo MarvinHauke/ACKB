@@ -2,6 +2,7 @@
 	import { onMount } from 'svelte';
 	import { resolve } from '$app/paths';
 	import ArticleList from '$lib/components/ArticleList.svelte';
+	import Basics from '$lib/components/Basics.svelte';
 	import { loadHiddenTypes, loadHideHttp } from '$lib/source-types';
 	import { CONTENT_KINDS, KIND_LABEL, REGISTRY_META, termPath, type ContentKind } from '$lib/types';
 
@@ -147,6 +148,8 @@
 		{/if}
 	</section>
 {/if}
+
+<Basics links={data.basics} />
 
 <h2 class="articles-head">
 	Articles <span class="muted">{filtered.length < data.articles.length ? `${filtered.length} of ` : ''}{data.articles.length}</span>

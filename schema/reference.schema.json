@@ -1,24 +1,58 @@
 {
 	"$schema": "https://json-schema.org/draft/2020-12/schema",
 	"$id": "https://ackb.local/schema/reference.schema.json",
-	"title": "ACKB Reference Shelf",
-	"description": "General electronics sites, listed on /references only: outside the graph, search and filters (docs/source-rules.md).",
+	"title": "ACKB References",
+	"description": "General electronics, kept apart from the articles (docs/source-rules.md): whole sites, and single pages on those sites that point to existing tags. Never part of the graph, search or filters.",
 	"type": "array",
 	"items": {
-		"type": "object",
-		"additionalProperties": false,
-		"required": ["id", "title", "url", "summary", "category"],
-		"properties": {
-			"id": { "type": "string", "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$" },
-			"title": { "type": "string", "minLength": 1 },
-			"url": { "type": "string", "format": "uri", "pattern": "^https://" },
-			"summary": { "type": "string", "minLength": 20, "description": "What the site offers, in your own words" },
-			"category": {
-				"enum": ["learning", "simulation", "calculators", "parts"],
-				"description": "learning (tutorials, textbooks), simulation, calculators, parts (datasheets, part search)"
+		"oneOf": [{ "$ref": "#/$defs/site" }, { "$ref": "#/$defs/page" }]
+	},
+	"$defs": {
+		"id": { "type": "string", "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$" },
+		"idList": { "type": "array", "minItems": 1, "uniqueItems": true, "items": { "$ref": "#/$defs/id" } },
+		"common": {
+			"type": "object",
+			"required": ["id", "title", "url", "summary"],
+			"properties": {
+				"id": { "$ref": "#/$defs/id" },
+				"title": { "type": "string", "minLength": 1 },
+				"url": { "type": "string", "format": "uri", "pattern": "^https://" },
+				"summary": { "type": "string", "minLength": 20, "description": "What it offers, in your own words" },
+				"lang": { "type": "string", "pattern": "^[a-z]{2}$", "description": "Language if not English" },
+				"linkCheck": { "const": "blocked", "description": "The site blocks automated link checks; checked by hand" }
+			}
+		},
+		"site": {
+			"description": "A whole site, listed on /references.",
+			"allOf": [{ "$ref": "#/$defs/common" }],
+			"required": ["category"],
+			"properties": {
+				"category": {
+					"enum": ["learning", "simulation", "calculators", "parts"],
+					"description": "learning (tutorials, textbooks), simulation, calculators, parts (datasheets, part search)"
+				}
 			},
-			"lang": { "type": "string", "pattern": "^[a-z]{2}$", "description": "Language if not English" },
-			"linkCheck": { "const": "blocked", "description": "The site blocks automated link checks; checked by hand" }
+			"not": { "required": ["site"] },
+			"unevaluatedProperties": false
+		},
+		"page": {
+			"description": "One page on a listed site that explains existing tags; shown under \"Need the basics?\".",
+			"allOf": [{ "$ref": "#/$defs/common" }],
+			"required": ["site"],
+			"properties": {
+				"site": { "$ref": "#/$defs/id", "description": "Id of the site entry this page belongs to" },
+				"modules": { "$ref": "#/$defs/idList", "description": "Ids from data/taxonomy/modules.json" },
+				"subcircuits": { "$ref": "#/$defs/idList", "description": "Ids from data/taxonomy/subcircuits.json" },
+				"functions": { "$ref": "#/$defs/idList", "description": "Ids from data/taxonomy/functions.json" },
+				"components": { "$ref": "#/$defs/idList", "description": "Ids from data/taxonomy/components.json" }
+			},
+			"anyOf": [
+				{ "required": ["modules"] },
+				{ "required": ["subcircuits"] },
+				{ "required": ["functions"] },
+				{ "required": ["components"] }
+			],
+			"unevaluatedProperties": false
 		}
 	}
 }

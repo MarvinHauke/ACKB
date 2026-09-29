@@ -44,8 +44,10 @@ PDF_OCR kinds to subcircuit paths (`pdfOcrKinds`). Subtypes sit under their pare
 - `/<type>/<path>` (`/component/ca3080`, `/module/fx/delay`, `/author/juergen-haible`, …): one page per used tag
   with facts, related tags and its articles (first 20, narrowed by kind chips and an author select).
 - `/article/<id>`: one page per article with its tags and related articles.
-- `/references`: the Reference Shelf (`data/references.json`), general sites outside the graph;
-  only in the catalog, not in search, filters or the exports.
+- `/references`: references (`data/references.json`): general electronics sites and single pages
+  on them. A second collection next to the articles, outside the graph: pages point to tags and
+  appear folded under "Need the basics?" on those tag pages and on articles sharing a subcircuit
+  or component; only in the catalog, not in search, filters, related tags or the exports.
 
 ## Search and filters
 

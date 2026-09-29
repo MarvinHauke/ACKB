@@ -11,6 +11,7 @@ import {
 	ROOT,
 	indexTaxonomy,
 	loadArticles,
+	REFERENCE_TAG_KEYS,
 	loadReferences,
 	loadTaxonomy,
 	suggest
@@ -154,7 +155,8 @@ export function validate() {
 		}
 	}
 
-	// Reference Shelf: schema, unique ids and urls, no site that is also an article.
+	// References (sites and their pages): schema, unique ids and urls, never also an article.
+	// Pages belong to a listed site and only point to existing tags.
 	const { references, errors: refErrors } = loadReferences();
 	errors.push(...refErrors);
 	if (!schemas.references(references)) {
@@ -162,12 +164,30 @@ export function validate() {
 	}
 	const refIds = new Set();
 	const refUrls = new Set();
+	const host = (url) => {
+		try {
+			return new URL(url).hostname.replace(/^www\./, '');
+		} catch {
+			return null;
+		}
+	};
+	const sites = new Map(references.filter((r) => !r.site).map((r) => [r.id, r]));
 	for (const r of references) {
-		if (refIds.has(r.id)) errors.push(`data/references.json: duplicate id "${r.id}"`);
-		if (refUrls.has(r.url)) errors.push(`data/references.json: duplicate url ${r.url}`);
-		if (urls.has(r.url)) errors.push(`data/references.json: "${r.id}" is also an article (${urls.get(r.url)}); keep one`);
+		const where = `data/references.json: "${r.id}"`;
+		if (refIds.has(r.id)) errors.push(`${where} duplicate id`);
+		if (refUrls.has(r.url)) errors.push(`${where} duplicate url ${r.url}`);
+		if (urls.has(r.url)) errors.push(`${where} is also an article (${urls.get(r.url)}); keep one`);
 		refIds.add(r.id);
 		refUrls.add(r.url);
+		if (!r.site) continue;
+		const site = sites.get(r.site);
+		if (!site) errors.push(`${where} belongs to unknown site "${r.site}"`);
+		else if (host(r.url) !== host(site.url)) errors.push(`${where} url is not on ${host(site.url)}`);
+		for (const key of REFERENCE_TAG_KEYS) {
+			for (const ref of Array.isArray(r[key]) ? r[key] : []) {
+				if (!index[key].has(ref)) errors.push(`${where} ${key} "${ref}" unknown in data/taxonomy/${REGISTRIES[key].file}`);
+			}
+		}
 	}
 
 	// Unused terms are fine for broad registries; only flag the ones meant to be discovered through articles.

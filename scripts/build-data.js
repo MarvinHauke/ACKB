@@ -1,5 +1,5 @@
 // Builds everything the site needs from data/ (validates first; aborts on errors):
-//   src/lib/server/generated/catalog.json  resolved articles + taxonomy (with related nodes) + Reference Shelf, read by prerendered pages
+//   src/lib/server/generated/catalog.json  resolved articles + taxonomy (with related nodes) + references (sites and pages), read by prerendered pages
 //   static/data/search-index.json          Fuse docs + prebuilt index, lazy-loaded by the search box
 //   static/data/kb.jsonl                   one article per line, flattened for embeddings / LLM tools
 //   static/data/taxonomy.json              all registries, for other tools to reuse the vocabulary
