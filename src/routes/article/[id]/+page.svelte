@@ -6,6 +6,7 @@
 	import { KIND_LABEL, REGISTRY_KEYS, REGISTRY_META, termPath } from '$lib/types';
 
 	let { data } = $props();
+	let showAllRelated = $state(false);
 	const a = $derived(data.article);
 	const secure = $derived(a.url.startsWith('https://'));
 	const host = (url: string) => new URL(url).hostname.replace(/^www\./, '');
@@ -80,9 +81,7 @@
 <article>
 	<Breadcrumbs items={crumbs} />
 	<p class="badge">
-		{[a.type, ...a.kinds.filter((k) => k !== a.type).map((k) => KIND_LABEL[k]), a.confidence].join(' · ')} · added {a.added}{a.reviewed
-			? ` · reviewed ${a.reviewed}`
-			: ''}
+		{[a.type, ...a.kinds.filter((k) => k !== a.type).map((k) => KIND_LABEL[k]), a.confidence].join(' · ')}
 	</p>
 	<h1>{a.title}</h1>
 	<p class="byline muted">
@@ -107,9 +106,7 @@
 		{/if}
 	</p>
 	{#if !secure}
-		<p class="hint">
-			This site uses unencrypted http://. It's fine for reading; never enter a password or personal data there.
-		</p>
+		<p class="hint">Unencrypted http:// site: fine for reading, but never enter a password or personal data.</p>
 	{/if}
 
 	<p class="summary">{a.summary}</p>
@@ -135,7 +132,7 @@
 	{#if data.related.length}
 		<h2>Related articles</h2>
 		<ul class="related">
-			{#each data.related as r (r.id)}
+			{#each showAllRelated ? data.related : data.related.slice(0, 5) as r (r.id)}
 				<li>
 					<a href={r.url} target="_blank" rel="noopener external" data-out="related"
 						>{r.title}<span class="out" aria-hidden="true"> ↗</span></a
@@ -145,12 +142,34 @@
 				</li>
 			{/each}
 		</ul>
+		{#if !showAllRelated && data.related.length > 5}
+			<button class="more" onclick={() => (showAllRelated = true)}>Show all {data.related.length}</button>
+		{/if}
 	{/if}
+
+	<p class="dates muted">Added {a.added}{a.reviewed ? ` · reviewed ${a.reviewed}` : ''}</p>
 </article>
 
 <style>
 	article {
 		max-width: 46rem;
+	}
+
+	.dates {
+		margin-top: 1.5rem;
+		font-size: 0.8rem;
+	}
+
+	.more {
+		margin-top: 0.4rem;
+		padding: 0.25rem 0.7rem;
+		border: 1px solid var(--line);
+		border-radius: 4px;
+		background: none;
+		color: inherit;
+		font: inherit;
+		font-size: 0.88rem;
+		cursor: pointer;
 	}
 
 	.byline {

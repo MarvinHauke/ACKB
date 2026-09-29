@@ -11,6 +11,7 @@
 		parents = {},
 		hiddenTypes = [],
 		hideHttp = false,
+		hideCommunity = false,
 		limit
 	}: {
 		articles: ArticleSummary[];
@@ -19,6 +20,8 @@
 		parents?: ParentMap;
 		hiddenTypes?: string[];
 		hideHttp?: boolean;
+		/** Leave out the default "community" confidence label (tag pages only). */
+		hideCommunity?: boolean;
 		/** Show at most this many articles (e.g. the "Recent" list). */
 		limit?: number;
 	} = $props();
@@ -57,7 +60,7 @@
 				>
 			{/if}
 			<div class="badge">
-				{[a.type, ...a.kinds.filter((k) => k !== a.type).map((k) => KIND_LABEL[k]), a.confidence].join(' · ')}{a.terms.authors
+				{[a.type, ...a.kinds.filter((k) => k !== a.type).map((k) => KIND_LABEL[k]), ...(hideCommunity && a.confidence === 'community' ? [] : [a.confidence])].join(' · ')}{a.terms.authors
 					.length
 					? ` · ${authorsOf(a)}`
 					: ''}

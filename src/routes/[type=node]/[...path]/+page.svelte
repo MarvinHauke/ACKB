@@ -114,9 +114,9 @@
 		<dt>Manufacturer</dt>
 		<dd>{term.manufacturer}</dd>
 	{/if}
-	{#if term.category}
-		<dt>Category</dt>
-		<dd>{CATEGORY_LABEL[term.category] ?? term.category.replace('_', ' ')}{term.status ? ` · ${term.status}` : ''}</dd>
+	{#if term.status}
+		<dt>Status</dt>
+		<dd>{term.status}</dd>
 	{/if}
 	{#if term.successors?.length}
 		<dt>Reissues & replacements</dt>
@@ -154,36 +154,13 @@
 	{/if}
 </dl>
 
-{#if data.same.length || data.together.length}
-	<section class="related">
-		{#if data.same.length}
-			<h2>{SAME_LABEL[data.key]}</h2>
-			<ul class="chips">
-				{#each data.same as r (r.key + r.id)}<li><a class="chip" href={href(r.slug, r.path)}>{r.label}</a></li>{/each}
-			</ul>
-		{/if}
-		{#if data.together.length}
-			<h2>Often used together</h2>
-			<ul class="chips">
-				{#each data.together as r (r.key + r.id)}
-					<li>
-						<a class="chip" href={href(r.slug, r.path)} title="{REGISTRY_META[r.key].label}, {r.n} shared articles"
-							>{r.label} <span class="muted">{r.n}</span></a
-						>
-					</li>
-				{/each}
-			</ul>
-		{/if}
-	</section>
-{/if}
-
 <Basics links={data.basics} />
 
 <h2 class="articles-head">
 	Articles <span class="muted">{filtered.length < data.articles.length ? `${filtered.length} of ` : ''}{data.articles.length}</span>
 	<a class="search" href={searchHref}>Open in search →</a>
 </h2>
-{#if kindCounts.length > 1 || authors.length > 1}
+{#if data.articles.length > 12 && (kindCounts.length > 1 || authors.length > 1)}
 	<div class="narrow">
 		{#if kindCounts.length > 1}
 			<ul class="chips" aria-label="Filter by kind">
@@ -210,10 +187,36 @@
 	parents={data.parents}
 	{hiddenTypes}
 	{hideHttp}
+	hideCommunity
 	limit={showAll ? undefined : PAGE}
 />
 {#if !showAll && filtered.length > PAGE}
 	<button class="more" onclick={() => (showAll = true)}>Show all {filtered.length}</button>
+{/if}
+
+{#if data.same.length || data.together.length}
+	<section class="related">
+		{#if data.same.length}
+			<h2>{SAME_LABEL[data.key]}</h2>
+			<ul class="chips">
+				{#each data.same as r (r.key + r.id)}<li><a class="chip" href={href(r.slug, r.path)}>{r.label}</a></li>{/each}
+			</ul>
+		{/if}
+		{#if data.together.length}
+			<details>
+				<summary>Often used together <span class="muted">{data.together.length}</span></summary>
+				<ul class="chips">
+					{#each data.together as r (r.key + r.id)}
+						<li>
+							<a class="chip" href={href(r.slug, r.path)} title="{REGISTRY_META[r.key].label}, {r.n} shared articles"
+								>{r.label} <span class="muted">{r.n}</span></a
+							>
+						</li>
+					{/each}
+				</ul>
+			</details>
+		{/if}
+	</section>
 {/if}
 
 <style>
@@ -241,6 +244,21 @@
 		list-style: none;
 		padding: 0;
 		margin: 0;
+	}
+
+	.related details {
+		margin-top: 1rem;
+	}
+
+	.related summary {
+		cursor: pointer;
+		font-weight: 600;
+		font-size: 1rem;
+		margin-bottom: 0.5rem;
+	}
+
+	.related {
+		margin-top: 2rem;
 	}
 
 	.related h2 {
