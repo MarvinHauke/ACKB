@@ -1,6 +1,7 @@
 <script lang="ts">
 	// One article (link): what it is, where it goes, its tags (edges to the tag pages) and related articles.
 	import { resolve } from '$app/paths';
+	import Breadcrumbs from '$lib/components/Breadcrumbs.svelte';
 	import Basics from '$lib/components/Basics.svelte';
 	import { KIND_LABEL, REGISTRY_KEYS, REGISTRY_META, termPath } from '$lib/types';
 
@@ -21,6 +22,21 @@
 	// Tags without authors (shown in the byline) — the article's edges in the knowledge graph.
 	const TAG_KEYS = REGISTRY_KEYS.filter((k) => k !== 'authors');
 
+	// Trail to the article's primary tag (first tag type that has one): Home › Components › LM13700.
+	const crumbs = $derived.by(() => {
+		const key = TAG_KEYS.find((k) => a.terms[k].length);
+		const t = key && a.terms[key][0];
+		return [
+			{ label: 'Home', href: resolve('/') },
+			...(key && t
+				? [
+						{ label: REGISTRY_META[key].plural },
+						{ label: t.label, href: nodeHref(key, t.id) }
+					]
+				: [])
+		];
+	});
+
 	const jsonLd = $derived(
 		JSON.stringify({
 			'@context': 'https://schema.org',
@@ -38,11 +54,13 @@
 <svelte:head>
 	<title>{a.title} · ACKB</title>
 	<meta name="description" content={a.summary} />
+	<link rel="canonical" href={data.canonical} />
 	<!-- eslint-disable-next-line svelte/no-at-html-tags -- JSON-LD from our own data, '<' escaped -->
 	{@html `<script type="application/ld+json">${jsonLd}</script>`}
 </svelte:head>
 
 <article>
+	<Breadcrumbs items={crumbs} />
 	<p class="badge">
 		{[a.type, ...a.kinds.filter((k) => k !== a.type).map((k) => KIND_LABEL[k]), a.confidence].join(' · ')} · added {a.added}{a.reviewed
 			? ` · reviewed ${a.reviewed}`

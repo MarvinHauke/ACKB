@@ -2,6 +2,7 @@
 	import { onMount } from 'svelte';
 	import { resolve } from '$app/paths';
 	import ArticleList from '$lib/components/ArticleList.svelte';
+	import Breadcrumbs from '$lib/components/Breadcrumbs.svelte';
 	import Basics from '$lib/components/Basics.svelte';
 	import { loadHiddenTypes, loadHideHttp } from '$lib/source-types';
 	import { CONTENT_KINDS, KIND_LABEL, REGISTRY_META, termPath, type ContentKind } from '$lib/types';
@@ -12,6 +13,14 @@
 	const href = (slug: string, path: string) => resolve('/[type=node]/[...path]', { type: slug, path });
 	// The search page filtered by this tag, to combine it with other filters.
 	const searchHref = $derived(`${resolve('/')}?${data.meta.slug}=${encodeURIComponent(termPath(term.id, term.parent))}`);
+
+	const breadcrumbLd = $derived(
+		JSON.stringify({
+			'@context': 'https://schema.org',
+			'@type': 'BreadcrumbList',
+			itemListElement: data.seo.crumbs.map((c, i) => ({ '@type': 'ListItem', position: i + 1, name: c.name, ...(c.url ? { item: c.url } : {}) }))
+		}).replace(/</g, '\\u003c')
+	);
 
 	const CATEGORY_LABEL: Record<string, string> = {
 		ota: 'OTA',
@@ -74,17 +83,22 @@
 </script>
 
 <svelte:head>
-	<title>{term.label} · {data.meta.label} · ACKB</title>
-	<meta
-		name="description"
-		content={term.description ?? `${data.articles.length} curated resources on ${term.label} in synthesizer circuits.`}
-	/>
+	<title>{data.seo.title}</title>
+	<meta name="description" content={data.seo.description} />
+	<link rel="canonical" href={data.seo.canonical} />
+	{#if data.seo.noindex}<meta name="robots" content="noindex,follow" />{/if}
+	<!-- eslint-disable-next-line svelte/no-at-html-tags -- JSON-LD from our own data, '<' escaped -->
+	{@html `<script type="application/ld+json">${breadcrumbLd}</script>`}
 </svelte:head>
 
-<p class="badge">
-	{data.meta.label}{#if data.parent}
-		· <a href={href(data.meta.slug, data.parent.id)}>{data.parent.label}</a>{/if}
-</p>
+<Breadcrumbs
+	items={[
+		{ label: 'Home', href: resolve('/') },
+		{ label: data.meta.plural },
+		...(data.parent ? [{ label: data.parent.label, href: href(data.meta.slug, data.parent.id) }] : []),
+		{ label: term.label }
+	]}
+/>
 <h1>{term.label}</h1>
 {#if term.description}<p class="lead">{term.description}</p>{/if}
 

@@ -56,6 +56,14 @@
 		<a href="mailto:info@irregular-instruments.com?subject=ACKB%20listing">Write to us</a> and we'll change or
 		remove it.
 	</p>
+	<p>
+		<a
+			href="https://github.com/MarvinHauke/ackb/issues/new?template=suggest-resource.md"
+			target="_blank"
+			rel="noopener external">Suggest a resource ↗</a
+		>
+		<span class="visually-hidden">(opens in a new tab)</span>
+	</p>
 	<p class="legal">
 		<a href="https://irregular-instruments.com/impressum">Impressum</a> ·
 		<a href="https://irregular-instruments.com/datenschutz">Datenschutz</a>
