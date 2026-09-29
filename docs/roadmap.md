@@ -51,6 +51,8 @@ No server or REST API: the static lookup files cover that.
   existing tags first.
 - Max/MSP and DSP resources (broader subtitle, tags).
 - External contributions.
+- Part alternatives and cross-references (e.g. from All About Circuits or part suppliers) on
+  component pages; possibly a way to find sponsors.
 
 Not planned: extra classification fields such as `scope` or `resource_type`. `type` (what the
 source is), `kinds` (what it's useful for) and the tags (what it's about) are enough.

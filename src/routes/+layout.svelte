@@ -39,7 +39,6 @@
 <header>
 	<nav>
 		<a class="brand" href={resolve('/')}>ACKB <span>Analog Circuit Knowledge Base</span></a>
-		<a class="navlink" href={resolve('/references')}>References</a>
 	</nav>
 </header>
 
@@ -101,10 +100,6 @@
 		font-weight: 400;
 		color: var(--muted);
 		margin-left: 0.5rem;
-	}
-
-	.navlink {
-		font-size: 0.9rem;
 	}
 
 	main {
