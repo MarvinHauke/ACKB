@@ -28,7 +28,17 @@ export function summarize(a: Article): ArticleSummary {
 
 export type FilterTerm = Pick<
 	Term,
-	'id' | 'label' | 'count' | 'group' | 'parent' | 'manufacturer' | 'category' | 'status' | 'datasheetUrl' | 'alternatives'
+	| 'id'
+	| 'label'
+	| 'aliases'
+	| 'count'
+	| 'group'
+	| 'parent'
+	| 'manufacturer'
+	| 'category'
+	| 'status'
+	| 'datasheetUrl'
+	| 'alternatives'
 >;
 
 /** Only the terms at least one article uses, without descriptions: enough for the grouped filters. */
@@ -38,9 +48,10 @@ export function usedTerms(): Record<RegistryKey, FilterTerm[]> {
 			k,
 			catalog.taxonomy[k]
 				.filter((t) => t.count > 0)
-				.map(({ id, label, count, group, parent, manufacturer, category, status, datasheetUrl, alternatives }) => ({
+				.map(({ id, label, aliases, count, group, parent, manufacturer, category, status, datasheetUrl, alternatives }) => ({
 					id,
 					label,
+					aliases,
 					count,
 					group,
 					parent,
