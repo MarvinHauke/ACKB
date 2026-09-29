@@ -241,6 +241,8 @@
 		group = 'none';
 		sort = 'best';
 		syncUrl();
+		// The Reset button disappears with the filters: keep focus in the page, in the search field.
+		document.getElementById('q')?.focus();
 	}
 
 	function removeTag(key: FilterKey, id: string) {
@@ -463,13 +465,19 @@
 	}}
 />
 
-<button class="filters-toggle" aria-expanded={showFilters} onclick={() => (showFilters = !showFilters)}>
-	Filters{activeCount(filters) ? ` (${activeCount(filters)})` : ''}
-</button>
+<div class="toggle-row">
+	<button class="filters-toggle" aria-expanded={showFilters} onclick={() => (showFilters = !showFilters)}>
+		Filters{activeCount(filters) ? ` (${activeCount(filters)})` : ''}
+	</button>
+	{#if isFiltering && !showFilters}<button class="link reset" aria-label="Reset filters and search" onclick={clearAll}>Reset</button>{/if}
+</div>
 
 <div class="layout">
 	<aside aria-label="Filters" class:open={showFilters}>
-		<h2 class="visually-hidden">Filters</h2>
+		<div class="head-row side-head">
+			<h2 class="eyebrow">Filters{isFiltering ? ` · ${activeCount(filters) + terms.length}` : ''}</h2>
+			{#if isFiltering}<button class="link" aria-label="Reset filters and search" onclick={clearAll}>Reset</button>{/if}
+		</div>
 		<!-- `parent`: the "All" row of this child's group; while it's ticked, the child shows as ticked too. -->
 		{#snippet checkbox(key: FilterKey, o: Option, parent?: { key: FilterKey; id: string })}
 			{@const implied = !!parent && filters[parent.key].includes(parent.id)}
@@ -648,19 +656,6 @@
 
 	<section>
 		<!-- Inside the results column, so the sidebar doesn't move when it appears. -->
-		{#if icInfo}
-			<p class="ic-info">
-				<strong>{icInfo.label}</strong>
-				{[IC_CATEGORY_LABEL[icInfo.category ?? ''] ?? icInfo.category, icInfo.manufacturer, icInfo.status].filter(Boolean).join(' · ')}
-				{#if icInfo.datasheetUrl}
-					· <a href={icInfo.datasheetUrl} target="_blank" rel="noopener external" data-out="datasheet">Datasheet ↗</a>
-				{/if}
-				{#if icInfo.alternatives?.length}
-					· Alternatives: {icInfo.alternatives.map((id) => labels.get(id) ?? id).join(', ')}
-				{/if}
-				· <a href={resolve('/[type=node]/[...path]', { type: 'component', path: icInfo.id })}>About {icInfo.label} →</a>
-			</p>
-		{/if}
 		{#if isFiltering}
 			<div class="head-box">
 			<div class="results-head">
@@ -689,9 +684,21 @@
 						</select>
 					</label>
 				</span>
-				<button class="link clear" onclick={clearAll}>Clear all</button>
 			</div>
 			</div>
+			{#if icInfo}
+				<p class="ic-info">
+					<strong>{icInfo.label}</strong>
+					{[IC_CATEGORY_LABEL[icInfo.category ?? ''] ?? icInfo.category, icInfo.manufacturer, icInfo.status].filter(Boolean).join(' · ')}
+					{#if icInfo.datasheetUrl}
+						· <a href={icInfo.datasheetUrl} target="_blank" rel="noopener external" data-out="datasheet">Datasheet ↗</a>
+					{/if}
+					{#if icInfo.alternatives?.length}
+						· Alternatives: {icInfo.alternatives.map((id) => labels.get(id) ?? id).join(', ')}
+					{/if}
+					· <a href={resolve('/[type=node]/[...path]', { type: 'component', path: icInfo.id })}>About {icInfo.label} →</a>
+				</p>
+			{/if}
 			{#if results.length}
 				{#if group === 'none'}
 					<ArticleList articles={sorted(results)} {labels} parents={data.parents} {hiddenTypes} {hideHttp} />
@@ -723,7 +730,7 @@
 				{/if}
 			{/if}
 		{:else}
-			<h2 class="eyebrow">Recent articles</h2>
+			<div class="head-row"><h2 class="eyebrow">Recent articles</h2></div>
 			<ArticleList articles={data.articles} {labels} parents={data.parents} {hiddenTypes} {hideHttp} limit={10} />
 
 			<h2 class="eyebrow">Popular functions</h2>
@@ -760,11 +767,44 @@
 		container-type: inline-size;
 	}
 
+	/* Header rows of both columns (sidebar "Filters", results toolbar, "Recent articles"): one height,
+	   one thin line below, so they read as one row. */
+	.head-row {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: var(--space-3);
+		min-height: var(--head-row);
+		padding-bottom: var(--space-2);
+		margin-bottom: var(--space-3);
+		border-bottom: 1px solid var(--line);
+	}
+
+	.head-row .eyebrow,
+	.results-head .status {
+		margin: 0;
+	}
+
+	.head-row .link {
+		margin: 0;
+		white-space: nowrap;
+	}
+
+	.link:focus-visible {
+		outline: 2px solid var(--accent);
+		outline-offset: 2px;
+	}
+
+	.toggle-row {
+		display: none;
+	}
+
 	.results-head {
 		display: grid;
-		grid-template-columns: auto 1fr auto;
-		grid-template-areas: 'count views clear';
-		align-items: baseline;
+		grid-template-columns: auto 1fr;
+		grid-template-areas: 'count views';
+		min-height: var(--head-row);
+		align-items: center;
 		gap: var(--space-1) var(--space-3);
 		padding-bottom: var(--space-2);
 		margin-bottom: var(--space-3);
@@ -798,23 +838,17 @@
 		white-space: nowrap;
 	}
 
-	@container (max-width: 40rem) {
+	@container (max-width: 32rem) {
 		.results-head {
-			grid-template-columns: 1fr auto;
+			grid-template-columns: 1fr;
 			grid-template-areas:
-				'count clear'
-				'views views';
+				'count'
+				'views';
 		}
 
 		.views {
 			justify-content: flex-start;
 		}
-	}
-
-	.results-head .clear {
-		grid-area: clear;
-		margin: 0;
-		white-space: nowrap;
 	}
 
 	.views select {
@@ -858,6 +892,7 @@
 	}
 
 	.layout {
+		--head-row: 2.4rem;
 		display: grid;
 		grid-template-columns: 18rem 1fr;
 		gap: var(--space-5);
@@ -1036,10 +1071,21 @@
 			gap: var(--space-3);
 		}
 
+		.toggle-row {
+			display: flex;
+			align-items: center;
+			gap: var(--space-3);
+			margin-bottom: var(--space-3);
+		}
+
+		.toggle-row .link {
+			margin: 0;
+			white-space: nowrap;
+		}
+
 		.filters-toggle {
 			display: block;
-			width: 100%;
-			margin-bottom: var(--space-3);
+			flex: 1;
 			padding: var(--space-2);
 			font: inherit;
 			font-weight: 600;
