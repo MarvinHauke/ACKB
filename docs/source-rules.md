@@ -65,8 +65,9 @@ Every component in `data/taxonomy/components.json` gets a `datasheetUrl` when a 
 exists; `npm run validate -- --verbose` warns about used components without one.
 
 1. The manufacturer's own PDF, preferably a stable URL (e.g. `ti.com/lit/ds/symlink/<part>.pdf`).
-2. Obsolete part: the original datasheet hosted by an established synth-DIY supplier (e.g.
-   Thonk, which hosts the Curtis CEM datasheets). Prefer the **long** version (full application
+2. Obsolete part: the original datasheet hosted by an established synth-DIY supplier or
+   electronics distributor (e.g. Thonk for the Curtis CEM datasheets, MG Electronic for the
+   MM5837). It must be the original manufacturer's document, not a shop's own summary. Prefer the **long** version (full application
    notes) when a short and a long one exist.
 3. Otherwise the datasheet of a legitimate reissue (e.g. Sound Semiconductor SSI2164 for the
    SSM2164, Alfa AS3080E for the CA3080); say so in the description ("datasheet: SSI2164 reissue").
