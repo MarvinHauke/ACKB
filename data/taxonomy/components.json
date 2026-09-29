@@ -33,12 +33,16 @@
 		"manufacturer": "RCA / Intersil",
 		"category": "ota",
 		"status": "obsolete",
+		"datasheetUrl": "https://www.alfatriode.lv/eng/sc/AS3080E.pdf",
 		"aliases": [
-			"3080"
+			"3080",
+			"AS3080",
+			"AS3080E"
 		],
 		"alternatives": [
 			"lm13700"
-		]
+		],
+		"description": "Original OTA IC (RCA). Datasheet: AS3080E reissue by Alfa."
 	},
 	{
 		"id": "korg35",
@@ -58,10 +62,12 @@
 		"manufacturer": "Curtis / OnChip",
 		"category": "filter",
 		"status": "reissued",
+		"datasheetUrl": "https://www.thonk.co.uk/wp-content/uploads/2020/08/CEM3320-Datasheet.pdf",
 		"aliases": [
 			"3320",
 			"AS3320"
-		]
+		],
+		"description": "Four-pole VCF IC. Datasheet: original Curtis CEM3320, hosted by Thonk."
 	},
 	{
 		"id": "ssm2044",
@@ -139,11 +145,13 @@
 		"manufacturer": "Curtis / OnChip",
 		"category": "oscillator",
 		"status": "reissued",
+		"datasheetUrl": "https://www.thonk.co.uk/wp-content/uploads/2017/06/CEM_3340-3345_Long.pdf",
 		"aliases": [
 			"3340",
 			"AS3340",
 			"V3340"
-		]
+		],
+		"description": "VCO IC. Datasheet: original Curtis CEM3340/3345 (long version), hosted by Thonk."
 	},
 	{
 		"id": "ir3109",
