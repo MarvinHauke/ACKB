@@ -19,6 +19,11 @@ data/articles + data/taxonomy          (the knowledge graph: articles, tag nodes
 | `static/data/graph.json`                      | the whole graph: nodes (articles, tags) and edges     |
 | `static/data/<type>/<path>.json`, `index.json` | per tag: facts, related tags, articles (PDF_OCR CLI)  |
 | `static/llms.txt`                             | site map for LLMs                                     |
+| `build/sitemap.xml`, `build/robots.txt`       | prerendered routes: home, articles, tag pages with ≥ 3 articles (thin ones are `noindex,follow`; threshold `MIN_INDEXABLE_ARTICLES` in `src/lib/seo.ts`) |
+
+The public base URL for sitemap, canonical links and JSON-LD is `SITE_URL` (`src/lib/server/seo.ts`;
+default `https://marvinhauke.github.io/ackb`, later `SITE_URL=https://irregular-instruments.com/ackb`; change it together with `BASE_PATH`).
+`robots.txt` is only read at a domain root: on the project site (`/ackb/robots.txt`) submit the sitemap in Search Console.
 
 ## Knowledge graph
 

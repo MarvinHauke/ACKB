@@ -1,5 +1,6 @@
 import { error } from '@sveltejs/kit';
 import { catalog, referencePagesFor, termParents } from '$lib/server/catalog';
+import { absolute } from '$lib/server/seo';
 import type { EntryGenerator } from './$types';
 
 export const entries: EntryGenerator = () => catalog.articles.map((a) => ({ id: a.id }));
@@ -15,5 +16,5 @@ export function load({ params }) {
 		subcircuits: article.terms.subcircuits.map((t) => t.id),
 		components: article.terms.components.map((t) => t.id)
 	});
-	return { article, related, basics, parents: termParents() };
+	return { canonical: absolute(`/article/${article.id}`), article, related, basics, parents: termParents() };
 }

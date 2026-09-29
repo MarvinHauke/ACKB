@@ -294,6 +294,7 @@
 
 <svelte:head>
 	<title>Analog Circuit Knowledge Base</title>
+	<link rel="canonical" href={data.canonical} />
 	<meta
 		name="description"
 		content="Curated index of papers, datasheets and build logs on synthesizer circuits (analog, digital, mixed), searchable by subcircuit, function and IC."

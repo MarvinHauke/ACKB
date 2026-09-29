@@ -4,6 +4,8 @@
 import { error } from '@sveltejs/kit';
 import { catalog, referencePagesFor, summarize, termLabels, termParents } from '$lib/server/catalog';
 import { REFERENCE_TAG_KEYS, REGISTRY_KEYS, REGISTRY_META, SLUG_TO_KEY, termPath, type NodeRef, type ReferenceTagKey, type RegistryKey } from '$lib/types';
+import { absolute } from '$lib/server/seo';
+import { isIndexable, tagDescription, tagTitle } from '$lib/seo';
 import type { EntryGenerator } from './$types';
 
 export const entries: EntryGenerator = () =>
@@ -30,7 +32,26 @@ export function load({ params }) {
 		return { ...r, slug: REGISTRY_META[r.key].slug, path: termPath(r.id, t?.parent), label: t?.label ?? r.id };
 	};
 
+	const meta = REGISTRY_META[key];
+	const together = term.related.together.map(ref);
+	const path = termPath(term.id, term.parent);
+	const parent = find(key, term.parent);
+	// Home › Type › [Parent ›] Tag. Same labels as the visible breadcrumbs; the type has no page, so no URL.
+	const crumbs = [
+		{ name: 'Home', url: absolute('/') },
+		{ name: meta.plural },
+		...(parent ? [{ name: parent.label, url: absolute(`/${meta.slug}/${parent.id}`) }] : []),
+		{ name: term.label, url: absolute(`/${meta.slug}/${path}`) }
+	];
+
 	return {
+		seo: {
+			title: tagTitle(key, term.label, articles.length),
+			description: tagDescription(key, meta.label, term.label, articles.length, together.slice(0, 3).map((r) => r.label), term.description),
+			canonical: absolute(`/${meta.slug}/${path}`),
+			noindex: !isIndexable(articles.length),
+			crumbs
+		},
 		key,
 		meta: REGISTRY_META[key],
 		term,
