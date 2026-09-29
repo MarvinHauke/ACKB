@@ -12,8 +12,11 @@ application notes of parts used in synths.
   `voltage-follower`. It gets no product, module or function tags it doesn't actually discuss.
 - **Never mirror another site's structure**: don't add a site's chapters one by one, and don't
   create tags just because another site has a page about something.
-- **Broad sites** (All About Circuits, Elektronik-Kompendium, simulators) belong on the planned
-  Reference Shelf, not in the graph (see the roadmap).
+- **Broad sites** (All About Circuits, Electronics Tutorials, simulators) go on the **Reference
+  Shelf** instead: one entry per site in `data/references.json`, shown on `/references`, outside
+  the graph, search and filters. Each entry needs an https url, a category (`learning`,
+  `simulation`, `calculators`, `parts`) and a summary in your own words; `npm run validate`
+  checks them, and a site can't be both an article and a shelf entry.
 
 In doubt, ask: would someone working on a synth circuit be glad to find this under that tag?
 

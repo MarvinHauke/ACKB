@@ -1,6 +1,7 @@
 {
 	"json.schemas": [
 		{ "fileMatch": ["data/articles/*.json"], "url": "./schema/article.schema.json" },
+		{ "fileMatch": ["data/references.json"], "url": "./schema/reference.schema.json" },
 		{ "fileMatch": ["data/taxonomy/products.json"], "url": "./schema/taxonomy/product.schema.json" },
 		{ "fileMatch": ["data/taxonomy/components.json"], "url": "./schema/taxonomy/component.schema.json" },
 		{ "fileMatch": ["data/taxonomy/subcircuits.json"], "url": "./schema/taxonomy/subcircuit.schema.json" },

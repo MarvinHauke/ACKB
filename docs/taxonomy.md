@@ -60,7 +60,7 @@ the sound).
 A build video that explains every step is `build-guide` and `explanation`. `reference` says how
 you use it, `type` says what it is (a `datasheet` is usually `reference`, but not every
 `reference` is a datasheet). Whole general-electronics sites don't become articles; they belong on
-the Reference Shelf (roadmap 3.7).
+the Reference Shelf (`data/references.json`, `/references`).
 
 ## Groups
 

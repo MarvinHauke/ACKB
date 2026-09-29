@@ -1,0 +1,24 @@
+{
+	"$schema": "https://json-schema.org/draft/2020-12/schema",
+	"$id": "https://ackb.local/schema/reference.schema.json",
+	"title": "ACKB Reference Shelf",
+	"description": "General electronics sites, listed on /references only: outside the graph, search and filters (docs/source-rules.md).",
+	"type": "array",
+	"items": {
+		"type": "object",
+		"additionalProperties": false,
+		"required": ["id", "title", "url", "summary", "category"],
+		"properties": {
+			"id": { "type": "string", "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$" },
+			"title": { "type": "string", "minLength": 1 },
+			"url": { "type": "string", "format": "uri", "pattern": "^https://" },
+			"summary": { "type": "string", "minLength": 20, "description": "What the site offers, in your own words" },
+			"category": {
+				"enum": ["learning", "simulation", "calculators", "parts"],
+				"description": "learning (tutorials, textbooks), simulation, calculators, parts (datasheets, part search)"
+			},
+			"lang": { "type": "string", "pattern": "^[a-z]{2}$", "description": "Language if not English" },
+			"linkCheck": { "const": "blocked", "description": "The site blocks automated link checks; checked by hand" }
+		}
+	}
+}

@@ -11,7 +11,7 @@
 import { execFileSync } from 'node:child_process';
 import { existsSync, readFileSync, writeFileSync } from 'node:fs';
 import { join, resolve } from 'node:path';
-import { DATA_DIR, ROOT, loadArticles, loadTaxonomy } from './lib/data.js';
+import { DATA_DIR, ROOT, loadArticles, loadReferences, loadTaxonomy } from './lib/data.js';
 import { TIMEOUT_MS, USER_AGENT, check } from './lib/fetch.js';
 
 const OUT = join(DATA_DIR, 'link-health.json');
@@ -33,7 +33,7 @@ function selectedFiles() {
 	return null;
 }
 
-/** url → list of places it is used ("data/articles/x.json", "ic:lm13700"). */
+/** url → list of places it is used ("data/articles/x.json", "component:lm13700", "reference:x"). */
 function collectUrls(files) {
 	const urls = new Map();
 	const add = (url, where) => urls.set(url, [...(urls.get(url) ?? []), where]);
@@ -43,6 +43,7 @@ function collectUrls(files) {
 	}
 	if (!files) {
 		for (const c of loadTaxonomy().taxonomy.components) if (c.datasheetUrl) add(c.datasheetUrl, `component:${c.id}`);
+		for (const r of loadReferences().references) add(r.url, `reference:${r.id}`);
 	}
 	return urls;
 }

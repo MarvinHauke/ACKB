@@ -1,5 +1,6 @@
 // Loads the raw JSON data (taxonomy registries + articles) from data/.
 // Shared by validate.js, build-data.js, check-links.js and new-article.js.
+// Also the Reference Shelf (data/references.json).
 import { readdirSync, readFileSync } from 'node:fs';
 import { basename, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -9,6 +10,8 @@ export const DATA_DIR = join(ROOT, 'data');
 // One file per article (link).
 export const ARTICLES_DIR = join(DATA_DIR, 'articles');
 export const TAXONOMY_DIR = join(DATA_DIR, 'taxonomy');
+// Reference Shelf: general sites on /references, outside the graph (docs/source-rules.md).
+export const REFERENCES_FILE = join(DATA_DIR, 'references.json');
 
 /**
  * Taxonomy registries: registry key → file name, schema, and the article field that references it.
@@ -62,6 +65,11 @@ export function loadArticles() {
 		articles.push({ id: basename(file, '.json'), file: `data/articles/${file}`, data: value });
 	}
 	return { articles, errors };
+}
+
+export function loadReferences() {
+	const { value, error } = readJson(REFERENCES_FILE);
+	return { references: Array.isArray(value) ? value : [], errors: error ? [`data/references.json: malformed JSON: ${error}`] : [] };
 }
 
 /** Map registry key → Map(id → term) for fast lookups. */

@@ -11,6 +11,7 @@ import {
 	ROOT,
 	indexTaxonomy,
 	loadArticles,
+	loadReferences,
 	loadTaxonomy,
 	suggest
 } from './lib/data.js';
@@ -24,6 +25,7 @@ function loadSchemas() {
 	}
 	return {
 		article: ajv.compile(read('article.schema.json')),
+		references: ajv.compile(read('reference.schema.json')),
 		taxonomy: (name) => ajv.getSchema(`https://ackb.local/schema/taxonomy/${name}.schema.json`)
 	};
 }
@@ -39,7 +41,7 @@ function formatAjv(errors) {
 
 /**
  * Runs every check. Returns the loaded data too, so build-data.js validates and builds in one pass.
- * @returns {{ errors: string[], warnings: string[], articles: any[], taxonomy: Record<string, any[]> }}
+ * @returns {{ errors: string[], warnings: string[], articles: any[], taxonomy: Record<string, any[]>, references: any[] }}
  */
 export function validate() {
 	const errors = [];
@@ -152,6 +154,22 @@ export function validate() {
 		}
 	}
 
+	// Reference Shelf: schema, unique ids and urls, no site that is also an article.
+	const { references, errors: refErrors } = loadReferences();
+	errors.push(...refErrors);
+	if (!schemas.references(references)) {
+		for (const msg of formatAjv(schemas.references.errors)) errors.push(`data/references.json: ${msg}`);
+	}
+	const refIds = new Set();
+	const refUrls = new Set();
+	for (const r of references) {
+		if (refIds.has(r.id)) errors.push(`data/references.json: duplicate id "${r.id}"`);
+		if (refUrls.has(r.url)) errors.push(`data/references.json: duplicate url ${r.url}`);
+		if (urls.has(r.url)) errors.push(`data/references.json: "${r.id}" is also an article (${urls.get(r.url)}); keep one`);
+		refIds.add(r.id);
+		refUrls.add(r.url);
+	}
+
 	// Unused terms are fine for broad registries; only flag the ones meant to be discovered through articles.
 	for (const key of ['subcircuits', 'functions', 'components']) {
 		const parents = new Set(taxonomy[key].map((t) => t.parent).filter(Boolean));
@@ -162,7 +180,7 @@ export function validate() {
 		}
 	}
 
-	return { errors, warnings, articles, taxonomy };
+	return { errors, warnings, articles, taxonomy, references };
 }
 
 if (import.meta.url === pathToFileURL(process.argv[1]).href) {

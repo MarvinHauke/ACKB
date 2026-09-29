@@ -74,10 +74,22 @@ export interface Article {
 
 export type Taxonomy = Record<RegistryKey, Term[]>;
 
+/** A general site on the Reference Shelf (/references): outside the graph, search and filters. */
+export interface Reference {
+	id: string;
+	title: string;
+	url: string;
+	summary: string;
+	category: 'learning' | 'simulation' | 'calculators' | 'parts';
+	lang?: string;
+	linkCheck?: 'blocked';
+}
+
 export interface Catalog {
 	generatedAt: string;
 	articles: Article[];
 	taxonomy: Taxonomy;
+	references: Reference[];
 }
 
 /** Compact article for the result lists and client-side filtering. */

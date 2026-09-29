@@ -1,0 +1,17 @@
+[
+	{
+		"id": "electronics-tutorials",
+		"title": "Electronics Tutorials",
+		"url": "https://www.electronics-tutorials.ws/",
+		"summary": "Free, well-illustrated tutorials on basic electronics: passive components, AC and DC theory, transistors, op-amps, filters, oscillators and digital logic, each topic built up from first principles.",
+		"category": "learning",
+		"linkCheck": "blocked"
+	},
+	{
+		"id": "all-about-circuits",
+		"title": "All About Circuits",
+		"url": "https://www.allaboutcircuits.com/",
+		"summary": "A large electronics site with a free online textbook on DC, AC, semiconductor and digital circuits, technical articles, worksheets and a set of design calculators.",
+		"category": "learning"
+	}
+]
