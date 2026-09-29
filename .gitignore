@@ -14,7 +14,8 @@ node_modules
 .env.*
 !.env.example
 .mcp.json
-.claude/
+.claude/*
+!.claude/agents/
 .serena/
 
 # Editors: keep only the shared VS Code settings (JSON schema mapping, extensions)

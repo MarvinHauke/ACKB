@@ -8,8 +8,7 @@
 		"aaron-lanterman"
 	],
 	"origin": "academic",
-	"summary": "Lectures on sawtooth-core oscillators (integrator with reset) and deriving other waveforms from them: scaling and shifting waveforms, sawtooth-to-triangle and sawtooth-to-pulse waveshapers.",
-	"summaryFromGroup": true,
+	"summary": "Circuits that turn a sawtooth into a triangle, with examples from Ray Wilson's Music From Outer Space VCO and Gene Stopp's ASM-2.",
 	"modules": [
 		"oscillator"
 	],
@@ -23,6 +22,6 @@
 		"waveshaping",
 		"pulse-width-modulation"
 	],
-	"kinds": ["analysis"],
+	"kinds": ["explanation", "analysis"],
 	"added": "2026-09-26"
 }

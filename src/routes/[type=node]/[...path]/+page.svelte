@@ -12,7 +12,7 @@
 	// The search page filtered by this tag, to combine it with other filters.
 	const searchHref = $derived(`${resolve('/')}?${data.meta.slug}=${encodeURIComponent(termPath(term.id, term.parent))}`);
 
-	const IC_CATEGORY_LABEL: Record<string, string> = {
+	const CATEGORY_LABEL: Record<string, string> = {
 		ota: 'OTA',
 		vca: 'VCA',
 		opamp: 'op-amp',
@@ -25,7 +25,7 @@
 
 	// "Same kind" heading per node type.
 	const SAME_LABEL: Record<string, string> = $derived({
-		components: term.category ? `Other ${IC_CATEGORY_LABEL[term.category] ?? term.category.replace('_', ' ')}s & alternatives` : 'Similar ICs',
+		components: term.category ? `Other ${CATEGORY_LABEL[term.category] ?? term.category.replace('_', ' ')}s & alternatives` : 'Similar components',
 		products: 'More from this maker',
 		manufacturers: 'Products',
 		modules: 'Related modules',
@@ -72,7 +72,7 @@
 	{/if}
 	{#if term.category}
 		<dt>Category</dt>
-		<dd>{IC_CATEGORY_LABEL[term.category] ?? term.category.replace('_', ' ')}{term.status ? ` · ${term.status}` : ''}</dd>
+		<dd>{CATEGORY_LABEL[term.category] ?? term.category.replace('_', ' ')}{term.status ? ` · ${term.status}` : ''}</dd>
 	{/if}
 	{#if term.datasheetUrl}
 		<dt>Datasheet</dt>

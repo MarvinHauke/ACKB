@@ -8,16 +8,13 @@
 		"aaron-lanterman"
 	],
 	"origin": "academic",
-	"summary": "West-coast timbre circuits: Buchla's diodeless deadband circuits, the timbre modulation of the Music Easel and 259, and the Serge wave multipliers.",
-	"summaryFromGroup": true,
+	"summary": "How the timbre modulation of the Buchla Music Easel and 259 folds waveforms, building directly on the deadband lecture.",
 	"manufacturers": [
-		"buchla",
-		"serge"
+		"buchla"
 	],
 	"products": [
 		"music-easel",
-		"buchla-259",
-		"serge-modular"
+		"buchla-259"
 	],
 	"modules": [
 		"oscillator",
@@ -32,6 +29,6 @@
 		"wavefolding",
 		"waveshaping"
 	],
-	"kinds": ["analysis"],
+	"kinds": ["explanation", "analysis"],
 	"added": "2026-09-26"
 }

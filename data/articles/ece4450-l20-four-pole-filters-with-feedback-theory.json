@@ -8,8 +8,7 @@
 		"aaron-lanterman"
 	],
 	"origin": "academic",
-	"summary": "Lectures on filters built from OTAs and capacitors: single-pole OTA-C stages, the theory of four-pole filters with resonance feedback, and worked OTA-C examples.",
-	"summaryFromGroup": true,
+	"summary": "The theory behind four cascaded poles with feedback around them, which gives resonance and, at high feedback, self-oscillation.",
 	"modules": [
 		"filter"
 	],
@@ -27,6 +26,6 @@
 		"lm13700",
 		"ca3080"
 	],
-	"kinds": ["analysis"],
+	"kinds": ["explanation", "analysis"],
 	"added": "2026-09-26"
 }

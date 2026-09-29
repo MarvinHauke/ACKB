@@ -40,7 +40,7 @@
 			"minItems": 1,
 			"uniqueItems": true,
 			"items": { "enum": ["build-guide", "explanation", "analysis", "schematic", "reference"] },
-			"description": "What the resource is: step-by-step build, how it works, maths/measurements, bare schematics, or reference material (manuals, datasheets, calculators)."
+			"description": "What the resource is useful for (docs/taxonomy.md, Content kinds): build-guide, explanation, analysis, schematic, or reference (consulted rather than studied: datasheets, application notes, service manuals, calculators, textbooks, tool documentation)."
 		},
 		"added": { "type": "string", "format": "date" },
 		"reviewed": { "type": "string", "format": "date" }

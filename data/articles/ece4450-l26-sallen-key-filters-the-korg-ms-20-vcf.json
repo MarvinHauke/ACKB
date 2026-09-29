@@ -8,8 +8,7 @@
 		"aaron-lanterman"
 	],
 	"origin": "academic",
-	"summary": "In-depth analysis of the early (KORG35) and late (LM13600 OTA) MS-20 filters: the Sallen-Key topology, transistors in reverse saturation used as current-controlled resistors, the exponential cutoff control and the diode-limited resonance loop that gives the filter its aggressive character.",
-	"summaryFromGroup": true,
+	"summary": "The Sallen-Key topology and the Korg MS-20 filter in both versions (Korg35 and LM13600), including the diode-limited resonance behind its aggressive sound; the description lists corrections to two schematics.",
 	"manufacturers": [
 		"korg"
 	],

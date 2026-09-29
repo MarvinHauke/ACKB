@@ -8,15 +8,12 @@
 		"aaron-lanterman"
 	],
 	"origin": "academic",
-	"summary": "Circuit analyses of two classic discrete VCAs: the Roland System-100M 130 module and the Serge VCA.",
-	"summaryFromGroup": true,
+	"summary": "Step-by-step analysis of the discrete VCA in the Roland System-100M 130 module, building on the OTA lecture.",
 	"manufacturers": [
-		"roland",
-		"serge"
+		"roland"
 	],
 	"products": [
-		"system-100m",
-		"serge-modular"
+		"system-100m"
 	],
 	"modules": [
 		"vca"
@@ -28,6 +25,6 @@
 	"functions": [
 		"current-controlled-amplification"
 	],
-	"kinds": ["analysis"],
+	"kinds": ["explanation", "analysis"],
 	"added": "2026-09-26"
 }

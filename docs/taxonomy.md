@@ -44,6 +44,24 @@ subcircuit · *noticeable at the outputs or controls?* → function · *a specif
 A look-alike pair stays when both sides pass their test (wavefolder = the circuit, wavefolding =
 the sound).
 
+## Content kinds
+
+`kinds` on an article says what it's useful for (one or more). It isn't a tag list; it drives the
+"Resource" filter.
+
+| Kind          | Use it when …                                                                  |
+| ------------- | ------------------------------------------------------------------------------ |
+| `build-guide` | you can build along: steps, parts list, layout or a finished project to copy   |
+| `explanation` | it explains how and why a circuit works                                        |
+| `analysis`    | it works with maths, measurements or simulation                                |
+| `schematic`   | it's mainly circuit diagrams with little text                                  |
+| `reference`   | it's consulted rather than studied: datasheets, application notes, service manuals, calculators, textbooks, tool documentation |
+
+A build video that explains every step is `build-guide` and `explanation`. `reference` says how
+you use it, `type` says what it is (a `datasheet` is usually `reference`, but not every
+`reference` is a datasheet). Whole general-electronics sites don't become articles; they belong on
+the Reference Shelf (roadmap 3.7).
+
 ## Groups
 
 Group ids and their labels are listed in `TERM_GROUPS` in `src/lib/types.ts`.
@@ -53,8 +71,9 @@ Group ids and their labels are listed in `TERM_GROUPS` in `src/lib/types.ts`.
   digital & interface, power.
 - Functions (by where you notice them): filter response, distortion & shaping, pitch & oscillator,
   sound generation, modulation & control, effects & dynamics, levels & utility.
-- ICs: OTAs & VCAs, filter & oscillator chips, op-amps & transistor arrays, delay & noise,
-  logic & digital, power & other (from `category`).
+- Components & ICs (from `category`): OTAs & VCAs, filter & oscillator chips, op-amps &
+  transistor arrays, delay & noise, logic & digital, optical, magnetic, power & other. Empty
+  groups stay hidden until a term in them is used.
 
 ## Adding a term
 

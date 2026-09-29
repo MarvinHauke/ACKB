@@ -8,8 +8,7 @@
 		"aaron-lanterman"
 	],
 	"origin": "academic",
-	"summary": "University lectures on voltage-controlled amplifiers: how operational transconductance amplifiers work as VCAs, the differences between the CA3080 and LM13700, and other ways to build a VCA without an OTA.",
-	"summaryFromGroup": true,
+	"summary": "How an operational transconductance amplifier converts a control voltage into a current that sets the gain, and how OTAs such as the CA3080 and LM13700 are used to build VCAs.",
 	"modules": [
 		"vca"
 	],
@@ -25,6 +24,6 @@
 		"ca3080",
 		"lm13700"
 	],
-	"kinds": ["analysis"],
+	"kinds": ["explanation", "analysis"],
 	"added": "2026-09-26"
 }

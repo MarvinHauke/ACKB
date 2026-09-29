@@ -8,14 +8,7 @@
 		"aaron-lanterman"
 	],
 	"origin": "academic",
-	"summary": "Second-order filters from their mathematical structure to practical state-variable designs, with the Oberheim SEM filter as the main example and further SVF circuits.",
-	"summaryFromGroup": true,
-	"manufacturers": [
-		"oberheim"
-	],
-	"products": [
-		"sem"
-	],
+	"summary": "The maths of second-order filters: poles, cutoff and Q, and how lowpass, bandpass and highpass responses relate.",
 	"modules": [
 		"filter"
 	],
@@ -31,6 +24,6 @@
 		"highpass-response",
 		"resonance-control"
 	],
-	"kinds": ["analysis"],
+	"kinds": ["explanation", "analysis"],
 	"added": "2026-09-26"
 }

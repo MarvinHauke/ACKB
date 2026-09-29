@@ -1,5 +1,24 @@
 # Rules for adding sources
 
+## What belongs in ACKB
+
+ACKB is about **electronic musical instruments**. A resource gets its own article when its main
+value is designing, modifying, repairing or documenting them: synth schematics, service manuals,
+circuit analyses of instruments, build logs, synth-specific papers and lectures, datasheets and
+application notes of parts used in synths.
+
+- **General electronics** (a textbook chapter on op-amps, a filter calculator) gets in only when
+  it explains a concept that already has an ACKB tag, e.g. a clear voltage-follower article tagged
+  `voltage-follower`. It gets no product, module or function tags it doesn't actually discuss.
+- **Never mirror another site's structure**: don't add a site's chapters one by one, and don't
+  create tags just because another site has a page about something.
+- **Broad sites** (All About Circuits, Elektronik-Kompendium, simulators) belong on the planned
+  Reference Shelf, not in the graph (see the roadmap).
+
+In doubt, ask: would someone working on a synth circuit be glad to find this under that tag?
+
+## How it's checked
+
 Every article reaches `main` through a pull request. CI runs `npm run check:sources` on it and
 fails on any error; run it locally before pushing:
 
