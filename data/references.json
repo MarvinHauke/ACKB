@@ -12,6 +12,66 @@
 		"title": "All About Circuits",
 		"url": "https://www.allaboutcircuits.com/",
 		"summary": "A large electronics site with a free online textbook on DC, AC, semiconductor and digital circuits, technical articles, worksheets and a set of design calculators.",
-		"category": "learning"
+		"category": "learning",
+		"linkCheck": "blocked"
+	},
+	{
+		"id": "aac-negative-feedback",
+		"title": "Negative Feedback",
+		"url": "https://www.allaboutcircuits.com/textbook/semiconductors/chpt-8/negative-feedback/",
+		"summary": "Why feeding an op-amp's output straight back to its inverting input makes it follow the input: the voltage follower and the idea of negative feedback, step by step.",
+		"site": "all-about-circuits",
+		"subcircuits": [
+			"voltage-follower"
+		],
+		"linkCheck": "blocked"
+	},
+	{
+		"id": "aac-divided-feedback",
+		"title": "Divided Feedback",
+		"url": "https://www.allaboutcircuits.com/textbook/semiconductors/chpt-8/divided-feedback/",
+		"summary": "How a resistor divider in the feedback path sets the gain of an op-amp, for both the non-inverting and the inverting amplifier, with worked voltage and current examples.",
+		"site": "all-about-circuits",
+		"subcircuits": [
+			"non-inverting-amp",
+			"inverting-amp"
+		],
+		"linkCheck": "blocked"
+	},
+	{
+		"id": "aac-the-operational-amplifier",
+		"title": "The “Operational” Amplifier",
+		"url": "https://www.allaboutcircuits.com/textbook/semiconductors/chpt-8/the-operational-amplifier/",
+		"summary": "Where op-amps come from (analog computing) and how an op-amp without feedback acts as a comparator that switches its output to one rail or the other.",
+		"site": "all-about-circuits",
+		"subcircuits": [
+			"comparator"
+		],
+		"linkCheck": "blocked"
+	},
+	{
+		"id": "aac-differentiator-integrator-circuits",
+		"title": "Differentiator and Integrator Circuits",
+		"url": "https://www.allaboutcircuits.com/textbook/semiconductors/chpt-8/differentiator-integrator-circuits/",
+		"summary": "Op-amp circuits with a capacitor in the feedback or input path that integrate or differentiate a voltage over time, the building block behind ramps and filter stages.",
+		"site": "all-about-circuits",
+		"subcircuits": [
+			"integrator"
+		],
+		"linkCheck": "blocked"
+	},
+	{
+		"id": "aac-low-pass-filters",
+		"title": "Low-pass Filters",
+		"url": "https://www.allaboutcircuits.com/textbook/alternating-current/chpt-8/low-pass-filters/",
+		"summary": "Passive low-pass filters built from a resistor with a capacitor or an inductor, and how to calculate their cutoff frequency.",
+		"site": "all-about-circuits",
+		"subcircuits": [
+			"rc-lowpass"
+		],
+		"functions": [
+			"lowpass-response"
+		],
+		"linkCheck": "blocked"
 	}
 ]
