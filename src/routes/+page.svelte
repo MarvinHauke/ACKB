@@ -12,6 +12,17 @@
 		filtersFromParams,
 		filtersToParams,
 		matchingIds,
+		matchCounts,
+		kindConfidenceIds,
+		tagCount,
+		viewFromParams,
+		authorOrHost,
+		primaryKind,
+		primaryModule,
+		type GroupBy,
+		type SortBy,
+		GROUPS,
+		SORTS,
 		queriesFromParams,
 		type FilterKey,
 		type Filters
@@ -25,7 +36,7 @@
 		saveHideHttp,
 		sourceVisible
 	} from '$lib/source-types';
-	import { COMPONENT_CATEGORY_GROUP, KIND_LABEL, REGISTRY_KEYS, REGISTRY_META, TERM_GROUPS } from '$lib/types';
+	import { COMPONENT_CATEGORY_GROUP, CONTENT_KINDS, KIND_LABEL, REGISTRY_KEYS, type ArticleSummary, type ContentKind, REGISTRY_META, TERM_GROUPS } from '$lib/types';
 
 	let { data } = $props();
 
@@ -150,6 +161,7 @@
 	onMount(() => {
 		const params = new URLSearchParams(location.search);
 		({ texts, live: query } = queriesFromParams(params));
+		({ group, sort } = viewFromParams(params));
 		filters = filtersFromParams(params);
 		for (const key of FILTER_KEYS) if (filters[key].length) openGroups[key] = true;
 		if (query || texts.length) warmSearch();
@@ -183,7 +195,7 @@
 	});
 
 	function syncUrl() {
-		const params = filtersToParams(filters, [...texts, query.trim()], data.parents).toString();
+		const params = filtersToParams(filters, [...texts, query.trim()], data.parents, isFiltering ? { group, sort } : undefined).toString();
 		replaceState(params ? `?${params}` : location.pathname, {});
 	}
 
@@ -226,6 +238,8 @@
 		filters = emptyFilters();
 		query = '';
 		texts = [];
+		group = 'none';
+		sort = 'best';
 		syncUrl();
 	}
 
@@ -263,9 +277,9 @@
 	const facetMatch = $derived(matchingIds(facetIndex, filters));
 	const terms = $derived([...texts, query.trim()].filter(Boolean));
 
-	const results = $derived.by(() => {
-		const allowed = (id: string) => (facetMatch === null || facetMatch.has(id)) && shown(byId.get(id)!);
-		if (!terms.length) return data.articles.filter((e) => allowed(e.id));
+	// Articles hit by every text term, best score first (all articles without a text term).
+	const candidates = $derived.by(() => {
+		if (!terms.length) return data.articles;
 		// Every text term must hit (AND); order by the summed search score.
 		if (searcher) {
 			const scoreOf = (term: string) => new Map(searcher!(term).map((r) => [r.id, r.score] as [string, number]));
@@ -276,17 +290,100 @@
 				if (others.every((v) => v !== undefined)) total.set(id, sc + others.reduce((a, v) => a + v!, 0));
 			}
 			return [...total]
-				.filter(([id]) => byId.has(id) && allowed(id))
+				.filter(([id]) => byId.has(id))
 				.sort((a, b) => a[1] - b[1])
 				.map(([id]) => byId.get(id)!);
 		}
 		// Until Fuse is loaded: plain substring match, so typing never shows an empty page.
 		const needles = terms.map((t) => t.toLowerCase());
-		return data.articles.filter(
-			(e) =>
-				allowed(e.id) &&
-				needles.every((n) => e.title.toLowerCase().includes(n) || e.summary.toLowerCase().includes(n))
+		return data.articles.filter((e) =>
+			needles.every((n) => e.title.toLowerCase().includes(n) || e.summary.toLowerCase().includes(n))
 		);
+	});
+
+	// Full matches: every hard filter and every selected tag. The sidebar counts come from these only.
+	const results = $derived(candidates.filter((e) => (facetMatch === null || facetMatch.has(e.id)) && shown(e)));
+
+	// "Also relevant": with two or more tags selected, articles with some but not all of them (all hard
+	// filters still apply), most matching tags first.
+	const tagTotal = $derived(tagCount(filters));
+	const tagMatches = $derived(tagTotal >= 2 ? matchCounts(facetIndex, filters) : new Map<string, number>());
+	const partial = $derived.by(() => {
+		if (tagTotal < 2) return [];
+		const kc = kindConfidenceIds(facetIndex, filters);
+		return candidates
+			.filter((e) => {
+				const n = tagMatches.get(e.id) ?? 0;
+				return n >= 1 && n < tagTotal && (kc === null || kc.has(e.id)) && shown(e);
+			})
+			.map((e, i) => ({ e, i, n: tagMatches.get(e.id)! }))
+			.sort((a, b) => b.n - a.n || a.i - b.i)
+			.map((x) => x.e);
+	});
+	let showAllPartial = $state(false);
+	$effect(() => {
+		void tagMatches;
+		void terms;
+		showAllPartial = false;
+	});
+
+	// ---- Group by / sort (only while filtering; defaults are today's behavior) ----
+	let group = $state<GroupBy>('none');
+	let sort = $state<SortBy>('best');
+	const parentOf = (id: string) => data.parents[`modules:${id}`];
+	const GROUP_LABEL: Record<GroupBy, string> = { none: 'None', kind: 'Resource kind', type: 'Source type', author: 'Author / site', module: 'Module' };
+	const SORT_LABEL: Record<SortBy, string> = { best: 'Best match', new: 'Newest added', year: 'Publication year', title: 'Title A–Z' };
+
+	const compare: Record<Exclude<SortBy, 'best'>, (a: ArticleSummary, b: ArticleSummary) => number> = {
+		new: (a, b) => b.added.localeCompare(a.added),
+		year: (a, b) => (b.year ?? -1) - (a.year ?? -1),
+		title: (a, b) => a.title.localeCompare(b.title, 'en', { numeric: true, sensitivity: 'base' })
+	};
+
+	/** "Best match" keeps today's order (newest first, or the search score); the others re-sort stably. */
+	function sorted(list: ArticleSummary[]): ArticleSummary[] {
+		return sort === 'best' ? list : [...list].sort(compare[sort]);
+	}
+
+	/** "Also relevant": most matching tags first, the chosen sort within equal counts. */
+	const sortedPartial = $derived.by(() => {
+		if (sort === 'best') return partial;
+		const by = compare[sort];
+		return [...partial].sort((a, b) => tagMatches.get(b.id)! - tagMatches.get(a.id)! || by(a, b));
+	});
+
+	const groupKey = (a: ArticleSummary): string | undefined => {
+		switch (group) {
+			case 'kind':
+				return primaryKind(a);
+			case 'type':
+				return a.type;
+			case 'author':
+				return authorOrHost(a, labels);
+			case 'module':
+				return primaryModule(a, labels, parentOf);
+			default:
+				return undefined;
+		}
+	};
+	const groupLabel = (key: string) => (group === 'kind' ? KIND_LABEL[key as ContentKind] : key);
+	const NO_GROUP = $derived(group === 'module' ? 'No module' : 'Other');
+
+	// Sections of the full matches: fixed order for kind and type, alphabetical for author and module
+	// (no module last).
+	const sections = $derived.by(() => {
+		if (group === 'none') return [];
+		const map = new Map<string, ArticleSummary[]>();
+		for (const a of results) {
+			const key = groupKey(a) ?? NO_GROUP;
+			map.set(key, [...(map.get(key) ?? []), a]);
+		}
+		const order = (k: string) => (group === 'kind' ? CONTENT_KINDS.indexOf(k as ContentKind) : group === 'type' ? SOURCE_TYPES.indexOf(k) : 0);
+		return [...map]
+			.sort(([a], [b]) =>
+				a === NO_GROUP ? 1 : b === NO_GROUP ? -1 : group === 'kind' || group === 'type' ? order(a) - order(b) : a.localeCompare(b, 'en', { sensitivity: 'base' })
+			)
+			.map(([key, list]) => ({ key, label: groupLabel(key), list: sorted(list) }));
 	});
 
 	const isFiltering = $derived(terms.length > 0 || activeCount(filters) > 0);
@@ -562,12 +659,61 @@
 		{#if isFiltering}
 			<div class="results-head">
 				<span class="status" role="status" aria-live="polite">{shownCount} {shownCount === 1 ? 'article' : 'articles'}</span>
-				<button class="link" onclick={clearAll}>Clear all</button>
+				<span class="views">
+					<label>Group by
+						<select
+							value={group}
+							onchange={(e) => {
+								group = e.currentTarget.value as GroupBy;
+								syncUrl();
+							}}
+						>
+							{#each GROUPS as g (g)}<option value={g}>{GROUP_LABEL[g]}</option>{/each}
+						</select>
+					</label>
+					<label>Sort
+						<select
+							value={sort}
+							onchange={(e) => {
+								sort = e.currentTarget.value as SortBy;
+								syncUrl();
+							}}
+						>
+							{#each SORTS as o (o)}<option value={o}>{SORT_LABEL[o]}</option>{/each}
+						</select>
+					</label>
+					<button class="link" onclick={clearAll}>Clear all</button>
+				</span>
 			</div>
 			{#if results.length}
-				<ArticleList articles={results} {labels} parents={data.parents} {hiddenTypes} {hideHttp} />
+				{#if group === 'none'}
+					<ArticleList articles={sorted(results)} {labels} parents={data.parents} {hiddenTypes} {hideHttp} />
+				{:else}
+					{#each sections as sec (sec.key)}
+						<h3 class="section-head">{sec.label} <span class="muted">{sec.list.length}</span></h3>
+						<ArticleList articles={sec.list} {labels} parents={data.parents} {hiddenTypes} {hideHttp} />
+					{/each}
+				{/if}
 			{:else}
-				<p class="muted">No article matches. Remove a filter or try a broader term.</p>
+				<p class="muted">
+					{partial.length ? 'No article has all of these tags.' : 'No article matches. Remove a filter or try a broader term.'}
+				</p>
+			{/if}
+			{#if partial.length}
+				<h2 class="also">Also relevant <span class="muted">{partial.length}</span></h2>
+				<ArticleList
+					articles={sortedPartial}
+					{labels}
+					parents={data.parents}
+					{hiddenTypes}
+					{hideHttp}
+					matchOf={tagMatches}
+					matchTotal={tagTotal}
+					limit={showAllPartial ? undefined : 20}
+				/>
+				{#if !showAllPartial && partial.length > 20}
+					<button class="link more-btn" onclick={() => (showAllPartial = true)}>Show all {partial.length}</button>
+				{/if}
 			{/if}
 		{:else}
 			<h2>Recent articles</h2>
@@ -610,6 +756,42 @@
 		margin-bottom: var(--space-2);
 	}
 
+	.views {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: baseline;
+		justify-content: flex-end;
+		gap: var(--space-1) var(--space-3);
+		font-size: 0.85rem;
+		color: var(--muted);
+	}
+
+	.views select {
+		font: inherit;
+		font-size: 0.85rem;
+		padding: 0.15rem 0.3rem;
+		border: 1px solid var(--line);
+		border-radius: 4px;
+		background: var(--bg);
+		color: var(--fg);
+	}
+
+	.section-head {
+		margin: var(--space-4) 0 0;
+		padding-bottom: var(--space-1);
+		border-bottom: 1px solid var(--line);
+		font-size: 0.95rem;
+	}
+
+	.also {
+		margin-top: var(--space-5);
+		font-size: 1.05rem;
+	}
+
+	.more-btn {
+		margin: var(--space-2) 0 0;
+	}
+
 	.ic-info {
 		margin: 0 0 var(--space-2);
 		font-size: 0.9rem;
@@ -617,6 +799,7 @@
 	}
 
 	.status {
+		white-space: nowrap;
 		color: var(--muted);
 		font-size: 0.9rem;
 	}
