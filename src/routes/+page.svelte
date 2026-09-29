@@ -3,6 +3,7 @@
 	import { replaceState } from '$app/navigation';
 	import { resolve } from '$app/paths';
 	import ArticleList from '$lib/components/ArticleList.svelte';
+	import SearchBar, { type TagEntry } from '$lib/components/SearchBar.svelte';
 	import {
 		FILTER_KEYS,
 		activeCount,
@@ -11,6 +12,7 @@
 		filtersFromParams,
 		filtersToParams,
 		matchingIds,
+		queriesFromParams,
 		type FilterKey,
 		type Filters
 	} from '$lib/filters';
@@ -70,7 +72,9 @@
 		) as Record<FilterKey, Option[]>
 	);
 
+	// The live text (searched while typing) and the text chips made with ",".
 	let query = $state('');
+	let texts: string[] = $state([]);
 	let filters: Filters = $state(emptyFilters());
 	let searcher: Searcher | null = $state(null);
 	let searchFailed = $state(false);
@@ -145,10 +149,10 @@
 
 	onMount(() => {
 		const params = new URLSearchParams(location.search);
-		query = params.get('q') ?? '';
+		({ texts, live: query } = queriesFromParams(params));
 		filters = filtersFromParams(params);
 		for (const key of FILTER_KEYS) if (filters[key].length) openGroups[key] = true;
-		if (query) warmSearch();
+		if (query || texts.length) warmSearch();
 		hiddenTypes = loadHiddenTypes();
 		hideHttp = loadHideHttp();
 		if (hiddenTypes.length || hideHttp) sourceTypesOpen = true;
@@ -179,7 +183,7 @@
 	});
 
 	function syncUrl() {
-		const params = filtersToParams(filters, query.trim(), data.parents).toString();
+		const params = filtersToParams(filters, [...texts, query.trim()], data.parents).toString();
 		replaceState(params ? `?${params}` : location.pathname, {});
 	}
 
@@ -221,38 +225,71 @@
 	function clearAll() {
 		filters = emptyFilters();
 		query = '';
+		texts = [];
 		syncUrl();
 	}
 
-	function clearQuery() {
-		query = '';
+	function removeTag(key: FilterKey, id: string) {
+		filters[key] = filters[key].filter((v) => v !== id);
 		syncUrl();
 	}
 
-	// One removable chip per active filter, e.g. "LM13700".
+	// Tags that can be typed in the search bar: used terms only, in the order that decides between
+	// registries when a label or alias exists more than once.
+	const TAG_LOOKUP_ORDER = ['modules', 'components', 'subcircuits', 'functions', 'products', 'manufacturers', 'authors'] as const;
+	const tagEntries: TagEntry[] = $derived(
+		TAG_LOOKUP_ORDER.flatMap((key) =>
+			data.terms[key].map((t) => ({
+				key,
+				id: t.id,
+				label: t.label,
+				aliases: t.aliases ?? [],
+				type: REGISTRY_META[key].label,
+				count: t.count
+			}))
+		)
+	);
+	// One removable chip per active filter, e.g. "LM13700"; the type shows when the label exists more than once.
 	const activeChips = $derived(
-		FILTER_KEYS.flatMap((key) => filters[key].map((id) => ({ key, id, label: labels.get(id) ?? id })))
+		FILTER_KEYS.flatMap((key) =>
+			filters[key].map((id) => {
+				const label = labels.get(id) ?? id;
+				const same = tagEntries.filter((e) => e.label.toLowerCase() === label.toLowerCase());
+				return { key, id, label, type: same.length > 1 ? REGISTRY_META[key as keyof typeof REGISTRY_META]?.label : undefined };
+			})
+		)
 	);
 
 	const facetMatch = $derived(matchingIds(facetIndex, filters));
-	const q = $derived(query.trim());
+	const terms = $derived([...texts, query.trim()].filter(Boolean));
 
 	const results = $derived.by(() => {
 		const allowed = (id: string) => (facetMatch === null || facetMatch.has(id)) && shown(byId.get(id)!);
-		if (!q) return data.articles.filter((e) => allowed(e.id));
+		if (!terms.length) return data.articles.filter((e) => allowed(e.id));
+		// Every text term must hit (AND); order by the summed search score.
 		if (searcher) {
-			return searcher(q)
-				.filter((r) => byId.has(r.id) && allowed(r.id))
-				.map((r) => byId.get(r.id)!);
+			const scoreOf = (term: string) => new Map(searcher!(term).map((r) => [r.id, r.score] as [string, number]));
+			const [first, ...rest] = terms.map(scoreOf);
+			const total = new Map<string, number>();
+			for (const [id, sc] of first) {
+				const others = rest.map((m) => m.get(id));
+				if (others.every((v) => v !== undefined)) total.set(id, sc + others.reduce((a, v) => a + v!, 0));
+			}
+			return [...total]
+				.filter(([id]) => byId.has(id) && allowed(id))
+				.sort((a, b) => a[1] - b[1])
+				.map(([id]) => byId.get(id)!);
 		}
 		// Until Fuse is loaded: plain substring match, so typing never shows an empty page.
-		const needle = q.toLowerCase();
+		const needles = terms.map((t) => t.toLowerCase());
 		return data.articles.filter(
-			(e) => allowed(e.id) && (e.title.toLowerCase().includes(needle) || e.summary.toLowerCase().includes(needle))
+			(e) =>
+				allowed(e.id) &&
+				needles.every((n) => e.title.toLowerCase().includes(n) || e.summary.toLowerCase().includes(n))
 		);
 	});
 
-	const isFiltering = $derived(q !== '' || activeCount(filters) > 0);
+	const isFiltering = $derived(terms.length > 0 || activeCount(filters) > 0);
 	// Count for the results bar: visible articles of the matching or all articles.
 	const shownCount = $derived(isFiltering ? results.length : data.articles.filter(shown).length);
 
@@ -270,9 +307,6 @@
 	const icInfo = $derived(
 		filters.components.length === 1 ? options.components.find((t) => t.id === filters.components[0]) : undefined
 	);
-
-	let searchFocused = $state(false);
-	const showRecent = $derived(searchFocused && q === '' && recent.length > 0);
 
 	// Counts per option within the current result set; options with no match are hidden unless selected.
 	const facetCounts = $derived.by(() => {
@@ -307,67 +341,28 @@
   Every result links straight to the original.
 </p>
 
-<search class="searchbar">
-	<label class="visually-hidden" for="q">Search</label>
-	<input
-		id="q"
-		type="search"
-		placeholder="Search: MS-20, LM13700, soft clipping, buffer …"
-		autocomplete="off"
-		aria-controls={showRecent ? 'recent' : undefined}
-		bind:value={query}
-		onfocus={() => {
-			warmSearch();
-			searchFocused = true;
-		}}
-		onblur={() => (searchFocused = false)}
-		oninput={syncUrl}
-	/>
-	<!-- Recent filters as suggestions while the empty search field has focus. -->
-	{#if showRecent}
-		<div class="suggest" id="recent" role="group" aria-label="Recently used filters">
-			<span class="status">Recent filters</span>
-			<ul class="chips">
-				{#each recent as r (r.key + r.id)}
-					<li>
-						<!-- mousedown keeps focus in the field, so the list stays open for several picks -->
-						<button
-							class="chip"
-							aria-pressed={filters[r.key].includes(r.id)}
-							onmousedown={(e) => e.preventDefault()}
-							onclick={() => toggle(r.key, r.id)}>{labels.get(r.id) ?? r.id}</button
-						>
-					</li>
-				{/each}
-			</ul>
-		</div>
-	{/if}
-	{#if searchFailed}<span class="muted">Search index unavailable, using simple matching.</span>{/if}
-</search>
-
-<!-- Always shown, so ticking a filter doesn't push the page down. -->
-<div class="active" aria-label="Active filters" aria-live="polite">
-	<span class="status">{shownCount} {shownCount === 1 ? 'article' : 'articles'}</span>
-	<ul class="chips">
-		{#if q}
-			<li>
-				<button class="chip remove" onclick={clearQuery} aria-label="Remove search “{q}”">“{q}” <span aria-hidden="true">×</span></button>
-			</li>
-		{/if}
-		{#each activeChips as c (c.key + c.id)}
-			<li>
-				<button class="chip remove" onclick={() => toggle(c.key, c.id)} aria-label="Remove filter {c.label}"
-					>{c.label} <span aria-hidden="true">×</span></button
-				>
-			</li>
-		{/each}
-	</ul>
-	{#if isFiltering}
-		<button class="link" onclick={clearAll}>Clear all</button>
-	{:else}
-		<span class="status">Tick filters on the left or search above.</span>
-	{/if}
-</div>
+<SearchBar
+	bind:value={query}
+	{texts}
+	tags={activeChips}
+	entries={tagEntries}
+	{recent}
+	{labels}
+	failed={searchFailed}
+	onchange={syncUrl}
+	onfocus={warmSearch}
+	onaddtag={toggle}
+	onremovetag={removeTag}
+	onaddtext={(t) => {
+		texts = [...texts, t];
+		warmSearch();
+		syncUrl();
+	}}
+	onremovetext={(i) => {
+		texts = texts.filter((_, j) => j !== i);
+		syncUrl();
+	}}
+/>
 
 <button class="filters-toggle" aria-expanded={showFilters} onclick={() => (showFilters = !showFilters)}>
 	Filters{activeCount(filters) ? ` (${activeCount(filters)})` : ''}
@@ -565,6 +560,10 @@
 			</p>
 		{/if}
 		{#if isFiltering}
+			<div class="results-head">
+				<span class="status" role="status" aria-live="polite">{shownCount} {shownCount === 1 ? 'article' : 'articles'}</span>
+				<button class="link" onclick={clearAll}>Clear all</button>
+			</div>
 			{#if results.length}
 				<ArticleList articles={results} {labels} parents={data.parents} {hiddenTypes} {hideHttp} />
 			{:else}
@@ -597,83 +596,18 @@
 		line-height: 1.5;
 	}
 
-	.searchbar {
-		position: relative;
-		display: block;
-		margin: var(--space-3) 0 var(--space-2);
-	}
-
-	input[type='search'] {
-		width: 100%;
-		font: inherit;
-		font-size: 1.1rem;
-		padding: 0.6rem 0.75rem;
-		border: 1px solid var(--line);
-		border-radius: 4px;
-		background: var(--bg);
-		color: var(--fg);
-	}
-
-	input[type='search']:focus {
-		outline: 2px solid var(--accent);
-		outline-offset: -1px;
-	}
-
-	.suggest {
-		position: absolute;
-		z-index: 2;
-		top: calc(100% + 2px);
-		left: 0;
-		right: 0;
-		display: flex;
-		flex-wrap: wrap;
-		align-items: center;
-		gap: var(--space-1) var(--space-2);
-		padding: var(--space-2) var(--space-3);
-		background: var(--panel);
-		border: 1px solid var(--line);
-		border-radius: 4px;
-		box-shadow: 0 4px 12px rgb(0 0 0 / 0.25);
-	}
-
 	button.chip {
 		font: inherit;
 		font-size: 0.85rem;
 		cursor: pointer;
 	}
 
-	button.chip[aria-pressed='true'] {
-		background: var(--accent);
-		border-color: var(--accent);
-		color: var(--bg);
-	}
-
-	/* Active filters: own block between search and results */
-	.active {
+	.results-head {
 		display: flex;
-		flex-wrap: wrap;
-		align-items: center;
-		/* one chip row tall even when empty, so the bar never changes height for the first filter */
-		min-height: 2.9rem;
-		gap: var(--space-1) var(--space-2);
-		padding: var(--space-2) var(--space-3);
-		margin-bottom: var(--space-4);
-		background: var(--panel);
-		border: 1px solid var(--line);
-		border-radius: 4px;
-	}
-
-	.chip.remove {
-		border-color: var(--accent);
-	}
-
-	.chip.remove span {
-		margin-left: 0.2rem;
-		color: var(--muted);
-	}
-
-	.chip.remove:hover span {
-		color: var(--bad);
+		align-items: baseline;
+		justify-content: space-between;
+		gap: var(--space-3);
+		margin-bottom: var(--space-2);
 	}
 
 	.ic-info {

@@ -27,9 +27,25 @@ export function filtersFromParams(params: URLSearchParams): Filters {
 	return f;
 }
 
-export function filtersToParams(filters: Filters, query: string, parents: ParentMap = {}): URLSearchParams {
+/** Text terms of the URL: the last `q` is the live text in the field, the earlier ones are text chips. */
+export function queriesFromParams(params: URLSearchParams): { texts: string[]; live: string } {
+	const all = params.getAll('q');
+	const live = all.pop() ?? '';
+	return { texts: all.filter((v) => v.trim()), live };
+}
+
+/**
+ * `query`: the live text, or `[...chips, live]`. The live slot is always written when chips exist
+ * (`?q=vca&q=`), so a reload gives the same chips instead of turning the last one into live text.
+ */
+export function filtersToParams(filters: Filters, query: string | string[], parents: ParentMap = {}): URLSearchParams {
 	const p = new URLSearchParams();
-	if (query) p.set('q', query);
+	if (Array.isArray(query)) {
+		const chips = query.slice(0, -1).filter(Boolean);
+		for (const q of chips) p.append('q', q);
+		const live = query.at(-1) ?? '';
+		if (live || chips.length) p.append('q', live);
+	} else if (query) p.append('q', query);
 	for (const key of FILTER_KEYS) for (const v of filters[key]) p.append(PARAM[key], termPath(v, parents[`${key}:${v}`]));
 	return p;
 }

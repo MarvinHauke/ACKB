@@ -61,7 +61,15 @@ PDF_OCR kinds to subcircuit paths (`pdfOcrKinds`). Subtypes sit under their pare
   values with OR. State is kept in the URL.
 - Hidden source types (e.g. forum) are a per-browser preference in localStorage
   (`src/lib/source-types.ts`); they hide links on entry pages and entries whose sources are all hidden.
-- Search: Fuse.js with a prebuilt index.
+- Search: Fuse.js with a prebuilt index. The search bar (`src/lib/components/SearchBar.svelte`) shows
+  active tag filters and text terms as removable chips on its right (at most 4, then `+N`). Typing
+  `,` or Enter turns the text before it into a chip: a tag when it matches the label or an alias of a used
+  term (order modules › components › subcircuits › functions › products › manufacturers ›
+  authors; the chip shows the type when the label is ambiguous), otherwise a text term. Text terms
+  combine with AND. Suggestions (recent filters, matching tags while typing) are an ARIA listbox
+  overlay. URL: tag params as before, text terms as repeated `q`; on load the last `q` is the live
+  text in the field, the others become chips. With chips the live slot is always written
+  (`?q=vca&q=`), so a reload shows the same chips; a single `?q=foo` stays live text.
 - Related entries: weighted overlap of shared ICs, subcircuits, functions, products.
 
 ## Operations
