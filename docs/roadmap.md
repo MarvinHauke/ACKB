@@ -38,8 +38,8 @@ No server or REST API: the static lookup files cover that.
 
 ## 4. Depth on the pages
 
-9. **Tag pages split their articles** into "Synth resources" and "References & tools" (kind
-   `reference`), so e.g. `/component/lm13700` bridges synth circuits and general references.
+9. **Tag pages narrow their articles** by kind (incl. `reference`) and author, first 20 rows plus
+   "Show all", so big tags like `/module/filter` stay readable. Done 2026-09-29.
 10. **Short explanations on tag pages** (what a subcircuit is, how to recognize it).
 11. **"Latest additions"** list (idea from el-component.com).
 

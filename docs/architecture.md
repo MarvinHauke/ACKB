@@ -42,7 +42,7 @@ PDF_OCR kinds to subcircuit paths (`pdfOcrKinds`). Subtypes sit under their pare
 - `/`: search and filters (`?component=ca3080&module=filter`). One row per article; the title opens the
   resource in a new tab, tag chips open the tag pages, "Details" the article page.
 - `/<type>/<path>` (`/component/ca3080`, `/module/fx/delay`, `/author/juergen-haible`, …): one page per used tag
-  with facts, related tags and its articles.
+  with facts, related tags and its articles (first 20, narrowed by kind chips and an author select).
 - `/article/<id>`: one page per article with its tags and related articles.
 
 ## Search and filters

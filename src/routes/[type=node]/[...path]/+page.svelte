@@ -3,7 +3,7 @@
 	import { resolve } from '$app/paths';
 	import ArticleList from '$lib/components/ArticleList.svelte';
 	import { loadHiddenTypes, loadHideHttp } from '$lib/source-types';
-	import { REGISTRY_META, termPath } from '$lib/types';
+	import { CONTENT_KINDS, KIND_LABEL, REGISTRY_META, termPath, type ContentKind } from '$lib/types';
 
 	let { data } = $props();
 	const term = $derived(data.term);
@@ -40,6 +40,35 @@
 	onMount(() => {
 		hiddenTypes = loadHiddenTypes();
 		hideHttp = loadHideHttp();
+	});
+
+	// Narrowing the article list: by kind (any selected), by author, first PAGE rows until "Show all".
+	const PAGE = 20;
+	let kinds: ContentKind[] = $state([]);
+	let author = $state('');
+	let showAll = $state(false);
+	const kindCounts = $derived(
+		CONTENT_KINDS.map((k) => ({ id: k, n: data.articles.filter((a) => a.kinds.includes(k)).length })).filter((k) => k.n)
+	);
+	const authors = $derived(
+		[...new Set(data.articles.flatMap((a) => a.terms.authors))]
+			.map((id) => ({ id, label: labels.get(id) ?? id }))
+			.sort((a, b) => a.label.localeCompare(b.label))
+	);
+	const filtered = $derived(
+		data.articles.filter(
+			(a) => (!kinds.length || kinds.some((k) => a.kinds.includes(k))) && (!author || a.terms.authors.includes(author))
+		)
+	);
+	const toggleKind = (k: ContentKind) => {
+		kinds = kinds.includes(k) ? kinds.filter((x) => x !== k) : [...kinds, k];
+	};
+	// A different tag page reuses this component: start unfiltered.
+	$effect(() => {
+		void term.id;
+		kinds = [];
+		author = '';
+		showAll = false;
 	});
 </script>
 
@@ -120,10 +149,41 @@
 {/if}
 
 <h2 class="articles-head">
-	Articles <span class="muted">{data.articles.length}</span>
+	Articles <span class="muted">{filtered.length < data.articles.length ? `${filtered.length} of ` : ''}{data.articles.length}</span>
 	<a class="search" href={searchHref}>Open in search →</a>
 </h2>
-<ArticleList articles={data.articles} {labels} parents={data.parents} {hiddenTypes} {hideHttp} />
+{#if kindCounts.length > 1 || authors.length > 1}
+	<div class="narrow">
+		{#if kindCounts.length > 1}
+			<ul class="chips" aria-label="Filter by kind">
+				{#each kindCounts as k (k.id)}
+					<li>
+						<button class="chip" class:on={kinds.includes(k.id)} aria-pressed={kinds.includes(k.id)} onclick={() => toggleKind(k.id)}
+							>{KIND_LABEL[k.id]} <span class="muted">{k.n}</span></button
+						>
+					</li>
+				{/each}
+			</ul>
+		{/if}
+		{#if authors.length > 1}
+			<select bind:value={author} aria-label="Filter by author">
+				<option value="">All authors</option>
+				{#each authors as a (a.id)}<option value={a.id}>{a.label}</option>{/each}
+			</select>
+		{/if}
+	</div>
+{/if}
+<ArticleList
+	articles={filtered}
+	{labels}
+	parents={data.parents}
+	{hiddenTypes}
+	{hideHttp}
+	limit={showAll ? undefined : PAGE}
+/>
+{#if !showAll && filtered.length > PAGE}
+	<button class="more" onclick={() => (showAll = true)}>Show all {filtered.length}</button>
+{/if}
 
 <style>
 	.lead {
@@ -167,6 +227,36 @@
 		margin-left: auto;
 		font-size: 0.9rem;
 		font-weight: 400;
+	}
+
+	.narrow {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		gap: 0.5rem 1rem;
+		margin: 0.2rem 0 0.6rem;
+	}
+
+	button.chip {
+		font: inherit;
+		color: inherit;
+		cursor: pointer;
+	}
+
+	button.chip.on {
+		border-color: var(--accent);
+		color: var(--accent);
+	}
+
+	.more {
+		margin-top: 0.8rem;
+		padding: 0.35rem 0.8rem;
+		font: inherit;
+		color: var(--accent);
+		background: none;
+		border: 1px solid var(--accent);
+		border-radius: 4px;
+		cursor: pointer;
 	}
 
 	@media (max-width: 30rem) {
