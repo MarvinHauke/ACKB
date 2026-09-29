@@ -432,6 +432,8 @@
 	/>
 </svelte:head>
 
+<h1 class="visually-hidden">Analog Circuit Knowledge Base</h1>
+
 <p class="intro">
 	A curated index of articles, schematics, videos and papers on synthesizer circuits:
 	{data.articles.length} resources by {data.terms.authors.length} authors. 
@@ -467,6 +469,7 @@
 
 <div class="layout">
 	<aside aria-label="Filters" class:open={showFilters}>
+		<h2 class="visually-hidden">Filters</h2>
 		<!-- `parent`: the "All" row of this child's group; while it's ticked, the child shows as ticked too. -->
 		{#snippet checkbox(key: FilterKey, o: Option, parent?: { key: FilterKey; id: string })}
 			{@const implied = !!parent && filters[parent.key].includes(parent.id)}
@@ -540,6 +543,7 @@
 		{/snippet}
 
 		{#each SECTIONS as section (section.label)}
+			<div class="box">
 			<h3 class="section">{section.label}</h3>
 			{#each section.keys as key (key)}
 				{#if key === 'manufacturers'}
@@ -638,6 +642,7 @@
 					</p>
 				</details>
 			{/if}
+			</div>
 		{/each}
 	</aside>
 
@@ -692,7 +697,7 @@
 					<ArticleList articles={sorted(results)} {labels} parents={data.parents} {hiddenTypes} {hideHttp} />
 				{:else}
 					{#each sections as sec (sec.key)}
-						<h2 class="section-head">{sec.label} <span class="muted">{sec.list.length}</span></h2>
+						<h2 class="section-head eyebrow">{sec.label} <span class="muted">{sec.list.length}</span></h2>
 						<ArticleList articles={sec.list} {labels} parents={data.parents} {hiddenTypes} {hideHttp} />
 					{/each}
 				{/if}
@@ -702,7 +707,7 @@
 				</p>
 			{/if}
 			{#if partial.length}
-				<h2 class="also">Also relevant <span class="muted">{partial.length}</span></h2>
+				<h2 class="also eyebrow">Also relevant <span class="muted">{partial.length}</span></h2>
 				<ArticleList
 					articles={sortedPartial}
 					{labels}
@@ -718,10 +723,10 @@
 				{/if}
 			{/if}
 		{:else}
-			<h2>Recent articles</h2>
+			<h2 class="eyebrow">Recent articles</h2>
 			<ArticleList articles={data.articles} {labels} parents={data.parents} {hiddenTypes} {hideHttp} limit={10} />
 
-			<h2>Popular functions</h2>
+			<h2 class="eyebrow">Popular functions</h2>
 			<ul class="chips">
 				{#each popularFunctions as t (t.id)}
 					<li>
@@ -768,8 +773,10 @@
 
 	.results-head .status {
 		grid-area: count;
-		font-size: 1rem;
+		font-size: 0.8rem;
 		font-weight: 600;
+		letter-spacing: 0.06em;
+		text-transform: uppercase;
 		color: var(--fg);
 	}
 
@@ -820,21 +827,18 @@
 		color: var(--fg);
 	}
 
-	.section-head {
+	.eyebrow.section-head {
 		margin: calc(var(--space-4) + var(--space-2)) 0 var(--space-2);
 		padding-bottom: var(--space-1);
 		border-bottom: 1px solid var(--line);
-		font-size: 0.95rem;
-		line-height: 1.3;
 	}
 
-	.head-box + .section-head {
+	.head-box + .eyebrow.section-head {
 		margin-top: 0;
 	}
 
-	.also {
+	.eyebrow.also {
 		margin-top: var(--space-5);
-		font-size: 1.05rem;
 	}
 
 	.more-btn {
@@ -869,8 +873,56 @@
 		padding: 0.6rem 0;
 	}
 
+	/* Sidebar groups are boxes; entries inside are separated by spacing, not lines. */
+	.box {
+		margin-bottom: var(--space-3);
+		padding: 0.75rem 1rem;
+		background: var(--panel);
+		border: 1px solid var(--line);
+		border-radius: 6px;
+	}
+
+	.box:last-child {
+		margin-bottom: 0;
+	}
+
+	/* Small uppercase heading, shared by the box headings and the results headings. */
+	.eyebrow {
+		margin: var(--space-4) 0 var(--space-2);
+		padding-bottom: 0;
+		border-bottom: 0;
+		font-size: 0.75rem;
+		font-weight: 600;
+		letter-spacing: 0.06em;
+		text-transform: uppercase;
+		color: var(--muted);
+	}
+
+	aside details {
+		padding: 0.1rem 0;
+		border-bottom: 0;
+	}
+
+	aside summary {
+		margin: 0 -0.5rem;
+		padding: 0.3rem 0.5rem;
+		border-radius: 4px;
+	}
+
+	aside summary:hover {
+		background: var(--bg);
+	}
+
+	/* Visible on the --panel box in both themes; hover is never the only cue. */
+	aside summary:focus-visible,
+	aside input:focus-visible,
+	aside .link:focus-visible {
+		outline: 2px solid var(--accent);
+		outline-offset: 1px;
+	}
+
 	.section {
-		margin: calc(var(--space-4) + var(--space-2)) 0 var(--space-2);
+		margin: 0 0 var(--space-2);
 		font-size: 0.75rem;
 		font-weight: 600;
 		letter-spacing: 0.06em;

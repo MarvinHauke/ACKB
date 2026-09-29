@@ -93,7 +93,7 @@
 
 	.articles > li {
 		padding: 0.8rem 0;
-		border-bottom: 1px solid var(--line);
+		border-bottom: 1px solid color-mix(in srgb, var(--line) 55%, transparent);
 	}
 
 	.title {
