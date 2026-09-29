@@ -8,8 +8,7 @@
 		"aaron-lanterman"
 	],
 	"origin": "academic",
-	"summary": "The transistor ladder filter of the Minimoog: a university lecture analyzing how the ladder works, Tim Stinchcombe's mathematical analysis of the ladder and its derivatives, and René Schmitz's buildable version of the Minimoog filter with notes on common pitfalls.",
-	"summaryFromGroup": true,
+	"summary": "Lecture analyzing the Moog transistor ladder: how the stacked differential pairs form four poles and how feedback produces resonance.",
 	"manufacturers": [
 		"moog"
 	],

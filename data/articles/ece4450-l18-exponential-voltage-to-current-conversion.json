@@ -8,8 +8,7 @@
 		"aaron-lanterman"
 	],
 	"origin": "academic",
-	"summary": "How a transistor pair turns a linear control voltage into an exponential current for 1V/oct tracking, and how to keep it stable over temperature with tempco resistors. René Schmitz's tutorial explains the transistor physics step by step, with measured bulk resistances of common transistor pairs; Lanterman's lecture covers the same from the university side.",
-	"summaryFromGroup": true,
+	"summary": "How a matched transistor pair turns a linear control voltage into an exponential current for 1 V/oct pitch control, and why tempco resistors are needed to keep it stable.",
 	"modules": [
 		"oscillator"
 	],
@@ -25,6 +24,6 @@
 	"components": [
 		"lm394"
 	],
-	"kinds": ["analysis", "explanation"],
+	"kinds": ["explanation", "analysis"],
 	"added": "2026-09-26"
 }

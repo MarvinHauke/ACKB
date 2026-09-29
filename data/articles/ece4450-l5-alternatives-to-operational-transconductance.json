@@ -8,13 +8,11 @@
 		"aaron-lanterman"
 	],
 	"origin": "academic",
-	"summary": "University lectures on voltage-controlled amplifiers: how operational transconductance amplifiers work as VCAs, the differences between the CA3080 and LM13700, and other ways to build a VCA without an OTA.",
-	"summaryFromGroup": true,
+	"summary": "Variable-gain blocks other than OTAs: THAT Corp. VCA chips, the SSM2164/SSI2164, the CEM3320, JFETs as variable resistors, diode bridges and the SSM2044, and where each fits in VCAs, filters and oscillators.",
 	"modules": [
 		"vca"
 	],
 	"subcircuits": [
-		"ota-stage",
 		"differential-pair",
 		"current-mirror"
 	],
@@ -22,9 +20,10 @@
 		"current-controlled-amplification"
 	],
 	"components": [
-		"ca3080",
-		"lm13700"
+		"cem3320",
+		"ssm2044",
+		"ssm2164"
 	],
-	"kinds": ["analysis"],
+	"kinds": ["explanation", "analysis"],
 	"added": "2026-09-26"
 }

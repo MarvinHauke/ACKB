@@ -8,8 +8,7 @@
 		"aaron-lanterman"
 	],
 	"origin": "academic",
-	"summary": "Lectures on sawtooth-core oscillators (integrator with reset) and deriving other waveforms from them: scaling and shifting waveforms, sawtooth-to-triangle and sawtooth-to-pulse waveshapers.",
-	"summaryFromGroup": true,
+	"summary": "How a sawtooth-core VCO works: an integrator charged by a control current and reset by a comparator, with the calculations for the timing capacitor (and a correction to its value in the notes).",
 	"modules": [
 		"oscillator"
 	],
@@ -23,6 +22,6 @@
 		"waveshaping",
 		"pulse-width-modulation"
 	],
-	"kinds": ["analysis"],
+	"kinds": ["explanation", "analysis"],
 	"added": "2026-09-26"
 }

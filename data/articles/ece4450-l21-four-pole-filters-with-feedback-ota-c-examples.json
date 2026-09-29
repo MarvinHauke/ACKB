@@ -8,8 +8,7 @@
 		"aaron-lanterman"
 	],
 	"origin": "academic",
-	"summary": "Lectures on filters built from OTAs and capacitors: single-pole OTA-C stages, the theory of four-pole filters with resonance feedback, and worked OTA-C examples.",
-	"summaryFromGroup": true,
+	"summary": "Real four-pole OTA-C filters with resonance feedback, with pointers to the SSM2040 and to CEM3320 designs such as the Elka Synthex.",
 	"modules": [
 		"filter"
 	],
@@ -25,8 +24,10 @@
 	],
 	"components": [
 		"lm13700",
-		"ca3080"
+		"ca3080",
+		"ssm2040",
+		"cem3320"
 	],
-	"kinds": ["analysis"],
+	"kinds": ["explanation", "analysis"],
 	"added": "2026-09-26"
 }

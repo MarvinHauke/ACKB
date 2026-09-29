@@ -8,15 +8,11 @@
 		"aaron-lanterman"
 	],
 	"origin": "academic",
-	"summary": "West-coast timbre circuits: Buchla's diodeless deadband circuits, the timbre modulation of the Music Easel and 259, and the Serge wave multipliers.",
-	"summaryFromGroup": true,
+	"summary": "Analysis of the Serge Wave Multipliers, whose back-to-back diodes to ground are the same structure found in guitar distortion pedals.",
 	"manufacturers": [
-		"buchla",
 		"serge"
 	],
 	"products": [
-		"music-easel",
-		"buchla-259",
 		"serge-modular"
 	],
 	"modules": [
@@ -32,6 +28,6 @@
 		"wavefolding",
 		"waveshaping"
 	],
-	"kinds": ["analysis"],
+	"kinds": ["explanation", "analysis"],
 	"added": "2026-09-26"
 }

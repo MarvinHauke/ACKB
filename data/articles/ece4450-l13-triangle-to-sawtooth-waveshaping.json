@@ -8,8 +8,7 @@
 		"aaron-lanterman"
 	],
 	"origin": "academic",
-	"summary": "Triangle-core oscillators with the Buchla 259 as example, and the waveshapers that turn a triangle into a sawtooth or a sine.",
-	"summaryFromGroup": true,
+	"summary": "Circuits that turn the triangle of a triangle-core oscillator into a sawtooth.",
 	"manufacturers": [
 		"buchla"
 	],
@@ -29,6 +28,6 @@
 	"functions": [
 		"waveshaping"
 	],
-	"kinds": ["analysis"],
+	"kinds": ["explanation", "analysis"],
 	"added": "2026-09-26"
 }
