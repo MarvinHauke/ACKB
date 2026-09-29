@@ -221,9 +221,11 @@
 		"manufacturer": "National",
 		"category": "noise",
 		"status": "obsolete",
+		"datasheetUrl": "https://www.mgelectronic.rs/ProductFilesDownload?Id=4347",
 		"aliases": [
 			"MM5437"
-		]
+		],
+		"description": "Digital noise generator IC. Datasheet: original National Semiconductor sheet, hosted by the distributor MG Electronic."
 	},
 	{
 		"id": "cd4006",
