@@ -1,0 +1,24 @@
+{
+	"$schema": "../../schema/article.schema.json",
+	"schemaVersion": 3,
+	"title": "Noise Cornucopia Revision 1",
+	"url": "https://musicfromouterspace.com/analogsynth_new/NOISECORNREV01/NOISECORNREV01.php",
+	"type": "website",
+	"authors": [
+		"ray-wilson"
+	],
+	"summary": "A noise module that uses a reverse-biased transistor junction to produce white, pink-ish, highpass and adjustable grainy noise plus random gates; revision 1 cleans up the supply and adds a level trimmer.",
+	"modules": [
+		"noise"
+	],
+	"subcircuits": [
+		"noise-generator",
+		"comparator"
+	],
+	"functions": [
+		"noise-generation",
+		"random-modulation"
+	],
+	"kinds": ["build-guide", "explanation", "schematic"],
+	"added": "2026-09-29"
+}

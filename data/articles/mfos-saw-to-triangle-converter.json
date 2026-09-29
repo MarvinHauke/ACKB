@@ -1,0 +1,23 @@
+{
+	"$schema": "../../schema/article.schema.json",
+	"schemaVersion": 3,
+	"title": "Sawtooth To Triangle Wave Converter",
+	"url": "https://musicfromouterspace.com/analogsynth_new/SAWTOTRICONVERT/SAWTOTRICONVERT.php",
+	"type": "website",
+	"authors": [
+		"ray-wilson"
+	],
+	"summary": "A small op-amp and diode circuit that folds a sawtooth or ramp into a triangle, built on MFOS's general-purpose op-amp board, with a stage-by-stage description.",
+	"modules": [
+		"oscillator"
+	],
+	"subcircuits": [
+		"waveshaper",
+		"voltage-follower"
+	],
+	"functions": [
+		"waveshaping"
+	],
+	"kinds": ["build-guide", "explanation", "schematic"],
+	"added": "2026-09-29"
+}

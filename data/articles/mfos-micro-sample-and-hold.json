@@ -1,0 +1,25 @@
+{
+	"$schema": "../../schema/article.schema.json",
+	"schemaVersion": 3,
+	"title": "Micro Sample n' Hold",
+	"url": "https://musicfromouterspace.com/analogsynth_new/MICROSAMPLEANDHOLD/MICROSAMPLEANDHOLD.html",
+	"type": "website",
+	"authors": [
+		"ray-wilson"
+	],
+	"year": 2011,
+	"summary": "A minimal sample and hold with variable sample rate and output glide, explained stage by stage from the input level shifter to the JFET-switched hold capacitor.",
+	"modules": [
+		"utility"
+	],
+	"subcircuits": [
+		"sample-and-hold",
+		"voltage-divider"
+	],
+	"functions": [
+		"random-modulation",
+		"cv-smoothing"
+	],
+	"kinds": ["build-guide", "explanation", "schematic"],
+	"added": "2026-09-29"
+}

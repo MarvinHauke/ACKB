@@ -1,0 +1,27 @@
+{
+	"$schema": "../../schema/article.schema.json",
+	"schemaVersion": 3,
+	"title": "The Sonic Multiplier (Ring Modulator/Analog Multiplier)",
+	"url": "https://musicfromouterspace.com/analogsynth_new/RINGMODULATOROCT2007/RINGMODULATOROCT2007.html",
+	"type": "website",
+	"authors": [
+		"ray-wilson"
+	],
+	"year": 2007,
+	"summary": "A ring modulator around the AD633 multiplier chip with two gain-adjustable inputs, a voltage-controlled internal sine oscillator and a squaring mode, with notes on its quirks.",
+	"modules": [
+		"fx",
+		"spectral"
+	],
+	"subcircuits": [
+		"ring-modulator"
+	],
+	"functions": [
+		"ring-modulation"
+	],
+	"components": [
+		"ad633"
+	],
+	"kinds": ["build-guide", "explanation", "schematic"],
+	"added": "2026-09-29"
+}

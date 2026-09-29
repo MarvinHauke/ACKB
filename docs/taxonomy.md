@@ -39,7 +39,13 @@ subcircuit · *noticeable at the outputs or controls?* → function · *a specif
 - **Component** ("Components & ICs"): a specific part you'd buy, with a part number or a distinct
   device type: ICs (LM13700, TL072) and special parts such as vactrols, optocouplers, tape heads or
   matched pairs. Generic resistors and capacitors are not listed. Grouped in the sidebar by
-  `category` (optical and magnetic parts have their own groups).
+  `category` (optical and magnetic parts have their own groups). Every part with a public
+  datasheet gets a `datasheetUrl` (rules in docs/source-rules.md, "Datasheets"). `status` is
+  `active`, `obsolete` or `reissued` (a true reissue exists); `successors` lists newer parts:
+  `reissue` (same part by a new maker, e.g. Alfa AS3080E for the CA3080) or `replacement` (a
+  newer part that does the same job, e.g. Electric Druid's PIC-based MM5837 replacement; `note`
+  says what differs, such as pinout or supply voltage). `status: reissued` if and only if a
+  successor of kind `reissue` exists (validated). Successors are plain entries, not tags.
 
 A look-alike pair stays when both sides pass their test (wavefolder = the circuit, wavefolding =
 the sound).
@@ -59,8 +65,11 @@ the sound).
 
 A build video that explains every step is `build-guide` and `explanation`. `reference` says how
 you use it, `type` says what it is (a `datasheet` is usually `reference`, but not every
-`reference` is a datasheet). Whole general-electronics sites don't become articles; they belong on
-the Reference Shelf (roadmap 3.7).
+`reference` is a datasheet). General-electronics sites and their tutorial pages don't become
+articles at all; they go into the separate references collection (`data/references.json`,
+`/references`), which only points to tags. Don't confuse the two: the kind `reference` marks an
+*article* you consult (a synth part's datasheet), the references collection holds general
+electronics outside the graph.
 
 ## Groups
 

@@ -1,8 +1,8 @@
 // Build-time access to the generated catalog. Server-only: pages are prerendered, so this JSON
 // never ships to the browser; each page gets only the slice its load function returns.
 import raw from './generated/catalog.json';
-import type { Article, ArticleSummary, Catalog, ParentMap, RegistryKey, Term } from '$lib/types';
-import { REGISTRY_KEYS } from '$lib/types';
+import type { Article, ArticleSummary, BasicsLink, Catalog, ParentMap, ReferencePage, ReferenceTagKey, RegistryKey, Term } from '$lib/types';
+import { REFERENCE_TAG_KEYS, REGISTRY_KEYS } from '$lib/types';
 
 export const catalog = raw as unknown as Catalog;
 
@@ -66,4 +66,20 @@ export function termParents(): ParentMap {
 /** Labels of every used term, for chips on result rows. */
 export function termLabels(): Record<string, string> {
 	return Object.fromEntries(REGISTRY_KEYS.flatMap((k) => catalog.taxonomy[k].filter((t) => t.count).map((t) => [t.id, t.label])));
+}
+
+/**
+ * Reference pages (data/references.json) that point to any of the given tags. They stay outside
+ * the graph: nothing here feeds counts, related tags or search.
+ */
+export function referencePagesFor(tags: Partial<Record<ReferenceTagKey, Iterable<string>>>): BasicsLink[] {
+	const sites = new Map(catalog.references.filter((r) => !r.site).map((r) => [r.id, r.title]));
+	const wanted = Object.fromEntries(Object.entries(tags).map(([k, ids]) => [k, new Set(ids)])) as Partial<
+		Record<ReferenceTagKey, Set<string>>
+	>;
+	return catalog.references
+		.filter((r): r is ReferencePage => Boolean(r.site))
+		.filter((r) => REFERENCE_TAG_KEYS.some((k) => (r[k] ?? []).some((id) => wanted[k]?.has(id))))
+		.map((r) => ({ id: r.id, title: r.title, url: r.url, summary: r.summary, siteName: sites.get(r.site) ?? r.site }))
+		.sort((a, b) => a.title.localeCompare(b.title));
 }

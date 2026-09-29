@@ -14,6 +14,21 @@ Details: `docs/architecture.md`, `docs/taxonomy.md`, `docs/source-rules.md`, `do
 - Keep code and docs in sync: when the model changes, update `src/lib/types.ts`,
   `scripts/lib/data.js`, the schemas and the docs together.
 
+## Agent team
+
+Peer Claude sessions that message each other (`SendMessage`), watchable in tmux:
+
+| Name             | Agent file                         | Model  | Job                                     |
+| ---------------- | ---------------------------------- | ------ | --------------------------------------- |
+| `ackb-architect` | `.claude/agents/ackb-architect.md` | opus   | lead; tasks, model decisions, overviews |
+| `ackb-curator`   | `.claude/agents/content-curator.md`| sonnet | adds articles and references, commits   |
+| `ackb-reviewer`  | `.claude/agents/taxonomy-architect.md` | opus | reviews; asks the architect about missing filters |
+
+Flow: architect → curator → reviewer (→ architect for new tags/filters) → curator commits →
+short overview to the architect. Only the user pushes. `scripts/agents.sh` opens the curator and
+reviewer as splits in one tmux window `ackb-agents` (at most 4 panes), resuming them by the
+session ids written in their agent files.
+
 ## Workflow
 
 - Work on branch `data`; PRs `data` → `main`; `main` deploys to GitHub Pages

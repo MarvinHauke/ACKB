@@ -64,5 +64,15 @@
 	{
 		"id": "look-mum-no-computer",
 		"label": "Look Mum No Computer"
+	},
+	{
+		"id": "ray-wilson",
+		"label": "Ray Wilson",
+		"description": "Music From Outer Space (MFOS)",
+		"url": "https://musicfromouterspace.com/",
+		"aliases": [
+			"MFOS",
+			"Music From Outer Space"
+		]
 	}
 ]

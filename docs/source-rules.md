@@ -12,8 +12,17 @@ application notes of parts used in synths.
   `voltage-follower`. It gets no product, module or function tags it doesn't actually discuss.
 - **Never mirror another site's structure**: don't add a site's chapters one by one, and don't
   create tags just because another site has a page about something.
-- **Broad sites** (All About Circuits, Elektronik-Kompendium, simulators) belong on the planned
-  Reference Shelf, not in the graph (see the roadmap).
+- **General electronics sites** (All About Circuits, Electronics Tutorials, simulators) are
+  **references**, never articles. They live in `data/references.json`, apart from the graph:
+  - a *site* entry per site: https url, `category` (`learning`, `simulation`, `calculators`,
+    `parts`) and a summary in your own words;
+  - optional *page* entries: one page on a listed site (`site`) that explains an existing tag,
+    with the tag fields articles use (`subcircuits`, `components`, …). Pages only point to tags,
+    never create them; pick at most one or two per tag, only where the basics help.
+
+  References show up on `/references` and, folded, under "Need the basics?" on tag and article
+  pages; never in search, filters, related tags or the exports. `npm run validate` checks them
+  (schema, known site, same host, known tags, not also an article).
 
 In doubt, ask: would someone working on a synth circuit be glad to find this under that tag?
 
@@ -50,10 +59,28 @@ articles only.
 - A site that isn't in ACKB yet: check its quality once.
 - A subcircuit or function group with more than 12 entries: consider a subgroup.
 
+## Datasheets (components)
+
+Every component in `data/taxonomy/components.json` gets a `datasheetUrl` when a public datasheet
+exists; `npm run validate -- --verbose` warns about used components without one.
+
+1. The manufacturer's own PDF, preferably a stable URL (e.g. `ti.com/lit/ds/symlink/<part>.pdf`).
+2. Obsolete part: the original datasheet hosted by an established synth-DIY supplier or
+   electronics distributor (e.g. Thonk for the Curtis CEM datasheets, MG Electronic for the
+   MM5837). It must be the original manufacturer's document, not a shop's own summary. Prefer the **long** version (full application
+   notes) when a short and a long one exist.
+3. Otherwise the datasheet of a legitimate reissue (e.g. Sound Semiconductor SSI2164 for the
+   SSM2164, Alfa AS3080E for the CA3080); say so in the description ("datasheet: SSI2164 reissue").
+4. Otherwise leave it empty. No datasheet aggregators (alldatasheet, datasheetcatalog, …).
+5. Generic entries (vactrol, optocoupler, PIC family) and custom chips without a public datasheet
+   (Korg35, IR3109) may stay empty.
+6. Check a link with a HEAD request; don't download the PDF.
+
 ## Checked by you (PR checklist)
 
 - Primary or technically deep source, not a shop page or aggregator.
 - Summary in your own words, describing this article.
 - Author credited; license notes added where the site states them.
+- `year` only when the page states when it was first published (not a revision or copyright year).
 - Nothing copied: no images, no text. ACKB only links.
 - Filters still fit after adding the article.

@@ -39,6 +39,8 @@ Each link is one **article**, and its tags connect it to others to form a small 
   or [`/module/fx/delay`](https://marvinhauke.github.io/ackb/module/fx/delay): facts, related tags
   and all their articles.
 - **Hide** forum threads or plain-http sites; your browser remembers the choice.
+- **Basics** like op-amps or filter theory: tag and article pages offer general electronics
+  [references](https://marvinhauke.github.io/ackb/references) under "Need the basics?".
 
 ## Can I trust it?
 

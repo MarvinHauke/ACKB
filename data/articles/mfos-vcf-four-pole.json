@@ -1,0 +1,30 @@
+{
+	"$schema": "../../schema/article.schema.json",
+	"schemaVersion": 3,
+	"title": "VCF Four Pole 24dB/Oct With VC Resonance",
+	"url": "https://musicfromouterspace.com/analogsynth_new/VCFJAN2006/VCFJAN2006.html",
+	"type": "website",
+	"authors": [
+		"ray-wilson"
+	],
+	"year": 2006,
+	"summary": "A four-pole 24 dB/oct lowpass made from LM13700 OTA stages, with 1 V/oct cutoff, voltage-controlled resonance that turns it into a sine oscillator, and sound samples.",
+	"modules": [
+		"filter"
+	],
+	"subcircuits": [
+		"ota-stage",
+		"feedback-network"
+	],
+	"functions": [
+		"lowpass-response",
+		"resonance-control",
+		"self-oscillation",
+		"voltage-controlled-cutoff"
+	],
+	"components": [
+		"lm13700"
+	],
+	"kinds": ["build-guide", "explanation", "schematic"],
+	"added": "2026-09-29"
+}

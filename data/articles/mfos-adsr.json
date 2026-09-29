@@ -1,0 +1,26 @@
+{
+	"$schema": "../../schema/article.schema.json",
+	"schemaVersion": 3,
+	"title": "ADSR Envelope Generator (+/-12V or +/-15V)",
+	"url": "https://musicfromouterspace.com/analogsynth_new/ADSR001/ADSR001.html",
+	"type": "website",
+	"authors": [
+		"ray-wilson"
+	],
+	"summary": "A classic ADSR with 1 ms to 20 s stage times, gate and trigger inputs for retriggering, built from comparators and CMOS logic, plus fixes for manual-gate debouncing.",
+	"modules": [
+		"envelope"
+	],
+	"subcircuits": [
+		"comparator",
+		"analog-switch"
+	],
+	"functions": [
+		"envelope-generation"
+	],
+	"components": [
+		"cd40106"
+	],
+	"kinds": ["build-guide", "explanation", "schematic"],
+	"added": "2026-09-29"
+}

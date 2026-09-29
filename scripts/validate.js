@@ -11,6 +11,8 @@ import {
 	ROOT,
 	indexTaxonomy,
 	loadArticles,
+	REFERENCE_TAG_KEYS,
+	loadReferences,
 	loadTaxonomy,
 	suggest
 } from './lib/data.js';
@@ -24,6 +26,7 @@ function loadSchemas() {
 	}
 	return {
 		article: ajv.compile(read('article.schema.json')),
+		references: ajv.compile(read('reference.schema.json')),
 		taxonomy: (name) => ajv.getSchema(`https://ackb.local/schema/taxonomy/${name}.schema.json`)
 	};
 }
@@ -39,7 +42,7 @@ function formatAjv(errors) {
 
 /**
  * Runs every check. Returns the loaded data too, so build-data.js validates and builds in one pass.
- * @returns {{ errors: string[], warnings: string[], articles: any[], taxonomy: Record<string, any[]> }}
+ * @returns {{ errors: string[], warnings: string[], articles: any[], taxonomy: Record<string, any[]>, references: any[] }}
  */
 export function validate() {
 	const errors = [];
@@ -152,6 +155,60 @@ export function validate() {
 		}
 	}
 
+	// References (sites and their pages): schema, unique ids and urls, never also an article.
+	// Pages belong to a listed site and only point to existing tags.
+	const { references, errors: refErrors } = loadReferences();
+	errors.push(...refErrors);
+	if (!schemas.references(references)) {
+		for (const msg of formatAjv(schemas.references.errors)) errors.push(`data/references.json: ${msg}`);
+	}
+	const refIds = new Set();
+	const refUrls = new Set();
+	const host = (url) => {
+		try {
+			return new URL(url).hostname.replace(/^www\./, '');
+		} catch {
+			return null;
+		}
+	};
+	const sites = new Map(references.filter((r) => !r.site).map((r) => [r.id, r]));
+	for (const r of references) {
+		const where = `data/references.json: "${r.id}"`;
+		if (refIds.has(r.id)) errors.push(`${where} duplicate id`);
+		if (refUrls.has(r.url)) errors.push(`${where} duplicate url ${r.url}`);
+		if (urls.has(r.url)) errors.push(`${where} is also an article (${urls.get(r.url)}); keep one`);
+		refIds.add(r.id);
+		refUrls.add(r.url);
+		if (!r.site) continue;
+		const site = sites.get(r.site);
+		if (!site) errors.push(`${where} belongs to unknown site "${r.site}"`);
+		else if (host(r.url) !== host(site.url)) errors.push(`${where} url is not on ${host(site.url)}`);
+		for (const key of REFERENCE_TAG_KEYS) {
+			for (const ref of Array.isArray(r[key]) ? r[key] : []) {
+				if (!index[key].has(ref)) errors.push(`${where} ${key} "${ref}" unknown in data/taxonomy/${REGISTRIES[key].file}`);
+			}
+		}
+	}
+
+	// status "reissued" if and only if a successor of kind "reissue" exists.
+	for (const c of taxonomy.components) {
+		const hasReissue = (c.successors ?? []).some((s) => s.kind === 'reissue');
+		if ((c.status === 'reissued') !== hasReissue) {
+			errors.push(
+				`data/taxonomy/components.json: "${c.id}" ` +
+					(hasReissue ? 'lists a reissue, so status must be "reissued"' : 'has status "reissued" but no successor of kind "reissue"')
+			);
+		}
+	}
+
+	// Datasheets: used components should link one (docs/source-rules.md, "Datasheets").
+	const NO_PUBLIC_DATASHEET = new Set(['pic', 'vactrol', 'optocoupler', 'korg35', 'ir3109']);
+	for (const c of taxonomy.components) {
+		if (used.components.has(c.id) && !c.datasheetUrl && !NO_PUBLIC_DATASHEET.has(c.id)) {
+			warnings.push(`data/taxonomy/components.json: "${c.id}" has no datasheetUrl`);
+		}
+	}
+
 	// Unused terms are fine for broad registries; only flag the ones meant to be discovered through articles.
 	for (const key of ['subcircuits', 'functions', 'components']) {
 		const parents = new Set(taxonomy[key].map((t) => t.parent).filter(Boolean));
@@ -162,7 +219,7 @@ export function validate() {
 		}
 	}
 
-	return { errors, warnings, articles, taxonomy };
+	return { errors, warnings, articles, taxonomy, references };
 }
 
 if (import.meta.url === pathToFileURL(process.argv[1]).href) {

@@ -1,0 +1,34 @@
+{
+	"$schema": "../../schema/article.schema.json",
+	"schemaVersion": 3,
+	"title": "MFOS Echo Rockit - Sound Producer/Processor",
+	"url": "https://musicfromouterspace.com/analogsynth_new/ECHOROCKIT/ECHOROCKIT.php",
+	"type": "website",
+	"authors": [
+		"ray-wilson"
+	],
+	"summary": "A 9 V battery sound box combining a PT2399 echo, a resonant lowpass VCF that doubles as a sine oscillator, an internal oscillator and an LFO that sweeps cutoff and delay time.",
+	"modules": [
+		"fx",
+		"delay",
+		"filter",
+		"lfo"
+	],
+	"subcircuits": [
+		"digital-delay-line",
+		"ota-stage"
+	],
+	"functions": [
+		"delay-echo",
+		"resonance-control",
+		"self-oscillation",
+		"voltage-controlled-cutoff",
+		"periodic-modulation"
+	],
+	"components": [
+		"pt2399",
+		"lm13700"
+	],
+	"kinds": ["build-guide", "explanation", "schematic"],
+	"added": "2026-09-29"
+}

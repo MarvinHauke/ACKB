@@ -1,0 +1,25 @@
+{
+	"$schema": "../../schema/article.schema.json",
+	"schemaVersion": 3,
+	"title": "MFOS Seven Segment Linear Envelope Generator",
+	"url": "https://musicfromouterspace.com/analogsynth_new/MULTISEGLINEAREG/MULTISEGLINEAREG.php",
+	"type": "website",
+	"authors": [
+		"ray-wilson"
+	],
+	"summary": "A very advanced envelope generator with two to seven linear segments of either slope, two gate modes, repeat and LED segment display, built from integrators, comparators and CMOS counters and multiplexers.",
+	"modules": [
+		"envelope"
+	],
+	"subcircuits": [
+		"integrator",
+		"comparator",
+		"analog-switch",
+		"led-driver"
+	],
+	"functions": [
+		"envelope-generation"
+	],
+	"kinds": ["build-guide", "explanation", "schematic"],
+	"added": "2026-09-29"
+}

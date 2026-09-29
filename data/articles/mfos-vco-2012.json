@@ -1,0 +1,29 @@
+{
+	"$schema": "../../schema/article.schema.json",
+	"schemaVersion": 3,
+	"title": "Voltage Controlled Oscillator (Excellent 1V/Octave Tracking)",
+	"url": "https://musicfromouterspace.com/analogsynth_new/VCO20120618REV0/VCO20120618REV0.html",
+	"type": "website",
+	"authors": [
+		"ray-wilson"
+	],
+	"year": 2012,
+	"summary": "Ray Wilson's refined MFOS VCO: a sawtooth core with a matched-pair expo converter (discrete, LM394 or SSM2210) for accurate 1 V/oct tracking, with schematic, circuit description and trimming notes for experienced builders.",
+	"modules": [
+		"oscillator"
+	],
+	"subcircuits": [
+		"vco-core",
+		"exponential-converter",
+		"integrator",
+		"comparator"
+	],
+	"functions": [
+		"exponential-response"
+	],
+	"components": [
+		"lm394"
+	],
+	"kinds": ["build-guide", "explanation", "schematic"],
+	"added": "2026-09-29"
+}

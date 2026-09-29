@@ -30,16 +30,18 @@ No server or REST API: the static lookup files cover that.
 6. **More static sources** from the [Synth DIY Wiki resource list](https://sdiy.info/wiki/Online_resources),
    always through the source rules. Prefer static sites and blogs; forums only as single
    hand-picked threads (synth-diy.org blocks bots).
-7. **Reference Shelf**: a small, separate list of general electronics sites (All About Circuits,
-   Elektronik-Kompendium, Falstad, LTspice) on `/references`, outside the graph, filters and
-   search: a way out of ACKB, not part of it.
+7. **References** (formerly "Reference Shelf"): a small, separate list of general electronics sites on `/references`,
+   outside the graph, filters and search: a way out of ACKB, not part of it. Done 2026-09-29
+   (`data/references.json`) with All About Circuits and Electronics Tutorials; candidates:
+   Elektronik-Kompendium, Falstad, LTspice. Single reference pages point to tags and appear
+   folded under "Need the basics?" (the bridge from 4.9), never as articles.
 8. **Instrument list** from [Synthesizers 1896–2024](https://github.com/iftah-og/Synthesizers-1896-2024)
    (MIT): spec sheets on product pages and a coverage to-do list.
 
 ## 4. Depth on the pages
 
-9. **Tag pages split their articles** into "Synth resources" and "References & tools" (kind
-   `reference`), so e.g. `/component/lm13700` bridges synth circuits and general references.
+9. **Tag pages narrow their articles** by kind (incl. `reference`) and author, first 20 rows plus
+   "Show all", so big tags like `/module/filter` stay readable. Done 2026-09-29.
 10. **Short explanations on tag pages** (what a subcircuit is, how to recognize it).
 11. **"Latest additions"** list (idea from el-component.com).
 
@@ -50,6 +52,9 @@ No server or REST API: the static lookup files cover that.
   existing tags first.
 - Max/MSP and DSP resources (broader subtitle, tags).
 - External contributions.
+- Part cross-references from part suppliers (e.g. All About Circuits, distributors) on component
+  pages; possibly a way to find sponsors. (Reissues and replacements: done 2026-09-29 as
+  component `successors`.)
 
 Not planned: extra classification fields such as `scope` or `resource_type`. `type` (what the
 source is), `kinds` (what it's useful for) and the tags (what it's about) are enough.

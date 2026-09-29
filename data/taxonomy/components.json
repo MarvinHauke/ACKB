@@ -32,12 +32,24 @@
 		"label": "CA3080",
 		"manufacturer": "RCA / Intersil",
 		"category": "ota",
-		"status": "obsolete",
+		"status": "reissued",
+		"datasheetUrl": "https://www.alfatriode.lv/eng/sc/AS3080E.pdf",
 		"aliases": [
-			"3080"
+			"3080",
+			"AS3080",
+			"AS3080E"
 		],
 		"alternatives": [
 			"lm13700"
+		],
+		"description": "Original OTA IC (RCA). Datasheet: AS3080E reissue by Alfa.",
+		"successors": [
+			{
+				"part": "AS3080E",
+				"maker": "Alfa",
+				"kind": "reissue",
+				"url": "https://www.alfatriode.lv/eng/sc/AS3080E.pdf"
+			}
 		]
 	},
 	{
@@ -45,7 +57,7 @@
 		"label": "KORG35",
 		"manufacturer": "Korg",
 		"category": "filter",
-		"status": "reissued",
+		"status": "obsolete",
 		"aliases": [
 			"Korg 35",
 			"KA35"
@@ -58,9 +70,19 @@
 		"manufacturer": "Curtis / OnChip",
 		"category": "filter",
 		"status": "reissued",
+		"datasheetUrl": "https://www.thonk.co.uk/wp-content/uploads/2020/08/CEM3320-Datasheet.pdf",
 		"aliases": [
 			"3320",
 			"AS3320"
+		],
+		"description": "Four-pole VCF IC. Datasheet: original Curtis CEM3320, hosted by Thonk.",
+		"successors": [
+			{
+				"part": "AS3320",
+				"maker": "Alfa",
+				"kind": "reissue",
+				"url": "https://www.alfatriode.lv/eng/sc/AS3320.pdf"
+			}
 		]
 	},
 	{
@@ -68,10 +90,20 @@
 		"label": "SSM2044",
 		"manufacturer": "SSM",
 		"category": "filter",
-		"status": "reissued",
+		"status": "obsolete",
+		"datasheetUrl": "https://www.soundsemiconductor.com/downloads/ssi2144datasheet.pdf",
 		"aliases": [
-			"2044",
-			"AS2044"
+			"2044"
+		],
+		"description": "Four-pole low-pass VCF IC. Datasheet: SSI2144, the Sound Semiconductor successor.",
+		"successors": [
+			{
+				"part": "SSI2144",
+				"maker": "Sound Semiconductor",
+				"kind": "replacement",
+				"url": "https://www.soundsemiconductor.com/downloads/ssi2144datasheet.pdf",
+				"note": "Based on the SSM2044 but not pin-compatible."
+			}
 		]
 	},
 	{
@@ -92,6 +124,7 @@
 		"manufacturer": "TI / Philips",
 		"category": "opamp",
 		"status": "active",
+		"datasheetUrl": "https://www.ti.com/lit/ds/symlink/ne5532.pdf",
 		"aliases": [
 			"5532"
 		]
@@ -123,6 +156,7 @@
 		"manufacturer": "RCA / TI",
 		"category": "logic",
 		"status": "active",
+		"datasheetUrl": "https://www.ti.com/lit/ds/symlink/cd4013b.pdf",
 		"aliases": [
 			"4013",
 			"HEF4013"
@@ -135,10 +169,25 @@
 		"manufacturer": "Curtis / OnChip",
 		"category": "oscillator",
 		"status": "reissued",
+		"datasheetUrl": "https://www.thonk.co.uk/wp-content/uploads/2017/06/CEM_3340-3345_Long.pdf",
 		"aliases": [
 			"3340",
 			"AS3340",
 			"V3340"
+		],
+		"description": "VCO IC. Datasheet: original Curtis CEM3340/3345 (long version), hosted by Thonk.",
+		"successors": [
+			{
+				"part": "AS3340",
+				"maker": "Alfa",
+				"kind": "reissue",
+				"url": "https://www.alfatriode.lv/eng/sc/AS3340.pdf"
+			},
+			{
+				"part": "V3340",
+				"maker": "CoolAudio",
+				"kind": "reissue"
+			}
 		]
 	},
 	{
@@ -150,6 +199,14 @@
 		"aliases": [
 			"AS3109",
 			"80017A"
+		],
+		"successors": [
+			{
+				"part": "AS3109",
+				"maker": "Alfa",
+				"kind": "reissue",
+				"url": "https://www.alfatriode.lv/eng/sc/AS3109.pdf"
+			}
 		]
 	},
 	{
@@ -165,9 +222,30 @@
 		"manufacturer": "SSM / CoolAudio",
 		"category": "vca",
 		"status": "reissued",
+		"datasheetUrl": "https://www.soundsemiconductor.com/downloads/ssi2164datasheet.pdf",
 		"aliases": [
 			"V2164",
 			"2164"
+		],
+		"description": "Quad voltage-controlled amplifier IC. Datasheet: SSI2164 reissue by Sound Semiconductor.",
+		"successors": [
+			{
+				"part": "SSI2164",
+				"maker": "Sound Semiconductor",
+				"kind": "reissue",
+				"url": "https://www.soundsemiconductor.com/downloads/ssi2164datasheet.pdf"
+			},
+			{
+				"part": "AS2164",
+				"maker": "Alfa",
+				"kind": "reissue",
+				"url": "https://www.alfatriode.lv/eng/sc/AS2164.pdf"
+			},
+			{
+				"part": "V2164",
+				"maker": "CoolAudio",
+				"kind": "reissue"
+			}
 		]
 	},
 	{
@@ -182,11 +260,18 @@
 		"label": "MN3007",
 		"manufacturer": "Panasonic / CoolAudio",
 		"category": "delay",
-		"status": "reissued",
+		"status": "obsolete",
 		"aliases": [
 			"V3207",
-			"MN3207",
-			"MN3005"
+			"MN3207"
+		],
+		"successors": [
+			{
+				"part": "V3207",
+				"maker": "CoolAudio",
+				"kind": "replacement",
+				"note": "V3207 (MN3207 type), lower supply voltage; not a drop-in in 15 V circuits."
+			}
 		]
 	},
 	{
@@ -207,8 +292,19 @@
 		"manufacturer": "National",
 		"category": "noise",
 		"status": "obsolete",
+		"datasheetUrl": "https://www.mgelectronic.rs/ProductFilesDownload?Id=4347",
 		"aliases": [
 			"MM5437"
+		],
+		"description": "Digital noise generator IC. Datasheet: original National Semiconductor sheet, hosted by the distributor MG Electronic.",
+		"successors": [
+			{
+				"part": "NOISE1B (PIC 12F675)",
+				"maker": "Electric Druid",
+				"kind": "replacement",
+				"url": "https://electricdruid.net/white-noise-source-mm5837-mm5437-replacement/",
+				"note": "Closest replacement; runs from a different supply voltage than the original (see its datasheet) and is quieter."
+			}
 		]
 	},
 	{
@@ -228,6 +324,7 @@
 		"manufacturer": "RCA / TI",
 		"category": "logic",
 		"status": "active",
+		"datasheetUrl": "https://www.ti.com/lit/ds/symlink/cd4046b.pdf",
 		"aliases": [
 			"4046",
 			"74HC4046"
@@ -240,6 +337,7 @@
 		"manufacturer": "Microchip",
 		"category": "dac",
 		"status": "active",
+		"datasheetUrl": "https://ww1.microchip.com/downloads/en/DeviceDoc/20002249B.pdf",
 		"aliases": [
 			"MCP4821"
 		]
@@ -273,6 +371,7 @@
 		"manufacturer": "National / TI",
 		"category": "opamp",
 		"status": "active",
+		"datasheetUrl": "https://www.ti.com/lit/ds/symlink/lm3900.pdf",
 		"aliases": [
 			"Norton amplifier"
 		]
@@ -303,6 +402,7 @@
 		"manufacturer": "RCA / TI",
 		"category": "logic",
 		"status": "active",
+		"datasheetUrl": "https://www.ti.com/lit/ds/symlink/cd4069ub.pdf",
 		"aliases": [
 			"4069",
 			"CD4069UB"
@@ -315,6 +415,7 @@
 		"manufacturer": "RCA / TI",
 		"category": "logic",
 		"status": "active",
+		"datasheetUrl": "https://www.ti.com/lit/ds/symlink/cd4007ub.pdf",
 		"aliases": [
 			"4007"
 		],
@@ -326,6 +427,7 @@
 		"manufacturer": "RCA / TI",
 		"category": "logic",
 		"status": "active",
+		"datasheetUrl": "https://www.ti.com/lit/ds/symlink/cd40106b.pdf",
 		"aliases": [
 			"40106",
 			"74HC14"
@@ -338,9 +440,23 @@
 		"manufacturer": "National / TI",
 		"category": "other",
 		"status": "active",
+		"datasheetUrl": "https://www.ti.com/lit/ds/symlink/lf398-n.pdf",
 		"aliases": [
 			"LF398 sample and hold"
 		]
+	},
+	{
+		"id": "ad633",
+		"label": "AD633",
+		"manufacturer": "Analog Devices",
+		"category": "other",
+		"status": "active",
+		"datasheetUrl": "https://www.analog.com/media/en/technical-documentation/data-sheets/AD633.pdf",
+		"aliases": [
+			"AD633JN",
+			"AD633AR"
+		],
+		"description": "Four-quadrant analog multiplier, used for ring modulators and voltage-controlled amplifiers."
 	},
 	{
 		"id": "lm317",
@@ -348,6 +464,7 @@
 		"manufacturer": "National / TI",
 		"category": "regulator",
 		"status": "active",
+		"datasheetUrl": "https://www.ti.com/lit/ds/symlink/lm317.pdf",
 		"aliases": [
 			"LM337"
 		]
@@ -358,10 +475,12 @@
 		"manufacturer": "Analog Devices (Linear)",
 		"category": "dac",
 		"status": "active",
+		"datasheetUrl": "https://www.analog.com/media/en/technical-documentation/data-sheets/2602fa.pdf",
 		"aliases": [
 			"LTC2602",
 			"LTC2612"
-		]
+		],
+		"description": "Dual 12-bit DAC IC (SPI). Datasheet: shared LTC2602/2612/2622 sheet."
 	},
 	{
 		"id": "lm3915",
@@ -369,7 +488,8 @@
 		"manufacturer": "TI (National)",
 		"category": "other",
 		"status": "obsolete",
-		"description": "Logarithmic (3 dB/step) LED bar/dot display driver.",
+		"datasheetUrl": "https://www.mgelectronic.rs/ProductFilesDownload?Id=6481",
+		"description": "Logarithmic (3 dB/step) LED bar/dot display driver. Datasheet: original TI sheet (SNVS740C), hosted by the distributor MG Electronic.",
 		"aliases": [
 			"LM3914",
 			"LM3916"
@@ -381,7 +501,8 @@
 		"manufacturer": "Spin Semiconductor",
 		"category": "delay",
 		"status": "active",
-		"description": "Programmable DSP for reverb, delay and modulation effects.",
+		"datasheetUrl": "http://www.spinsemi.com/Products/datasheets/spn1001/FV-1.pdf",
+		"description": "Programmable DSP for reverb, delay and modulation effects. Datasheet over http (the site's https is broken).",
 		"aliases": [
 			"FV-1",
 			"Spin Semi FV-1"
@@ -392,7 +513,7 @@
 		"label": "Vactrol",
 		"manufacturer": "PerkinElmer / Xvive / Silonex",
 		"category": "optical",
-		"status": "reissued",
+		"status": "active",
 		"description": "LED and light-dependent resistor (LDR) in one light-tight package: a voltage- or current-controlled resistor with a slow, smooth response, typical for lowpass gates and opto compressors.",
 		"aliases": [
 			"VTL5C3",

@@ -27,6 +27,7 @@ data/articles + data/taxonomy          (the knowledge graph: articles, tag nodes
 - **Edges**: an article's tags; product → manufacturer; `parent` (subtypes); component `alternatives`.
 - The build adds per tag: its articles, **same kind** (component alternatives and same category,
   subtypes/siblings, a maker's products) and **often used together** (tags that share articles).
+- Component `successors` (reissues, replacements) are plain data on the node, not edges.
 - No graph database needed at this size; `graph.json` can be imported into one later.
 
 ## Lookup files (static API)
@@ -42,8 +43,12 @@ PDF_OCR kinds to subcircuit paths (`pdfOcrKinds`). Subtypes sit under their pare
 - `/`: search and filters (`?component=ca3080&module=filter`). One row per article; the title opens the
   resource in a new tab, tag chips open the tag pages, "Details" the article page.
 - `/<type>/<path>` (`/component/ca3080`, `/module/fx/delay`, `/author/juergen-haible`, …): one page per used tag
-  with facts, related tags and its articles.
+  with facts, related tags and its articles (first 20, narrowed by kind chips and an author select).
 - `/article/<id>`: one page per article with its tags and related articles.
+- `/references`: references (`data/references.json`): general electronics sites and single pages
+  on them. A second collection next to the articles, outside the graph: pages point to tags and
+  appear folded under "Need the basics?" on those tag pages and on articles sharing a subcircuit
+  or component; only in the catalog, not in search, filters, related tags or the exports.
 
 ## Search and filters
 

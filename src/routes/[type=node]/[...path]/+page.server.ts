@@ -2,8 +2,8 @@
 // its facts, related nodes (edges in the knowledge graph) and the articles tagged with it.
 // Subtypes live under their parent: /module/fx/delay, /subcircuit/opamp-stage/voltage-follower.
 import { error } from '@sveltejs/kit';
-import { catalog, summarize, termLabels, termParents } from '$lib/server/catalog';
-import { REGISTRY_KEYS, REGISTRY_META, SLUG_TO_KEY, termPath, type NodeRef, type RegistryKey } from '$lib/types';
+import { catalog, referencePagesFor, summarize, termLabels, termParents } from '$lib/server/catalog';
+import { REFERENCE_TAG_KEYS, REGISTRY_KEYS, REGISTRY_META, SLUG_TO_KEY, termPath, type NodeRef, type ReferenceTagKey, type RegistryKey } from '$lib/types';
 import type { EntryGenerator } from './$types';
 
 export const entries: EntryGenerator = () =>
@@ -43,6 +43,8 @@ export function load({ params }) {
 		same: term.related.same.map(ref),
 		together: term.related.together.map(ref),
 		articles,
+		// References pointing to this tag or its subtypes, for "Need the basics?" (not part of the graph).
+		basics: REFERENCE_TAG_KEYS.includes(key as ReferenceTagKey) ? referencePagesFor({ [key]: ids }) : [],
 		labels: termLabels(),
 		parents: termParents()
 	};

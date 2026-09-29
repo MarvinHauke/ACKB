@@ -1,0 +1,110 @@
+[
+	{
+		"id": "electronics-tutorials",
+		"title": "Electronics Tutorials",
+		"url": "https://www.electronics-tutorials.ws/",
+		"summary": "Free, well-illustrated tutorials on basic electronics: passive components, AC and DC theory, transistors, op-amps, filters, oscillators and digital logic, each topic built up from first principles.",
+		"category": "learning",
+		"linkCheck": "blocked"
+	},
+	{
+		"id": "all-about-circuits",
+		"title": "All About Circuits",
+		"url": "https://www.allaboutcircuits.com/",
+		"summary": "A large electronics site with a free online textbook on DC, AC, semiconductor and digital circuits, technical articles, worksheets and a set of design calculators.",
+		"category": "learning",
+		"linkCheck": "blocked"
+	},
+	{
+		"id": "aac-negative-feedback",
+		"title": "Negative Feedback",
+		"url": "https://www.allaboutcircuits.com/textbook/semiconductors/chpt-8/negative-feedback/",
+		"summary": "Why feeding an op-amp's output straight back to its inverting input makes it follow the input: the voltage follower and the idea of negative feedback, step by step.",
+		"site": "all-about-circuits",
+		"subcircuits": [
+			"voltage-follower"
+		],
+		"linkCheck": "blocked"
+	},
+	{
+		"id": "aac-divided-feedback",
+		"title": "Divided Feedback",
+		"url": "https://www.allaboutcircuits.com/textbook/semiconductors/chpt-8/divided-feedback/",
+		"summary": "How a resistor divider in the feedback path sets the gain of an op-amp, for both the non-inverting and the inverting amplifier, with worked voltage and current examples.",
+		"site": "all-about-circuits",
+		"subcircuits": [
+			"non-inverting-amp",
+			"inverting-amp"
+		],
+		"linkCheck": "blocked"
+	},
+	{
+		"id": "aac-the-operational-amplifier",
+		"title": "The “Operational” Amplifier",
+		"url": "https://www.allaboutcircuits.com/textbook/semiconductors/chpt-8/the-operational-amplifier/",
+		"summary": "Where op-amps come from (analog computing) and how an op-amp without feedback acts as a comparator that switches its output to one rail or the other.",
+		"site": "all-about-circuits",
+		"subcircuits": [
+			"comparator"
+		],
+		"linkCheck": "blocked"
+	},
+	{
+		"id": "aac-differentiator-integrator-circuits",
+		"title": "Differentiator and Integrator Circuits",
+		"url": "https://www.allaboutcircuits.com/textbook/semiconductors/chpt-8/differentiator-integrator-circuits/",
+		"summary": "Op-amp circuits with a capacitor in the feedback or input path that integrate or differentiate a voltage over time, the building block behind ramps and filter stages.",
+		"site": "all-about-circuits",
+		"subcircuits": [
+			"integrator"
+		],
+		"linkCheck": "blocked"
+	},
+	{
+		"id": "aac-low-pass-filters",
+		"title": "Low-pass Filters",
+		"url": "https://www.allaboutcircuits.com/textbook/alternating-current/chpt-8/low-pass-filters/",
+		"summary": "Passive low-pass filters built from a resistor with a capacitor or an inductor, and how to calculate their cutoff frequency.",
+		"site": "all-about-circuits",
+		"subcircuits": [
+			"rc-lowpass"
+		],
+		"functions": [
+			"lowpass-response"
+		],
+		"linkCheck": "blocked"
+	},
+	{
+		"id": "etw-sallen-key-filter",
+		"title": "Sallen and Key Filter",
+		"url": "https://www.electronics-tutorials.ws/filter/sallen-key-filter.html",
+		"summary": "How a single op-amp with two resistors and two capacitors forms a second-order filter, built up from RC dividers, with low-pass and high-pass versions and their gain and cutoff formulas.",
+		"site": "electronics-tutorials",
+		"subcircuits": [
+			"sallen-key"
+		],
+		"linkCheck": "blocked"
+	},
+	{
+		"id": "etw-state-variable-filter",
+		"title": "State Variable Filter",
+		"url": "https://www.electronics-tutorials.ws/filter/state-variable-filter.html",
+		"summary": "Two chained integrators and a summing stage give low-pass, band-pass and high-pass outputs from one input; the page derives the transfer functions and shows the block diagram.",
+		"site": "electronics-tutorials",
+		"subcircuits": [
+			"state-variable"
+		],
+		"linkCheck": "blocked"
+	},
+	{
+		"id": "aac-current-mirror-bjts",
+		"title": "Current Mirror BJTs",
+		"url": "https://www.allaboutcircuits.com/textbook/semiconductors/chpt-4/current-mirrors/",
+		"summary": "Explains how two matched bipolar transistors with joined bases copy a reference current to a load, and why that gives an almost constant current across a wide range of load resistance.",
+		"site": "all-about-circuits",
+		"subcircuits": [
+			"current-mirror"
+		],
+		"linkCheck": "blocked"
+	}
+]

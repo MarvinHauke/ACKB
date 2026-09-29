@@ -54,6 +54,7 @@ The full checklist, including what CI checks on every pull request, is in
 | `modules`      | module ids (a subtype plus its parent: `["fx", "delay"]`); may be empty for general topics |
 | `kinds`        | one or more of `build-guide`, `explanation`, `analysis`, `schematic`, `reference`           |
 | `origin`       | optional: `manufacturer`, `academic`                                                         |
+| `year`         | optional: year of first publication, only when stated; never a revision or copyright year  |
 
 `kinds` says what the resource is useful for; see "Content kinds" in `docs/taxonomy.md`.
 

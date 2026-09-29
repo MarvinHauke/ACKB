@@ -11,7 +11,23 @@
 			"manufacturer": { "type": "string", "description": "Original manufacturer (free text; ICs are not tied to the synth manufacturer registry)" },
 			"category": { "enum": ["ota", "opamp", "comparator", "vca", "filter", "oscillator", "transistor-array", "timer", "regulator", "logic", "mcu", "dac", "delay", "noise", "optical", "magnetic", "other"] },
 			"datasheetUrl": { "type": "string", "format": "uri" },
-			"status": { "enum": ["active", "obsolete", "reissued"] },
+			"status": { "enum": ["active", "obsolete", "reissued"], "description": "reissued: a true reissue (same function and pinout by a new maker) is available" },
+			"successors": {
+				"type": "array",
+				"description": "Newer parts for an obsolete one: reissue (same part by a new maker) or replacement (a newer part that does the same job; `note` says what differs, e.g. pinout or supply)",
+				"items": {
+					"type": "object",
+					"required": ["part", "maker", "kind"],
+					"additionalProperties": false,
+					"properties": {
+						"part": { "type": "string", "minLength": 1 },
+						"maker": { "type": "string", "minLength": 1 },
+						"kind": { "enum": ["reissue", "replacement"] },
+						"url": { "type": "string", "format": "uri", "pattern": "^https?://" },
+						"note": { "type": "string" }
+					}
+				}
+			},
 			"alternatives": { "type": "array", "items": { "$ref": "term.schema.json#/$defs/id" } }
 		}
 	}

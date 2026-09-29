@@ -1,5 +1,5 @@
 // Builds everything the site needs from data/ (validates first; aborts on errors):
-//   src/lib/server/generated/catalog.json  resolved articles + taxonomy (with related nodes), read by prerendered pages
+//   src/lib/server/generated/catalog.json  resolved articles + taxonomy (with related nodes) + references (sites and pages), read by prerendered pages
 //   static/data/search-index.json          Fuse docs + prebuilt index, lazy-loaded by the search box
 //   static/data/kb.jsonl                   one article per line, flattened for embeddings / LLM tools
 //   static/data/taxonomy.json              all registries, for other tools to reuse the vocabulary
@@ -401,7 +401,7 @@ function llmsTxt(articles, taxonomy) {
 	return lines.join('\n') + '\n';
 }
 
-const { errors, warnings, articles: raw, taxonomy } = validate();
+const { errors, warnings, articles: raw, taxonomy, references } = validate();
 for (const e of errors) console.error(`error ${e}`);
 if (errors.length) {
 	console.error(`build-data: ${errors.length} validation errors, nothing written`);
@@ -418,7 +418,7 @@ const byNode = articlesByNode(taxonomy, articles);
 const enriched = enrichTaxonomy(taxonomy, byNode, nodeRelations(taxonomy, articles, byNode));
 const docs = searchDocs(articles, index);
 
-write(OUT_CATALOG, { generatedAt: new Date().toISOString(), articles, taxonomy: enriched });
+write(OUT_CATALOG, { generatedAt: new Date().toISOString(), articles, taxonomy: enriched, references });
 write(join(OUT_STATIC, 'search-index.json'), { docs, index: Fuse.createIndex(SEARCH_KEYS, docs).toJSON() });
 write(join(OUT_STATIC, 'kb.jsonl'), kbJsonl(articles, index) + '\n');
 write(join(OUT_STATIC, 'taxonomy.json'), taxonomy);
