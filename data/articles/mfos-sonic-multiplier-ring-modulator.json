@@ -19,6 +19,9 @@
 	"functions": [
 		"ring-modulation"
 	],
+	"components": [
+		"ad633"
+	],
 	"kinds": ["build-guide", "explanation", "schematic"],
 	"added": "2026-09-29"
 }

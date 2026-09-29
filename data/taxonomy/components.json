@@ -343,6 +343,18 @@
 		]
 	},
 	{
+		"id": "ad633",
+		"label": "AD633",
+		"manufacturer": "Analog Devices",
+		"category": "other",
+		"status": "active",
+		"aliases": [
+			"AD633JN",
+			"AD633AR"
+		],
+		"description": "Four-quadrant analog multiplier, used for ring modulators and voltage-controlled amplifiers."
+	},
+	{
 		"id": "lm317",
 		"label": "LM317",
 		"manufacturer": "National / TI",
