@@ -7,18 +7,19 @@
 	"authors": [
 		"moritz-klein"
 	],
-	"summary": "Video design walk-through of a diode ladder lowpass filter from scratch on the breadboard, followed by turning it into a Eurorack module.",
-	"summaryFromGroup": true,
+	"summary": "Follow-up to the diode ladder design: adds highpass and bandpass modes and other improvements on the way to a finished Eurorack module.",
 	"modules": [
 		"filter"
 	],
 	"subcircuits": [
 		"ladder-filter",
-		"differential-pair",
 		"feedback-network"
 	],
 	"functions": [
 		"lowpass-response",
+		"highpass-response",
+		"bandpass-response",
+		"multimode-output",
 		"resonance-control",
 		"voltage-controlled-cutoff"
 	],

@@ -7,20 +7,19 @@
 	"authors": [
 		"rene-schmitz"
 	],
-	"summary": "René Schmitz's first VCO designs: sawtooth cores with a discharge switch, and VCO 4, an improved VCO 2 that uses two diodes instead of a MOSFET for the reset, giving cleaner waveforms.",
-	"summaryFromGroup": true,
+	"summary": "René Schmitz's first sawtooth VCO from 1996 and its successor, which adds a temperature-compensation amplifier that puts a differential amp in an op-amp feedback loop.",
 	"modules": [
 		"oscillator"
 	],
 	"subcircuits": [
 		"vco-core",
 		"integrator",
-		"exponential-converter",
-		"comparator"
+		"exponential-converter"
 	],
 	"functions": [
-		"exponential-response"
+		"exponential-response",
+		"temperature-compensation"
 	],
-	"kinds": ["schematic"],
+	"kinds": ["explanation", "schematic"],
 	"added": "2026-09-26"
 }

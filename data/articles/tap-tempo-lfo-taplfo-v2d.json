@@ -9,8 +9,7 @@
 	],
 	"year": 2012,
 	"license": "CC BY-NC-SA 4.0",
-	"summary": "The TAPLFO chip: an LFO whose rate can be set by tapping, with block and pinout diagrams and typical uses in effects pedals. The second article explains a tap-tempo bug in TAPLFO 3 and how it was fixed.",
-	"summaryFromGroup": true,
+	"summary": "Datasheet page for the original tap-tempo LFO chip (PIC 16F684, now superseded by TAPLFO 3): eight waveforms, tempo multipliers, CV control of every parameter and uses in pedals, drum machines and clocks.",
 	"modules": [
 		"lfo"
 	],
@@ -19,11 +18,12 @@
 	],
 	"functions": [
 		"periodic-modulation",
-		"tap-tempo"
+		"tap-tempo",
+		"random-modulation"
 	],
 	"components": [
 		"pic"
 	],
-	"kinds": ["explanation"],
+	"kinds": ["explanation", "reference"],
 	"added": "2026-09-26"
 }

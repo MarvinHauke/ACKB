@@ -7,8 +7,7 @@
 	"authors": [
 		"look-mum-no-computer"
 	],
-	"summary": "Practical builds of René Schmitz's late MS-20 lowpass/highpass filter using an LM13700 OTA: Eurorack PCB versions, stripboard layouts and build logs covering calibration, the LED limiter in the resonance loop and part substitutions.",
-	"summaryFromGroup": true,
+	"summary": "Look Mum No Computer's EasyEDA project of René Schmitz's MS-20 filter, with schematic and PCB to build from.",
 	"manufacturers": [
 		"korg"
 	],
@@ -30,7 +29,6 @@
 		"soft-clipping",
 		"resonance-control",
 		"self-oscillation",
-		"current-controlled-amplification",
 		"lowpass-response",
 		"highpass-response"
 	],

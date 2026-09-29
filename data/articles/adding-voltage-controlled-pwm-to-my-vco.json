@@ -7,19 +7,16 @@
 	"authors": [
 		"moritz-klein"
 	],
-	"summary": "Two short videos extending a DIY VCO: a sawtooth-to-triangle converter and voltage-controlled pulse width modulation.",
-	"summaryFromGroup": true,
+	"summary": "Adds CV-controlled pulse width to a DIY sawtooth VCO: why pulse waves suffer from AC coupling, a comparator as saw-to-square converter, and a bug fix, with a parts list to build along.",
 	"modules": [
 		"oscillator"
 	],
 	"subcircuits": [
-		"waveshaper",
 		"comparator"
 	],
 	"functions": [
-		"pulse-width-modulation",
-		"waveshaping"
+		"pulse-width-modulation"
 	],
-	"kinds": ["explanation"],
+	"kinds": ["build-guide", "explanation"],
 	"added": "2026-09-26"
 }

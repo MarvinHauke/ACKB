@@ -7,8 +7,7 @@
 	"authors": [
 		"n8-synthesizers"
 	],
-	"summary": "Practical builds of René Schmitz's late MS-20 lowpass/highpass filter using an LM13700 OTA: Eurorack PCB versions, stripboard layouts and build logs covering calibration, the LED limiter in the resonance loop and part substitutions.",
-	"summaryFromGroup": true,
+	"summary": "Step-by-step build of a 4HP Eurorack filter based on the later MS-20 design: two OTA lowpass stages with diodes in the resonance path taming self-oscillation, assembled on N8 Synth's prototype kit.",
 	"manufacturers": [
 		"korg"
 	],
@@ -30,9 +29,7 @@
 		"soft-clipping",
 		"resonance-control",
 		"self-oscillation",
-		"current-controlled-amplification",
-		"lowpass-response",
-		"highpass-response"
+		"lowpass-response"
 	],
 	"components": [
 		"lm13700",

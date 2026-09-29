@@ -7,14 +7,12 @@
 	"authors": [
 		"moritz-klein"
 	],
-	"summary": "Video design walk-through of a diode ladder lowpass filter from scratch on the breadboard, followed by turning it into a Eurorack module.",
-	"summaryFromGroup": true,
+	"summary": "Designs a resonant diode ladder lowpass on the breadboard from 1N4148 diodes and op amps, stage by stage, with a full parts list and a Falstad simulation; aimed at viewers who know the basics of filters.",
 	"modules": [
 		"filter"
 	],
 	"subcircuits": [
 		"ladder-filter",
-		"differential-pair",
 		"feedback-network"
 	],
 	"functions": [
@@ -22,6 +20,6 @@
 		"resonance-control",
 		"voltage-controlled-cutoff"
 	],
-	"kinds": ["explanation"],
+	"kinds": ["build-guide", "explanation"],
 	"added": "2026-09-26"
 }

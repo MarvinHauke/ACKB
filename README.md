@@ -1,51 +1,76 @@
-# ACKB: Analog Circuit Knowledge Base
+<p align="center">
+  <img src="static/img/logo.png" alt="ACKB logo" width="96">
+</p>
 
-A searchable index of good resources on synthesizer circuits (analog, digital or mixed): papers, schematics, service
-manuals, datasheets and build logs. It is not a wiki and doesn't copy anything. Resources stay on
-their original sites; ACKB stores the links, a short summary and tags.
+<h1 align="center">ACKB · Analog Circuit Knowledge Base</h1>
 
-Live site: https://marvinhauke.github.io/ACKB/
+<p align="center">
+  A curated, searchable index of the best resources on synthesizer circuits.<br>
+  <a href="https://marvinhauke.github.io/ackb/"><b>Open the live site →</b></a>
+</p>
 
-## What an article is
+---
 
-One article is one link: a page, video, repo or paper. It is tagged by manufacturer, instrument,
-module (VCO, filter, …), subcircuit (OTA stage, voltage follower, …), function (soft clipping,
-resonance, …), IC (LM13700, TL072, …) and author. The tags connect articles with each other: a
-small knowledge graph.
+## What it is
+
+ACKB collects articles, schematics, videos, papers and repos on synth circuits (analog, digital
+or mixed). It doesn't copy anything: every result links straight to the original. Each link has
+a short summary in our own words, plus tags.
+
+## What's inside
+
+Each link is one **article**, and its tags connect it to others to form a small knowledge graph.
+
+| Tag type      | Examples                                        |
+| ------------- | ----------------------------------------------- |
+| Instrument    | Korg › MS-20, Moog › Minimoog, Buchla › 259     |
+| Module        | VCO, Filter, VCA, FX › Delay & Reverb           |
+| Subcircuit    | OTA stage, Sallen-Key, exponential converter    |
+| Function      | Resonance, soft clipping, tap tempo             |
+| Component     | LM13700, CEM3320, vactrol                       |
+| Author        | René Schmitz, Electric Druid, Moritz Klein      |
+| Resource kind | Build Guide, Explanation, Analysis, Schematic, Reference |
 
 ## Finding things
 
-Type in the search box (MS-20, LM13700, "buffer", …) or combine filters on the left. Each result
-opens the resource directly; "Details" shows its tags and related articles. Every tag has a page,
-e.g. [/component/ca3080](https://marvinhauke.github.io/ackb/component/ca3080) with facts, similar parts and its
-articles. Hide source types (e.g. forum) or http:// links; your browser remembers it.
+- **Search** for anything: `MS-20`, `LM13700`, `buffer`, …
+- **Filter** in the sidebar: instrument, module, electronics and resource kind, combined freely.
+- **Browse** tag pages such as [`/component/ca3080`](https://marvinhauke.github.io/ackb/component/ca3080)
+  or [`/module/fx/delay`](https://marvinhauke.github.io/ackb/module/fx/delay): facts, related tags
+  and all their articles.
+- **Hide** forum threads or plain-http sites; your browser remembers the choice.
 
-## How trustworthy is it
+## Can I trust it?
 
-Every article has a confidence level, worked out from what it is: `official` (manufacturer
-datasheets and manuals), `academic` (papers, patents, university lectures) or `community`
-(everything else). Links are checked weekly; if one goes offline, the article points to an
-archived copy on archive.org when one exists.
+- **Confidence** comes from the source: `official` (datasheets, manuals), `academic` (papers,
+  lectures) or `community`.
+- **Link checks** run weekly, and dead links fall back to an archive.org copy.
+- **Source rules** decide what gets in, and CI checks every pull request
+  ([docs/source-rules.md](docs/source-rules.md)).
 
-## Data for tools and AI
+## Open data
 
-The whole index can be downloaded as plain data: `data/kb.jsonl` (one article per line),
-`data/graph.json` (the knowledge graph) and `data/taxonomy.json` (all tags). One small file per
-tag, e.g. `data/component/ca3080.json`, lets tools like the PDF_OCR CLI fetch just what they need.
-`llms.txt` gives language models a map of the site.
+Everything can be downloaded as static files, for tools and AI:
 
-## Adding articles
+| File                           | Contents                          |
+| ------------------------------ | --------------------------------- |
+| `data/kb.jsonl`                | all articles, one per line        |
+| `data/graph.json`              | the knowledge graph               |
+| `data/taxonomy.json`           | all tags                          |
+| `data/<type>/<path>.json`      | one tag, e.g. `data/component/ca3080.json` |
+| `llms.txt`                     | a site map for language models    |
 
-One JSON file per link in `data/articles/`. `npm run new -- "Title"` creates one,
-`npm run validate` checks it; pull requests must pass [the source rules](docs/source-rules.md).
-Details: [docs/adding-articles.md](docs/adding-articles.md) and [docs/taxonomy.md](docs/taxonomy.md).
+## Contributing
 
-## Run it locally
+One JSON file per link in `data/articles/`: `npm run new -- "Title"` creates it,
+`npm run check` validates it. See [adding articles](docs/adding-articles.md) and
+[taxonomy](docs/taxonomy.md).
+
+## Run locally
 
 ```bash
 npm install
 npm run dev
 ```
 
-Node 22 or newer. How it's built: [docs/architecture.md](docs/architecture.md).
-What comes next: [docs/roadmap.md](docs/roadmap.md).
+Node 22+. More: [architecture](docs/architecture.md) · [roadmap](docs/roadmap.md)

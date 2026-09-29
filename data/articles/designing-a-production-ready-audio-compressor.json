@@ -7,19 +7,20 @@
 	"authors": [
 		"moritz-klein"
 	],
-	"summary": "Two-part video: a simple audio compressor designed from scratch, then a production-ready version.",
-	"summaryFromGroup": true,
+	"summary": "Turns the simple diode-VCA compressor into a usable module: gain-reduction display, full-wave rectifier, attack mode switch, input and make-up gain, and an LED VU meter.",
 	"modules": [
 		"fx",
 		"dynamics"
 	],
 	"subcircuits": [
-		"envelope-follower"
+		"envelope-follower",
+		"led-driver"
 	],
 	"functions": [
 		"dynamics-compression",
-		"envelope-following"
+		"envelope-following",
+		"level-metering"
 	],
-	"kinds": ["explanation"],
+	"kinds": ["build-guide", "explanation"],
 	"added": "2026-09-26"
 }

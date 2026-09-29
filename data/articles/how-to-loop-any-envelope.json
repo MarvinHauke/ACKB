@@ -7,20 +7,17 @@
 	"authors": [
 		"moritz-klein"
 	],
-	"summary": "Video design of a simple ADSR-style envelope generator from scratch, plus a follow-up on making any envelope loop.",
-	"summaryFromGroup": true,
+	"summary": "A tiny utility circuit, suggested as a first project, that retriggers an envelope from its own output so it loops like an LFO.",
 	"modules": [
 		"envelope"
 	],
 	"subcircuits": [
 		"comparator",
-		"rc-lowpass",
-		"opamp-stage"
+		"voltage-follower"
 	],
 	"functions": [
-		"envelope-generation",
 		"periodic-modulation"
 	],
-	"kinds": ["explanation"],
+	"kinds": ["build-guide", "explanation"],
 	"added": "2026-09-26"
 }

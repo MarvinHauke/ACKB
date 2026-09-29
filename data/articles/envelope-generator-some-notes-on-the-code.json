@@ -9,15 +9,13 @@
 	],
 	"year": 2008,
 	"license": "CC BY-NC-SA 4.0",
-	"summary": "A cheap PIC-based clone of the CEM3312/SSM2056 voltage-controlled ADSR, plus notes on its firmware: A/D polling of the CVs, a DDS-style phase accumulator for the envelope stages, and lookup tables for the control response. Superseded by the EnvGen8 chip.",
-	"summaryFromGroup": true,
+	"summary": "Walk-through of the PIC firmware behind the VC ADSR: the timer interrupt that makes each sample, debouncing of gate and trigger, and a DDS-style phase accumulator reading curve tables.",
 	"modules": [
 		"envelope"
 	],
 	"subcircuits": [
 		"microcontroller",
-		"dds-oscillator",
-		"dac-output"
+		"dds-oscillator"
 	],
 	"functions": [
 		"envelope-generation"

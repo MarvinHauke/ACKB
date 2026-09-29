@@ -7,8 +7,7 @@
 	"authors": [
 		"n8-synthesizers"
 	],
-	"summary": "Two-part guide: what a state-variable filter is and how the LM13700 version works, then construction, testing and calibration of the Eurorack module.",
-	"summaryFromGroup": true,
+	"summary": "Part 2 of the LM13700 state-variable filter: assembling the 8HP module on N8 Synth's prototype kit, component by component.",
 	"modules": [
 		"filter"
 	],

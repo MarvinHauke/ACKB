@@ -7,8 +7,7 @@
 	"authors": [
 		"moritz-klein"
 	],
-	"summary": "Video design of a simple ADSR-style envelope generator from scratch, plus a follow-up on making any envelope loop.",
-	"summaryFromGroup": true,
+	"summary": "From a passive attack/release envelope to an active one with op amps and a comparator, then faking an ADSR with a few diodes; one TL074 and a short parts list.",
 	"modules": [
 		"envelope"
 	],
@@ -18,9 +17,8 @@
 		"opamp-stage"
 	],
 	"functions": [
-		"envelope-generation",
-		"periodic-modulation"
+		"envelope-generation"
 	],
-	"kinds": ["explanation"],
+	"kinds": ["build-guide", "explanation"],
 	"added": "2026-09-26"
 }

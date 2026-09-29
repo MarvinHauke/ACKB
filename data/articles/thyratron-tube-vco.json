@@ -7,21 +7,19 @@
 	"authors": [
 		"rene-schmitz"
 	],
-	"summary": "René Schmitz's tube experiments: a neon lamp VCO, a thyratron VCO, a tube VCF, a valve VCA based on subminiature tubes, and an exponential converter that uses a vacuum diode as its nonlinear element. Most of them use high voltages.",
-	"summaryFromGroup": true,
+	"summary": "A high-voltage VCO whose oscillator core is a thyratron, fed by a transistor expo converter and a current mirror with a triode as sink; breadboarded, with an op-amp buffer as interim output.",
 	"modules": [
-		"oscillator",
-		"filter",
-		"vca"
+		"oscillator"
 	],
 	"subcircuits": [
 		"vacuum-tube-stage",
-		"exponential-converter"
+		"exponential-converter",
+		"current-mirror",
+		"voltage-follower"
 	],
 	"functions": [
-		"exponential-response",
-		"soft-clipping"
+		"exponential-response"
 	],
-	"kinds": ["schematic"],
+	"kinds": ["explanation", "schematic"],
 	"added": "2026-09-26"
 }

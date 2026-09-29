@@ -7,8 +7,7 @@
 	"authors": [
 		"rene-schmitz"
 	],
-	"summary": "The transistor ladder filter of the Minimoog: a university lecture analyzing how the ladder works, Tim Stinchcombe's mathematical analysis of the ladder and its derivatives, and René Schmitz's buildable version of the Minimoog filter with notes on common pitfalls.",
-	"summaryFromGroup": true,
+	"summary": "René Schmitz's buildable version of the Minimoog ladder filter, adapted because the original ran on unusual supply voltages, with later corrections for unity overall gain and proper scaling.",
 	"manufacturers": [
 		"moog"
 	],
@@ -30,6 +29,6 @@
 		"self-oscillation",
 		"voltage-controlled-cutoff"
 	],
-	"kinds": ["analysis", "schematic"],
+	"kinds": ["build-guide", "schematic"],
 	"added": "2026-09-26"
 }

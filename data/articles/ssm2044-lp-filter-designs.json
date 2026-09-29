@@ -8,34 +8,27 @@
 		"tom-wiltshire"
 	],
 	"license": "CC BY-NC-SA 4.0",
-	"summary": "Comparison of how various classic synths wired the CEM3320 and SSM2044 filter chips, using the datasheet application circuits as reference: input scaling, resonance feedback, CV summing and temperature compensation of the exponential converter.",
-	"summaryFromGroup": true,
+	"summary": "The SSM2044 datasheet filter next to redrawn versions from the Korg Polysix, MonoPoly and Trident, the PPG Wave 2.3 and the Siel Opera 6, showing how little the circuits actually differ.",
 	"manufacturers": [
-		"sequential",
-		"korg"
+		"korg",
+		"ppg"
 	],
 	"products": [
-		"prophet-5",
-		"pro-one"
+		"polysix",
+		"ppg-wave"
 	],
 	"modules": [
 		"filter"
 	],
 	"subcircuits": [
-		"ota-stage",
-		"feedback-network",
-		"exponential-converter",
-		"inverting-amp"
+		"feedback-network"
 	],
 	"functions": [
+		"lowpass-response",
 		"resonance-control",
-		"voltage-controlled-cutoff",
-		"exponential-response",
-		"temperature-compensation",
-		"lowpass-response"
+		"voltage-controlled-cutoff"
 	],
 	"components": [
-		"cem3320",
 		"ssm2044"
 	],
 	"kinds": ["explanation"],

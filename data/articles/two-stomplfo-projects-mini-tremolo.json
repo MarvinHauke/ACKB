@@ -9,31 +9,22 @@
 	],
 	"year": 2022,
 	"license": "CC BY-NC-SA 4.0",
-	"summary": "Two small pedal projects driven by the 8-pin STOMPLFO chip: an optical tremolo using a vactrol, and \"PTWobble\", a PT2399 delay with LFO modulation of the delay time.",
-	"summaryFromGroup": true,
+	"summary": "A simple optical tremolo pedal: a vactrol used as a voltage divider and driven by the StompLFO chip, with the LED-resistor calculation and breadboard tests.",
 	"modules": [
-		"lfo",
 		"fx",
-		"modulation",
-		"delay"
+		"modulation"
 	],
 	"subcircuits": [
-		"microcontroller",
-		"digital-delay-line",
-		"voltage-follower"
+		"voltage-divider",
+		"microcontroller"
 	],
 	"functions": [
-		"tremolo",
-		"delay-echo",
-		"pitch-modulation",
-		"periodic-modulation",
-		"tap-tempo"
+		"tremolo"
 	],
 	"components": [
-		"pt2399",
-		"pic",
-		"vactrol"
+		"vactrol",
+		"pic"
 	],
-	"kinds": ["explanation"],
+	"kinds": ["build-guide", "explanation"],
 	"added": "2026-09-26"
 }
