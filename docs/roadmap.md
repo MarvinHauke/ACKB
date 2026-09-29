@@ -52,6 +52,11 @@ No server or REST API: the static lookup files cover that.
   existing tags first.
 - Max/MSP and DSP resources (broader subtitle, tags).
 - External contributions.
+- SEO basics for tag pages as landing pages: descriptive titles, short intros for the biggest
+  tags, `noindex` for thin pages (< 3 articles), `sitemap.xml`, canonical URLs, breadcrumbs.
+- Sponsor/about page with an editorial policy (sponsors never influence ranking, taxonomy or
+  inclusion) and a restrained "Supported by" block, only once analytics show real traffic. Not
+  planned: display ads, sponsored articles, paid ranking, a paywall.
 - Part cross-references from part suppliers (e.g. All About Circuits, distributors) on component
   pages; possibly a way to find sponsors. (Reissues and replacements: done 2026-09-29 as
   component `successors`.)

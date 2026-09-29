@@ -19,6 +19,11 @@ data/articles + data/taxonomy          (the knowledge graph: articles, tag nodes
 | `static/data/graph.json`                      | the whole graph: nodes (articles, tags) and edges     |
 | `static/data/<type>/<path>.json`, `index.json` | per tag: facts, related tags, articles (PDF_OCR CLI)  |
 | `static/llms.txt`                             | site map for LLMs                                     |
+| `build/sitemap.xml`, `build/robots.txt`       | prerendered routes: home, articles, tag pages with ≥ 3 articles (thin ones are `noindex,follow`; threshold `MIN_INDEXABLE_ARTICLES` in `src/lib/seo.ts`) |
+
+The public base URL for sitemap, canonical links and JSON-LD is `SITE_URL` (`src/lib/server/seo.ts`;
+default `https://marvinhauke.github.io/ackb`, later `SITE_URL=https://irregular-instruments.com/ackb`; change it together with `BASE_PATH`).
+`robots.txt` is only read at a domain root: on the project site (`/ackb/robots.txt`) submit the sitemap in Search Console.
 
 ## Knowledge graph
 
@@ -54,9 +59,28 @@ PDF_OCR kinds to subcircuit paths (`pdfOcrKinds`). Subtypes sit under their pare
 
 - Filters: precomputed tag → entries index; tags combine with AND, content kind and confidence
   values with OR. State is kept in the URL.
+- Matching: an article is a **full match** when it has every selected tag (and passes kind,
+  confidence, hidden source types and every text term, which stay hard filters). With two or more
+  tags, **Also relevant** lists articles with some but not all of them ("k/n tags", most first,
+  20 rows then "Show all"). Sidebar counts use the full matches only.
+- **Group by** (`?group=kind|type|author|module`, default none) sections the full matches; each
+  article sits in one section: `kind` = first kind in `CONTENT_KINDS` order, `type` = source type,
+  `author` = first author, else the host without `www.`, `module` = first listed module, replaced by
+  its subtype when the article also lists one ("FX › Delay & Reverb"), "No module" last.
+  **Sort** (`?sort=best|new|year|title`, default best) orders within each section: best match keeps
+  today's order (newest first, or the search score), then newest added, publication year (undated
+  last), title A–Z. Both apply only while filtering, and are written to the URL only when not default.
 - Hidden source types (e.g. forum) are a per-browser preference in localStorage
   (`src/lib/source-types.ts`); they hide links on entry pages and entries whose sources are all hidden.
-- Search: Fuse.js with a prebuilt index.
+- Search: Fuse.js with a prebuilt index. The search bar (`src/lib/components/SearchBar.svelte`) shows
+  active tag filters and text terms as removable chips on its right (at most 4, then `+N`). Typing
+  `,` or Enter turns the text before it into a chip: a tag when it matches the label or an alias of a used
+  term (order modules › components › subcircuits › functions › products › manufacturers ›
+  authors; the chip shows the type when the label is ambiguous), otherwise a text term. Text terms
+  combine with AND. Suggestions (recent filters, matching tags while typing) are an ARIA listbox
+  overlay. URL: tag params as before, text terms as repeated `q`; on load the last `q` is the live
+  text in the field, the others become chips. With chips the live slot is always written
+  (`?q=vca&q=`), so a reload shows the same chips; a single `?q=foo` stays live text.
 - Related entries: weighted overlap of shared ICs, subcircuits, functions, products.
 
 ## Operations

@@ -29,7 +29,8 @@
 			"emphasis",
 			"peak"
 		],
-		"group": "filter-response"
+		"group": "filter-response",
+		"description": "The control that sets how strongly a filter emphasizes frequencies around its cutoff, also called Q, peak or emphasis. It is heard as a whistling or squelching peak and, at high settings, as self-oscillation."
 	},
 	{
 		"id": "self-oscillation",
@@ -57,7 +58,8 @@
 			"cutoff CV",
 			"frequency modulation of filter"
 		],
-		"group": "filter-response"
+		"group": "filter-response",
+		"description": "Changing a filter's cutoff frequency with a control voltage, from an envelope, LFO, keyboard or other source. This is what makes a filter voltage-controlled and gives filter sweeps and keyboard tracking."
 	},
 	{
 		"id": "exponential-response",
@@ -97,7 +99,8 @@
 		"aliases": [
 			"LPF"
 		],
-		"group": "filter-response"
+		"group": "filter-response",
+		"description": "A filter response that passes low frequencies and rolls off everything above the cutoff, at a slope set by the number of poles. It is the classic subtractive-synth sound, heard as a sound getting darker as the cutoff falls."
 	},
 	{
 		"id": "highpass-response",
@@ -105,7 +108,8 @@
 		"aliases": [
 			"HPF"
 		],
-		"group": "filter-response"
+		"group": "filter-response",
+		"description": "A filter response that passes high frequencies and attenuates everything below the cutoff. In synths it thins out bass, works as a rumble or DC blocker, and sits next to the lowpass in multimode filters."
 	},
 	{
 		"id": "bandpass-response",
@@ -191,7 +195,8 @@
 			"LFO modulation",
 			"modulation source"
 		],
-		"group": "modulation-control"
+		"group": "modulation-control",
+		"description": "Repeating variation of a parameter such as pitch, cutoff or amplitude, typically by a low-frequency oscillator. Heard as vibrato, tremolo, wah or other rhythmic movement of the sound."
 	},
 	{
 		"id": "tap-tempo",

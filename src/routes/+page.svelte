@@ -3,6 +3,7 @@
 	import { replaceState } from '$app/navigation';
 	import { resolve } from '$app/paths';
 	import ArticleList from '$lib/components/ArticleList.svelte';
+	import SearchBar, { type TagEntry } from '$lib/components/SearchBar.svelte';
 	import {
 		FILTER_KEYS,
 		activeCount,
@@ -11,6 +12,18 @@
 		filtersFromParams,
 		filtersToParams,
 		matchingIds,
+		matchCounts,
+		kindConfidenceIds,
+		tagCount,
+		viewFromParams,
+		authorOrHost,
+		primaryKind,
+		primaryModule,
+		type GroupBy,
+		type SortBy,
+		GROUPS,
+		SORTS,
+		queriesFromParams,
 		type FilterKey,
 		type Filters
 	} from '$lib/filters';
@@ -23,7 +36,7 @@
 		saveHideHttp,
 		sourceVisible
 	} from '$lib/source-types';
-	import { COMPONENT_CATEGORY_GROUP, KIND_LABEL, REGISTRY_KEYS, REGISTRY_META, TERM_GROUPS } from '$lib/types';
+	import { COMPONENT_CATEGORY_GROUP, CONTENT_KINDS, KIND_LABEL, REGISTRY_KEYS, type ArticleSummary, type ContentKind, REGISTRY_META, TERM_GROUPS } from '$lib/types';
 
 	let { data } = $props();
 
@@ -70,7 +83,9 @@
 		) as Record<FilterKey, Option[]>
 	);
 
+	// The live text (searched while typing) and the text chips made with ",".
 	let query = $state('');
+	let texts: string[] = $state([]);
 	let filters: Filters = $state(emptyFilters());
 	let searcher: Searcher | null = $state(null);
 	let searchFailed = $state(false);
@@ -145,10 +160,11 @@
 
 	onMount(() => {
 		const params = new URLSearchParams(location.search);
-		query = params.get('q') ?? '';
+		({ texts, live: query } = queriesFromParams(params));
+		({ group, sort } = viewFromParams(params));
 		filters = filtersFromParams(params);
 		for (const key of FILTER_KEYS) if (filters[key].length) openGroups[key] = true;
-		if (query) warmSearch();
+		if (query || texts.length) warmSearch();
 		hiddenTypes = loadHiddenTypes();
 		hideHttp = loadHideHttp();
 		if (hiddenTypes.length || hideHttp) sourceTypesOpen = true;
@@ -179,7 +195,7 @@
 	});
 
 	function syncUrl() {
-		const params = filtersToParams(filters, query.trim(), data.parents).toString();
+		const params = filtersToParams(filters, [...texts, query.trim()], data.parents, isFiltering ? { group, sort } : undefined).toString();
 		replaceState(params ? `?${params}` : location.pathname, {});
 	}
 
@@ -221,38 +237,158 @@
 	function clearAll() {
 		filters = emptyFilters();
 		query = '';
+		texts = [];
+		group = 'none';
+		sort = 'best';
+		syncUrl();
+		// The Reset button disappears with the filters: keep focus in the page, in the search field.
+		document.getElementById('q')?.focus();
+	}
+
+	function removeTag(key: FilterKey, id: string) {
+		filters[key] = filters[key].filter((v) => v !== id);
 		syncUrl();
 	}
 
-	function clearQuery() {
-		query = '';
-		syncUrl();
-	}
-
-	// One removable chip per active filter, e.g. "LM13700".
+	// Tags that can be typed in the search bar: used terms only, in the order that decides between
+	// registries when a label or alias exists more than once.
+	const TAG_LOOKUP_ORDER = ['modules', 'components', 'subcircuits', 'functions', 'products', 'manufacturers', 'authors'] as const;
+	const tagEntries: TagEntry[] = $derived(
+		TAG_LOOKUP_ORDER.flatMap((key) =>
+			data.terms[key].map((t) => ({
+				key,
+				id: t.id,
+				label: t.label,
+				aliases: t.aliases ?? [],
+				type: REGISTRY_META[key].label,
+				count: t.count
+			}))
+		)
+	);
+	// One removable chip per active filter, e.g. "LM13700"; the type shows when the label exists more than once.
 	const activeChips = $derived(
-		FILTER_KEYS.flatMap((key) => filters[key].map((id) => ({ key, id, label: labels.get(id) ?? id })))
+		FILTER_KEYS.flatMap((key) =>
+			filters[key].map((id) => {
+				const label = labels.get(id) ?? id;
+				const same = tagEntries.filter((e) => e.label.toLowerCase() === label.toLowerCase());
+				return { key, id, label, type: same.length > 1 ? REGISTRY_META[key as keyof typeof REGISTRY_META]?.label : undefined };
+			})
+		)
 	);
 
 	const facetMatch = $derived(matchingIds(facetIndex, filters));
-	const q = $derived(query.trim());
+	const terms = $derived([...texts, query.trim()].filter(Boolean));
 
-	const results = $derived.by(() => {
-		const allowed = (id: string) => (facetMatch === null || facetMatch.has(id)) && shown(byId.get(id)!);
-		if (!q) return data.articles.filter((e) => allowed(e.id));
+	// Articles hit by every text term, best score first (all articles without a text term).
+	const candidates = $derived.by(() => {
+		if (!terms.length) return data.articles;
+		// Every text term must hit (AND); order by the summed search score.
 		if (searcher) {
-			return searcher(q)
-				.filter((r) => byId.has(r.id) && allowed(r.id))
-				.map((r) => byId.get(r.id)!);
+			const scoreOf = (term: string) => new Map(searcher!(term).map((r) => [r.id, r.score] as [string, number]));
+			const [first, ...rest] = terms.map(scoreOf);
+			const total = new Map<string, number>();
+			for (const [id, sc] of first) {
+				const others = rest.map((m) => m.get(id));
+				if (others.every((v) => v !== undefined)) total.set(id, sc + others.reduce((a, v) => a + v!, 0));
+			}
+			return [...total]
+				.filter(([id]) => byId.has(id))
+				.sort((a, b) => a[1] - b[1])
+				.map(([id]) => byId.get(id)!);
 		}
 		// Until Fuse is loaded: plain substring match, so typing never shows an empty page.
-		const needle = q.toLowerCase();
-		return data.articles.filter(
-			(e) => allowed(e.id) && (e.title.toLowerCase().includes(needle) || e.summary.toLowerCase().includes(needle))
+		const needles = terms.map((t) => t.toLowerCase());
+		return data.articles.filter((e) =>
+			needles.every((n) => e.title.toLowerCase().includes(n) || e.summary.toLowerCase().includes(n))
 		);
 	});
 
-	const isFiltering = $derived(q !== '' || activeCount(filters) > 0);
+	// Full matches: every hard filter and every selected tag. The sidebar counts come from these only.
+	const results = $derived(candidates.filter((e) => (facetMatch === null || facetMatch.has(e.id)) && shown(e)));
+
+	// "Also relevant": with two or more tags selected, articles with some but not all of them (all hard
+	// filters still apply), most matching tags first.
+	const tagTotal = $derived(tagCount(filters));
+	const tagMatches = $derived(tagTotal >= 2 ? matchCounts(facetIndex, filters) : new Map<string, number>());
+	const partial = $derived.by(() => {
+		if (tagTotal < 2) return [];
+		const kc = kindConfidenceIds(facetIndex, filters);
+		return candidates
+			.filter((e) => {
+				const n = tagMatches.get(e.id) ?? 0;
+				return n >= 1 && n < tagTotal && (kc === null || kc.has(e.id)) && shown(e);
+			})
+			.map((e, i) => ({ e, i, n: tagMatches.get(e.id)! }))
+			.sort((a, b) => b.n - a.n || a.i - b.i)
+			.map((x) => x.e);
+	});
+	let showAllPartial = $state(false);
+	$effect(() => {
+		void tagMatches;
+		void terms;
+		showAllPartial = false;
+	});
+
+	// ---- Group by / sort (only while filtering; defaults are today's behavior) ----
+	let group = $state<GroupBy>('none');
+	let sort = $state<SortBy>('best');
+	const parentOf = (id: string) => data.parents[`modules:${id}`];
+	const GROUP_LABEL: Record<GroupBy, string> = { none: 'None', kind: 'Resource kind', type: 'Source type', author: 'Author / site', module: 'Module' };
+	const SORT_LABEL: Record<SortBy, string> = { best: 'Best match', new: 'Newest added', year: 'Publication year', title: 'Title A–Z' };
+
+	const compare: Record<Exclude<SortBy, 'best'>, (a: ArticleSummary, b: ArticleSummary) => number> = {
+		new: (a, b) => b.added.localeCompare(a.added),
+		year: (a, b) => (b.year ?? -1) - (a.year ?? -1),
+		title: (a, b) => a.title.localeCompare(b.title, 'en', { numeric: true, sensitivity: 'base' })
+	};
+
+	/** "Best match" keeps today's order (newest first, or the search score); the others re-sort stably. */
+	function sorted(list: ArticleSummary[]): ArticleSummary[] {
+		return sort === 'best' ? list : [...list].sort(compare[sort]);
+	}
+
+	/** "Also relevant": most matching tags first, the chosen sort within equal counts. */
+	const sortedPartial = $derived.by(() => {
+		if (sort === 'best') return partial;
+		const by = compare[sort];
+		return [...partial].sort((a, b) => tagMatches.get(b.id)! - tagMatches.get(a.id)! || by(a, b));
+	});
+
+	const groupKey = (a: ArticleSummary): string | undefined => {
+		switch (group) {
+			case 'kind':
+				return primaryKind(a);
+			case 'type':
+				return a.type;
+			case 'author':
+				return authorOrHost(a, labels);
+			case 'module':
+				return primaryModule(a, labels, parentOf);
+			default:
+				return undefined;
+		}
+	};
+	const groupLabel = (key: string) => (group === 'kind' ? KIND_LABEL[key as ContentKind] : key);
+	const NO_GROUP = $derived(group === 'module' ? 'No module' : 'Other');
+
+	// Sections of the full matches: fixed order for kind and type, alphabetical for author and module
+	// (no module last).
+	const sections = $derived.by(() => {
+		if (group === 'none') return [];
+		const map = new Map<string, ArticleSummary[]>();
+		for (const a of results) {
+			const key = groupKey(a) ?? NO_GROUP;
+			map.set(key, [...(map.get(key) ?? []), a]);
+		}
+		const order = (k: string) => (group === 'kind' ? CONTENT_KINDS.indexOf(k as ContentKind) : group === 'type' ? SOURCE_TYPES.indexOf(k) : 0);
+		return [...map]
+			.sort(([a], [b]) =>
+				a === NO_GROUP ? 1 : b === NO_GROUP ? -1 : group === 'kind' || group === 'type' ? order(a) - order(b) : a.localeCompare(b, 'en', { sensitivity: 'base' })
+			)
+			.map(([key, list]) => ({ key, label: groupLabel(key), list: sorted(list) }));
+	});
+
+	const isFiltering = $derived(terms.length > 0 || activeCount(filters) > 0);
 	// Count for the results bar: visible articles of the matching or all articles.
 	const shownCount = $derived(isFiltering ? results.length : data.articles.filter(shown).length);
 
@@ -270,9 +406,6 @@
 	const icInfo = $derived(
 		filters.components.length === 1 ? options.components.find((t) => t.id === filters.components[0]) : undefined
 	);
-
-	let searchFocused = $state(false);
-	const showRecent = $derived(searchFocused && q === '' && recent.length > 0);
 
 	// Counts per option within the current result set; options with no match are hidden unless selected.
 	const facetCounts = $derived.by(() => {
@@ -294,11 +427,14 @@
 
 <svelte:head>
 	<title>Analog Circuit Knowledge Base</title>
+	<link rel="canonical" href={data.canonical} />
 	<meta
 		name="description"
 		content="Curated index of papers, datasheets and build logs on synthesizer circuits (analog, digital, mixed), searchable by subcircuit, function and IC."
 	/>
 </svelte:head>
+
+<h1 class="visually-hidden">Analog Circuit Knowledge Base</h1>
 
 <p class="intro">
 	A curated index of articles, schematics, videos and papers on synthesizer circuits:
@@ -306,74 +442,42 @@
   Every result links straight to the original.
 </p>
 
-<search class="searchbar">
-	<label class="visually-hidden" for="q">Search</label>
-	<input
-		id="q"
-		type="search"
-		placeholder="Search: MS-20, LM13700, soft clipping, buffer …"
-		autocomplete="off"
-		aria-controls={showRecent ? 'recent' : undefined}
-		bind:value={query}
-		onfocus={() => {
-			warmSearch();
-			searchFocused = true;
-		}}
-		onblur={() => (searchFocused = false)}
-		oninput={syncUrl}
-	/>
-	<!-- Recent filters as suggestions while the empty search field has focus. -->
-	{#if showRecent}
-		<div class="suggest" id="recent" role="group" aria-label="Recently used filters">
-			<span class="status">Recent filters</span>
-			<ul class="chips">
-				{#each recent as r (r.key + r.id)}
-					<li>
-						<!-- mousedown keeps focus in the field, so the list stays open for several picks -->
-						<button
-							class="chip"
-							aria-pressed={filters[r.key].includes(r.id)}
-							onmousedown={(e) => e.preventDefault()}
-							onclick={() => toggle(r.key, r.id)}>{labels.get(r.id) ?? r.id}</button
-						>
-					</li>
-				{/each}
-			</ul>
-		</div>
-	{/if}
-	{#if searchFailed}<span class="muted">Search index unavailable, using simple matching.</span>{/if}
-</search>
+<SearchBar
+	bind:value={query}
+	{texts}
+	tags={activeChips}
+	entries={tagEntries}
+	{recent}
+	{labels}
+	failed={searchFailed}
+	onchange={syncUrl}
+	onfocus={warmSearch}
+	onaddtag={toggle}
+	onremovetag={removeTag}
+	onaddtext={(t) => {
+		texts = [...texts, t];
+		warmSearch();
+		syncUrl();
+	}}
+	onremovetext={(i) => {
+		texts = texts.filter((_, j) => j !== i);
+		syncUrl();
+	}}
+/>
 
-<!-- Always shown, so ticking a filter doesn't push the page down. -->
-<div class="active" aria-label="Active filters" aria-live="polite">
-	<span class="status">{shownCount} {shownCount === 1 ? 'article' : 'articles'}</span>
-	<ul class="chips">
-		{#if q}
-			<li>
-				<button class="chip remove" onclick={clearQuery} aria-label="Remove search “{q}”">“{q}” <span aria-hidden="true">×</span></button>
-			</li>
-		{/if}
-		{#each activeChips as c (c.key + c.id)}
-			<li>
-				<button class="chip remove" onclick={() => toggle(c.key, c.id)} aria-label="Remove filter {c.label}"
-					>{c.label} <span aria-hidden="true">×</span></button
-				>
-			</li>
-		{/each}
-	</ul>
-	{#if isFiltering}
-		<button class="link" onclick={clearAll}>Clear all</button>
-	{:else}
-		<span class="status">Tick filters on the left or search above.</span>
-	{/if}
+<div class="toggle-row">
+	<button class="filters-toggle" aria-expanded={showFilters} onclick={() => (showFilters = !showFilters)}>
+		Filters{activeCount(filters) ? ` (${activeCount(filters)})` : ''}
+	</button>
+	{#if isFiltering && !showFilters}<button class="link reset" aria-label="Reset filters and search" onclick={clearAll}>Reset</button>{/if}
 </div>
-
-<button class="filters-toggle" aria-expanded={showFilters} onclick={() => (showFilters = !showFilters)}>
-	Filters{activeCount(filters) ? ` (${activeCount(filters)})` : ''}
-</button>
 
 <div class="layout">
 	<aside aria-label="Filters" class:open={showFilters}>
+		<div class="head-row side-head">
+			<h2 class="eyebrow">Filters{isFiltering ? ` · ${activeCount(filters) + terms.length}` : ''}</h2>
+			{#if isFiltering}<button class="link" aria-label="Reset filters and search" onclick={clearAll}>Reset</button>{/if}
+		</div>
 		<!-- `parent`: the "All" row of this child's group; while it's ticked, the child shows as ticked too. -->
 		{#snippet checkbox(key: FilterKey, o: Option, parent?: { key: FilterKey; id: string })}
 			{@const implied = !!parent && filters[parent.key].includes(parent.id)}
@@ -447,6 +551,7 @@
 		{/snippet}
 
 		{#each SECTIONS as section (section.label)}
+			<div class="box">
 			<h3 class="section">{section.label}</h3>
 			{#each section.keys as key (key)}
 				{#if key === 'manufacturers'}
@@ -545,35 +650,90 @@
 					</p>
 				</details>
 			{/if}
+			</div>
 		{/each}
 	</aside>
 
 	<section>
 		<!-- Inside the results column, so the sidebar doesn't move when it appears. -->
-		{#if icInfo}
-			<p class="ic-info">
-				<strong>{icInfo.label}</strong>
-				{[IC_CATEGORY_LABEL[icInfo.category ?? ''] ?? icInfo.category, icInfo.manufacturer, icInfo.status].filter(Boolean).join(' · ')}
-				{#if icInfo.datasheetUrl}
-					· <a href={icInfo.datasheetUrl} target="_blank" rel="noopener external" data-out="datasheet">Datasheet ↗</a>
-				{/if}
-				{#if icInfo.alternatives?.length}
-					· Alternatives: {icInfo.alternatives.map((id) => labels.get(id) ?? id).join(', ')}
-				{/if}
-				· <a href={resolve('/[type=node]/[...path]', { type: 'component', path: icInfo.id })}>About {icInfo.label} →</a>
-			</p>
-		{/if}
 		{#if isFiltering}
+			<div class="head-box">
+			<div class="results-head">
+				<span class="status" role="status" aria-live="polite">{shownCount} {shownCount === 1 ? 'article' : 'articles'}</span>
+				<span class="views">
+					<label>Group by
+						<select
+							value={group}
+							onchange={(e) => {
+								group = e.currentTarget.value as GroupBy;
+								syncUrl();
+							}}
+						>
+							{#each GROUPS as g (g)}<option value={g}>{GROUP_LABEL[g]}</option>{/each}
+						</select>
+					</label>
+					<label>Sort
+						<select
+							value={sort}
+							onchange={(e) => {
+								sort = e.currentTarget.value as SortBy;
+								syncUrl();
+							}}
+						>
+							{#each SORTS as o (o)}<option value={o}>{SORT_LABEL[o]}</option>{/each}
+						</select>
+					</label>
+				</span>
+			</div>
+			</div>
+			{#if icInfo}
+				<p class="ic-info">
+					<strong>{icInfo.label}</strong>
+					{[IC_CATEGORY_LABEL[icInfo.category ?? ''] ?? icInfo.category, icInfo.manufacturer, icInfo.status].filter(Boolean).join(' · ')}
+					{#if icInfo.datasheetUrl}
+						· <a href={icInfo.datasheetUrl} target="_blank" rel="noopener external" data-out="datasheet">Datasheet ↗</a>
+					{/if}
+					{#if icInfo.alternatives?.length}
+						· Alternatives: {icInfo.alternatives.map((id) => labels.get(id) ?? id).join(', ')}
+					{/if}
+					· <a href={resolve('/[type=node]/[...path]', { type: 'component', path: icInfo.id })}>About {icInfo.label} →</a>
+				</p>
+			{/if}
 			{#if results.length}
-				<ArticleList articles={results} {labels} parents={data.parents} {hiddenTypes} {hideHttp} />
+				{#if group === 'none'}
+					<ArticleList articles={sorted(results)} {labels} parents={data.parents} {hiddenTypes} {hideHttp} />
+				{:else}
+					{#each sections as sec (sec.key)}
+						<h2 class="section-head eyebrow">{sec.label} <span class="muted">{sec.list.length}</span></h2>
+						<ArticleList articles={sec.list} {labels} parents={data.parents} {hiddenTypes} {hideHttp} />
+					{/each}
+				{/if}
 			{:else}
-				<p class="muted">No article matches. Remove a filter or try a broader term.</p>
+				<p class="muted">
+					{partial.length ? 'No article has all of these tags.' : 'No article matches. Remove a filter or try a broader term.'}
+				</p>
+			{/if}
+			{#if partial.length}
+				<h2 class="also eyebrow">Also relevant <span class="muted">{partial.length}</span></h2>
+				<ArticleList
+					articles={sortedPartial}
+					{labels}
+					parents={data.parents}
+					{hiddenTypes}
+					{hideHttp}
+					matchOf={tagMatches}
+					matchTotal={tagTotal}
+					limit={showAllPartial ? undefined : 20}
+				/>
+				{#if !showAllPartial && partial.length > 20}
+					<button class="link more-btn" onclick={() => (showAllPartial = true)}>Show all {partial.length}</button>
+				{/if}
 			{/if}
 		{:else}
-			<h2>Recent articles</h2>
+			<div class="head-row"><h2 class="eyebrow">Recent articles</h2></div>
 			<ArticleList articles={data.articles} {labels} parents={data.parents} {hiddenTypes} {hideHttp} limit={10} />
 
-			<h2>Popular functions</h2>
+			<h2 class="eyebrow">Popular functions</h2>
 			<ul class="chips">
 				{#each popularFunctions as t (t.id)}
 					<li>
@@ -596,102 +756,147 @@
 		line-height: 1.5;
 	}
 
-	.searchbar {
-		position: relative;
-		display: block;
-		margin: var(--space-3) 0 var(--space-2);
-	}
-
-	input[type='search'] {
-		width: 100%;
-		font: inherit;
-		font-size: 1.1rem;
-		padding: 0.6rem 0.75rem;
-		border: 1px solid var(--line);
-		border-radius: 4px;
-		background: var(--bg);
-		color: var(--fg);
-	}
-
-	input[type='search']:focus {
-		outline: 2px solid var(--accent);
-		outline-offset: -1px;
-	}
-
-	.suggest {
-		position: absolute;
-		z-index: 2;
-		top: calc(100% + 2px);
-		left: 0;
-		right: 0;
-		display: flex;
-		flex-wrap: wrap;
-		align-items: center;
-		gap: var(--space-1) var(--space-2);
-		padding: var(--space-2) var(--space-3);
-		background: var(--panel);
-		border: 1px solid var(--line);
-		border-radius: 4px;
-		box-shadow: 0 4px 12px rgb(0 0 0 / 0.25);
-	}
-
 	button.chip {
 		font: inherit;
 		font-size: 0.85rem;
 		cursor: pointer;
 	}
 
-	button.chip[aria-pressed='true'] {
-		background: var(--accent);
-		border-color: var(--accent);
-		color: var(--bg);
+	/* Count left, Clear all right; Group by + Sort stay together in the middle, or in their own row when narrow. */
+	.head-box {
+		container-type: inline-size;
 	}
 
-	/* Active filters: own block between search and results */
-	.active {
+	/* Header rows of both columns (sidebar "Filters", results toolbar, "Recent articles"): one height,
+	   one thin line below, so they read as one row. */
+	.head-row {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: var(--space-3);
+		min-height: var(--head-row);
+		padding-bottom: var(--space-2);
+		margin-bottom: var(--space-3);
+		border-bottom: 1px solid var(--line);
+	}
+
+	.head-row .eyebrow,
+	.results-head .status {
+		margin: 0;
+	}
+
+	.head-row .link {
+		margin: 0;
+		white-space: nowrap;
+	}
+
+	.link:focus-visible {
+		outline: 2px solid var(--accent);
+		outline-offset: 2px;
+	}
+
+	.toggle-row {
+		display: none;
+	}
+
+	.results-head {
+		display: grid;
+		grid-template-columns: auto 1fr;
+		grid-template-areas: 'count views';
+		min-height: var(--head-row);
+		align-items: center;
+		gap: var(--space-1) var(--space-3);
+		padding-bottom: var(--space-2);
+		margin-bottom: var(--space-3);
+		border-bottom: 1px solid var(--line);
+	}
+
+	.results-head .status {
+		grid-area: count;
+		font-size: 0.8rem;
+		font-weight: 600;
+		letter-spacing: 0.06em;
+		text-transform: uppercase;
+		color: var(--fg);
+	}
+
+	.views {
+		grid-area: views;
 		display: flex;
 		flex-wrap: wrap;
-		align-items: center;
-		/* one chip row tall even when empty, so the bar never changes height for the first filter */
-		min-height: 2.9rem;
-		gap: var(--space-1) var(--space-2);
-		padding: var(--space-2) var(--space-3);
-		margin-bottom: var(--space-4);
-		background: var(--panel);
-		border: 1px solid var(--line);
-		border-radius: 4px;
-	}
-
-	.chip.remove {
-		border-color: var(--accent);
-	}
-
-	.chip.remove span {
-		margin-left: 0.2rem;
+		align-items: baseline;
+		justify-content: flex-end;
+		gap: var(--space-3);
+		font-size: 0.8rem;
 		color: var(--muted);
 	}
 
-	.chip.remove:hover span {
-		color: var(--bad);
+	.views label {
+		display: inline-flex;
+		align-items: baseline;
+		gap: 0.35rem;
+		white-space: nowrap;
+	}
+
+	@container (max-width: 32rem) {
+		.results-head {
+			grid-template-columns: 1fr;
+			grid-template-areas:
+				'count'
+				'views';
+		}
+
+		.views {
+			justify-content: flex-start;
+		}
+	}
+
+	.views select {
+		font: inherit;
+		font-size: 0.8rem;
+		padding: 0.1rem 0.25rem;
+		border: 1px solid var(--line);
+		border-radius: 4px;
+		background: var(--bg);
+		color: var(--fg);
+	}
+
+	.eyebrow.section-head {
+		margin: calc(var(--space-4) + var(--space-2)) 0 var(--space-2);
+		padding-bottom: var(--space-1);
+		border-bottom: 1px solid var(--line);
+	}
+
+	.head-box + .eyebrow.section-head {
+		margin-top: 0;
+	}
+
+	.eyebrow.also {
+		margin-top: var(--space-5);
+	}
+
+	.more-btn {
+		margin: var(--space-2) 0 0;
 	}
 
 	.ic-info {
-		margin: 0 0 var(--space-2);
+		margin: 0 0 calc(var(--space-2) + 0.4rem);
 		font-size: 0.9rem;
 		color: var(--muted);
 	}
 
 	.status {
+		white-space: nowrap;
 		color: var(--muted);
 		font-size: 0.9rem;
 	}
 
 	.layout {
+		--head-row: 2.4rem;
 		display: grid;
 		grid-template-columns: 18rem 1fr;
 		gap: var(--space-5);
-		border-top: 1px solid var(--line);
-		padding-top: var(--space-3);
+		align-items: start;
 	}
 
 	aside {
@@ -700,11 +905,59 @@
 
 	details {
 		border-bottom: 1px solid var(--line);
-		padding: var(--space-2) 0;
+		padding: 0.6rem 0;
+	}
+
+	/* Sidebar groups are boxes; entries inside are separated by spacing, not lines. */
+	.box {
+		margin-bottom: var(--space-3);
+		padding: 0.75rem 1rem;
+		background: var(--panel);
+		border: 1px solid var(--line);
+		border-radius: 6px;
+	}
+
+	.box:last-child {
+		margin-bottom: 0;
+	}
+
+	/* Small uppercase heading, shared by the box headings and the results headings. */
+	.eyebrow {
+		margin: var(--space-4) 0 var(--space-2);
+		padding-bottom: 0;
+		border-bottom: 0;
+		font-size: 0.75rem;
+		font-weight: 600;
+		letter-spacing: 0.06em;
+		text-transform: uppercase;
+		color: var(--muted);
+	}
+
+	aside details {
+		padding: 0.1rem 0;
+		border-bottom: 0;
+	}
+
+	aside summary {
+		margin: 0 -0.5rem;
+		padding: 0.3rem 0.5rem;
+		border-radius: 4px;
+	}
+
+	aside summary:hover {
+		background: var(--bg);
+	}
+
+	/* Visible on the --panel box in both themes; hover is never the only cue. */
+	aside summary:focus-visible,
+	aside input:focus-visible,
+	aside .link:focus-visible {
+		outline: 2px solid var(--accent);
+		outline-offset: 1px;
 	}
 
 	.section {
-		margin: var(--space-4) 0 var(--space-1);
+		margin: 0 0 var(--space-2);
 		font-size: 0.75rem;
 		font-weight: 600;
 		letter-spacing: 0.06em;
@@ -818,10 +1071,21 @@
 			gap: var(--space-3);
 		}
 
+		.toggle-row {
+			display: flex;
+			align-items: center;
+			gap: var(--space-3);
+			margin-bottom: var(--space-3);
+		}
+
+		.toggle-row .link {
+			margin: 0;
+			white-space: nowrap;
+		}
+
 		.filters-toggle {
 			display: block;
-			width: 100%;
-			margin-bottom: var(--space-3);
+			flex: 1;
 			padding: var(--space-2);
 			font: inherit;
 			font-weight: 600;

@@ -11,6 +11,9 @@
 		parents = {},
 		hiddenTypes = [],
 		hideHttp = false,
+		hideCommunity = false,
+		matchOf,
+		matchTotal = 0,
 		limit
 	}: {
 		articles: ArticleSummary[];
@@ -19,6 +22,11 @@
 		parents?: ParentMap;
 		hiddenTypes?: string[];
 		hideHttp?: boolean;
+		/** Leave out the default "community" confidence label (tag pages only). */
+		hideCommunity?: boolean;
+		/** "Also relevant" rows: how many of the `matchTotal` selected tags each article has. */
+		matchOf?: Map<string, number>;
+		matchTotal?: number;
 		/** Show at most this many articles (e.g. the "Recent" list). */
 		limit?: number;
 	} = $props();
@@ -51,13 +59,14 @@
 				>{a.title}<span class="out" aria-hidden="true"> ↗</span><span class="visually-hidden"> (opens in a new tab)</span></a
 			>
 			<span class="host mono">{host(a.url)}</span>
+			{#if matchOf?.has(a.id)}<span class="match">{matchOf.get(a.id)}/{matchTotal} tags</span>{/if}
 			{#if !a.secure}
 				<span class="insecure" title="Unencrypted http:// site. Fine for reading; never enter a password or personal data there."
 					>http</span
 				>
 			{/if}
 			<div class="badge">
-				{[a.type, ...a.kinds.filter((k) => k !== a.type).map((k) => KIND_LABEL[k]), a.confidence].join(' · ')}{a.terms.authors
+				{[a.type, ...a.kinds.filter((k) => k !== a.type).map((k) => KIND_LABEL[k]), ...(hideCommunity && a.confidence === 'community' ? [] : [a.confidence])].join(' · ')}{a.terms.authors
 					.length
 					? ` · ${authorsOf(a)}`
 					: ''}
@@ -84,7 +93,7 @@
 
 	.articles > li {
 		padding: 0.8rem 0;
-		border-bottom: 1px solid var(--line);
+		border-bottom: 1px solid color-mix(in srgb, var(--line) 55%, transparent);
 	}
 
 	.title {
@@ -100,6 +109,13 @@
 		margin-left: 0.5rem;
 		font-size: 0.8rem;
 		color: var(--muted);
+	}
+
+	.match {
+		margin-left: 0.5rem;
+		font-size: 0.8rem;
+		color: var(--muted);
+		white-space: nowrap;
 	}
 
 	.insecure {

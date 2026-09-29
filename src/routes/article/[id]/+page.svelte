@@ -1,10 +1,12 @@
 <script lang="ts">
 	// One article (link): what it is, where it goes, its tags (edges to the tag pages) and related articles.
-	import { resolve } from '$app/paths';
+	import { base, resolve } from '$app/paths';
+	import Breadcrumbs from '$lib/components/Breadcrumbs.svelte';
 	import Basics from '$lib/components/Basics.svelte';
 	import { KIND_LABEL, REGISTRY_KEYS, REGISTRY_META, termPath } from '$lib/types';
 
 	let { data } = $props();
+	let showAllRelated = $state(false);
 	const a = $derived(data.article);
 	const secure = $derived(a.url.startsWith('https://'));
 	const host = (url: string) => new URL(url).hostname.replace(/^www\./, '');
@@ -20,6 +22,37 @@
 
 	// Tags without authors (shown in the byline) — the article's edges in the knowledge graph.
 	const TAG_KEYS = REGISTRY_KEYS.filter((k) => k !== 'authors');
+
+	// Most meaningful tag type first (a module or component beats a manufacturer).
+	const CRUMB_ORDER = ['modules', 'components', 'subcircuits', 'functions', 'products', 'manufacturers'] as const;
+	// Trail to the article's primary tag (first tag type that has one): Home › Components › LM13700.
+	const crumbs = $derived.by(() => {
+		const key = CRUMB_ORDER.find((k) => a.terms[k].length);
+		const t = key && a.terms[key][0];
+		return [
+			{ label: 'Home', href: resolve('/') },
+			...(key && t
+				? [
+						{ label: REGISTRY_META[key].plural },
+						{ label: t.label, href: nodeHref(key, t.id) }
+					]
+				: []),
+			{ label: a.title }
+		];
+	});
+
+	// Absolute URL of a crumb's site-relative link (drops BASE_PATH, adds the public base URL).
+	const abs = (href: string) => `${data.site}${href.slice(base.length + 1)}`;
+	const breadcrumbLd = $derived(
+		JSON.stringify({
+			'@context': 'https://schema.org',
+			'@type': 'BreadcrumbList',
+			// Only crumbs with a URL (the type crumb has none: Google needs `item` on all but the last).
+			itemListElement: crumbs
+				.filter((c, i) => c.href || i === crumbs.length - 1)
+				.map((c, i) => ({ '@type': 'ListItem', position: i + 1, name: c.label, ...(c.href ? { item: abs(c.href) } : { item: data.canonical }) }))
+		}).replace(/</g, '\\u003c')
+	);
 
 	const jsonLd = $derived(
 		JSON.stringify({
@@ -38,15 +71,17 @@
 <svelte:head>
 	<title>{a.title} · ACKB</title>
 	<meta name="description" content={a.summary} />
+	<link rel="canonical" href={data.canonical} />
 	<!-- eslint-disable-next-line svelte/no-at-html-tags -- JSON-LD from our own data, '<' escaped -->
 	{@html `<script type="application/ld+json">${jsonLd}</script>`}
+	<!-- eslint-disable-next-line svelte/no-at-html-tags -- JSON-LD from our own data, '<' escaped -->
+	{@html `<script type="application/ld+json">${breadcrumbLd}</script>`}
 </svelte:head>
 
 <article>
+	<Breadcrumbs items={crumbs} />
 	<p class="badge">
-		{[a.type, ...a.kinds.filter((k) => k !== a.type).map((k) => KIND_LABEL[k]), a.confidence].join(' · ')} · added {a.added}{a.reviewed
-			? ` · reviewed ${a.reviewed}`
-			: ''}
+		{[a.type, ...a.kinds.filter((k) => k !== a.type).map((k) => KIND_LABEL[k]), a.confidence].join(' · ')}
 	</p>
 	<h1>{a.title}</h1>
 	<p class="byline muted">
@@ -71,9 +106,7 @@
 		{/if}
 	</p>
 	{#if !secure}
-		<p class="hint">
-			This site uses unencrypted http://. It's fine for reading; never enter a password or personal data there.
-		</p>
+		<p class="hint">Unencrypted http:// site: fine for reading, but never enter a password or personal data.</p>
 	{/if}
 
 	<p class="summary">{a.summary}</p>
@@ -99,7 +132,7 @@
 	{#if data.related.length}
 		<h2>Related articles</h2>
 		<ul class="related">
-			{#each data.related as r (r.id)}
+			{#each showAllRelated ? data.related : data.related.slice(0, 5) as r (r.id)}
 				<li>
 					<a href={r.url} target="_blank" rel="noopener external" data-out="related"
 						>{r.title}<span class="out" aria-hidden="true"> ↗</span></a
@@ -109,12 +142,34 @@
 				</li>
 			{/each}
 		</ul>
+		{#if !showAllRelated && data.related.length > 5}
+			<button class="more" onclick={() => (showAllRelated = true)}>Show all {data.related.length}</button>
+		{/if}
 	{/if}
+
+	<p class="dates muted">Added {a.added}{a.reviewed ? ` · reviewed ${a.reviewed}` : ''}</p>
 </article>
 
 <style>
 	article {
 		max-width: 46rem;
+	}
+
+	.dates {
+		margin-top: 1.5rem;
+		font-size: 0.8rem;
+	}
+
+	.more {
+		margin-top: 0.4rem;
+		padding: 0.25rem 0.7rem;
+		border: 1px solid var(--line);
+		border-radius: 4px;
+		background: none;
+		color: inherit;
+		font: inherit;
+		font-size: 0.88rem;
+		cursor: pointer;
 	}
 
 	.byline {

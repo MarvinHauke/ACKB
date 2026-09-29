@@ -1,7 +1,7 @@
 // Facet filtering without Fuse: inverted index term → article ids, intersected per selected term.
 // Filter state lives in the URL (?function=soft-clipping&module=fx/delay) so views are shareable.
-import type { ArticleSummary, ParentMap, RegistryKey } from './types';
-import { REGISTRY_KEYS, REGISTRY_META, termPath } from './types';
+import type { ArticleSummary, ContentKind, ParentMap, RegistryKey } from './types';
+import { CONTENT_KINDS, REGISTRY_KEYS, REGISTRY_META, termPath } from './types';
 
 export type FilterKey = RegistryKey | 'kind' | 'confidence';
 
@@ -27,10 +27,45 @@ export function filtersFromParams(params: URLSearchParams): Filters {
 	return f;
 }
 
-export function filtersToParams(filters: Filters, query: string, parents: ParentMap = {}): URLSearchParams {
+/** Text terms of the URL: the last `q` is the live text in the field, the earlier ones are text chips. */
+export function queriesFromParams(params: URLSearchParams): { texts: string[]; live: string } {
+	const all = params.getAll('q');
+	const live = all.pop() ?? '';
+	return { texts: all.filter((v) => v.trim()), live };
+}
+
+/**
+ * `query`: the live text, or `[...chips, live]`. The live slot is always written when chips exist
+ * (`?q=vca&q=`), so a reload gives the same chips instead of turning the last one into live text.
+ */
+export type GroupBy = 'none' | 'kind' | 'type' | 'author' | 'module';
+export type SortBy = 'best' | 'new' | 'year' | 'title';
+export const GROUPS: GroupBy[] = ['none', 'kind', 'type', 'author', 'module'];
+export const SORTS: SortBy[] = ['best', 'new', 'year', 'title'];
+
+/** `?group=…&sort=…`; unknown or missing values fall back to the defaults (none, best). */
+export function viewFromParams(params: URLSearchParams): { group: GroupBy; sort: SortBy } {
+	const group = params.get('group') as GroupBy;
+	const sort = params.get('sort') as SortBy;
+	return { group: GROUPS.includes(group) ? group : 'none', sort: SORTS.includes(sort) ? sort : 'best' };
+}
+
+export function filtersToParams(
+	filters: Filters,
+	query: string | string[],
+	parents: ParentMap = {},
+	view?: { group: GroupBy; sort: SortBy }
+): URLSearchParams {
 	const p = new URLSearchParams();
-	if (query) p.set('q', query);
+	if (Array.isArray(query)) {
+		const chips = query.slice(0, -1).filter(Boolean);
+		for (const q of chips) p.append('q', q);
+		const live = query.at(-1) ?? '';
+		if (live || chips.length) p.append('q', live);
+	} else if (query) p.append('q', query);
 	for (const key of FILTER_KEYS) for (const v of filters[key]) p.append(PARAM[key], termPath(v, parents[`${key}:${v}`]));
+	if (view?.group && view.group !== 'none') p.set('group', view.group);
+	if (view?.sort && view.sort !== 'best') p.set('sort', view.sort);
 	return p;
 }
 
@@ -75,4 +110,56 @@ export function matchingIds(index: FacetIndex, filters: Filters): Set<string> | 
 		intersect(union);
 	}
 	return result;
+}
+
+/** Number of selected taxonomy tags (kind and confidence don't count). */
+export function tagCount(filters: Filters): number {
+	return REGISTRY_KEYS.reduce((n, k) => n + filters[k].length, 0);
+}
+
+/** Article ids passing the kind and confidence filters (OR within each), or null when neither is set. */
+export function kindConfidenceIds(index: FacetIndex, filters: Filters): Set<string> | null {
+	let result = null as Set<string> | null;
+	for (const key of ['kind', 'confidence'] as const) {
+		if (!filters[key].length) continue;
+		const union = new Set<string>();
+		for (const value of filters[key]) for (const id of index[key].get(value) ?? []) union.add(id);
+		result = result === null ? union : new Set([...result].filter((id) => union.has(id)));
+	}
+	return result;
+}
+
+/** For each article, how many of the selected taxonomy tags it has (only articles with at least one). */
+export function matchCounts(index: FacetIndex, filters: Filters): Map<string, number> {
+	const counts = new Map<string, number>();
+	for (const key of REGISTRY_KEYS) {
+		for (const value of filters[key]) for (const id of index[key].get(value) ?? []) counts.set(id, (counts.get(id) ?? 0) + 1);
+	}
+	return counts;
+}
+
+// ---- Group by / sort helpers (deterministic, one primary value per article, so no duplicates) ----
+
+/** The first of the article's kinds in CONTENT_KINDS order. */
+export const primaryKind = (a: ArticleSummary): ContentKind | undefined => CONTENT_KINDS.find((k) => a.kinds.includes(k));
+
+/** The article's host without "www.". */
+export const hostOf = (url: string) => new URL(url).hostname.replace(/^www\./, '');
+
+/** The first listed author's label; without an author, the host of the link. */
+export const authorOrHost = (a: ArticleSummary, labels: Map<string, string>) =>
+	a.terms.authors.length ? (labels.get(a.terms.authors[0]) ?? a.terms.authors[0]) : hostOf(a.url);
+
+/**
+ * The first listed module, replaced by its subtype when the article also lists one of that module's
+ * subtypes ("FX › Delay & Reverb"). `parentOf` maps a subtype id to its parent id.
+ */
+export function primaryModule(a: ArticleSummary, labels: Map<string, string>, parentOf: (id: string) => string | undefined): string | undefined {
+	const first = a.terms.modules[0];
+	if (!first) return undefined;
+	const sub = a.terms.modules.find((id) => parentOf(id) === first) ?? (parentOf(first) ? first : undefined);
+	const label = (id: string) => labels.get(id) ?? id;
+	if (!sub) return label(first);
+	const parent = parentOf(sub)!;
+	return `${label(parent)} › ${label(sub)}`;
 }
