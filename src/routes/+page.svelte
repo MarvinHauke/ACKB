@@ -657,6 +657,7 @@
 			</p>
 		{/if}
 		{#if isFiltering}
+			<div class="head-box">
 			<div class="results-head">
 				<span class="status" role="status" aria-live="polite">{shownCount} {shownCount === 1 ? 'article' : 'articles'}</span>
 				<span class="views">
@@ -682,8 +683,9 @@
 							{#each SORTS as o (o)}<option value={o}>{SORT_LABEL[o]}</option>{/each}
 						</select>
 					</label>
-					<button class="link" onclick={clearAll}>Clear all</button>
 				</span>
+				<button class="link clear" onclick={clearAll}>Clear all</button>
+			</div>
 			</div>
 			{#if results.length}
 				{#if group === 'none'}
@@ -748,22 +750,59 @@
 		cursor: pointer;
 	}
 
+	/* Count left, Clear all right; Group by + Sort stay together in the middle, or in their own row when narrow. */
+	.head-box {
+		container-type: inline-size;
+	}
+
 	.results-head {
-		display: flex;
+		display: grid;
+		grid-template-columns: auto 1fr auto;
+		grid-template-areas: 'count views clear';
 		align-items: baseline;
-		justify-content: space-between;
-		gap: var(--space-3);
+		gap: var(--space-1) var(--space-3);
 		margin-bottom: var(--space-2);
 	}
 
+	.results-head .status {
+		grid-area: count;
+	}
+
 	.views {
+		grid-area: views;
 		display: flex;
 		flex-wrap: wrap;
 		align-items: baseline;
 		justify-content: flex-end;
-		gap: var(--space-1) var(--space-3);
+		gap: var(--space-3);
 		font-size: 0.85rem;
 		color: var(--muted);
+	}
+
+	.views label {
+		display: inline-flex;
+		align-items: baseline;
+		gap: 0.35rem;
+		white-space: nowrap;
+	}
+
+	@container (max-width: 40rem) {
+		.results-head {
+			grid-template-columns: 1fr auto;
+			grid-template-areas:
+				'count clear'
+				'views views';
+		}
+
+		.views {
+			justify-content: flex-start;
+		}
+	}
+
+	.results-head .clear {
+		grid-area: clear;
+		margin: 0;
+		white-space: nowrap;
 	}
 
 	.views select {
