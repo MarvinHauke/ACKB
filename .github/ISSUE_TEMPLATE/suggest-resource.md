@@ -2,7 +2,6 @@
 name: Suggest a resource
 about: Suggest a link on synth circuits for the index
 title: 'Suggest: '
-labels: suggestion
 ---
 
 Please check `docs/source-rules.md` first: the main value must be designing, modifying,

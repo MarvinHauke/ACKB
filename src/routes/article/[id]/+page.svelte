@@ -22,9 +22,11 @@
 	// Tags without authors (shown in the byline) — the article's edges in the knowledge graph.
 	const TAG_KEYS = REGISTRY_KEYS.filter((k) => k !== 'authors');
 
+	// Most meaningful tag type first (a module or component beats a manufacturer).
+	const CRUMB_ORDER = ['modules', 'components', 'subcircuits', 'functions', 'products', 'manufacturers'] as const;
 	// Trail to the article's primary tag (first tag type that has one): Home › Components › LM13700.
 	const crumbs = $derived.by(() => {
-		const key = TAG_KEYS.find((k) => a.terms[k].length);
+		const key = CRUMB_ORDER.find((k) => a.terms[k].length);
 		const t = key && a.terms[key][0];
 		return [
 			{ label: 'Home', href: resolve('/') },
@@ -33,7 +35,8 @@
 						{ label: REGISTRY_META[key].plural },
 						{ label: t.label, href: nodeHref(key, t.id) }
 					]
-				: [])
+				: []),
+			{ label: a.title }
 		];
 	});
 
