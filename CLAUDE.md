@@ -28,7 +28,9 @@ Peer Claude sessions that message each other (`SendMessage`), watchable in tmux:
 
 Flow: architect → curator → reviewer (→ architect for new tags/filters) → curator commits →
 short overview to the architect. UI and SEO work the same way (route, model or export changes go
-through the reviewer). Only the user pushes. `scripts/agents.sh` opens the four peers as an equal
+through the reviewer). **One agent per file:** tasks name the files each agent owns; before
+editing, check `git diff <file>` and don't touch a file with another agent's uncommitted changes;
+stage only your own files (no `-A`, no interactive `-p`). Only the user pushes. `scripts/agents.sh` opens the four peers as an equal
 2×2 grid in one tmux window `ackb-agents` and then starts the
 architect in the current pane, resuming each by the session id written in its agent file
 (`scripts/agents.sh curator reviewer` or `… architect` starts only those; `DRY_RUN=1` prints).
