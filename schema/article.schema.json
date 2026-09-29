@@ -17,7 +17,7 @@
 			"enum": ["manufacturer", "academic"],
 			"description": "Who published it, when the type doesn't say (e.g. a university lecture video). Sets the confidence."
 		},
-		"year": { "type": "integer", "minimum": 1900, "maximum": 2100 },
+		"year": { "type": "integer", "minimum": 1900, "maximum": 2100, "description": "Year of first publication, only when the page or its source states it; never a revision, update or copyright-footer year." },
 		"lang": { "type": "string", "pattern": "^[a-z]{2}$", "description": "ISO 639-1, default en" },
 		"license": { "type": "string" },
 		"linkCheck": {

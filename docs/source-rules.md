@@ -64,5 +64,6 @@ articles only.
 - Primary or technically deep source, not a shop page or aggregator.
 - Summary in your own words, describing this article.
 - Author credited; license notes added where the site states them.
+- `year` only when the page states when it was first published (not a revision or copyright year).
 - Nothing copied: no images, no text. ACKB only links.
 - Filters still fit after adding the article.
