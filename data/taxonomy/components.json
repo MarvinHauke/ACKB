@@ -408,7 +408,8 @@
 		"manufacturer": "TI (National)",
 		"category": "other",
 		"status": "obsolete",
-		"description": "Logarithmic (3 dB/step) LED bar/dot display driver.",
+		"datasheetUrl": "https://www.mgelectronic.rs/ProductFilesDownload?Id=6481",
+		"description": "Logarithmic (3 dB/step) LED bar/dot display driver. Datasheet: original TI sheet (SNVS740C), hosted by the distributor MG Electronic.",
 		"aliases": [
 			"LM3914",
 			"LM3916"
