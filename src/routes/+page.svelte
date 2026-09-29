@@ -692,7 +692,7 @@
 					<ArticleList articles={sorted(results)} {labels} parents={data.parents} {hiddenTypes} {hideHttp} />
 				{:else}
 					{#each sections as sec (sec.key)}
-						<h3 class="section-head">{sec.label} <span class="muted">{sec.list.length}</span></h3>
+						<h2 class="section-head">{sec.label} <span class="muted">{sec.list.length}</span></h2>
 						<ArticleList articles={sec.list} {labels} parents={data.parents} {hiddenTypes} {hideHttp} />
 					{/each}
 				{/if}
@@ -761,11 +761,16 @@
 		grid-template-areas: 'count views clear';
 		align-items: baseline;
 		gap: var(--space-1) var(--space-3);
-		margin-bottom: var(--space-2);
+		padding-bottom: var(--space-2);
+		margin-bottom: var(--space-3);
+		border-bottom: 1px solid var(--line);
 	}
 
 	.results-head .status {
 		grid-area: count;
+		font-size: 1rem;
+		font-weight: 600;
+		color: var(--fg);
 	}
 
 	.views {
@@ -775,7 +780,7 @@
 		align-items: baseline;
 		justify-content: flex-end;
 		gap: var(--space-3);
-		font-size: 0.85rem;
+		font-size: 0.8rem;
 		color: var(--muted);
 	}
 
@@ -807,8 +812,8 @@
 
 	.views select {
 		font: inherit;
-		font-size: 0.85rem;
-		padding: 0.15rem 0.3rem;
+		font-size: 0.8rem;
+		padding: 0.1rem 0.25rem;
 		border: 1px solid var(--line);
 		border-radius: 4px;
 		background: var(--bg);
@@ -816,10 +821,15 @@
 	}
 
 	.section-head {
-		margin: var(--space-4) 0 0;
+		margin: calc(var(--space-4) + var(--space-2)) 0 var(--space-2);
 		padding-bottom: var(--space-1);
 		border-bottom: 1px solid var(--line);
 		font-size: 0.95rem;
+		line-height: 1.3;
+	}
+
+	.head-box + .section-head {
+		margin-top: 0;
 	}
 
 	.also {
@@ -832,7 +842,7 @@
 	}
 
 	.ic-info {
-		margin: 0 0 var(--space-2);
+		margin: 0 0 calc(var(--space-2) + 0.4rem);
 		font-size: 0.9rem;
 		color: var(--muted);
 	}
@@ -847,8 +857,7 @@
 		display: grid;
 		grid-template-columns: 18rem 1fr;
 		gap: var(--space-5);
-		border-top: 1px solid var(--line);
-		padding-top: var(--space-3);
+		align-items: start;
 	}
 
 	aside {
@@ -857,11 +866,11 @@
 
 	details {
 		border-bottom: 1px solid var(--line);
-		padding: var(--space-2) 0;
+		padding: 0.6rem 0;
 	}
 
 	.section {
-		margin: var(--space-4) 0 var(--space-1);
+		margin: calc(var(--space-4) + var(--space-2)) 0 var(--space-2);
 		font-size: 0.75rem;
 		font-weight: 600;
 		letter-spacing: 0.06em;
