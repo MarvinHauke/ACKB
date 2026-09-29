@@ -8,14 +8,11 @@
 		"tom-wiltshire"
 	],
 	"license": "CC BY-NC-SA 4.0",
-	"summary": "Electric Druid's two-part series on getting several responses from one filter core: switching the topology of cascaded poles and state-variable filters, and mixing the outputs of a 4-pole cascade to derive lowpass, bandpass, highpass and notch responses.",
-	"summaryFromGroup": true,
+	"summary": "How mixing the outputs of a 4-pole filter in different amounts yields lowpass, highpass, bandpass, notch and allpass responses, the Oberheim Xpander/Matrix-12 response table, and filter-core schematics for the 2164 and AS3320 with a pole mixer.",
 	"modules": [
 		"filter"
 	],
 	"subcircuits": [
-		"state-variable",
-		"integrator",
 		"ota-stage",
 		"inverting-amp"
 	],
@@ -28,7 +25,13 @@
 	],
 	"components": [
 		"cem3320",
-		"lm13700"
+		"ssm2164"
+	],
+	"manufacturers": [
+		"oberheim"
+	],
+	"products": [
+		"xpander"
 	],
 	"kinds": ["explanation"],
 	"added": "2026-09-26"

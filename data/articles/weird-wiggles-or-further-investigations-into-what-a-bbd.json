@@ -9,11 +9,7 @@
 	],
 	"year": 2026,
 	"license": "CC BY-NC-SA 4.0",
-	"summary": "Simulation-based look at BBD chorus: why modulating the BBD clock gives distorted pitch modulation, linear versus exponential clock modulation, and the effect of different LFO waveforms. The 2026 article replaces the 2015 one; an interactive simulation shows delay and pitch over time.",
-	"summaryFromGroup": true,
-	"manufacturers": [
-		"boss"
-	],
+	"summary": "Why modulating a BBD clock does not give the pitch curve you would expect (a square wave can produce three pitches), worked out from the structure and clock ranges of real chorus units; replaces the author's 2015 article.",
 	"modules": [
 		"fx",
 		"modulation"
@@ -27,9 +23,6 @@
 		"pitch-modulation",
 		"periodic-modulation"
 	],
-	"components": [
-		"mn3007"
-	],
-	"kinds": ["analysis"],
+	"kinds": ["explanation", "analysis"],
 	"added": "2026-09-26"
 }

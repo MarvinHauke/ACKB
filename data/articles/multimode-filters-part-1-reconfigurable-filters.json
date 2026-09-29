@@ -8,27 +8,28 @@
 		"tom-wiltshire"
 	],
 	"license": "CC BY-NC-SA 4.0",
-	"summary": "Electric Druid's two-part series on getting several responses from one filter core: switching the topology of cascaded poles and state-variable filters, and mixing the outputs of a 4-pole cascade to derive lowpass, bandpass, highpass and notch responses.",
-	"summaryFromGroup": true,
+	"summary": "Filters that switch their stages between lowpass and highpass to offer several responses: the CEM3320 and SSM2040 datasheet stages, and examples from the Oberheim OB-8, Elka Synthex and Craig Anderton's Multiple Identity Filter.",
 	"modules": [
 		"filter"
 	],
 	"subcircuits": [
-		"state-variable",
-		"integrator",
-		"ota-stage",
-		"inverting-amp"
+		"ota-stage"
 	],
 	"functions": [
 		"multimode-output",
 		"lowpass-response",
 		"highpass-response",
-		"bandpass-response",
-		"resonance-control"
+		"bandpass-response"
 	],
 	"components": [
 		"cem3320",
-		"lm13700"
+		"ssm2040"
+	],
+	"manufacturers": [
+		"oberheim"
+	],
+	"products": [
+		"ob-8"
 	],
 	"kinds": ["explanation"],
 	"added": "2026-09-26"
