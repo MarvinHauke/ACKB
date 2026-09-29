@@ -67,10 +67,13 @@ exists; `npm run validate -- --verbose` warns about used components without one.
 1. The manufacturer's own PDF, preferably a stable URL (e.g. `ti.com/lit/ds/symlink/<part>.pdf`).
 2. Obsolete part: the datasheet of a legitimate reissue (e.g. Sound Semiconductor SSI2164 for the
    SSM2164, Alfa AS3320 for the CEM3320); say so in the description ("datasheet: SSI2164 reissue").
-3. Otherwise leave it empty. No datasheet aggregators (alldatasheet, datasheetcatalog, …).
-4. Generic entries (vactrol, optocoupler, PIC family) and custom chips without a public datasheet
+3. Original datasheets hosted by an established synth-DIY supplier (e.g. Thonk, which hosts the
+   Curtis CEM datasheets). Prefer the **long** version (full application notes) when a short and a
+   long one exist.
+4. Otherwise leave it empty. No datasheet aggregators (alldatasheet, datasheetcatalog, …).
+5. Generic entries (vactrol, optocoupler, PIC family) and custom chips without a public datasheet
    (Korg35, IR3109) may stay empty.
-5. Check a link with a HEAD request; don't download the PDF.
+6. Check a link with a HEAD request; don't download the PDF.
 
 ## Checked by you (PR checklist)
 
