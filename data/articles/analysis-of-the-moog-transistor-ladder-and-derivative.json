@@ -7,8 +7,7 @@
 	"authors": [
 		"timothy-stinchcombe"
 	],
-	"summary": "The transistor ladder filter of the Minimoog: a university lecture analyzing how the ladder works, Tim Stinchcombe's mathematical analysis of the ladder and its derivatives, and René Schmitz's buildable version of the Minimoog filter with notes on common pitfalls.",
-	"summaryFromGroup": true,
+	"summary": "Tim Stinchcombe's mathematical paper deriving the transfer function of the Moog transistor ladder and of filters derived from it, and comparing their frequency responses.",
 	"manufacturers": [
 		"moog"
 	],
@@ -21,15 +20,12 @@
 	"subcircuits": [
 		"ladder-filter",
 		"differential-pair",
-		"feedback-network",
-		"exponential-converter"
+		"feedback-network"
 	],
 	"functions": [
 		"lowpass-response",
-		"resonance-control",
-		"self-oscillation",
-		"voltage-controlled-cutoff"
+		"resonance-control"
 	],
-	"kinds": ["analysis", "schematic"],
+	"kinds": ["analysis"],
 	"added": "2026-09-26"
 }

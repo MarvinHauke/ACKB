@@ -8,8 +8,7 @@
 		"eddy-bergman"
 	],
 	"year": 2020,
-	"summary": "Practical builds of René Schmitz's late MS-20 lowpass/highpass filter using an LM13700 OTA: Eurorack PCB versions, stripboard layouts and build logs covering calibration, the LED limiter in the resonance loop and part substitutions.",
-	"summaryFromGroup": true,
+	"summary": "Two of the Schmitz MS-20 filters behind one panel, switchable between separate use and series, like the HP and LP filters of the original; kept online as an early project the author would now build differently.",
 	"manufacturers": [
 		"korg"
 	],
@@ -31,11 +30,11 @@
 		"soft-clipping",
 		"resonance-control",
 		"self-oscillation",
-		"current-controlled-amplification",
 		"lowpass-response",
 		"highpass-response"
 	],
 	"components": [
+		"lm13600",
 		"lm13700",
 		"tl072"
 	],

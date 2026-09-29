@@ -15,7 +15,8 @@ No server or REST API: the static lookup files cover that.
    (see `CLAUDE.md`). Done 2026-09-29.
 3. **Data debt**: rewrite the inherited group summaries (`summaryFromGroup`, listed by
    `npm run validate -- --verbose`); review content kinds (Moritz Klein videos and Electric Druid
-   projects are `explanation` only; add `build-guide` where you can build along).
+   projects are `explanation` only; add `build-guide` where you can build along). Done 2026-09-29: all
+   79 rewritten from the pages, tags and kinds narrowed per article.
 4. **`reference` kind defined**: datasheets, application notes, service manuals, calculators,
    textbooks, tool documentation. Done 2026-09-29: "Content kinds" in `docs/taxonomy.md`.
 

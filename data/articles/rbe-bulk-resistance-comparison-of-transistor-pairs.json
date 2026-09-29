@@ -7,23 +7,17 @@
 	"authors": [
 		"rene-schmitz"
 	],
-	"summary": "How a transistor pair turns a linear control voltage into an exponential current for 1V/oct tracking, and how to keep it stable over temperature with tempco resistors. René Schmitz's tutorial explains the transistor physics step by step, with measured bulk resistances of common transistor pairs; Lanterman's lecture covers the same from the university side.",
-	"summaryFromGroup": true,
+	"summary": "A table of measured bulk emitter resistance for common dual and single transistors (BC548C, MAT04, CA3046, CA3096 and others), how it was measured, and why it limits exponential-converter accuracy.",
 	"modules": [
 		"oscillator"
 	],
 	"subcircuits": [
 		"exponential-converter",
-		"differential-pair",
-		"current-mirror"
+		"differential-pair"
 	],
 	"functions": [
-		"exponential-response",
-		"temperature-compensation"
+		"exponential-response"
 	],
-	"components": [
-		"lm394"
-	],
-	"kinds": ["analysis", "explanation"],
+	"kinds": ["analysis", "reference"],
 	"added": "2026-09-26"
 }

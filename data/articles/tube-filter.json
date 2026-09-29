@@ -7,21 +7,17 @@
 	"authors": [
 		"rene-schmitz"
 	],
-	"summary": "René Schmitz's tube experiments: a neon lamp VCO, a thyratron VCO, a tube VCF, a valve VCA based on subminiature tubes, and an exponential converter that uses a vacuum diode as its nonlinear element. Most of them use high voltages.",
-	"summaryFromGroup": true,
+	"summary": "A high-voltage Sallen-Key filter, the MS-20 topology, built with a triode and a pentode and controlled by LDRs, designed for the author's all-tube synthesizer.",
 	"modules": [
-		"oscillator",
-		"filter",
-		"vca"
+		"filter"
 	],
 	"subcircuits": [
 		"vacuum-tube-stage",
-		"exponential-converter"
+		"sallen-key"
 	],
 	"functions": [
-		"exponential-response",
-		"soft-clipping"
+		"resonance-control"
 	],
-	"kinds": ["schematic"],
+	"kinds": ["explanation", "schematic"],
 	"added": "2026-09-26"
 }

@@ -7,21 +7,13 @@
 	"authors": [
 		"rene-schmitz"
 	],
-	"summary": "René Schmitz's tube experiments: a neon lamp VCO, a thyratron VCO, a tube VCF, a valve VCA based on subminiature tubes, and an exponential converter that uses a vacuum diode as its nonlinear element. Most of them use high voltages.",
-	"summaryFromGroup": true,
+	"summary": "A push-pull VCA from subminiature tubes: a cathodyne phase splitter feeds two variable-gain stages controlled via the screen grid, and a transformer cancels control feedthrough.",
 	"modules": [
-		"oscillator",
-		"filter",
 		"vca"
 	],
 	"subcircuits": [
-		"vacuum-tube-stage",
-		"exponential-converter"
+		"vacuum-tube-stage"
 	],
-	"functions": [
-		"exponential-response",
-		"soft-clipping"
-	],
-	"kinds": ["schematic"],
+	"kinds": ["explanation", "schematic"],
 	"added": "2026-09-26"
 }
