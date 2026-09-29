@@ -14,7 +14,7 @@
 			"status": { "enum": ["active", "obsolete", "reissued"], "description": "reissued: a true reissue (same function and pinout by a new maker) is available" },
 			"successors": {
 				"type": "array",
-				"description": "Newer parts for an obsolete one: reissue (same part by a new maker) or replacement (compatible drop-in, e.g. a PIC clone)",
+				"description": "Newer parts for an obsolete one: reissue (same part by a new maker) or replacement (a newer part that does the same job; `note` says what differs, e.g. pinout or supply)",
 				"items": {
 					"type": "object",
 					"required": ["part", "maker", "kind"],

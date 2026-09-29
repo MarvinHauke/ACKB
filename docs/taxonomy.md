@@ -43,8 +43,9 @@ subcircuit · *noticeable at the outputs or controls?* → function · *a specif
   datasheet gets a `datasheetUrl` (rules in docs/source-rules.md, "Datasheets"). `status` is
   `active`, `obsolete` or `reissued` (a true reissue exists); `successors` lists newer parts:
   `reissue` (same part by a new maker, e.g. Alfa AS3080E for the CA3080) or `replacement` (a
-  compatible drop-in, e.g. Electric Druid's PIC-based MM5837 replacement). Successors are plain
-  entries, not tags.
+  newer part that does the same job, e.g. Electric Druid's PIC-based MM5837 replacement; `note`
+  says what differs, such as pinout or supply voltage). `status: reissued` if and only if a
+  successor of kind `reissue` exists (validated). Successors are plain entries, not tags.
 
 A look-alike pair stays when both sides pass their test (wavefolder = the circuit, wavefolding =
 the sound).

@@ -27,6 +27,7 @@ data/articles + data/taxonomy          (the knowledge graph: articles, tag nodes
 - **Edges**: an article's tags; product → manufacturer; `parent` (subtypes); component `alternatives`.
 - The build adds per tag: its articles, **same kind** (component alternatives and same category,
   subtypes/siblings, a maker's products) and **often used together** (tags that share articles).
+- Component `successors` (reissues, replacements) are plain data on the node, not edges.
 - No graph database needed at this size; `graph.json` can be imported into one later.
 
 ## Lookup files (static API)

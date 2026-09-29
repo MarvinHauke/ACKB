@@ -190,6 +190,17 @@ export function validate() {
 		}
 	}
 
+	// status "reissued" if and only if a successor of kind "reissue" exists.
+	for (const c of taxonomy.components) {
+		const hasReissue = (c.successors ?? []).some((s) => s.kind === 'reissue');
+		if ((c.status === 'reissued') !== hasReissue) {
+			errors.push(
+				`data/taxonomy/components.json: "${c.id}" ` +
+					(hasReissue ? 'lists a reissue, so status must be "reissued"' : 'has status "reissued" but no successor of kind "reissue"')
+			);
+		}
+	}
+
 	// Datasheets: used components should link one (docs/source-rules.md, "Datasheets").
 	const NO_PUBLIC_DATASHEET = new Set(['pic', 'vactrol', 'optocoupler', 'korg35', 'ir3109']);
 	for (const c of taxonomy.components) {
