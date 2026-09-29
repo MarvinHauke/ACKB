@@ -12,7 +12,8 @@
 		],
 		"alternatives": [
 			"lm13600"
-		]
+		],
+		"description": "Dual operational transconductance amplifier IC with linearizing diodes and output buffers, the standard OTA in synth filters, VCAs and oscillators. It succeeded the LM13600, and it is a common substitute for the CA3080."
 	},
 	{
 		"id": "lm13600",
@@ -116,7 +117,8 @@
 		"aliases": [
 			"TL082",
 			"TL07x"
-		]
+		],
+		"description": "Dual JFET-input op-amp with low noise and high input impedance, one of the most common audio and CV op-amps in synths and effects. It is a general-purpose choice for buffers, mixers and filter stages."
 	},
 	{
 		"id": "ne5532",

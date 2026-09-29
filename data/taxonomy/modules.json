@@ -5,21 +5,24 @@
 		"aliases": [
 			"VCO",
 			"DCO"
-		]
+		],
+		"description": "The tone source of a synth voice (VCO or DCO): it generates a periodic waveform whose pitch is set by a control voltage or a digital value. Sits at the start of the signal flow, ahead of filter and amplifier."
 	},
 	{
 		"id": "filter",
 		"label": "Filter",
 		"aliases": [
 			"VCF"
-		]
+		],
+		"description": "The filter section (VCF) of a synth voice: it shapes the harmonic content of a sound by letting some frequencies pass and attenuating others, with a cutoff usually controlled by voltage. Its character is a large part of a synth's sound."
 	},
 	{
 		"id": "vca",
 		"label": "VCA",
 		"aliases": [
 			"voltage controlled amplifier"
-		]
+		],
+		"description": "The amplifier section of a synth voice: it sets the loudness of a signal from a control voltage, usually driven by an envelope. Also used to scale control signals, so a module may hold several."
 	},
 	{
 		"id": "envelope",
@@ -49,7 +52,8 @@
 			"effects",
 			"effect pedal",
 			"stompbox"
-		]
+		],
+		"description": "Effects that process a signal after or beside the voice, such as delay, reverb, chorus, distortion or dynamics. In a block diagram they form a box of their own, and they cover both effect units and effect sections built into instruments."
 	},
 	{
 		"id": "modulation",

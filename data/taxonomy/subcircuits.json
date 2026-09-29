@@ -3,7 +3,7 @@
 		"id": "opamp-stage",
 		"label": "Op-Amp Stage",
 		"pdfOcrKind": "opamp_stage",
-		"description": "Generic op-amp gain or buffer stage.",
+		"description": "A stage built around one op-amp, with resistors and capacitors around it setting gain, inversion, summing or buffering. It is the generic tag, used when no more specific op-amp subcircuit (follower, inverting amp, integrator, …) fits.",
 		"group": "opamp-stages"
 	},
 	{
@@ -34,7 +34,8 @@
 			"unity-gain buffer",
 			"op-amp buffer"
 		],
-		"group": "opamp-stages"
+		"group": "opamp-stages",
+		"description": "An op-amp stage with its output tied straight back to the inverting input, giving a gain of one with high input and low output impedance. Synths use it as a buffer to isolate circuit stages or drive long cables."
 	},
 	{
 		"id": "integrator",
@@ -45,7 +46,8 @@
 			"filter pole",
 			"OTA integrator"
 		],
-		"group": "opamp-stages"
+		"group": "opamp-stages",
+		"description": "A circuit whose output follows the accumulated input over time, made from an op-amp or OTA with a capacitor. Chains of integrators form filter poles, and a single one generates ramps and triangle waves in oscillators and envelopes."
 	},
 	{
 		"id": "comparator",
@@ -54,7 +56,8 @@
 		"aliases": [
 			"schmitt trigger"
 		],
-		"group": "opamp-stages"
+		"group": "opamp-stages",
+		"description": "A stage that compares two voltages and switches its output high or low depending on which is larger, often with feedback for hysteresis (Schmitt trigger). Synths use it to turn waveforms into gates and triggers, generate pulse waves and reset oscillators."
 	},
 	{
 		"id": "ota-stage",
@@ -63,7 +66,7 @@
 			"operational transconductance amplifier",
 			"OTA"
 		],
-		"description": "Current-controlled transconductance stage (LM13700, CA3080, ...).",
+		"description": "A stage built around an operational transconductance amplifier, whose gain is set by a bias current, so a control voltage can change it. In synths it appears in voltage-controlled filters, amplifiers and oscillators; the LM13700 and the older CA3080 are the usual parts.",
 		"group": "transistor-stages"
 	},
 	{
@@ -74,7 +77,8 @@
 			"long-tailed pair",
 			"LTP"
 		],
-		"group": "transistor-stages"
+		"group": "transistor-stages",
+		"description": "Two matched transistors with joined emitters (or sources) fed from one current source, so the output depends on the difference between the two inputs. It is the input stage of op-amps and OTAs and the basis of many transistor filter and VCA cells."
 	},
 	{
 		"id": "current-mirror",
@@ -109,7 +113,8 @@
 			"exponentiator",
 			"V/oct converter"
 		],
-		"group": "transistor-stages"
+		"group": "transistor-stages",
+		"description": "A circuit that turns a control voltage into a current that doubles with each added volt (1 V/oct), so that pitch or cutoff tracks the voltage musically. Usually built from a matched transistor pair and needing temperature compensation, it feeds 1 V/oct oscillators and filters."
 	},
 	{
 		"id": "sallen-key",
@@ -147,7 +152,8 @@
 			"resonance loop",
 			"resonance path"
 		],
-		"group": "passive-networks"
+		"group": "passive-networks",
+		"description": "The part of a circuit that returns some of the output to an earlier point, set by resistors, capacitors or both. In resonant filters it carries the resonance signal back to the input; elsewhere it sets gain or stability."
 	},
 	{
 		"id": "diode-limiter",
@@ -385,7 +391,8 @@
 			"MCU",
 			"firmware chip"
 		],
-		"group": "digital-interface"
+		"group": "digital-interface",
+		"description": "The circuit around a microcontroller: the MCU with its clock, reset and programming connections, and the PWM or DAC outputs and CV/gate inputs that tie it to the analog parts. Used for envelopes, LFOs, sequencing, digital oscillators, MIDI or noise; its firmware, not the analog circuit, defines the behavior."
 	},
 	{
 		"id": "dac-output",
