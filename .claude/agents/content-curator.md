@@ -33,7 +33,8 @@ session **ackb-curator** in a team (see `CLAUDE.md`, "Agent team"):
 2. Send `ackb-reviewer` a message: the task in one line, the changed files, anything you left out
    and why.
 3. Fix its must-fix findings, and ask again if needed. After its OK: `npm run data`, then commit on
-   branch `data` (end the message with the Co-Authored-By line from the session).
+   branch `data`. Stage only your own files (`git add <files>`, never `-A`), because other agents
+   share the tree. End the message with the Co-Authored-By line from the session.
 4. Send `ackb-architect` a **short overview**: what was added (count, examples), the check results,
    the commit hash, the reviewer's "consider" points, open questions. No long lists.
 
