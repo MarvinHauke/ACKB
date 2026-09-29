@@ -16,5 +16,5 @@ export function load({ params }) {
 		subcircuits: article.terms.subcircuits.map((t) => t.id),
 		components: article.terms.components.map((t) => t.id)
 	});
-	return { canonical: absolute(`/article/${article.id}`), article, related, basics, parents: termParents() };
+	return { site: absolute('/'), canonical: absolute(`/article/${article.id}`), article, related, basics, parents: termParents() };
 }

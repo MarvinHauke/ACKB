@@ -36,10 +36,9 @@ export function load({ params }) {
 	const together = term.related.together.map(ref);
 	const path = termPath(term.id, term.parent);
 	const parent = find(key, term.parent);
-	// Home › Type › [Parent ›] Tag. Same labels as the visible breadcrumbs; the type has no page, so no URL.
+	// Home › [Parent ›] Tag. The visible trail also has the type, but it has no page, and every JSON-LD item needs a URL.
 	const crumbs = [
 		{ name: 'Home', url: absolute('/') },
-		{ name: meta.plural },
 		...(parent ? [{ name: parent.label, url: absolute(`/${meta.slug}/${parent.id}`) }] : []),
 		{ name: term.label, url: absolute(`/${meta.slug}/${path}`) }
 	];

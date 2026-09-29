@@ -1,6 +1,6 @@
 <script lang="ts">
 	// One article (link): what it is, where it goes, its tags (edges to the tag pages) and related articles.
-	import { resolve } from '$app/paths';
+	import { base, resolve } from '$app/paths';
 	import Breadcrumbs from '$lib/components/Breadcrumbs.svelte';
 	import Basics from '$lib/components/Basics.svelte';
 	import { KIND_LABEL, REGISTRY_KEYS, REGISTRY_META, termPath } from '$lib/types';
@@ -40,6 +40,19 @@
 		];
 	});
 
+	// Absolute URL of a crumb's site-relative link (drops BASE_PATH, adds the public base URL).
+	const abs = (href: string) => `${data.site}${href.slice(base.length + 1)}`;
+	const breadcrumbLd = $derived(
+		JSON.stringify({
+			'@context': 'https://schema.org',
+			'@type': 'BreadcrumbList',
+			// Only crumbs with a URL (the type crumb has none: Google needs `item` on all but the last).
+			itemListElement: crumbs
+				.filter((c, i) => c.href || i === crumbs.length - 1)
+				.map((c, i) => ({ '@type': 'ListItem', position: i + 1, name: c.label, ...(c.href ? { item: abs(c.href) } : { item: data.canonical }) }))
+		}).replace(/</g, '\\u003c')
+	);
+
 	const jsonLd = $derived(
 		JSON.stringify({
 			'@context': 'https://schema.org',
@@ -60,6 +73,8 @@
 	<link rel="canonical" href={data.canonical} />
 	<!-- eslint-disable-next-line svelte/no-at-html-tags -- JSON-LD from our own data, '<' escaped -->
 	{@html `<script type="application/ld+json">${jsonLd}</script>`}
+	<!-- eslint-disable-next-line svelte/no-at-html-tags -- JSON-LD from our own data, '<' escaped -->
+	{@html `<script type="application/ld+json">${breadcrumbLd}</script>`}
 </svelte:head>
 
 <article>

@@ -23,8 +23,9 @@ export function tagTitle(key: RegistryKey, label: string, count: number) {
 
 /** The curated description if there is one, else a factual sentence from the data. */
 export function tagDescription(key: RegistryKey, typeLabel: string, label: string, count: number, together: string[], description?: string) {
-	if (description) return description;
+	// An author's description is an affiliation: fine on the page, weak as a snippet.
+	if (description && key !== 'authors') return description;
 	const n = `${count} curated ${count === 1 ? 'resource' : 'resources'}`;
-	const base = key === 'authors' ? `${n} by ${label} on synthesizer circuits.` : `${typeLabel} ${label}: ${n} on synthesizer circuits.`;
-	return together.length ? `${base} Often used together with ${together.join(', ')}.` : base;
+	const base = key === 'authors' ? `${count} synth circuit ${count === 1 ? 'resource' : 'resources'} by ${label}.` : `${typeLabel} ${label}: ${n} on synthesizer circuits.`;
+	return together.length ? `${base} ${key === 'authors' ? 'Topics: ' : 'Often used together with '}${together.join(', ')}.` : base;
 }
