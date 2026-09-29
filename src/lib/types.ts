@@ -28,6 +28,8 @@ export interface Term {
 	category?: string;
 	datasheetUrl?: string;
 	status?: string;
+	/** Newer parts for an obsolete component (components.json). */
+	successors?: { part: string; maker: string; kind: 'reissue' | 'replacement'; url?: string; note?: string }[];
 	alternatives?: string[];
 	pdfOcrKind?: string;
 	url?: string;

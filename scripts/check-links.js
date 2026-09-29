@@ -42,7 +42,10 @@ function collectUrls(files) {
 		if (data.url) add(data.url, file);
 	}
 	if (!files) {
-		for (const c of loadTaxonomy().taxonomy.components) if (c.datasheetUrl) add(c.datasheetUrl, `component:${c.id}`);
+		for (const c of loadTaxonomy().taxonomy.components) {
+			if (c.datasheetUrl) add(c.datasheetUrl, `component:${c.id}`);
+			for (const s of c.successors ?? []) if (s.url) add(s.url, `component:${c.id}:${s.part}`);
+		}
 		for (const r of loadReferences().references) add(r.url, `reference:${r.id}`);
 	}
 	return urls;

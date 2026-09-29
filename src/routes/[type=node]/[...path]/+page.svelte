@@ -104,6 +104,20 @@
 		<dt>Category</dt>
 		<dd>{CATEGORY_LABEL[term.category] ?? term.category.replace('_', ' ')}{term.status ? ` · ${term.status}` : ''}</dd>
 	{/if}
+	{#if term.successors?.length}
+		<dt>Reissues & replacements</dt>
+		<dd>
+			<ul class="successors">
+				{#each term.successors as s (s.part)}
+					<li>
+						<span class="muted">{s.kind === 'reissue' ? 'Reissue' : 'Replacement'}:</span>
+						{#if s.url}<a href={s.url} target="_blank" rel="noopener external" data-out="successor">{s.maker} {s.part} ↗</a
+							>{:else}{s.maker} {s.part}{/if}{#if s.note}<span class="muted"> · {s.note}</span>{/if}
+					</li>
+				{/each}
+			</ul>
+		</dd>
+	{/if}
 	{#if term.datasheetUrl}
 		<dt>Datasheet</dt>
 		<dd><a href={term.datasheetUrl} target="_blank" rel="noopener external" data-out="datasheet">Open datasheet ↗</a></dd>
@@ -206,6 +220,12 @@
 	}
 
 	dd {
+		margin: 0;
+	}
+
+	.successors {
+		list-style: none;
+		padding: 0;
 		margin: 0;
 	}
 
