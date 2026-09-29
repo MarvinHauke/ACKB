@@ -7,8 +7,7 @@
 	"authors": [
 		"moritz-klein"
 	],
-	"summary": "Two-part video: a simple audio compressor designed from scratch, then a production-ready version.",
-	"summaryFromGroup": true,
+	"summary": "Builds a basic compressor around a diode VCA: a peak detector, a voltage subtractor, ratio, attack and release controls, and sidechaining, with a parts list and simulation.",
 	"modules": [
 		"fx",
 		"dynamics"
@@ -20,6 +19,6 @@
 		"dynamics-compression",
 		"envelope-following"
 	],
-	"kinds": ["explanation"],
+	"kinds": ["build-guide", "explanation"],
 	"added": "2026-09-26"
 }

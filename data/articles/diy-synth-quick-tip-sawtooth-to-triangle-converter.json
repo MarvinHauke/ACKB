@@ -7,19 +7,17 @@
 	"authors": [
 		"moritz-klein"
 	],
-	"summary": "Two short videos extending a DIY VCO: a sawtooth-to-triangle converter and voltage-controlled pulse width modulation.",
-	"summaryFromGroup": true,
+	"summary": "Short build of a diode and op-amp circuit that turns a sawtooth into a triangle as an extra VCO output, with a note on why the output biasing needs the negative rail.",
 	"modules": [
 		"oscillator"
 	],
 	"subcircuits": [
 		"waveshaper",
-		"comparator"
+		"inverting-amp"
 	],
 	"functions": [
-		"pulse-width-modulation",
 		"waveshaping"
 	],
-	"kinds": ["explanation"],
+	"kinds": ["build-guide", "explanation"],
 	"added": "2026-09-26"
 }

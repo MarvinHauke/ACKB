@@ -7,11 +7,7 @@
 	"authors": [
 		"moritz-klein"
 	],
-	"summary": "Beginner's guide to using a breadboard for synth circuits, and a DIY prototyping station for developing synth modules.",
-	"summaryFromGroup": true,
-	"modules": [
-		"utility"
-	],
-	"kinds": ["build-guide"],
+	"summary": "Presents Labor, a breadboard prototyping station for synth circuits made with Erica Synths: its features, bundle versions and expansion modules.",
+	"kinds": ["explanation"],
 	"added": "2026-09-26"
 }

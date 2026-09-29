@@ -7,11 +7,14 @@
 	"authors": [
 		"moritz-klein"
 	],
-	"summary": "Beginner's guide to using a breadboard for synth circuits, and a DIY prototyping station for developing synth modules.",
-	"summaryFromGroup": true,
+	"summary": "Absolute-beginner guide: identifying components, how a breadboard is wired inside, reading schematics, and building an LED circuit, an inverter and two simple oscillators on 9 V batteries.",
 	"modules": [
-		"utility"
+		"oscillator",
+		"lfo"
 	],
-	"kinds": ["build-guide"],
+	"subcircuits": [
+		"inverting-amp"
+	],
+	"kinds": ["build-guide", "explanation"],
 	"added": "2026-09-26"
 }

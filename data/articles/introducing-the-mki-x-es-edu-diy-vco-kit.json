@@ -7,15 +7,10 @@
 	"authors": [
 		"moritz-klein"
 	],
-	"summary": "Introduction videos for the educational DIY modules designed by Moritz Klein with Erica Synths: VCO, VCA, envelope generator, sequencer, VCF, S&H/noise and mixer. Each kit comes with a manual that teaches the design on a breadboard.",
-	"summaryFromGroup": true,
+	"summary": "Introduces the first of nine educational DIY kits made with Erica Synths, whose manual teaches the design on a breadboard, and demos the VCO module and how well it tracks V/oct.",
 	"modules": [
-		"oscillator",
-		"vca",
-		"envelope",
-		"filter",
-		"utility"
+		"oscillator"
 	],
-	"kinds": ["build-guide"],
+	"kinds": ["explanation"],
 	"added": "2026-09-26"
 }

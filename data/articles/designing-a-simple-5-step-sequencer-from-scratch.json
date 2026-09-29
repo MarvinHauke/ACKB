@@ -7,17 +7,16 @@
 	"authors": [
 		"moritz-klein"
 	],
-	"summary": "Video designs of a simple 5-step sequencer from scratch, and a drum sequencer with an unconventional approach.",
-	"summaryFromGroup": true,
+	"summary": "A minimal 5-step sequencer around the CD4017 decade counter: how the counter steps through outputs, deriving CV and gate outputs, and driving status LEDs safely.",
 	"modules": [
 		"sequencer-clock"
 	],
 	"subcircuits": [
-		"clock-generator"
+		"led-driver"
 	],
 	"functions": [
 		"sequencing"
 	],
-	"kinds": ["explanation"],
+	"kinds": ["build-guide", "explanation"],
 	"added": "2026-09-26"
 }

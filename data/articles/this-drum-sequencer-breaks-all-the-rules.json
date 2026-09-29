@@ -7,17 +7,19 @@
 	"authors": [
 		"moritz-klein"
 	],
-	"summary": "Video designs of a simple 5-step sequencer from scratch, and a drum sequencer with an unconventional approach.",
-	"summaryFromGroup": true,
+	"summary": "A deliberately minimal drum trigger sequencer without a microcontroller: a shift register as sequencer, LFO-driven accents, two channels, variable length and a simple DAC; part of Moritz Klein's DIY drum machine series.",
 	"modules": [
-		"sequencer-clock"
+		"sequencer-clock",
+		"drum",
+		"lfo"
 	],
 	"subcircuits": [
-		"clock-generator"
+		"dac-output"
 	],
 	"functions": [
-		"sequencing"
+		"sequencing",
+		"periodic-modulation"
 	],
-	"kinds": ["explanation"],
+	"kinds": ["build-guide", "explanation"],
 	"added": "2026-09-26"
 }
