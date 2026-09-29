@@ -190,6 +190,14 @@ export function validate() {
 		}
 	}
 
+	// Datasheets: used components should link one (docs/source-rules.md, "Datasheets").
+	const NO_PUBLIC_DATASHEET = new Set(['pic', 'vactrol', 'optocoupler', 'korg35', 'ir3109']);
+	for (const c of taxonomy.components) {
+		if (used.components.has(c.id) && !c.datasheetUrl && !NO_PUBLIC_DATASHEET.has(c.id)) {
+			warnings.push(`data/taxonomy/components.json: "${c.id}" has no datasheetUrl`);
+		}
+	}
+
 	// Unused terms are fine for broad registries; only flag the ones meant to be discovered through articles.
 	for (const key of ['subcircuits', 'functions', 'components']) {
 		const parents = new Set(taxonomy[key].map((t) => t.parent).filter(Boolean));

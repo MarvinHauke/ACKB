@@ -39,7 +39,8 @@ subcircuit · *noticeable at the outputs or controls?* → function · *a specif
 - **Component** ("Components & ICs"): a specific part you'd buy, with a part number or a distinct
   device type: ICs (LM13700, TL072) and special parts such as vactrols, optocouplers, tape heads or
   matched pairs. Generic resistors and capacitors are not listed. Grouped in the sidebar by
-  `category` (optical and magnetic parts have their own groups).
+  `category` (optical and magnetic parts have their own groups). Every part with a public
+  datasheet gets a `datasheetUrl` (rules in docs/source-rules.md, "Datasheets").
 
 A look-alike pair stays when both sides pass their test (wavefolder = the circuit, wavefolding =
 the sound).
