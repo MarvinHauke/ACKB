@@ -26,8 +26,9 @@ Peer Claude sessions that message each other (`SendMessage`), watchable in tmux:
 
 Flow: architect → curator → reviewer (→ architect for new tags/filters) → curator commits →
 short overview to the architect. Only the user pushes. `scripts/agents.sh` opens the curator and
-reviewer as splits in one tmux window `ackb-agents` (at most 4 panes), resuming them by the
-session ids written in their agent files.
+reviewer as splits in one tmux window `ackb-agents` (at most 4 panes) and then starts the
+architect in the current pane, resuming each by the session id written in its agent file
+(`scripts/agents.sh curator reviewer` or `… architect` starts only those; `DRY_RUN=1` prints).
 
 ## Workflow
 
