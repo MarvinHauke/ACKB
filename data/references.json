@@ -73,5 +73,38 @@
 			"lowpass-response"
 		],
 		"linkCheck": "blocked"
+	},
+	{
+		"id": "etw-sallen-key-filter",
+		"title": "Sallen and Key Filter",
+		"url": "https://www.electronics-tutorials.ws/filter/sallen-key-filter.html",
+		"summary": "How a single op-amp with two resistors and two capacitors forms a second-order filter, built up from RC dividers, with low-pass and high-pass versions and their gain and cutoff formulas.",
+		"site": "electronics-tutorials",
+		"subcircuits": [
+			"sallen-key"
+		],
+		"linkCheck": "blocked"
+	},
+	{
+		"id": "etw-state-variable-filter",
+		"title": "State Variable Filter",
+		"url": "https://www.electronics-tutorials.ws/filter/state-variable-filter.html",
+		"summary": "Two chained integrators and a summing stage give low-pass, band-pass and high-pass outputs from one input; the page derives the transfer functions and shows the block diagram.",
+		"site": "electronics-tutorials",
+		"subcircuits": [
+			"state-variable"
+		],
+		"linkCheck": "blocked"
+	},
+	{
+		"id": "aac-current-mirror-bjts",
+		"title": "Current Mirror BJTs",
+		"url": "https://www.allaboutcircuits.com/textbook/semiconductors/chpt-4/current-mirrors/",
+		"summary": "Explains how two matched bipolar transistors with joined bases copy a reference current to a load, and why that gives an almost constant current across a wide range of load resistance.",
+		"site": "all-about-circuits",
+		"subcircuits": [
+			"current-mirror"
+		],
+		"linkCheck": "blocked"
 	}
 ]
