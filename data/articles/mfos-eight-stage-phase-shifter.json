@@ -1,0 +1,29 @@
+{
+	"$schema": "../../schema/article.schema.json",
+	"schemaVersion": 3,
+	"title": "Eight Stage Phase Shifter (+/-12V to +/-15V)",
+	"url": "https://musicfromouterspace.com/analogsynth_new/PHASESHIFTER2007/PHASESHIFTER2007.php",
+	"type": "website",
+	"authors": [
+		"ray-wilson"
+	],
+	"year": 2007,
+	"summary": "A switchable 4- or 8-stage phaser with OTA-based phase-shift cells, feedback, an onboard triangle/ramp LFO and pseudo-stereo outputs.",
+	"modules": [
+		"fx",
+		"modulation"
+	],
+	"subcircuits": [
+		"allpass-stage",
+		"ota-stage"
+	],
+	"functions": [
+		"phasing",
+		"periodic-modulation"
+	],
+	"components": [
+		"lm13700"
+	],
+	"kinds": ["build-guide", "explanation", "schematic"],
+	"added": "2026-09-29"
+}

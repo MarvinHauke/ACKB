@@ -1,0 +1,34 @@
+{
+	"$schema": "../../schema/article.schema.json",
+	"schemaVersion": 3,
+	"title": "State Variable VCF 12dB/Octave With VC Resonance",
+	"url": "https://musicfromouterspace.com/analogsynth_new/STATEVARVCFFEB2006/STATEVARVCFFEB2006.html",
+	"type": "website",
+	"authors": [
+		"ray-wilson"
+	],
+	"year": 2006,
+	"summary": "A 12 dB/oct state-variable filter built on the LM13700 with simultaneous lowpass, bandpass and highpass outputs, 1 V/oct cutoff control and voltage-controlled resonance up to sine oscillation.",
+	"modules": [
+		"filter"
+	],
+	"subcircuits": [
+		"state-variable",
+		"ota-stage",
+		"integrator"
+	],
+	"functions": [
+		"multimode-output",
+		"lowpass-response",
+		"bandpass-response",
+		"highpass-response",
+		"resonance-control",
+		"self-oscillation",
+		"voltage-controlled-cutoff"
+	],
+	"components": [
+		"lm13700"
+	],
+	"kinds": ["build-guide", "explanation", "schematic"],
+	"added": "2026-09-29"
+}

@@ -1,0 +1,26 @@
+{
+	"$schema": "../../schema/article.schema.json",
+	"schemaVersion": 3,
+	"title": "MFOS Voltage Controlled Monophonic Analog Spring Reverb Module",
+	"url": "https://musicfromouterspace.com/analogsynth_new/VC_REVERB/VC_REVERB.php",
+	"type": "website",
+	"authors": [
+		"ray-wilson"
+	],
+	"summary": "A spring reverb module for one tank whose dry and reverb levels are each voltage-controlled by OTA VCAs.",
+	"modules": [
+		"fx",
+		"delay"
+	],
+	"subcircuits": [
+		"ota-stage"
+	],
+	"functions": [
+		"current-controlled-amplification"
+	],
+	"components": [
+		"lm13700"
+	],
+	"kinds": ["build-guide", "explanation", "schematic"],
+	"added": "2026-09-29"
+}

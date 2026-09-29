@@ -1,0 +1,25 @@
+{
+	"$schema": "../../schema/article.schema.json",
+	"schemaVersion": 3,
+	"title": "Voltage Controlled LFO (+/-12V to +/-15V)",
+	"url": "https://musicfromouterspace.com/analogsynth_new/VCLFO200607/VCLFO200607.php",
+	"type": "website",
+	"authors": [
+		"ray-wilson"
+	],
+	"year": 2006,
+	"summary": "An LFO with simultaneous sine, triangle, saw, ramp and variable-width pulse outputs, voltage control of rate and pulse width, and periods down to several minutes.",
+	"modules": [
+		"lfo"
+	],
+	"subcircuits": [
+		"integrator",
+		"comparator"
+	],
+	"functions": [
+		"periodic-modulation",
+		"pulse-width-modulation"
+	],
+	"kinds": ["build-guide", "explanation", "schematic"],
+	"added": "2026-09-29"
+}

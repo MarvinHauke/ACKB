@@ -1,0 +1,20 @@
+{
+	"$schema": "../../schema/article.schema.json",
+	"schemaVersion": 3,
+	"title": "Practical Transistor Matching",
+	"url": "https://musicfromouterspace.com/analogsynth_new/TRANSISTORMATCHER/TRANSISTORMATCHER.html",
+	"type": "website",
+	"authors": [
+		"ray-wilson"
+	],
+	"summary": "How to hand-match transistors by their Vbe at constant current for expo converters, following Robert Moog's method, with test circuits for NPN, PNP and a go/no-go pair tester.",
+	"subcircuits": [
+		"exponential-converter",
+		"comparator"
+	],
+	"functions": [
+		"temperature-compensation"
+	],
+	"kinds": ["build-guide", "explanation", "schematic"],
+	"added": "2026-09-29"
+}

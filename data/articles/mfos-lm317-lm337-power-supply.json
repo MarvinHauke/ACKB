@@ -1,0 +1,24 @@
+{
+	"$schema": "../../schema/article.schema.json",
+	"schemaVersion": 3,
+	"title": "Adjustable LM317/LM337 1.5A Supply",
+	"url": "https://musicfromouterspace.com/analogsynth_new/POWERSUPPLY2009/POWERSUPPLY2009.php",
+	"type": "website",
+	"authors": [
+		"ray-wilson"
+	],
+	"year": 2009,
+	"summary": "A bipolar adjustable 1.5 A supply with LM317/LM337 regulators for synth projects, with guidance on choosing the transformer and warnings about line voltage.",
+	"modules": [
+		"power-supply"
+	],
+	"subcircuits": [
+		"linear-regulator",
+		"rectifier-bridge"
+	],
+	"components": [
+		"lm317"
+	],
+	"kinds": ["build-guide", "explanation", "schematic"],
+	"added": "2026-09-29"
+}

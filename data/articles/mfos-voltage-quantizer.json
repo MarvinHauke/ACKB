@@ -1,0 +1,23 @@
+{
+	"$schema": "../../schema/article.schema.json",
+	"schemaVersion": 3,
+	"title": "MFOS Voltage Quantizer (+/-12V to +/-15V)",
+	"url": "https://musicfromouterspace.com/analogsynth_new/VOLTAGEQUANTIZER/VOLTAGEQUANTIZER.php",
+	"type": "website",
+	"authors": [
+		"ray-wilson"
+	],
+	"summary": "Quantizes a control voltage to semitone, whole-tone or fourth steps using a low-cost counter-based A/D and resistor-ladder D/A, handy after a sample and hold or sequencer.",
+	"modules": [
+		"utility"
+	],
+	"subcircuits": [
+		"dac-output",
+		"comparator"
+	],
+	"functions": [
+		"sequencing"
+	],
+	"kinds": ["build-guide", "explanation", "schematic"],
+	"added": "2026-09-29"
+}

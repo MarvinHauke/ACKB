@@ -1,0 +1,26 @@
+{
+	"$schema": "../../schema/article.schema.json",
+	"schemaVersion": 3,
+	"title": "Dual Log/Linear VCA",
+	"url": "https://musicfromouterspace.com/analogsynth_new/DUALVCA/DLLVCA001.html",
+	"type": "website",
+	"authors": [
+		"ray-wilson"
+	],
+	"summary": "Two DC-coupled VCAs around the LM13700 with switchable logarithmic or linear control response, usable for envelope shaping, panning and ring-modulation effects.",
+	"modules": [
+		"vca"
+	],
+	"subcircuits": [
+		"ota-stage"
+	],
+	"functions": [
+		"current-controlled-amplification",
+		"exponential-response"
+	],
+	"components": [
+		"lm13700"
+	],
+	"kinds": ["build-guide", "explanation", "schematic"],
+	"added": "2026-09-29"
+}

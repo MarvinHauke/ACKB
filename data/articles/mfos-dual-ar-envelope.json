@@ -1,0 +1,27 @@
+{
+	"$schema": "../../schema/article.schema.json",
+	"schemaVersion": 3,
+	"title": "Dual Attack Release Envelope Generator",
+	"url": "https://musicfromouterspace.com/analogsynth_new/DUALARGENERATOR/DUALARGENERATOR.html",
+	"type": "website",
+	"authors": [
+		"ray-wilson"
+	],
+	"summary": "Two attack/release envelope generators on one board, each with gated (AR), triggered (AD) and repeat modes and 1 ms to 20 s times.",
+	"modules": [
+		"envelope"
+	],
+	"subcircuits": [
+		"comparator",
+		"analog-switch"
+	],
+	"functions": [
+		"envelope-generation",
+		"periodic-modulation"
+	],
+	"components": [
+		"cd4013"
+	],
+	"kinds": ["build-guide", "explanation", "schematic"],
+	"added": "2026-09-29"
+}

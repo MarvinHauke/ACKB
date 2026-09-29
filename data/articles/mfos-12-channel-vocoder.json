@@ -1,0 +1,30 @@
+{
+	"$schema": "../../schema/article.schema.json",
+	"schemaVersion": 3,
+	"title": "MFOS 12 Channel Vocoder",
+	"url": "https://musicfromouterspace.com/analogsynth_new/VOCODER2013/VOCODER2013.php",
+	"type": "website",
+	"authors": [
+		"ray-wilson"
+	],
+	"year": 2013,
+	"summary": "A 12-band analog vocoder with mic/line inputs, a built-in noise source and pulse oscillator as carrier, analysis filters with envelope followers driving OTA VCAs; documented over several pages.",
+	"modules": [
+		"fx",
+		"spectral"
+	],
+	"subcircuits": [
+		"envelope-follower",
+		"ota-stage",
+		"noise-generator"
+	],
+	"functions": [
+		"vocoding",
+		"envelope-following"
+	],
+	"components": [
+		"lm13700"
+	],
+	"kinds": ["build-guide", "explanation", "schematic"],
+	"added": "2026-09-29"
+}

@@ -1,0 +1,24 @@
+{
+	"$schema": "../../schema/article.schema.json",
+	"schemaVersion": 3,
+	"title": "Envelope Follower Filter",
+	"url": "https://musicfromouterspace.com/analogsynth_new/ENVELOPE_FOLLOWER/efpg1.html",
+	"type": "website",
+	"authors": [
+		"ray-wilson"
+	],
+	"summary": "Start page of a six-part build guide for a 9 V envelope-follower filter pedal, pitched as a first guitar-effect project with sound samples; the following pages cover the schematic and circuit description, parts, PCB layout, case and wiring.",
+	"modules": [
+		"fx",
+		"filter"
+	],
+	"subcircuits": [
+		"envelope-follower"
+	],
+	"functions": [
+		"envelope-following",
+		"voltage-controlled-cutoff"
+	],
+	"kinds": ["build-guide"],
+	"added": "2026-09-29"
+}
