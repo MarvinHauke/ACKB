@@ -69,10 +69,12 @@
 		"manufacturer": "SSM",
 		"category": "filter",
 		"status": "reissued",
+		"datasheetUrl": "https://www.soundsemiconductor.com/downloads/ssi2144datasheet.pdf",
 		"aliases": [
 			"2044",
 			"AS2044"
-		]
+		],
+		"description": "Four-pole low-pass VCF IC. Datasheet: SSI2144, the Sound Semiconductor successor."
 	},
 	{
 		"id": "tl072",
@@ -167,10 +169,12 @@
 		"manufacturer": "SSM / CoolAudio",
 		"category": "vca",
 		"status": "reissued",
+		"datasheetUrl": "https://www.soundsemiconductor.com/downloads/ssi2164datasheet.pdf",
 		"aliases": [
 			"V2164",
 			"2164"
-		]
+		],
+		"description": "Quad voltage-controlled amplifier IC. Datasheet: SSI2164 reissue by Sound Semiconductor."
 	},
 	{
 		"id": "pt2399",
