@@ -1,10 +1,11 @@
 #!/usr/bin/env bash
 # Starts the ACKB agent team. Each agent is a peer Claude session with the session id from its
 # .claude/agents/*.md ("Session id: <uuid>"); an existing session is resumed, a new one gets that id.
-# - curator and reviewer open as splits in one tmux window "ackb-agents" (at most 4 panes)
+# - curator, reviewer, ui and seo open as splits in one tmux window "ackb-agents"
+#   (4 panes, tiled into an equal 2x2 grid)
 # - the architect replaces this script in the current pane (your main window)
 # Usage: scripts/agents.sh                    start everything (architect in this pane)
-#        scripts/agents.sh curator reviewer   start only the peers
+#        scripts/agents.sh curator reviewer   start only these peers (also: ui, seo)
 #        scripts/agents.sh architect          start only the architect
 #        DRY_RUN=1 scripts/agents.sh          print the commands instead of running them
 set -euo pipefail
@@ -16,6 +17,8 @@ MAX_PANES=4
 PEERS=(
 	"ackb-curator content-curator sonnet"
 	"ackb-reviewer taxonomy-architect opus"
+	"ackb-ui ui-designer sonnet"
+	"ackb-seo seo sonnet"
 )
 ARCHITECT="ackb-architect ackb-architect opus"
 

@@ -23,10 +23,13 @@ Peer Claude sessions that message each other (`SendMessage`), watchable in tmux:
 | `ackb-architect` | `.claude/agents/ackb-architect.md` | opus   | lead; tasks, model decisions, overviews |
 | `ackb-curator`   | `.claude/agents/content-curator.md`| sonnet | adds articles and references, commits   |
 | `ackb-reviewer`  | `.claude/agents/taxonomy-architect.md` | opus | reviews; asks the architect about missing filters |
+| `ackb-ui`        | `.claude/agents/ui-designer.md`    | sonnet | UI in the existing design, checks in the browser |
+| `ackb-seo`       | `.claude/agents/seo.md`            | sonnet | titles, meta, sitemap, noindex, structured data |
 
 Flow: architect → curator → reviewer (→ architect for new tags/filters) → curator commits →
-short overview to the architect. Only the user pushes. `scripts/agents.sh` opens the curator and
-reviewer as splits in one tmux window `ackb-agents` (at most 4 panes) and then starts the
+short overview to the architect. UI and SEO work the same way (route, model or export changes go
+through the reviewer). Only the user pushes. `scripts/agents.sh` opens the four peers as an equal
+2×2 grid in one tmux window `ackb-agents` and then starts the
 architect in the current pane, resuming each by the session id written in its agent file
 (`scripts/agents.sh curator reviewer` or `… architect` starts only those; `DRY_RUN=1` prints).
 
