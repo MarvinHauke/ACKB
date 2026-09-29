@@ -369,6 +369,7 @@
 		"manufacturer": "Analog Devices",
 		"category": "other",
 		"status": "active",
+		"datasheetUrl": "https://www.analog.com/media/en/technical-documentation/data-sheets/AD633.pdf",
 		"aliases": [
 			"AD633JN",
 			"AD633AR"
@@ -392,10 +393,12 @@
 		"manufacturer": "Analog Devices (Linear)",
 		"category": "dac",
 		"status": "active",
+		"datasheetUrl": "https://www.analog.com/media/en/technical-documentation/data-sheets/2602fa.pdf",
 		"aliases": [
 			"LTC2602",
 			"LTC2612"
-		]
+		],
+		"description": "Dual 12-bit DAC IC (SPI). Datasheet: shared LTC2602/2612/2622 sheet."
 	},
 	{
 		"id": "lm3915",
@@ -415,7 +418,8 @@
 		"manufacturer": "Spin Semiconductor",
 		"category": "delay",
 		"status": "active",
-		"description": "Programmable DSP for reverb, delay and modulation effects.",
+		"datasheetUrl": "http://www.spinsemi.com/Products/datasheets/spn1001/FV-1.pdf",
+		"description": "Programmable DSP for reverb, delay and modulation effects. Datasheet over http (the site's https is broken).",
 		"aliases": [
 			"FV-1",
 			"Spin Semi FV-1"
