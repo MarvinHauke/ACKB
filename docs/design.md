@@ -20,6 +20,7 @@ The UI rules for ACKB, as the code does them today. Tokens live in `src/app.css`
   toolbar or "Recent articles").
 - **Responsive:** works from 360 to 1400px with no horizontal scroll. The filters fold behind a
   toggle below 45rem; no control disappears (Reset stays next to the toggle).
+  Tap targets: ≥44px for stacked links, ≥24px plus spacing for inline links.
 - **Accessibility:** real buttons and links, labels, `aria-*` where needed (combobox and listbox
   in the search bar, `aria-pressed`, `aria-expanded`). Links out use
   `target="_blank" rel="noopener external"` with `data-out`.

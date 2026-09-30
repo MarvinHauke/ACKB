@@ -51,7 +51,7 @@
 		<div role="group" aria-labelledby="f-contribute">
 			<p class="head" id="f-contribute">Contribute</p>
 			<ul>
-				<li>
+				<li class="cta">
 					<a
 						href="https://github.com/MarvinHauke/ackb/issues/new?template=suggest-resource.md"
 						target="_blank"
@@ -177,6 +177,35 @@
 	@media (max-width: 45rem) {
 		.cols {
 			grid-template-columns: 1fr;
+			gap: var(--space-3);
+		}
+
+		/* Stacked link: about 44px tall. */
+		.cta a {
+			display: inline-block;
+			padding-block: 0.75rem;
+		}
+
+		/* Inline links (file names, legal): at least 24px tall, with room between them. */
+		.files {
+			display: flex;
+			flex-wrap: wrap;
+			gap: 0 var(--space-3);
+		}
+
+		.files li {
+			margin: 0;
+		}
+
+		.files a,
+		.legal a {
+			display: inline-block;
+			padding-block: 0.4rem;
+		}
+
+		.legal {
+			margin-top: var(--space-3);
+			padding-top: var(--space-2);
 		}
 	}
 
