@@ -40,6 +40,26 @@
 
 	let { data } = $props();
 
+	/** Marks a scroll container while more content is below, so CSS can fade its bottom edge. */
+	function scrollFade(node: HTMLElement) {
+		const update = () => node.classList.toggle('more', node.scrollTop + node.clientHeight < node.scrollHeight - 1);
+		update();
+		node.addEventListener('scroll', update, { passive: true });
+		const ro = new ResizeObserver(update);
+		ro.observe(node);
+		for (const child of node.children) ro.observe(child);
+		// Also fires when the box becomes visible (an opened facet, the unfolded mobile panel).
+		const io = new IntersectionObserver(update);
+		io.observe(node);
+		return {
+			destroy() {
+				node.removeEventListener('scroll', update);
+				ro.disconnect();
+				io.disconnect();
+			}
+		};
+	}
+
 	const facetIndex = $derived(buildFacetIndex(data.articles));
 	const byId = $derived(new Map(data.articles.map((e) => [e.id, e])));
 	const labels = $derived(
@@ -122,9 +142,6 @@
 		{ label: 'Electronics', keys: ['subcircuits', 'functions', 'components'] },
 		{ label: 'Resource', keys: ['kind', 'authors', 'confidence'] }
 	];
-	// Long lists show the most used first and hide the rest behind "Show all".
-	const TOP_N = 8;
-	let showAll: Record<string, boolean> = $state({});
 	// Nested groups and manufacturers the reader unfolded (or that hold an active filter).
 	let openSub: Record<string, boolean> = $state({});
 
@@ -509,16 +526,12 @@
 			first?: import('svelte').Snippet,
 			parent?: { key: FilterKey; id: string }
 		)}
-			{@const all = showAll[id] || opts.length <= TOP_N + 2}
 			<ul>
 				{#if first}<li>{@render first()}</li>{/if}
-				{#each all ? opts : opts.slice(0, TOP_N) as o (o.id)}
+				{#each opts as o (o.id)}
 					<li>{@render checkbox(key, o, parent)}</li>
 				{/each}
 			</ul>
-			{#if !all}
-				<button class="link more" onclick={() => (showAll[id] = true)}>Show all ({opts.length})</button>
-			{/if}
 		{/snippet}
 
 		<!-- A parent term (manufacturer, FX) with its children: same look as the subcircuit/function
@@ -546,7 +559,9 @@
 				ontoggle={(e) => (openGroups[key] = (e.currentTarget as HTMLDetailsElement).open)}
 			>
 				<summary>{FACET_LABEL[key]}{filters[key].length ? ` (${filters[key].length})` : ''}</summary>
-				{@render body()}
+				<div class="scroll" use:scrollFade>
+					{@render body()}
+				</div>
 			</details>
 		{/snippet}
 
@@ -558,13 +573,9 @@
 					{@const makers = visibleOptions(key, options[key])}
 					{#if makers.length}
 						{#snippet makerList()}
-							{@const all = showAll.manufacturers || makers.length <= TOP_N + 2}
-							{#each all ? makers : makers.slice(0, TOP_N) as m (m.id)}
+							{#each makers as m (m.id)}
 								{@render parentGroup(key, m, 'products', productsOf(m.id))}
 							{/each}
-							{#if !all}
-								<button class="link more" onclick={() => (showAll.manufacturers = true)}>Show all ({makers.length})</button>
-							{/if}
 						{/snippet}
 						{@render facet(key, makerList)}
 					{/if}
@@ -577,7 +588,7 @@
 					)}
 					{#if mods.length}
 						{#snippet moduleList()}
-							<ul class="grow">
+							<ul>
 								{#each mods as m (m.id)}
 									{@const subs = visibleOptions(key, options[key].filter((o) => o.parent === m.id))}
 									<li>
@@ -945,7 +956,7 @@
 	}
 
 	aside summary:hover {
-		background: var(--bg);
+		background: var(--hover);
 	}
 
 	/* Visible on the --panel box in both themes; hover is never the only cue. */
@@ -969,14 +980,47 @@
 		margin-top: 0;
 	}
 
-	/* Lists holding foldable groups grow instead of scrolling inside the sidebar. */
-	aside ul.grow {
-		max-height: none;
+	/* Each open facet body is the one scroll container: about 12 rows, then a thin scrollbar inside
+	   the box and a fade at the bottom while more is below. Nothing nested scrolls; never sideways. */
+	.scroll {
+		max-height: 16rem;
+		margin: 0 -0.5rem;
+		padding: 0 0.5rem;
+		overflow-x: hidden;
+		overflow-y: auto;
+		overflow-wrap: anywhere;
+		scrollbar-width: thin;
+		scrollbar-color: var(--line) transparent;
+		scrollbar-gutter: stable;
+	}
+
+	.scroll::-webkit-scrollbar {
+		width: 6px;
+	}
+
+	.scroll::-webkit-scrollbar-thumb {
+		background: var(--line);
+		border-radius: 3px;
+	}
+
+	.scroll::-webkit-scrollbar-track {
+		background: transparent;
+	}
+
+	.scroll:global(.more) {
+		mask-image: linear-gradient(to bottom, #000 calc(100% - 1.75rem), transparent);
 	}
 
 	details.group {
 		border-bottom: 0;
-		padding: 0.15rem 0 0 0.6rem;
+		padding: 0.15rem 0 0 0.4rem;
+	}
+
+	/* Open group: children hang on a 1px guide line under the chevron. */
+	details.group[open] > ul {
+		margin-left: 0.4rem;
+		padding-left: 0.6rem;
+		border-left: 1px solid var(--line);
 	}
 
 	details.group summary {
@@ -995,11 +1039,6 @@
 
 
 
-
-	.link.more {
-		margin: 0.2rem 0 0;
-		font-size: 0.85rem;
-	}
 
 	label.http {
 		margin-top: var(--space-2);
@@ -1020,8 +1059,41 @@
 		list-style: none;
 		padding: 0;
 		margin: var(--space-2) 0 0;
-		max-height: 16rem;
-		overflow-y: auto;
+	}
+
+	/* One chevron for every summary: › closed, pointing down when open. */
+	aside summary {
+		display: flex;
+		align-items: baseline;
+		gap: 0.4rem;
+		list-style: none;
+	}
+
+	aside summary::-webkit-details-marker {
+		display: none;
+	}
+
+	aside summary::before {
+		content: '›';
+		flex: none;
+		width: 0.8rem;
+		text-align: center;
+		color: var(--muted);
+		transition: transform 0.15s;
+	}
+
+	aside details[open] > summary::before {
+		transform: rotate(90deg);
+	}
+
+	aside summary .muted {
+		margin-left: auto;
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		aside summary::before {
+			transition: none;
+		}
 	}
 
 	aside label {

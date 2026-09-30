@@ -5,9 +5,12 @@
 	--line: #deded6;
 	--panel: #f1f1eb;
 	--accent: #1f5fa8;
+	/* Hover tint: follows --accent, so it lightens in dark mode and tints in light mode. */
+	--hover: color-mix(in srgb, var(--accent) 8%, transparent);
 	--ok: #2d7a3e;
 	--warn: #9a6a00;
 	--bad: #b3261e;
+	--shadow: 0 4px 12px rgb(0 0 0 / 0.25);
 	--mono: ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
 	--sans: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
 	--space-1: 0.25rem;
@@ -29,6 +32,7 @@
 		--ok: #6cc07d;
 		--warn: #d9a93f;
 		--bad: #f0776d;
+		--shadow: 0 4px 12px rgb(0 0 0 / 0.5);
 		color-scheme: dark;
 	}
 }

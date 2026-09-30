@@ -75,4 +75,4 @@ npm install
 npm run dev
 ```
 
-Node 22+. More: [architecture](docs/architecture.md) · [roadmap](docs/roadmap.md)
+Node 22+. More: [architecture](docs/architecture.md) · [design rules](docs/design.md) · [roadmap](docs/roadmap.md)

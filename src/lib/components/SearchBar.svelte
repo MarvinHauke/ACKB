@@ -323,7 +323,7 @@
 		background: var(--panel);
 		border: 1px solid var(--line);
 		border-radius: 4px;
-		box-shadow: 0 4px 12px rgb(0 0 0 / 0.25);
+		box-shadow: var(--shadow);
 	}
 
 	.more {
@@ -361,7 +361,7 @@
 
 	.suggest li.on,
 	.suggest li[role='option']:hover {
-		background: var(--bg);
+		background: var(--hover);
 	}
 
 	@media (max-width: 40rem) {

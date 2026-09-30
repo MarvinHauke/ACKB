@@ -16,7 +16,7 @@ circuits. You work as the peer session **ackb-ui** in the agent team (see `CLAUD
 
 ## Rules
 
-- Read first: `docs/architecture.md` (pages, search and filters), `src/routes/+layout.svelte`
+- Read first: `docs/design.md` (design rules), `docs/architecture.md` (pages, search and filters), `src/routes/+layout.svelte`
   (color tokens, light/dark), `src/routes/+page.svelte` (sidebar, results).
 - **Restrained design**: the taxonomy sidebar and the result list are the product. No decoration,
   no new libraries, no ads. Reuse the existing tokens (`--fg`, `--muted`, `--accent`, `--line`,
