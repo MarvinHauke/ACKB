@@ -15,6 +15,10 @@ The UI rules for ACKB, as the code does them today. Tokens live in `src/app.css`
 - **Remove:** `--bad` on hover (the × of a filter chip).
 - **Spacing:** only `--space-1…5` (0.25, 0.5, 1, 1.5, 2.5rem). Radius: 3px chips, 4px controls and rows, 6px boxes.
   Overlays use `--shadow`; nothing else has a shadow.
+- **Filter lists:** long lists scroll inside their box (max ≈12 rows, thin line-colored scrollbar,
+  fade at the bottom while more is below, never horizontal); no "Show all" in the filters.
+- **Groups:** a left chevron in `--muted` (› closed, down when open); children of an open group
+  hang on a 1px `--line` guide line.
 - **Headings:** one small uppercase style (`.eyebrow`) for sidebar and toolbar headings. Header
   rows across columns share one height and one thin line (`.head-row`: sidebar "Filters" ↔ results
   toolbar or "Recent articles").
