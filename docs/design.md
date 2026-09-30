@@ -13,7 +13,8 @@ The UI rules for ACKB, as the code does them today. Tokens live in `src/app.css`
 - **Focus:** 2px `--accent` outline (`:focus-visible`).
 - **Active or selected:** accent border and text (`button.chip.on`, `aria-pressed`).
 - **Remove:** `--bad` on hover (the × of a filter chip).
-- **Spacing:** only `--space-1…5` (0.25, 0.5, 1, 1.5, 2.5rem). Radius 3–4px.
+- **Spacing:** only `--space-1…5` (0.25, 0.5, 1, 1.5, 2.5rem). Radius: 3px chips, 4px controls and rows, 6px boxes.
+  Overlays use `--shadow`; nothing else has a shadow.
 - **Headings:** one small uppercase style (`.eyebrow`) for sidebar and toolbar headings. Header
   rows across columns share one height and one thin line (`.head-row`: sidebar "Filters" ↔ results
   toolbar or "Recent articles").
