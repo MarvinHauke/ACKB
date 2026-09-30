@@ -361,7 +361,7 @@
 
 	.suggest li.on,
 	.suggest li[role='option']:hover {
-		background: var(--bg);
+		background: var(--hover);
 	}
 
 	@media (max-width: 40rem) {

@@ -945,7 +945,7 @@
 	}
 
 	aside summary:hover {
-		background: var(--bg);
+		background: var(--hover);
 	}
 
 	/* Visible on the --panel box in both themes; hover is never the only cue. */

@@ -5,6 +5,8 @@
 	--line: #deded6;
 	--panel: #f1f1eb;
 	--accent: #1f5fa8;
+	/* Hover tint: follows --accent, so it lightens in dark mode and tints in light mode. */
+	--hover: color-mix(in srgb, var(--accent) 8%, transparent);
 	--ok: #2d7a3e;
 	--warn: #9a6a00;
 	--bad: #b3261e;
